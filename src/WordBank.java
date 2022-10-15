@@ -6,7 +6,16 @@ public class WordBank
     private HashSet<Integer> hashedWords = new HashSet<>();
     private HashMap<Character, Integer> letterValues = new HashMap<>();
 
-    WordBank() {
+    WordBank(String path)
+    {
+        String line;
+        WordReader reader = new WordReader(path);
+
+        while ((line = reader.getLine()) != null) 
+        {
+            hashedWords.add(line.hashCode());
+        }
+
 
         letterValues.put('E', 1);
         letterValues.put('A', 1);
