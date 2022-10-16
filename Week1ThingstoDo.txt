@@ -38,6 +38,10 @@ UML Diagram:
 - What classes are needed?
 
 
+Testing:
+
+- Every method should be tested for
+
 ReadME:
 
 - Description of what we did
