@@ -5,14 +5,14 @@ SourceCode:
 Make sure to document everything! (descriptive variable names and method definitions)
 Make a branch for your part of the project
 
-WordBank
+WordBank - Jaan
 - Scrape words from website
 - Store words as keys in dictionary, value of word is the value
 - Value is based on what letter is in the word
 - Characters have different values (switch case ?)
 
 
-GamePlay Loop
+GamePlay Loop - Tarik
 Only 1 player for now?
 - Commands
 	- Placing a word and then confirm it
@@ -22,12 +22,12 @@ Only 1 player for now?
 - Logic to test word validity
 
 
-Making the Board
+Making the Board - Andrew
 Backend of text UI
 - Made up of 2D array?
 
 
-Text UI
+Text UI - Haravind
 - Composed of sout chars
 - Display the commmands
 - Display the board
@@ -37,6 +37,10 @@ UML Diagram:
 
 - What classes are needed?
 
+
+Testing:
+
+- Every method should be tested for
 
 ReadME:
 
