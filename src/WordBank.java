@@ -15,7 +15,7 @@ public class WordBank
     /**
      * Exception for word not existing.
      */
-    class WordNotFoundException extends RuntimeException
+    public class WordNotFoundException extends RuntimeException
     {
         /**
          * Create new WordNotFoundException.
