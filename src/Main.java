@@ -6,5 +6,6 @@ public class Main {
 
         System.out.println(bank.isWordValid("absolute"));
         System.out.println(bank.isWordValid("bunch of garbage"));
+        System.out.println(bank.getWordValue("absolute"));
     }
 }

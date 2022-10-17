@@ -84,7 +84,7 @@ public class WordBank
      */
     public int getLetterValue(Character letter)
     {
-        return letterValues.get(letter).intValue();
+        return letterValues.get(Character.toUpperCase(letter)).intValue();
     }
 
     /**
