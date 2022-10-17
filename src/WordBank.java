@@ -125,11 +125,6 @@ public class WordBank
      */
     public int getWordValue(String word)
     {
-        if (word == null)
-        {
-            throw new NullPointerException();
-        }
-
         if (!isWordValid(word))
         {
             throw new WordNotFoundException();
