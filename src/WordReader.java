@@ -17,7 +17,7 @@ public class WordReader
     /**
      * Exception for word reading.
      */
-    class WordReadingException extends RuntimeException
+    public class WordReadingException extends RuntimeException
     {
         /**
          * Create new WordReadingException.
