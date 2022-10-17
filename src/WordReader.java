@@ -10,25 +10,49 @@ import java.io.FileReader;
 import java.io.InputStreamReader;
 
 /**
- * Provides abstraction layer for fetching words from either a local file or a url.
+ * Reads all the words from a URL or file.
  */
 public class WordReader 
 {
     /**
-     * Relative location for the local words backup file.
+     * Exception for word reading.
+     */
+    class WordReadingException extends RuntimeException
+    {
+        /**
+         * Create new WordReadingException.
+         */
+        public WordReadingException()
+        {
+            super();
+        }
+
+        /**
+         * Create new WordReadingException.
+         * @param data Exception data.
+         */
+        public WordReadingException(String data)
+        {
+            super(data);
+        }
+    };
+
+    /**
+     * Backup location of words.
      */
     public static final String BACKUP = "words.txt";
 
     /**
-     * Reader for writing either a local file or url data into for reading later.
+     * Reader for reading words.
      */
     private BufferedReader reader;
 
     /**
-     * 
-     * @param path 
+     * Create new WordReader.
+     * @param path URL to read words from.
+     * @throws WordReadingException if word reading fails.
      */
-    WordReader(String path)
+    public WordReader(String path)
     {
         try
         {
@@ -47,16 +71,16 @@ public class WordReader
                 reader = new BufferedReader(new FileReader(BACKUP));
             } catch (Exception inner)
             {
-                throw new AssertionError();
+                throw new WordReadingException();
             }
         }
     }
 
     /**
-     * 
-     * @return
+     * Read next line from buffer.
+     * @return The next word or null.
      */
-    String getLine()
+    public String getLine()
     {
         try
         {
