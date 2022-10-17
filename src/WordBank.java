@@ -1,11 +1,29 @@
+/**
+ * @author Jaan Soulier
+ * @version 1.0
+ */
+
 import java.util.HashSet;
 import java.util.HashMap;
 
+/**
+ * 
+ */
 public class WordBank
 {
+    /**
+     * 
+     */
     private HashSet<Integer> hashedWords = new HashSet<>();
+
+    /**
+     * 
+     */
     private HashMap<Character, Integer> letterValues = new HashMap<>();
 
+    /**
+     * @param path
+     */
     WordBank(String path)
     {
         String line;
@@ -15,7 +33,6 @@ public class WordBank
         {
             hashedWords.add(line.hashCode());
         }
-
 
         letterValues.put('E', 1);
         letterValues.put('A', 1);
@@ -43,9 +60,13 @@ public class WordBank
         letterValues.put('X', 8);
         letterValues.put('Q', 10);
         letterValues.put('Z', 10);
-
     }
 
+    /**
+     * 
+     * @param word
+     * @return
+     */
     public boolean isWordValid(String word)
     {
         if (word == null)
@@ -53,15 +74,24 @@ public class WordBank
             throw new NullPointerException();
         }
 
-
         return hashedWords.contains(word.hashCode());
     }
 
+    /**
+     * 
+     * @param letter
+     * @return
+     */
     public int getLetterValue(Character letter)
     {
         return letterValues.get(letter).intValue();
     }
 
+    /**
+     * 
+     * @param word
+     * @return
+     */
     public int getWordValue(String word)
     {
         if (word == null)
@@ -69,9 +99,7 @@ public class WordBank
             throw new NullPointerException();
         }
 
-
         int total = 0;
-
         for (Character letter : word.toCharArray())
         {
             total += getLetterValue(letter);
