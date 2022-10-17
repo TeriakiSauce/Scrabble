@@ -7,24 +7,51 @@ import java.util.HashSet;
 import java.util.HashMap;
 
 /**
- * 
+ * Stores all the valid words and provides queries for the words.
+ * @see WordReader
  */
 public class WordBank
 {
     /**
-     * 
+     * Exception for word not existing.
+     */
+    class WordNotFoundException extends RuntimeException
+    {
+        /**
+         * Create new WordNotFoundException.
+         */
+        public WordNotFoundException()
+        {
+            super();
+        }
+
+        /**
+         * Create new WordNotFoundException.
+         * @param data Exception data.
+         */
+        public WordNotFoundException(String data)
+        {
+            super(data);
+        }
+    };
+
+    /**
+     * Hashes of all the words to save memory.
      */
     private HashSet<Integer> hashedWords = new HashSet<>();
 
     /**
-     * 
+     * Values of all the letters in the alphabet.
      */
     private HashMap<Character, Integer> letterValues = new HashMap<>();
 
     /**
-     * @param path
+     * Create new WordBank.
+     * @param path URL to read words from.
+     * @throws WordReadingException if word reading fails.
+     * @see WordReader
      */
-    WordBank(String path)
+    public WordBank(String path)
     {
         String line;
         WordReader reader = new WordReader(path);
@@ -63,9 +90,10 @@ public class WordBank
     }
 
     /**
-     * 
-     * @param word
-     * @return
+     * Check if a word is valid.
+     * @param word Word to query.
+     * @throws NullPointerException if word is null.
+     * @return If the word is valid or not.
      */
     public boolean isWordValid(String word)
     {
@@ -78,9 +106,10 @@ public class WordBank
     }
 
     /**
-     * 
-     * @param letter
-     * @return
+     * Check the value of the letter.
+     * @param letter Letter to query.
+     * @throws NullPointerException if letter is invalid.
+     * @return The value of the letter.
      */
     public int getLetterValue(Character letter)
     {
@@ -88,15 +117,22 @@ public class WordBank
     }
 
     /**
-     * 
-     * @param word
-     * @return
+     * Check the value of the word.
+     * @param word Word to query.
+     * @throws NullPointerException if word is null.
+     * @throws WordNotFoundException if word is invalid.
+     * @return The value of the word.
      */
     public int getWordValue(String word)
     {
         if (word == null)
         {
             throw new NullPointerException();
+        }
+
+        if (!isWordValid(word))
+        {
+            throw new WordNotFoundException();
         }
 
         int total = 0;
