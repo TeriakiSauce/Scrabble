@@ -108,11 +108,17 @@ public class WordBank
     /**
      * Check the value of the letter.
      * @param letter Letter to query.
+     * @throws NullPointerException if letter is null.
      * @throws NullPointerException if letter is invalid.
      * @return The value of the letter.
      */
     public int getLetterValue(Character letter)
     {
+        if (letter == null)
+        {
+            throw new NullPointerException();
+        }
+
         return letterValues.get(Character.toUpperCase(letter)).intValue();
     }
 
