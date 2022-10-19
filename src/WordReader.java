@@ -56,11 +56,13 @@ public class WordReader
     {
         try
         {
+            // if there is no URL, throw and try to read from file
             if (path == null)
             {
                 throw new NullPointerException();
             }
 
+            // read from URL into a buffered reader. if this fails, read from file
             URL url = new URL(path);
             URLConnection connection = url.openConnection();
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
@@ -68,9 +70,11 @@ public class WordReader
         {
             try
             {
+                // read words from hard coded path. if this fails, there is no recovery
                 reader = new BufferedReader(new FileReader(BACKUP));
             } catch (Exception inner)
             {
+                // nothing else to try, so throw unchecked exception
                 throw new WordReadingException();
             }
         }
@@ -84,9 +88,11 @@ public class WordReader
     {
         try
         {
+            // read one line from the buffered reader
             return reader.readLine();
         } catch (Exception e)
         {
+            // TODO: we should never be here. should we handle this ourselves?
             return null;
         }
     }
