@@ -53,14 +53,18 @@ public class WordBank
      */
     public WordBank(String path)
     {
+        // read words from URL or file
         String line;
         WordReader reader = new WordReader(path);
 
+        // add hash codes of words to valid words
         while ((line = reader.getLine()) != null) 
         {
             hashedWords.add(line.hashCode());
         }
 
+        // TODO: should this be configurable?
+        // add values of letters to letter values
         letterValues.put('E', 1);
         letterValues.put('A', 1);
         letterValues.put('I', 1);
@@ -97,11 +101,13 @@ public class WordBank
      */
     public boolean isWordValid(String word)
     {
+        // we can't accept null words
         if (word == null)
         {
             throw new NullPointerException();
         }
 
+        // return if the valid words contains the word hash
         return hashedWords.contains(word.hashCode());
     }
 
@@ -114,11 +120,13 @@ public class WordBank
      */
     public int getLetterValue(Character letter)
     {
+        // we can't accept null letters
         if (letter == null)
         {
             throw new NullPointerException();
         }
 
+        // return the value of the letter in the letter values
         return letterValues.get(Character.toUpperCase(letter)).intValue();
     }
 
@@ -131,11 +139,13 @@ public class WordBank
      */
     public int getWordValue(String word)
     {
+        // we can't accept invalid words
         if (!isWordValid(word))
         {
             throw new WordNotFoundException();
         }
 
+        // iterate over letters and add value to total
         int total = 0;
         for (Character letter : word.toCharArray())
         {
