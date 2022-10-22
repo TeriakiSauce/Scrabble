@@ -9,7 +9,18 @@ public class Command {
 
     private String word;
 
+    public Command(){
+        word = "";
+    }
     public Command(String input) {
+        word = input;
+    }
 
+    public String getWord() {
+        return word;
+    }
+
+    public void setWord(String word) {
+        this.word = word;
     }
 }

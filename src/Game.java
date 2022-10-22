@@ -23,15 +23,17 @@ public class Game {
     public void startMessage(){
         System.out.println("Welcome to Scrabble!");
         System.out.println("Type a command");
-        System.out.println("Available Commands: Place    Pass    Clear");
-
-
+        System.out.println("Available Commands: " + parser.ValidCommandsString());
     }
 
     public void Play(){
         while(!quit) {
             startMessage();
-            parser.getInput();
+            parser.getInputCommand();
+            if (parser.CommandIsValid())
+            {
+                System.out.println("The command is valid!");
+            }
         }
     }
 
@@ -49,8 +51,6 @@ public class Game {
 
     public static void main(String[] args) {
         Game game = new Game();
-
-
     }
 
 }

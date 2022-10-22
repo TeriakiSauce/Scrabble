@@ -12,23 +12,34 @@ import java.util.Scanner;
 public class Parser {
 
     Scanner scanner;
-    private List<Command> commands;
     private String input;
 
-    public enum ValidWord {PASS, PLACE, CLEAR};
+    public enum ValidCommands {PLACE, PASS, CLEAR, QUIT};
 
     public Parser() {
-        commands = new ArrayList<>();
         scanner = new Scanner(System.in);
-
     }
 
-    public void getInput(){
+    public void getInputCommand(){
         input = scanner.nextLine();
     }
 
-    public void CommandIsValid(){
+    public String ValidCommandsString(){
+        String string = "";
+        for (ValidCommands word: ValidCommands.values()){
+            string+= word + "    ";
+        }
+        return string;
+    }
 
+    public boolean CommandIsValid(){
+        for (ValidCommands word: ValidCommands.values()){
+            if (input.equalsIgnoreCase(word.toString()))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void CommandIsChosen(){
