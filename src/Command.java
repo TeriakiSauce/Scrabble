@@ -7,8 +7,9 @@ package src;
 
 public class Command {
 
-    //public enum Word {PASS, PLACE, CLEAR};
+    private String word;
 
-    public Command() {
+    public Command(String input) {
+
     }
 }

@@ -9,21 +9,21 @@ import java.util.*;
 
 public class Game {
 
-    List<Command> commands;
-    boolean quit;
-    Scanner scanner;
+    private boolean quit;
+    private Parser parser;
 
     public Game() {
-        commands = new ArrayList<>();
-        scanner = new Scanner(System.in);
+
         quit = false;
+        parser = new Parser();
 
         Play();
     }
 
     public void startMessage(){
         System.out.println("Welcome to Scrabble!");
-        System.out.println("Choose a command");
+        System.out.println("Type a command");
+        System.out.println("Available Commands: Place    Pass    Clear");
 
 
     }
@@ -31,7 +31,7 @@ public class Game {
     public void Play(){
         while(!quit) {
             startMessage();
-            scanner.nextLine();
+            parser.getInput();
         }
     }
 
