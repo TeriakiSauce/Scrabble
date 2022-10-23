@@ -1,13 +1,13 @@
+/**
+ *  This class represents the cells that make up the game board.
+ *  @author Andrew Sahadeo
+ *  @version 1.0
+ */
 public class Cell {
-    /**
-     *
-     */
-    // The letter that is placed on the cell
-    private String letter;
-
-    // The cell's location on the board
-    private int x_location;
-    private int y_location;
+    // The game piece that may be placed in the cell.
+    private char letter;
+    private final int x_location;
+    private final int y_location;
 
     /**
      * Initializes the cell with its location.
@@ -23,7 +23,7 @@ public class Cell {
      * Sets the cell's letter
      * @param letter The letter placed on the cell.
      */
-    public void setLetter(String letter) {
+    public void setLetter(char letter) {
         this.letter = letter;
     }
 
@@ -32,9 +32,9 @@ public class Cell {
      * @return The letter placed on the cell, "" if there is none.
      */
     public String toString(){
-        if (letter== null){
-            return "";
+        if (letter == ' '){
+            return "[ ]";
         }
-        return letter;
+        return "[" + letter + "]";
     }
 }
