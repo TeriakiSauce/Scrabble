@@ -1,8 +1,15 @@
 package src;
 
-public class Clear {
+public class Clear extends Command{
 
-    public Clear() {
-        super();
+    public Clear(String word) {
+        super(word);
     }
+    public void doCommand(){
+        clear();
+    }
+    private void clear(){
+
+    }
+
 }

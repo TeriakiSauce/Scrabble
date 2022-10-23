@@ -1,8 +1,14 @@
 package src;
 
-public class Play {
+public class Play extends Command{
 
-    public Play() {
-        super();
+    public Play(String word) {
+        super(word);
+    }
+    public void doCommand(){
+        play();
+    }
+    private void play(){
+
     }
 }

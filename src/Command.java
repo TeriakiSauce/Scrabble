@@ -6,22 +6,9 @@ package src;
  */
 
 public abstract class Command {
-
-    private String word;
-
-    public Command(){
-        word = "";
-    }
-    public Command(String input) {
-        word = input;
-    }
-
-    public String getWord() {
-        return word;
-    }
-
-    public void setWord(String word) {
-        this.word = word;
+    private String commandWord;
+    public Command(String word){
+        commandWord = word;
     }
 
     public void doCommand(){

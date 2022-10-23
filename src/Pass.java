@@ -1,8 +1,14 @@
 package src;
 
-public class Pass {
+public class Pass extends Command{
 
-    public Pass() {
-        super();
+    public Pass(String word) {
+        super(word);
+    }
+    public void doCommand(){
+        pass();
+    }
+    private void pass(){
+
     }
 }

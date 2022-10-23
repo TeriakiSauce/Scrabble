@@ -51,7 +51,6 @@ public class Game {
                 System.out.println("Enter a valid command");
             }
         }
-        System.out.println("Thanks for playing Scrabble!");
     }
 
     /**
@@ -77,7 +76,7 @@ public class Game {
      * Places a letter on the board until valid word is made
      */
     public void place(){
-        System.out.println("The Place command was chosen!");
+        System.out.println("Where do you want to place the letter?");
         return;
     }
 
@@ -85,7 +84,7 @@ public class Game {
      * Passes the turn of the player
      */
     public void pass(){
-        System.out.println("The Pass command was chosen!");
+        System.out.println("Your turn was passed");
         return;
     }
 
@@ -93,7 +92,7 @@ public class Game {
      * Clears the board
      */
     public void clear(){
-        System.out.println("The Clear command was chosen!");
+        System.out.println("The board was cleared");
         return;
     }
 
@@ -101,8 +100,8 @@ public class Game {
      * Quits the game
      */
     public void quit(){
-        System.out.println("The Quit command was chosen!");
         quit = true;
+        System.out.println("Thanks for playing Scrabble!");
         return;
     }
 
