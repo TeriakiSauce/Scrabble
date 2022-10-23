@@ -5,7 +5,7 @@ package src;
  * @version 1.0
  */
 
-public class Command {
+public abstract class Command {
 
     private String word;
 
@@ -22,5 +22,9 @@ public class Command {
 
     public void setWord(String word) {
         this.word = word;
+    }
+
+    public void doCommand(){
+
     }
 }
