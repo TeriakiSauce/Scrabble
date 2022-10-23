@@ -8,6 +8,10 @@ public class Cell {
     private char letter;
     private final int x_location;
     private final int y_location;
+    private Cell up;
+    private Cell down;
+    private Cell right;
+    private Cell left;
 
     /**
      * Initializes the cell with its location.
@@ -27,6 +31,10 @@ public class Cell {
         this.letter = letter;
     }
 
+    public char getLetter() {
+        return letter;
+    }
+
     /**
      * Returns the letter on the cell.
      * @return The letter placed on the cell, "" if there is none.
@@ -36,5 +44,37 @@ public class Cell {
             return "[ ]";
         }
         return "[" + letter + "]";
+    }
+
+    public Cell getUp() {
+        return up;
+    }
+
+    public void setUp(Cell up) {
+        this.up = up;
+    }
+
+    public Cell getDown() {
+        return down;
+    }
+
+    public void setDown(Cell down) {
+        this.down = down;
+    }
+
+    public Cell getRight() {
+        return right;
+    }
+
+    public void setRight(Cell right) {
+        this.right = right;
+    }
+
+    public Cell getLeft() {
+        return left;
+    }
+
+    public void setLeft(Cell left) {
+        this.left = left;
     }
 }

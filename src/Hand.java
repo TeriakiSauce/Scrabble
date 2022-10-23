@@ -20,6 +20,9 @@ public class Hand {
     public void addLetter(Character letter){
         letters.add(letter);
     }
+    public boolean removeLetter(Character letter){
+         return letters.remove(letter);
+    }
     public int getSize(){
         return letters.size();
     }
@@ -30,5 +33,9 @@ public class Hand {
      */
     public String getPlayerName() {
         return playerName;
+    }
+
+    public List getLetters(){
+        return letters;
     }
 }

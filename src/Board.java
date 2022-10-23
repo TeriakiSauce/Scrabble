@@ -32,6 +32,15 @@ public class Board {
                 gameBoard[i][j] = new Cell(i,j);
             }
         }
+        //Loops through the board and initializes cell with their adjacent cells
+        for (int i = 0; i<size; i++){
+            for (int j = 0; j<size; j++){
+                if (j+1<size){gameBoard[i][j].setUp(gameBoard[i][j+1]);}
+                if (j>0){gameBoard[i][j].setDown(gameBoard[i][j-1]);}
+                if (i+1<size){gameBoard[i][j].setRight(gameBoard[i+1][j]);}
+                if (i>0){gameBoard[i][j].setLeft(gameBoard[i-1][j]);}
+            }
+        }
     }
 
     /**
