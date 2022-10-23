@@ -1,8 +1,6 @@
 package src;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * @author Tarik Beldjehem
@@ -20,11 +18,15 @@ public class Parser {
         scanner = new Scanner(System.in);
     }
 
-    public void getInputCommand(){
+    public void readInputCommand(){
         input = scanner.nextLine();
     }
 
-    public String ValidCommandsString(){
+    public String getInput(){
+        return input;
+    }
+
+    public String CommandsString(){
         String string = "";
         for (ValidCommands word: ValidCommands.values()){
             string+= word + "    ";
@@ -41,11 +43,4 @@ public class Parser {
         }
         return false;
     }
-
-    public void CommandIsChosen(){
-
-
-    }
-
-
 }

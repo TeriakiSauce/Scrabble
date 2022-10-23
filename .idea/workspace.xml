@@ -9,9 +9,7 @@
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Lowered responsibility of Game class by adding a Parser class to handle user input">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Parser$ValidWord.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/Parser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
     </list>
@@ -92,7 +90,7 @@
       <option name="presentableId" value="Default" />
       <updated>1666316720769</updated>
       <workItem from="1666316727662" duration="2239000" />
-      <workItem from="1666475534356" duration="7115000" />
+      <workItem from="1666475534356" duration="9811000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>

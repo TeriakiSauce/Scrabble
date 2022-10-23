@@ -23,29 +23,54 @@ public class Game {
     public void startMessage(){
         System.out.println("Welcome to Scrabble!");
         System.out.println("Type a command");
-        System.out.println("Available Commands: " + parser.ValidCommandsString());
+        System.out.println("Available Commands: " + parser.CommandsString());
     }
 
     public void Play(){
         while(!quit) {
             startMessage();
-            parser.getInputCommand();
-            if (parser.CommandIsValid())
-            {
-                System.out.println("The command is valid!");
+            parser.readInputCommand();
+            if (parser.CommandIsValid()) {
+                ChooseCommand();
+            }
+            else{
+                System.out.println("Enter a valid command");
             }
         }
     }
 
-    private void Place(){
+    public void ChooseCommand() {
+        switch (parser.getInput().toUpperCase()) {
+            case "PLACE":
+                this.Place();
+                break;
+            case "PASS":
+                Pass();
+                break;
+            case "CLEAR":
+                Clear();
+                break;
+            default:
+                Quit();
+        }
+    }
+    public void Place(){
+        System.out.println("The Place command was chosen!");
         return;
     }
 
-    private void Pass(){
+    public void Pass(){
+        System.out.println("The Pass command was chosen!");
         return;
     }
 
-    private void Clear(){
+    public void Clear(){
+        System.out.println("The Clear command was chosen!");
+        return;
+    }
+
+    public void Quit(){
+        System.out.println("The Quit command was chosen!");
         return;
     }
 
@@ -54,3 +79,4 @@ public class Game {
     }
 
 }
+
