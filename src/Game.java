@@ -34,7 +34,7 @@ public class Game {
     public void startMessage(){
         System.out.println("The Game of Scrabble");
         System.out.println("Type a command");
-        System.out.println("Available Commands: " + parser.CommandsString());
+        System.out.println("Available Commands: " + parser.commandsString());
     }
 
     /**
@@ -44,7 +44,7 @@ public class Game {
         while(!quit) {
             startMessage();
             parser.readInputCommand();
-            if (parser.CommandIsValid()) {
+            if (parser.commandIsValid()) {
                 chooseCommand();
             }
             else{
@@ -90,13 +90,16 @@ public class Game {
     }
 
     /**
-     * Initializes the game and plays it until quit is true
+     * Clears the board
      */
     public void clear(){
         System.out.println("The Clear command was chosen!");
         return;
     }
 
+    /**
+     * Quits the game
+     */
     public void quit(){
         System.out.println("The Quit command was chosen!");
         quit = true;
