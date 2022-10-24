@@ -7,17 +7,20 @@ import java.util.HashSet;
 import java.util.HashMap;
 
 /**
+ * @author Jaan Soulier
  * Stores all the valid words and provides queries for the words.
  * @see WordReader
  */
 public class WordBank
 {
     /**
+     * @author Jaan Soulier
      * Exception for word not existing.
      */
     public class WordNotFoundException extends RuntimeException
     {
         /**
+         * @author Jaan Soulier
          * Create new WordNotFoundException.
          */
         public WordNotFoundException()
@@ -26,6 +29,7 @@ public class WordBank
         }
 
         /**
+         * @author Jaan Soulier
          * Create new WordNotFoundException.
          * @param data Exception data.
          */
@@ -46,6 +50,7 @@ public class WordBank
     private HashMap<Character, Integer> letterValues = new HashMap<>();
 
     /**
+     * @author Jaan Soulier
      * Create new WordBank.
      * @param path URL to read words from.
      * @throws WordReadingException if word reading fails.
@@ -94,6 +99,7 @@ public class WordBank
     }
 
     /**
+     * @author Jaan Soulier
      * Check if a word is valid.
      * @param word Word to query.
      * @throws NullPointerException if word is null.
@@ -112,6 +118,7 @@ public class WordBank
     }
 
     /**
+     * @author Jaan Soulier
      * Check the value of the letter.
      * @param letter Letter to query.
      * @throws NullPointerException if letter is null.
@@ -131,6 +138,7 @@ public class WordBank
     }
 
     /**
+     * @author Jaan Soulier
      * Check the value of the word.
      * @param word Word to query.
      * @throws NullPointerException if word is null.

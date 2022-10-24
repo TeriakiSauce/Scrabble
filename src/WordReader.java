@@ -10,16 +10,19 @@ import java.io.FileReader;
 import java.io.InputStreamReader;
 
 /**
+ * @author Jaan Soulier
  * Reads all the words from a URL or file.
  */
 public class WordReader 
 {
     /**
+     * @author Jaan Soulier
      * Exception for word reading.
      */
     public class WordReadingException extends RuntimeException
     {
         /**
+         * @author Jaan Soulier
          * Create new WordReadingException.
          */
         public WordReadingException()
@@ -28,6 +31,7 @@ public class WordReader
         }
 
         /**
+         * @author Jaan Soulier
          * Create new WordReadingException.
          * @param data Exception data.
          */
@@ -48,6 +52,7 @@ public class WordReader
     private BufferedReader reader;
 
     /**
+     * @author Jaan Soulier
      * Create new WordReader.
      * @param path URL to read words from.
      * @throws WordReadingException if word reading fails.
@@ -81,6 +86,7 @@ public class WordReader
     }
 
     /**
+     * @author Jaan Soulier
      * Read next line from buffer.
      * @return The next word or null.
      */
