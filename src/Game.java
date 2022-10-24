@@ -1,10 +1,3 @@
-package src;
-
-/**
- * @author Tarik Beldjehem
- * @version 1.0
- */
-
 import java.util.*;
 
 public class Game {
@@ -18,6 +11,10 @@ public class Game {
     private int points;
     //Word bank of all valid words
     private WordBank bank;
+    //The game board
+    private Board gameBoard;
+    //Size of game board
+    public static final int SIZE = 15;
 
     /**
      * Initializes the game and plays it
@@ -33,6 +30,8 @@ public class Game {
         points = 0;
 
         bank = new WordBank("https://www.mit.edu/~ecprice/wordlist.10000");
+
+        gameBoard = new Board(SIZE);
     }
     /**
      * Message that plays at the start of every game
@@ -95,23 +94,36 @@ public class Game {
      */
     public void place(){
         String input = "bunch of garbage";
+        char letter;
         String yesNo = "";
         Scanner scan = new Scanner(System.in);
 
         while(!bank.isWordValid(input)) {
-            System.out.println("What word do you want to write?");
+            System.out.println("Where do you want to place your letter?");
             input = scan.nextLine();
-            if (bank.isWordValid(input)) {
-                points+= bank.getWordValue(input);
-                return;
-            }
-            System.out.println("Sorry " + input + " is not a valid word");
-            System.out.println("Do you want to pass your turn?: yes/no");
-            yesNo = scan.nextLine();
-            if (yesNo.equalsIgnoreCase("yes")){
-                pass();
+            int x = input.charAt(0);
+            int y = input.charAt(1);
+            if (gameBoard.isCellEmpty(x, y)){
+                System.out.println("What letter do you want to place?");
+                letter = scan.next().charAt(0);
+                if (gameBoard.checkHand(letter)){
+                    gameBoard.placeLetter(letter, x, y);
+                }
+            } else {
+                System.out.println("That cell is not empty, try again.");
             }
         }
+        if (bank.isWordValid(input)) {
+            points+= bank.getWordValue(input);
+            return;
+        }
+        System.out.println("Sorry " + input + " is not a valid word");
+        System.out.println("Do you want to pass your turn?: yes/no");
+        yesNo = scan.nextLine();
+        if (yesNo.equalsIgnoreCase("yes")){
+            pass();
+        }
+
         return;
     }
 
