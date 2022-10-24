@@ -14,6 +14,8 @@ public class Game {
     private Parser parser;
     //list of all the commands
     private List<Command> commands;
+    //counter to keep track of turns;
+    private int turns;
 
     /**
      * Initializes the game and plays it
@@ -26,6 +28,8 @@ public class Game {
 
         commands = new ArrayList<>();
 
+        turns = 1;
+
         play();
     }
     /**
@@ -33,8 +37,10 @@ public class Game {
      */
     public void startMessage(){
         System.out.println("The Game of Scrabble");
+        System.out.println("You are on turn " + getTurns());
         System.out.println("Type a command");
         System.out.println("Available Commands: " + parser.commandsString());
+
     }
 
     /**
@@ -46,11 +52,18 @@ public class Game {
             parser.readInputCommand();
             if (parser.commandIsValid()) {
                 chooseCommand();
+                turns++;
+
+
             }
             else{
                 System.out.println("Enter a valid command");
             }
         }
+    }
+
+    public int getTurns(){
+        return turns;
     }
 
     /**
