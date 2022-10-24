@@ -10,12 +10,14 @@ import java.util.*;
 public class Game {
     //variable that determines if the game is played
     private boolean quit;
-    //deals with all the user input
+    //deals with the user choosing a command
     private Parser parser;
-    //list of all the commands
-    private List<Command> commands;
     //counter to keep track of turns;
     private int turns;
+    //counter to keep track of points;
+    private int points;
+    //Word bank of all valid words
+    private WordBank bank;
 
     /**
      * Initializes the game and plays it
@@ -26,9 +28,11 @@ public class Game {
 
         parser = new Parser();
 
-        commands = new ArrayList<>();
-
         turns = 1;
+
+        points = 0;
+
+        bank = new WordBank("https://www.mit.edu/~ecprice/wordlist.10000");
 
         play();
     }
@@ -38,6 +42,7 @@ public class Game {
     public void startMessage(){
         System.out.println("The Game of Scrabble");
         System.out.println("You are on turn " + getTurns());
+        System.out.println("You have " + getPoints() + " points");
         System.out.println("Type a command");
         System.out.println("Available Commands: " + parser.commandsString());
 
@@ -53,15 +58,23 @@ public class Game {
             if (parser.commandIsValid()) {
                 chooseCommand();
                 turns++;
-
-
             }
             else{
                 System.out.println("Enter a valid command");
             }
         }
     }
+    /**
+     * Returns the amount of points
+     */
+    public int getPoints(){
+        return points;
+    }
 
+
+    /**
+     * Returns the turn number
+     */
     public int getTurns(){
         return turns;
     }
@@ -89,7 +102,19 @@ public class Game {
      * Places a letter on the board until valid word is made
      */
     public void place(){
-        System.out.println("Where do you want to place the letter?");
+        String input = "absolute";
+        Scanner s = new Scanner(System.in);
+        System.out.println("What word do you want to write?");
+        while(!bank.isWordValid(input)) {
+            input = s.nextLine();
+            if (bank.isWordValid(input)) {
+                bank.getWordValue(input);
+                points++;
+                System.out.println(input + " is a valid word");
+                return;
+            }
+        }
+        System.out.println("Sorry " + input + " is not a valid word");
         return;
     }
 
