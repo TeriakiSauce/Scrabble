@@ -9,18 +9,30 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Added words txt file">
-      <change afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hand.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TileList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Scrabble.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrabble.iml" afterDir="false" />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Merged the Andrew and Tarik branches">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/Scrabble.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/artifacts/Scrabble_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/README.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Week1ThingstoDo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Game.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Parser$ValidCommands.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Parser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/WordBank$WordNotFoundException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/WordBank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/WordReader$WordReadingException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/WordReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/words.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Parser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WordBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WordBank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WordReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WordReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +56,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2GAmTk0xTNVaRLetjWYEC6GNNno" />
   <component name="ProjectLevelVcsManager">
@@ -72,7 +84,7 @@
 }]]></component>
   <component name="RunManager" selected="Application.Game">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.Game" />
+      <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="Scrabble" />
       <extension name="coverage">
         <pattern>
@@ -115,7 +127,7 @@
       <workItem from="1666578292773" duration="873000" />
       <workItem from="1666579230610" duration="3096000" />
       <workItem from="1666588217668" duration="2274000" />
-      <workItem from="1666624941042" duration="2772000" />
+      <workItem from="1666624941042" duration="13808000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
@@ -145,7 +157,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666581407670</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merged the Andrew and Tarik branches">
+      <created>1666627800708</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1666627800708</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,7 +188,8 @@
     <MESSAGE value="Initialized Methods" />
     <MESSAGE value="Lowered responsibility of Game class by adding a Parser class to handle user input" />
     <MESSAGE value="Added words txt file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added words txt file" />
+    <MESSAGE value="Merged the Andrew and Tarik branches" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged the Andrew and Tarik branches" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

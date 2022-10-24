@@ -20,8 +20,8 @@ public class Hand {
     public void addLetter(Character letter){
         letters.add(letter);
     }
-    public boolean removeLetter(Character letter){
-         return letters.remove(letter);
+    public void removeLetter(Character letter){
+         letters.remove(letter);
     }
     public int getSize(){
         return letters.size();

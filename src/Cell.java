@@ -6,8 +6,8 @@
 public class Cell {
     // The game piece that may be placed in the cell.
     private char letter;
-    private final int x_location;
-    private final int y_location;
+    private int x_location;
+    private int y_location;
     private Cell up;
     private Cell down;
     private Cell right;
@@ -21,6 +21,7 @@ public class Cell {
     public Cell(int x, int y){
         x_location = x;
         y_location = y;
+        letter = ' ';
     }
 
     /**
