@@ -39,21 +39,20 @@ public class Game {
     /**
      * Message that plays at the start of every game
      */
-    public void startMessage(){
-        System.out.println("The Game of Scrabble");
+    public void message(){
         System.out.println("You are on turn " + getTurns());
         System.out.println("You have " + getPoints() + " points");
         System.out.println("Type a command");
         System.out.println("Available Commands: " + parser.commandsString());
-
     }
 
     /**
      * Game loop that continues until quit is true
      */
     public void play(){
+        System.out.println("The Game of Scrabble");
         while(!quit) {
-            startMessage();
+            message();
             parser.readInputCommand();
             if (parser.commandIsValid()) {
                 chooseCommand();
@@ -102,15 +101,13 @@ public class Game {
      * Places a letter on the board until valid word is made
      */
     public void place(){
-        String input = "absolute";
+        String input = "";
         Scanner s = new Scanner(System.in);
         System.out.println("What word do you want to write?");
         while(!bank.isWordValid(input)) {
             input = s.nextLine();
             if (bank.isWordValid(input)) {
-                bank.getWordValue(input);
-                points++;
-                System.out.println(input + " is a valid word");
+                points+= bank.getWordValue(input);
                 return;
             }
         }
