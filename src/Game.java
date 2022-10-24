@@ -10,7 +10,7 @@ import java.util.*;
 public class Game {
     //variable that determines if the game is played
     private boolean quit;
-    //deals with the user choosing a command
+    //deals with the user inputting a command
     private Parser parser;
     //counter to keep track of turns;
     private int turns;
@@ -33,8 +33,6 @@ public class Game {
         points = 0;
 
         bank = new WordBank("https://www.mit.edu/~ecprice/wordlist.10000");
-
-        play();
     }
     /**
      * Message that plays at the start of every game
@@ -42,8 +40,7 @@ public class Game {
     public void message(){
         System.out.println("You are on turn " + getTurns());
         System.out.println("You have " + getPoints() + " points");
-        System.out.println("Type a command");
-        System.out.println("Available Commands: " + parser.commandsString());
+        System.out.println("Type an available command: " + parser.commandsString());
     }
 
     /**
@@ -70,7 +67,6 @@ public class Game {
         return points;
     }
 
-
     /**
      * Returns the turn number
      */
@@ -89,9 +85,6 @@ public class Game {
             case "PASS":
                 pass();
                 break;
-            case "CLEAR":
-                clear();
-                break;
             default:
                 quit();
         }
@@ -101,17 +94,24 @@ public class Game {
      * Places a letter on the board until valid word is made
      */
     public void place(){
-        String input = "";
-        Scanner s = new Scanner(System.in);
-        System.out.println("What word do you want to write?");
+        String input = "bunch of garbage";
+        String yesNo = "";
+        Scanner scan = new Scanner(System.in);
+
         while(!bank.isWordValid(input)) {
-            input = s.nextLine();
+            System.out.println("What word do you want to write?");
+            input = scan.nextLine();
             if (bank.isWordValid(input)) {
                 points+= bank.getWordValue(input);
                 return;
             }
+            System.out.println("Sorry " + input + " is not a valid word");
+            System.out.println("Do you want to pass your turn?: yes/no");
+            yesNo = scan.nextLine();
+            if (yesNo.equalsIgnoreCase("yes")){
+                pass();
+            }
         }
-        System.out.println("Sorry " + input + " is not a valid word");
         return;
     }
 
@@ -120,14 +120,6 @@ public class Game {
      */
     public void pass(){
         System.out.println("Your turn was passed");
-        return;
-    }
-
-    /**
-     * Clears the board
-     */
-    public void clear(){
-        System.out.println("The board was cleared");
         return;
     }
 
@@ -142,6 +134,7 @@ public class Game {
 
     public static void main(String[] args) {
         Game game = new Game();
+        game.play();
     }
 
 }

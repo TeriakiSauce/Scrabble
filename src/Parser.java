@@ -13,7 +13,7 @@ public class Parser {
     //string variable to store the input
     private String input;
     //all the valid commands
-    public enum ValidCommands {PLACE, PASS, CLEAR, QUIT};
+    public enum ValidCommands {PLACE, PASS, QUIT};
 
     /**
      * Initializes Parser and scanner object
