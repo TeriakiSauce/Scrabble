@@ -46,8 +46,6 @@ This class again uses a linked list to store the tiles. A linked list was chosen
 
 GameState represents the current state of the game with various int and boolean values representing different aspects of the game. This way the game’s state can be accessed through many classes and info stays organized in one place.
 
-#### UML Diagram (Haravind)
-
 #### Database (Jaan)
 
 ##### Word Retrieval
@@ -61,3 +59,10 @@ Since we have to store many words and each word can consume a large amount of me
 #### Word Values
 
 The value of a word depends on the values of the letters it contains. Therefore, to determine the value of the word, we can iterate over the word and take the sum of the values of the letters it contains. We can store the values of the letters using a basic hash map, where the letters map to integers representing the values of the letters.
+
+#### UML Diagram (Haravind)
+
+### Known issues
+
+### Roadmap ahead
+
