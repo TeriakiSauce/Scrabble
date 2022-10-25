@@ -65,6 +65,14 @@ This class again uses a linked list to store the tiles. A linked list was chosen
 
 GameState represents the current state of the game with various int and boolean values representing different aspects of the game. This way the game’s state can be accessed through many classes and info stays organized in one place.
 
+#### Parser class:
+
+This class deals with all user input involving choosing commands. It uses an enum of ValidCommands that allow the class to ahve support for multiple new commands if needed by simply adding an element to the enum
+
+#### Game class:
+
+The main class that stores the gameplay loop. The loop takes user input and executes methods depending on the prompt. It has methods place, pass and quit to represent the actions a user can take. The class has all relevent classes created previously as object fields, such as the Board, WordBank, GameState and Parser classes, as well as primitive fields like points and turns.
+
 #### Database (Jaan)
 
 ##### Word Retrieval
