@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -11,7 +12,7 @@ public class Hand {
     private String playerName;
 
     //The Players Hand
-    private ArrayList<Character> letters;
+    private LinkedList<Character> letters;
 
     /**
      * Constructs a new Hand and creates a list of letters
@@ -19,7 +20,7 @@ public class Hand {
      */
     public Hand(String playerName){
         this.playerName = playerName;
-        letters = new ArrayList<>();
+        letters = new LinkedList<>();
     }
 
     /**

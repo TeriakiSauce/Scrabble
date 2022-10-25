@@ -9,18 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
-      <change afterPath="$PROJECT_DIR$/src/Game2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameState.java" afterDir="false" />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Refactored Game into Game2 class so that it is much more readable, some bugs still persist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Cell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Hand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Hand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/TileList.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/TileList.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TileList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TileList.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
@@ -124,7 +114,7 @@
       <workItem from="1666660082840" duration="1115000" />
       <workItem from="1666661445401" duration="2978000" />
       <workItem from="1666672275550" duration="8165000" />
-      <workItem from="1666705462549" duration="12017000" />
+      <workItem from="1666705462549" duration="12705000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
@@ -203,7 +193,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666680367928</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Refactored Game into Game2 class so that it is much more readable, some bugs still persist">
+      <created>1666718133236</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1666718133236</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +229,8 @@
     <MESSAGE value="Changes by rikbe" />
     <MESSAGE value="Added Documentation for methods" />
     <MESSAGE value="Made loops for invalid inputs that loop until the input is valid" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made loops for invalid inputs that loop until the input is valid" />
+    <MESSAGE value="Refactored Game into Game2 class so that it is much more readable, some bugs still persist" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactored Game into Game2 class so that it is much more readable, some bugs still persist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
