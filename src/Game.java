@@ -133,8 +133,20 @@ public class Game {
 
                     if (gameBoard.isCordValid(x, y)) {
                         if (gameBoard.isCellEmpty(x, y)) {
-                            placeLetter(scan, x, y);
+                            System.out.println("What letter do you want to place?");
+                            System.out.println("Your hand: " + gameBoard.printHand());
+                            letter = scan.nextLine().charAt(0);
+                            char temp_letter = placeLetter(x, y, letter);
                             firstLetterPlaced = true;
+                            if (isLetterValid) {
+                                if (isVertical) {
+                                    y++;
+                                } else {
+                                    x++;
+                                }
+                                word += temp_letter;
+                            }
+
                         } else {
                             System.out.println("That cell is not empty, try again.");
                         }
@@ -143,21 +155,21 @@ public class Game {
                     }
                 }
             } else {
-                if (isVertical) {
-                    y++;
-                } else {
-                    x++;
-                }
-                char temp_letter = placeLetter(scan, x, y);
-                if (isLetterValid){
+                System.out.println("What letter do you want to place?");
+                System.out.println("Your hand: " + gameBoard.printHand());
+                letter = scan.nextLine().charAt(0);
+                char temp_letter = placeLetter(x, y, letter);
+
+                if (isLetterValid) {
                     if (isVertical) {
                         y++;
                     } else {
                         x++;
                     }
-                        word += temp_letter;
+                    word += temp_letter;
                 }
-                if (gameBoard.isHandEmpty()){
+
+                if (gameBoard.isHandEmpty()) {
                     if (bank.isWordValid(word)) {
                         points += bank.getWordValue(word);
                         return;
@@ -180,11 +192,7 @@ public class Game {
         System.out.println("Your turn was passed");
         return;
     }
-    private char placeLetter(Scanner scan, int x, int y){
-        char letter;
-        System.out.println("What letter do you want to place?");
-        System.out.println("Your hand: " + gameBoard.printHand());
-        letter = scan.nextLine().charAt(0);
+    private char placeLetter(int x, int y, char letter){
         if (gameBoard.checkHand(letter)) {
             gameBoard.placeLetter(letter, x, y);
             isLetterValid = true;

@@ -11,28 +11,10 @@
   <component name="ChangeListManager">
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Merged the Andrew and Tarik branches">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/Scrabble.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/artifacts/Scrabble_jar.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/README.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Week1ThingstoDo.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Parser$ValidCommands.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Parser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/WordBank$WordNotFoundException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/WordBank.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/WordReader$WordReadingException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/WordReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/words.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Cell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hand.java" afterDir="false" />
+    </list>
+    <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="">
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +33,21 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/src/Game.java">
+      <ranges>
+        <range start1="98" end1="99" start2="98" end2="99" changelist="5d4f2f6f-e653-49b1-89e8-b3362096a593" />
+        <range start1="111" end1="112" start2="111" end2="112" changelist="5d4f2f6f-e653-49b1-89e8-b3362096a593" />
+        <range start1="135" end1="136" start2="135" end2="139" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
+        <range start1="137" end1="137" start2="140" end2="149" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
+        <range start1="145" end1="152" start2="157" end2="163" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
+        <range start1="157" end1="158" start2="168" end2="169" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
+        <range start1="159" end1="160" start2="170" end2="172" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
+        <range start1="169" end1="169" start2="181" end2="182" changelist="5d4f2f6f-e653-49b1-89e8-b3362096a593" />
+        <range start1="182" end1="187" start2="195" end2="196" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
+      </ranges>
+    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -72,7 +69,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/andrewsahadeo/Documents/GitHub/Scrabble",
+    "last_opened_file_path": "C:/Users/andre/Documents/GitHub/Scrabble",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -128,6 +125,7 @@
       <workItem from="1666579230610" duration="3096000" />
       <workItem from="1666588217668" duration="2274000" />
       <workItem from="1666624941042" duration="13808000" />
+      <workItem from="1666656711673" duration="2675000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
