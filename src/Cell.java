@@ -32,6 +32,10 @@ public class Cell {
         this.letter = letter;
     }
 
+    /**
+     * Returns the cell's letter
+     * @return the cell's letter
+     */
     public char getLetter() {
         return letter;
     }
@@ -44,6 +48,8 @@ public class Cell {
         return "[" + letter + "]";
     }
 
+    //Below to be implemented in Milestone 2
+    /**
     public Cell getUp() {
         return up;
     }
@@ -75,4 +81,5 @@ public class Cell {
     public void setLeft(Cell left) {
         this.left = left;
     }
+     */
 }

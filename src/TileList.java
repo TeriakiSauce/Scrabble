@@ -12,7 +12,7 @@ public class TileList{
     private List<Character> tiles;
 
     /**
-     * Creates list and populates according to scrabble rules.
+     * Creates the list and populates it according to scrabble rules.
      */
     public TileList(){
 
@@ -98,8 +98,5 @@ public class TileList{
     public Character grabTile(){
         Collections.shuffle(tiles);
         return tiles.remove(0);
-    }
-    public int getSize(){
-        return tiles.size();
     }
 }
