@@ -10,7 +10,7 @@
 
 #### Gameplay (Tarik + Andrew)
 
-### UML Diagram (Haravind)
+#### UML Diagram (Haravind)
 
 #### Database (Jaan)
 
