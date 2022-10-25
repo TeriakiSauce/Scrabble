@@ -49,6 +49,7 @@ public class Game {
 
         gameBoard = new Board(SIZE);
     }
+
     /**
      * Message that plays at the start of every game
      * @author Tarik Beldjehem
@@ -78,6 +79,7 @@ public class Game {
             }
         }
     }
+
     /**
      * Returns the amount of points
      * @author Tarik Beldjehem
@@ -126,88 +128,131 @@ public class Game {
         int x = 'a';
         int y = 0;
         done = false;
+        boolean stopPlacingLetter = false;
         boolean firstLetterPlaced = false;
-        boolean validDirection = false;
+        boolean validResponse = false;
 
         while (!done) {
+            validResponse = false;
             if (!firstLetterPlaced) {
-                while (!validDirection) {
-                    System.out.println("What direction will you place your word (1 = Left - Right, 0 = Up - Down)");
+                while (!validResponse) {
+                    System.out.println("What direction will you place your word (1 = Left -> Right, 0 = Up -> Down)");
                     input = scan.nextLine();
                     if (input.equalsIgnoreCase("0")) {
                         isVertical = false;
-                        validDirection = true;
+                        validResponse = true;
                     } else if (input.equalsIgnoreCase("1")) {
                         isVertical = true;
-                        validDirection = true;
+                        validResponse = true;
                     } else {
                         System.out.println("Not a valid direction, enter 0 or 1.");
+                        done = true;
+                        validResponse = false;
                     }
+                }
+                validResponse = false;
+                    while(!validResponse) {
+                        System.out.println("Where do you want to place your letter? Example: a0, g7, etc.");
+                        input = scan.nextLine();
+                        x = input.charAt(0);
+                        y = Character.getNumericValue(input.charAt(1));
 
-                    System.out.println("Where do you want to place your letter? Example: a0, g7, etc.");
-                    input = scan.nextLine();
-                    x = input.charAt(0);
-                    y = Character.getNumericValue(input.charAt(1));
-
-
-                    if (gameBoard.isCordValid(x, y)) {
-                        if (gameBoard.isCellEmpty(x, y)) {
-                            System.out.println("What letter do you want to place?");
-                            System.out.println("Your hand: " + gameBoard.printHand());
-                            letter = scan.nextLine().charAt(0);
-                            char temp_letter = placeLetter(x, y, letter);
-                            firstLetterPlaced = true;
-                            placeCounter++;
-                            if (isLetterValid) {
-                                if (isVertical) {
-                                    y++;
-                                } else {
-                                    x++;
+                        if (gameBoard.isCordValid(x, y)) {
+                            validResponse = true;
+                            if (gameBoard.isCellEmpty(x, y)) {
+                                System.out.println("What letter do you want to place?");
+                                System.out.println("Your hand: " + gameBoard.printHand());
+                                letter = scan.nextLine().charAt(0);
+                                char temp_letter = placeLetter(x, y, letter);
+                                firstLetterPlaced = true;
+                                placeCounter++;
+                                System.out.println(gameBoard);
+                                if (isLetterValid) {
+                                    if (isVertical) {
+                                        y++;
+                                    } else {
+                                        x++;
+                                    }
+                                    word += temp_letter;
+                                    if (!gameBoard.isCellEmpty(x, y)) {
+                                        done = true;
+                                    }
                                 }
-                                word += temp_letter;
-                                if (!gameBoard.isCellEmpty(x, y)){
-                                    done = true;
-                                }
+                            } else {
+                                System.out.println("That cell is not empty, try again.");
+                                done = true;
                             }
                         } else {
-                            System.out.println("That cell is not empty, try again.");
+                            System.out.println("Please enter valid coordinates. example: a0, g7, etc.");
                             done = true;
+                            validResponse = false;
                         }
-                    } else {
-                        System.out.println("Please enter valid coordinates. example: a0, g7, etc.");
-                        done = true;
                     }
-                }
+                validResponse = false;
             } else {
-                System.out.println("What letter do you want to place?");
-                System.out.println("Your hand: " + gameBoard.printHand());
-                letter = scan.nextLine().charAt(0);
-                char temp_letter = placeLetter(x, y, letter);
-                placeCounter++;
+                while(!stopPlacingLetter) {
+                    System.out.println("What letter do you want to place?");
+                    System.out.println("Your hand: " + gameBoard.printHand());
+                    letter = scan.nextLine().charAt(0);
+                    char temp_letter = placeLetter(x, y, letter);
+                    placeCounter++;
+                    System.out.println(gameBoard);
 
-                if (isLetterValid) {
-                    if (isVertical) {
-                        y++;
-                    } else {
-                        x++;
+                    if (isLetterValid) {
+                        if (isVertical) {
+                            y++;
+                        } else {
+                            x++;
+                        }
+                        word += temp_letter;
                     }
-                    word += temp_letter;
+                    while (!validResponse) {
+                        System.out.println("Do you want to stop placing letters: yes/no");
+                        yesNo = scan.nextLine();
+                        if (yesNo.equalsIgnoreCase("yes")) {
+                            stopPlacingLetter = true;
+                            validResponse = true;
+                        } else if (yesNo.equalsIgnoreCase("no")) {
+                            stopPlacingLetter = false;
+                            validResponse = true;
+                        } else {
+                            System.out.println("Enter a valid response.");
+                            validResponse = false;
+                        }
+                    }
+                    validResponse = false;
+
                 }
 
-                if (gameBoard.isHandEmpty()) {
+                if (gameBoard.isHandEmpty() || stopPlacingLetter) {
                     if (bank.isWordValid(word)) {
                         points += bank.getWordValue(word);
-                        return;
+                        System.out.println(word + " is a valid word!");
+                        done = true;
+                        break;
                     }
-                    System.out.println("Sorry " + word + " is not a valid word");
-                    System.out.println("Do you want to pass your turn?: yes/no");
-                    yesNo = scan.nextLine();
-                    if (yesNo.equalsIgnoreCase("yes")) {
-                        pass();
+                    else {
+                        System.out.println("Sorry " + word + " is not a valid word.");
+                    }
+                    while (!validResponse) {
+                        System.out.println("Do you want to pass your turn?: yes/no");
+                        yesNo = scan.nextLine();
+                        if (yesNo.equalsIgnoreCase("yes")) {
+                            validResponse = true;
+                            pass();
+                            done = true;
+                            //to be implemented
+                            // clear(x, y, placeCounter);
+                        } else if (yesNo.equalsIgnoreCase("no")) {
+                            validResponse = true;
+                            break;
+                        } else {
+                            System.out.println("Enter a valid response.");
+                            validResponse = false;
+                        }
                     }
                 }
             }
-            System.out.println(gameBoard);
         }
     }
 
@@ -215,9 +260,7 @@ public class Game {
      * Passes the turn of the player
      */
     public void pass(){
-        System.out.println("Your turn was passed");
-        done = true;
-        return;
+        System.out.println("The turn was passed.");
     }
 
     /**
@@ -240,7 +283,6 @@ public class Game {
         isLetterValid = false;
         return letter;
     }
-
     /**
      * Clears the letters placed on this turn
      * @author Tarik Beldjehem
@@ -248,20 +290,13 @@ public class Game {
      * @param y the number coordinate
      * @param counter the counter that keeps tracker of how many letters have been placed
      */
+    /** Method does not work properly, to be implemented
     private void clear(int x, int y, int counter){
         for (int i = 0; i < counter; i++) {
-            placeLetter(x+i, y+i, ' ');
+            gameBoard.placeLetter(' ',x+i,y+i);
         }
     }
-
-
-    /**
-     * Stops playing letters
-     * @author Tarik Beldjehem
      */
-    private void stop(){
-
-    }
 
     /**
      * Quits the game
@@ -270,7 +305,6 @@ public class Game {
     public void quit(){
         quit = true;
         System.out.println("Thanks for playing Scrabble!");
-        return;
     }
 
     /**

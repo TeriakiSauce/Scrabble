@@ -10,8 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Added Documentation for methods">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Parser$ValidCommands.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Parser$ValidCommands.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Parser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Parser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
@@ -108,7 +112,7 @@
       <workItem from="1666656711673" duration="3019000" />
       <workItem from="1666660082840" duration="1115000" />
       <workItem from="1666661445401" duration="2978000" />
-      <workItem from="1666672275550" duration="2066000" />
+      <workItem from="1666672275550" duration="7784000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
@@ -173,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666674188007</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added Documentation for methods">
+      <created>1666674372888</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666674372888</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

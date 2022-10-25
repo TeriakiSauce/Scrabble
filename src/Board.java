@@ -60,7 +60,7 @@ public class Board {
     }
 
     public void populateHand(){
-        while (player1Hand.getSize() < 5){
+        while (player1Hand.getSize() < 7){
             player1Hand.addLetter(tiles.grabTile());
         }
     }
