@@ -3,6 +3,8 @@ import java.util.*;
 public class Game {
     //variable that determines if the game is played
     private boolean quit;
+    //variable that determines if the place command is done
+    private boolean done;
     //deals with the user inputting a command
     private Parser parser;
     //counter to keep track of turns;
@@ -26,6 +28,8 @@ public class Game {
     public Game() {
 
         quit = false;
+
+        done = false;
 
         parser = new Parser();
 
@@ -51,6 +55,7 @@ public class Game {
      */
     public void play(){
         System.out.println("The Game of Scrabble");
+        System.out.println(gameBoard);
         while(!quit) {
             message();
             parser.readInputCommand();
@@ -104,10 +109,9 @@ public class Game {
         Scanner scan = new Scanner(System.in);
         int x = 'a';
         int y = 0;
-        boolean done = false;
+        done = false;
         boolean firstLetterPlaced = false;
         boolean validDirection = false;
-
 
         while (!done) {
             if (!firstLetterPlaced) {
@@ -124,7 +128,7 @@ public class Game {
                         System.out.println("Not a valid direction, enter 0 or 1.");
                     }
 
-                    System.out.println("Where do you want to place your letter?");
+                    System.out.println("Where do you want to place your letter? example: a0, g7, etc.");
                     input = scan.nextLine();
                     x = input.charAt(0);
                     y = Character.getNumericValue(input.charAt(1));
@@ -178,7 +182,6 @@ public class Game {
                     yesNo = scan.nextLine();
                     if (yesNo.equalsIgnoreCase("yes")) {
                         pass();
-                        done = true;
                     }
                 }
             }
@@ -191,6 +194,7 @@ public class Game {
      */
     public void pass(){
         System.out.println("Your turn was passed");
+        done = true;
         return;
     }
     private char placeLetter(int x, int y, char letter){
