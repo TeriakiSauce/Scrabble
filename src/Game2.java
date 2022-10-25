@@ -20,10 +20,6 @@ public class Game2 {
     private Board savedBoard;
     //Start of turn's state
     private GameState savedState;
-    //the total number of points
-    private int points;                 //the GameState class should already store this value
-                                        //but difficulty arose trying to save the value of the points
-
     //Size of game board
     public static final int SIZE = 15;
     //Scanner
@@ -47,7 +43,6 @@ public class Game2 {
         input = "";
 
         scan = new Scanner(System.in);
-        points = 0;
     }
 
     /**
@@ -56,7 +51,7 @@ public class Game2 {
      */
     public void message(){
         System.out.println("You are on turn " + state.getTurns() + ".");
-        System.out.println("You have " + points + " points.");
+        System.out.println("You have " + state.getPoints() + " points.");
         System.out.println("Type an available command: " + parser);
     }
 
@@ -126,7 +121,6 @@ public class Game2 {
                 if (gameBoard.isHandEmpty() || state.isStopPlacingLetter()) {
                     if (bank.isWordValid(state.getWord())) {
                         state.addToPoints(bank.getWordValue(state.getWord()));
-                        points += state.getPoints();
                         System.out.println(state.getWord() + " is a valid word!");
                         state.setDone(true);
                         break;
@@ -134,7 +128,7 @@ public class Game2 {
                     else {
                         System.out.println("Sorry " + state.getWord() + " is not a valid word.");
                     }
-                    getPassTurn();
+                    //getPassTurn();            //not working properly
                 }
             }
         }
@@ -165,7 +159,6 @@ public class Game2 {
     }
     /**
      * Obtains the direction from the user (left-right or up-down)
-     * @
      */
     private void getDirection(){
         while (!state.isValidResponse()) {
@@ -247,6 +240,8 @@ public class Game2 {
         state.setValidResponse(false);
     }
 
+    /**Having issues getting this method to work
+
     private void getPassTurn(){
         while (!state.isValidResponse()) {
             System.out.println("Do you want to pass your turn?: y/n");
@@ -269,11 +264,15 @@ public class Game2 {
         }
     }
 
+     */
+
     private void incrementPosition(){
-        if (state.isVertical()) {
-            state.incrementY();
-        } else {
-            state.incrementX();
+        while (!gameBoard.isCellEmpty(state.getX(), state.getY())) {
+            if (state.isVertical()) {
+                state.incrementY();
+            } else {
+                state.incrementX();
+            }
         }
     }
 
