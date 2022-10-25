@@ -27,7 +27,7 @@ Use the Text User Interface to type and respond to prompts generated and display
 
 ### Implementation
 
-To view the source code, click [here](#src).
+To view the source code, click [here](src).
 
 #### Board (Andrew)
 
