@@ -1,5 +1,8 @@
 /**
  * This class contains all the data relating to the game's current state
+ *  * @author Tarik Beldjehem
+ *  * @author Andrew Sahadeo
+ *   * @version 1.0
  */
 public class GameState {
     //counter to keep track of turns

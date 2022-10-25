@@ -26,6 +26,10 @@ public class Game2 {
     private Scanner scan;
     //String used for input
     private String input;
+    //counter to keep track of turns
+    private int turns;
+    //counter to keep track of points
+    private int points;
 
     /**
      * Initializes the game and the fields
@@ -43,6 +47,10 @@ public class Game2 {
         input = "";
 
         scan = new Scanner(System.in);
+
+        turns = 1;
+
+        points = 0;
     }
 
     /**
@@ -50,8 +58,8 @@ public class Game2 {
      * @author Tarik Beldjehem
      */
     public void message(){
-        System.out.println("You are on turn " + state.getTurns() + ".");
-        System.out.println("You have " + state.getPoints() + " points.");
+        System.out.println("You are on turn " + turns + ".");
+        System.out.println("You have " + points + " points.");
         System.out.println("Type an available command: " + parser);
     }
 
@@ -68,6 +76,7 @@ public class Game2 {
             if (parser.commandIsValid()) {
                 chooseCommand();
                 state.incrementTurns();
+                turns++;
             }
             else{
                 System.out.println("Enter a valid command.");
@@ -120,13 +129,15 @@ public class Game2 {
 
                 if (gameBoard.isHandEmpty() || state.isStopPlacingLetter()) {
                     if (bank.isWordValid(state.getWord())) {
-                        state.addToPoints(bank.getWordValue(state.getWord()));
+                        state.setPoints(bank.getWordValue(state.getWord()));
+                        points+= state.getPoints();
                         System.out.println(state.getWord() + " is a valid word!");
                         state.setDone(true);
                         break;
                     }
                     else {
                         System.out.println("Sorry " + state.getWord() + " is not a valid word.");
+                        break;
                     }
                     //getPassTurn();            //not working properly
                 }
