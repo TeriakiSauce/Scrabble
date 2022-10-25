@@ -1,8 +1,8 @@
 # Scrabble
 
-### How to Play
-
 ### Rules
+
+### How To Play
 
 ### Implementation
 
@@ -19,3 +19,7 @@ Tarik
 Haravind
 
 #### WordBank
+
+##### Word Retrieval
+
+The lists of valid words that can be used are retrieved from a website using the Java `URL` library.
