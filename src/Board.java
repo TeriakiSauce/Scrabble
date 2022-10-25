@@ -28,7 +28,7 @@ public class Board {
         //player2Hand = new Hand("Player 2");
 
         //Fill the player's hands
-        populateHand(player1Hand, tiles);
+        populateHand();
         //populateHand(player2Hand, tiles);
 
         //Loops through each location on the board and creates a cell there
@@ -60,9 +60,9 @@ public class Board {
         player1Hand.removeLetter(letter);
     }
 
-    public void populateHand(Hand hand, TileList tiles){
-        while (hand.getSize() < 5){
-            hand.addLetter(tiles.grabTile());
+    public void populateHand(){
+        while (player1Hand.getSize() < 5){
+            player1Hand.addLetter(tiles.grabTile());
         }
     }
     public boolean checkHand(char letter){
@@ -81,10 +81,17 @@ public class Board {
     public boolean isCordValid(int x, int y){
         return 'a' <= x && x < 'a' + size && y >= 0 && y < size;
     }
+
     public String toString(){
         String result = "";
-        for (char i = 'a'; i< size + 'a'; i++){
-            result += "\n";
+        // For some reason this breaks the game
+        /**for (int count = 0; 0 < size; count++){
+            result += count + " ";
+        }*/
+        result += "  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14";
+
+        for (char i = 'a'; i < size + 'a'; i++){
+            result += "\n" + i;
             for (int j = 0; j<size; j++){
                 result += gameBoard[i][j] +"";
             }
