@@ -184,7 +184,6 @@ public class Game {
                             }
                         } else {
                             System.out.println("Please enter valid coordinates. example: a0, g7, etc.");
-                            done = true;
                             validResponse = false;
                         }
                     }
