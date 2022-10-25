@@ -9,11 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Merged the Andrew and Tarik branches">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-    </list>
-    <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="">
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Fixed game so that it should work in a basic capacity" />
+    <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe">
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,21 +30,6 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/src/Game.java">
-      <ranges>
-        <range start1="98" end1="99" start2="98" end2="99" changelist="5d4f2f6f-e653-49b1-89e8-b3362096a593" />
-        <range start1="111" end1="112" start2="111" end2="112" changelist="5d4f2f6f-e653-49b1-89e8-b3362096a593" />
-        <range start1="135" end1="136" start2="135" end2="139" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
-        <range start1="137" end1="137" start2="140" end2="149" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
-        <range start1="145" end1="152" start2="157" end2="163" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
-        <range start1="157" end1="158" start2="168" end2="169" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
-        <range start1="159" end1="160" start2="170" end2="172" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
-        <range start1="169" end1="169" start2="181" end2="182" changelist="5d4f2f6f-e653-49b1-89e8-b3362096a593" />
-        <range start1="182" end1="187" start2="195" end2="196" changelist="794baea3-04bc-4d4f-9ef5-b32c1838212b" />
-      </ranges>
-    </file>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -125,7 +107,7 @@
       <workItem from="1666579230610" duration="3096000" />
       <workItem from="1666588217668" duration="2274000" />
       <workItem from="1666624941042" duration="13808000" />
-      <workItem from="1666656711673" duration="2675000" />
+      <workItem from="1666656711673" duration="3019000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
@@ -162,7 +144,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666627800708</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fixed game so that it should work in a basic capacity">
+      <created>1666659928514</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666659928514</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -187,7 +176,9 @@
     <MESSAGE value="Lowered responsibility of Game class by adding a Parser class to handle user input" />
     <MESSAGE value="Added words txt file" />
     <MESSAGE value="Merged the Andrew and Tarik branches" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merged the Andrew and Tarik branches" />
+    <MESSAGE value="Changes by rikbe" />
+    <MESSAGE value="Fixed game so that it should work in a basic capacity" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed game so that it should work in a basic capacity" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
