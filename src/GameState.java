@@ -125,7 +125,7 @@ public class GameState {
     }
 
     public void addToPoints(int increase){
-        points += increase;
+        this.points += increase;
     }
 
     public String getWord() {

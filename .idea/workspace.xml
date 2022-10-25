@@ -9,10 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Changed Hand to represent the letters with a Linked list instead of array list." />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+    </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
-    <list id="cd4de6dd-35ee-419a-8fa4-e6b3e89d6429" name="Changes by tarik beldjehem" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,16 +57,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Game2">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="Scrabble" />
@@ -76,15 +71,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="src.Main" />
+    <configuration name="Game2" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Game2" />
       <module name="Scrabble" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Unnamed" />
+      <item itemvalue="Application.Game2" />
       <item itemvalue="Application.Game" />
     </list>
     <recent_temporary>
