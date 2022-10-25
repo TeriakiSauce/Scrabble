@@ -2,7 +2,11 @@
 
 ### Rules
 
+Create words out of the letters given to you in your hand. Words have different values depending on the number and type of letters in them.
+
 ### How To Play
+
+Use the Text User Interface to type and respond to prompts generated and displayed on the window.
 
 ### Implementation
 
