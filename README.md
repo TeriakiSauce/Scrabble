@@ -8,9 +8,9 @@
 
 #### Board Representation (Andrew)
 
-#### Gameplay (Tarik)
+#### Gameplay (Tarik + Andrew)
 
-#### Graphics (Haravind)
+### UML Diagram (Haravind)
 
 #### Database (Jaan)
 
