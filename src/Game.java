@@ -237,14 +237,14 @@ public class Game {
                         System.out.println("Do you want to pass your turn?: yes/no");
                         yesNo = scan.nextLine();
                         if (yesNo.equalsIgnoreCase("yes")) {
-                            validResponse = true;
                             pass();
                             done = true;
                             //to be implemented
                             // clear(x, y, placeCounter);
                         } else if (yesNo.equalsIgnoreCase("no")) {
+                            System.out.println("I AM HERE");
+                            //why isn't this making the loop stop?
                             validResponse = true;
-                            break;
                         } else {
                             System.out.println("Enter a valid response.");
                             validResponse = false;
