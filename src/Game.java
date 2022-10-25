@@ -96,7 +96,7 @@ public class Game {
     /**
      * Places a letter on the board until valid word is made
      */
-    public void place(){
+    public void place() {
         String word = "";
         String input = "a1";
         char letter;
@@ -109,8 +109,7 @@ public class Game {
         boolean validDirection = false;
 
 
-        while(!done) {
-            System.out.println(gameBoard);
+        while (!done) {
             if (!firstLetterPlaced) {
                 while (!validDirection) {
                     System.out.println("What direction will you place your word (1 = Left - Right, 0 = Up - Down)");
@@ -179,9 +178,11 @@ public class Game {
                     yesNo = scan.nextLine();
                     if (yesNo.equalsIgnoreCase("yes")) {
                         pass();
+                        done = true;
                     }
                 }
             }
+            System.out.println(gameBoard);
         }
     }
 
