@@ -1,5 +1,5 @@
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 /**
  * Represents all the game's letters
@@ -16,7 +16,7 @@ public class TileList{
      */
     public TileList(){
 
-        tiles = new ArrayList<>();
+        tiles = new LinkedList<>();
 
         for (int i=0; i<9; i++){
             tiles.add('a');

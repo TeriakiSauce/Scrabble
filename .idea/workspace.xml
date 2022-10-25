@@ -9,9 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Refactored Game into Game2 class so that it is much more readable, some bugs still persist">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Changed Hand to represent the letters with a Linked list instead of array list." />
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
     <list id="cd4de6dd-35ee-419a-8fa4-e6b3e89d6429" name="Changes by tarik beldjehem" comment="" />
@@ -114,7 +112,7 @@
       <workItem from="1666660082840" duration="1115000" />
       <workItem from="1666661445401" duration="2978000" />
       <workItem from="1666672275550" duration="8165000" />
-      <workItem from="1666705462549" duration="12705000" />
+      <workItem from="1666705462549" duration="13033000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
@@ -200,7 +198,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666718133236</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Changed Hand to represent the letters with a Linked list instead of array list.">
+      <created>1666718834131</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666718834131</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +235,8 @@
     <MESSAGE value="Added Documentation for methods" />
     <MESSAGE value="Made loops for invalid inputs that loop until the input is valid" />
     <MESSAGE value="Refactored Game into Game2 class so that it is much more readable, some bugs still persist" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactored Game into Game2 class so that it is much more readable, some bugs still persist" />
+    <MESSAGE value="Changed Hand to represent the letters with a Linked list instead of array list." />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Hand to represent the letters with a Linked list instead of array list." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
