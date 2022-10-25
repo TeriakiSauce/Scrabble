@@ -106,6 +106,7 @@ public class Game {
         String input = "a1";
         char letter;
         String yesNo = "";
+        int placeCounter = 0;
         Scanner scan = new Scanner(System.in);
         int x = 'a';
         int y = 0;
@@ -141,6 +142,7 @@ public class Game {
                             letter = scan.nextLine().charAt(0);
                             char temp_letter = placeLetter(x, y, letter);
                             firstLetterPlaced = true;
+                            placeCounter++;
                             if (isLetterValid) {
                                 if (isVertical) {
                                     y++;
@@ -148,13 +150,17 @@ public class Game {
                                     x++;
                                 }
                                 word += temp_letter;
+                                if (!gameBoard.isCellEmpty(x, y)){
+                                    done = true;
+                                }
                             }
-
                         } else {
                             System.out.println("That cell is not empty, try again.");
+                            done = true;
                         }
                     } else {
                         System.out.println("Please enter valid coordinates. Ex('A1'");
+                        done = true;
                     }
                 }
             } else {
@@ -162,6 +168,7 @@ public class Game {
                 System.out.println("Your hand: " + gameBoard.printHand());
                 letter = scan.nextLine().charAt(0);
                 char temp_letter = placeLetter(x, y, letter);
+                placeCounter++;
 
                 if (isLetterValid) {
                     if (isVertical) {
@@ -208,6 +215,16 @@ public class Game {
         isLetterValid = false;
         return letter;
     }
+
+    /**
+     * clears the placed letters on this turn
+     */
+    private void clear(int x, int y, int counter){
+        for (int i = 0; i < counter; i++) {
+            placeLetter(x+i, y+i, ' ');
+        }
+    }
+
 
     /**
      * Quits the game

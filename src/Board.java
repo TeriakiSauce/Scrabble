@@ -55,7 +55,6 @@ public class Board {
      * @param y The y coordinate of the letter
      */
     public void placeLetter(char letter, int x, int y){
-
         gameBoard[x][y].setLetter(letter);
         player1Hand.removeLetter(letter);
     }
@@ -71,7 +70,6 @@ public class Board {
     public boolean isHandEmpty(){
         return player1Hand.getLetters().size() == 0;
     }
-
     public boolean isCellEmpty(int x, int y){
         return gameBoard[x][y].getLetter() == ' ';
     }
@@ -98,4 +96,5 @@ public class Board {
         }
         return result;
     }
+
 }
