@@ -6,17 +6,17 @@
 
 ### Implementation
 
-#### Board (Andrew)
+#### Board Representation (Andrew)
 
 #### Gameplay (Tarik)
 
 #### Graphics (Haravind)
 
-#### WordBank (Jaan)
+#### Database (Jaan)
 
 ##### Word Retrieval
 
-The lists of valid words that can be used are retrieved from a website using the Java URL library. We download the data from a specified URL, and extract the words from the data. If the user has no internet connection or the download failed, we also have a backup list of words stored in a local text file which can be extracted in the same manner. Currently, there are 10000 valid words in the database, however, this can be increased by downloading the words from different website or creating a larger local database of words.
+The lists of valid words that can be used are retrieved from a website using the Java URL library. We download the data from a specified URL, and extract the words from the data. If the user has no internet connection or the download failed, we also have a backup list of words stored in a local text file which can be extracted in the same manner. Currently, there are ten thousand valid words in the database, however, this can be increased by downloading the words from different website or creating a larger local database of words.
 
 ##### Word Storage
 
