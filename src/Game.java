@@ -1,5 +1,12 @@
 import java.util.*;
 
+/**
+ * This is the main Game class that the gameplay loop and commands are made in.
+ * @author Tarik Beldjehem
+ * @author Andrew Sahadeo
+ * @version 1.0
+ */
+
 public class Game {
     //variable that determines if the game is played
     private boolean quit;
@@ -7,9 +14,9 @@ public class Game {
     private boolean done;
     //deals with the user inputting a command
     private Parser parser;
-    //counter to keep track of turns;
+    //counter to keep track of turns
     private int turns;
-    //counter to keep track of points;
+    //counter to keep track of points
     private int points;
     //Word bank of all valid words
     private WordBank bank;
@@ -23,7 +30,8 @@ public class Game {
     private boolean isVertical;
 
     /**
-     * Initializes the game and plays it
+     * Initializes the game and the fields
+     * @author Tarik Beldjehem
      */
     public Game() {
 
@@ -43,15 +51,17 @@ public class Game {
     }
     /**
      * Message that plays at the start of every game
+     * @author Tarik Beldjehem
      */
     public void message(){
         System.out.println("You are on turn " + getTurns() + ".");
         System.out.println("You have " + getPoints() + " points.");
-        System.out.println("Type an available command: " + parser.commandsString());
+        System.out.println("Type an available command: " + parser);
     }
 
     /**
      * Game loop that continues until quit is true
+     * @author Tarik Beldjehem
      */
     public void play(){
         System.out.println("The Game of Scrabble");
@@ -70,6 +80,7 @@ public class Game {
     }
     /**
      * Returns the amount of points
+     * @author Tarik Beldjehem
      */
     public int getPoints(){
         return points;
@@ -77,6 +88,7 @@ public class Game {
 
     /**
      * Returns the turn number
+     * @author Tarik Beldjehem
      */
     public int getTurns(){
         return turns;
@@ -84,6 +96,7 @@ public class Game {
 
     /**
      * Determines which command to execute depending on user input
+     * @author Tarik Beldjehem
      */
     public void chooseCommand() {
         switch (parser.getInput().toUpperCase()) {
@@ -100,6 +113,8 @@ public class Game {
 
     /**
      * Places a letter on the board until valid word is made
+     * Tarik Beldjehem
+     * Andrew Sahadeo
      */
     public void place() {
         String word = "";
@@ -129,7 +144,7 @@ public class Game {
                         System.out.println("Not a valid direction, enter 0 or 1.");
                     }
 
-                    System.out.println("Where do you want to place your letter? example: a0, g7, etc.");
+                    System.out.println("Where do you want to place your letter? Example: a0, g7, etc.");
                     input = scan.nextLine();
                     x = input.charAt(0);
                     y = Character.getNumericValue(input.charAt(1));
@@ -159,7 +174,7 @@ public class Game {
                             done = true;
                         }
                     } else {
-                        System.out.println("Please enter valid coordinates. Ex('A1'");
+                        System.out.println("Please enter valid coordinates. example: a0, g7, etc.");
                         done = true;
                     }
                 }
@@ -204,6 +219,16 @@ public class Game {
         done = true;
         return;
     }
+
+    /**
+     * Places a letter on the board
+     * @author Tarik Beldjehem
+     * @param x the character coordinate
+     * @param y the number coordinate
+     * @param letter the letter to be placed
+     * @return letter the letter that has been placed
+     */
+
     private char placeLetter(int x, int y, char letter){
         if (gameBoard.checkHand(letter)) {
             gameBoard.placeLetter(letter, x, y);
@@ -217,7 +242,11 @@ public class Game {
     }
 
     /**
-     * clears the placed letters on this turn
+     * Clears the letters placed on this turn
+     * @author Tarik Beldjehem
+     * @param x the character coordinate
+     * @param y the number coordinate
+     * @param counter the counter that keeps tracker of how many letters have been placed
      */
     private void clear(int x, int y, int counter){
         for (int i = 0; i < counter; i++) {
@@ -227,7 +256,16 @@ public class Game {
 
 
     /**
+     * Stops playing letters
+     * @author Tarik Beldjehem
+     */
+    private void stop(){
+
+    }
+
+    /**
      * Quits the game
+     * @author Tarik Beldjehem
      */
     public void quit(){
         quit = true;
@@ -235,6 +273,10 @@ public class Game {
         return;
     }
 
+    /**
+     * The Main method that initializes and plays a game object for testing
+     * @author Tarik Beldjehem
+     */
     public static void main(String[] args) {
         Game game = new Game();
         game.play();

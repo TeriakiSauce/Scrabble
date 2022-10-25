@@ -2,6 +2,7 @@
 import java.util.*;
 
 /**
+ * This class deals with user input involving the commands
  * @author Tarik Beldjehem
  * @version 1.0
  */
@@ -16,6 +17,7 @@ public class Parser {
 
     /**
      * Initializes Parser and scanner object
+     * @author Tarik Beldjehem
      */
     public Parser() {
         scanner = new Scanner(System.in);
@@ -23,6 +25,7 @@ public class Parser {
 
     /**
      * Reads the user input
+     * @author Tarik Beldjehem
      */
     public void readInputCommand(){
         input = scanner.nextLine();
@@ -30,6 +33,8 @@ public class Parser {
 
     /**
      * Returns the input string
+     * @author Tarik Beldjehem
+     * @return String input
      */
     public String getInput(){
         return input;
@@ -37,8 +42,10 @@ public class Parser {
 
     /**
      * Returns a string representation of all the valid commands
+     * @author Tarik Beldjehem
+     * @return String representation of Parser class
      */
-    public String commandsString(){
+    public String toString(){
         String string = "";
         for (ValidCommands word: ValidCommands.values()){
             string+= word + "    ";
@@ -49,6 +56,8 @@ public class Parser {
     /**
      * Checks that the command is valid
      * Returns true if it is and false otherwise
+     * @author Tarik Beldjehem
+     * @return boolean flag depending on command validity
      */
     public boolean commandIsValid(){
         for (ValidCommands word: ValidCommands.values()){
