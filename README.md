@@ -27,89 +27,40 @@ Use the Text User Interface to type and respond to prompts generated and display
 
 ### Implementation
 
-To view the source code, click [here](src).
+##### [Board](src/Board.java)
 
-#### Board (Andrew)
+##### [Cell](src/Cell.java)
 
-##### Board Representation
+The [Game](src/Game.java) acts as the core of the game, incorporating all the various classes created throughout the project. It holds a list of all the [hands](src/Hand.java), an instance of the [WordBank](src/WordBank.java) class, the , 
 
-To view the implementation, click [here](src/Board.java).
+##### [GameState](src/GameState)
 
-To represent the [board](#Glossary), we decided to use a 2D array of, where every element in the array could be a cell. By using a simple data structure, we can access each cell using xy coordinates, allowing us to easily map the selected cell by the user to the underlying cell. 
+The [GameState](src/GameState.java) class provides a way of checking and setting the state of the game. Since the game is command line based, there are many steps involved in, for example, placing a letter. We need a way to preserve what the user previously inputted, allow us to check if the user placed a valid letter. The [GameState](src/GameState.java) class also provides other methods such as checking if the user has quit the game, advancing the xy coordinates for the current letter, and more.
 
-##### Cell Representation
+##### [Hand](src/Hand)
 
-Since each cell is stored in the [board](#Glossary) using xy coordinates, all the cell needs to keep is the current letter at that position. 
+The [Hand](src/Hand.java) class acts as the state for a player, where the player can have a name, and a set of letters. 
 
-#### Gameplay (Andrew, Tarik)
+##### [Main](src/Main)
 
-##### Parsing
+The [Main](src/Main.java) class creates an instance of the game and calls play, where all the logic is handled inside of the [Game](src/Game.java) class.
 
-To view the implementation, click [here](src/GameState.java).
+##### [Parser](src/Parser)
 
-The game is currently command line driven, meaning, we need a way to interpret what the user is trying to input.
+The [Parser](src/Parser.java) class provides a facility for interpreting the command line input by the user. Essentially, the user can input commands such as place, pass, or quit, and we need to determine what the user said. The parser reads from stdin in a string, and checks if the string matches any of the available commands. We can also filter out bad user input here by looping until the user provides a valid command. This allows us to abstract out a large amount of the user input into a separate class.
 
-##### Board Class:
-gameBoard: Created the actual game board using a 2-d array of Cells. A 2-d array was chosen so that each cell could have a 2-d coordinate to be easily accessed and printed. 
+##### [TileList](src/TileList)
 
+The [TileList](src/TileList.java) class provides a facility, similar to that of the [bag](#Glossary). It contains a data structure of all the available letters, so that we can later populate the player's [racks](#Glossary) with these letters. For the data structure, we decided to use a Java Collection, as it provides a method for shuffling the contents. We can use this to shuffle the letters to provide some randomness to the game.
 
-##### Constructor:
+##### [WordBank](src/WordBank)
 
+The [WordBank](src/WordBank.java) class provides a facility for storing many words in memory and checking if words are valid, and the value of the words. Since we have to store many words and each word can consume a large amount of memory, it is not ideal to store the words as plain strings. Instead, we can hash all the words so that we can store the words as integers, and if we want to check if a word is valid, we can hash that word and check if the hash value exists. This greatly reduces the amount of memory used, allowing us to add many more words in the future. We store the hashes (integers) as a set, as there is already a hashing function for integers and a set offers fast lookup times. The value of a word depends on the values of the letters it contains. Therefore, to determine the value of the word, we can iterate over the word and take the sum of the values of the letters it contains. We can store the values of the letters using a basic hash map, where the letters map to integers representing the values of the letters.
 
-Initialized the board by looping through the array and creating a new blank cell in each location in the array.
+##### [WordReader](src/WordReader)
 
+The [WordReader](src/WordReader.java) class provides a facility for reading many words into a local buffer in memory. The lists of valid words that can be used are retrieved from a website using the Java URL library. We download the data from a specified URL, and extract the words from the data. If the user has no internet connection or the download failed, we also have a backup list of words stored in a local text file which can be extracted in the same manner. Currently, there are ten thousand valid words in the database, however, this can be increased by downloading the words from different website or creating a larger local database of words.
 
-##### Cell class:
-Represents a cell on the board with a char (‘ ‘ represents blank). Each cell also contains its x and y location in the grid represented by ints.
-
-##### Hand class:
-Represents a player’s hand
-
-
-This class uses an ArrayList to store the 7 letters that will be in the player’s hand. An arraylist was used so that you can use the add, remove and contains methods provided by List on constant time.
-
-
-##### TileList class:
-
-
-Represents all the tiles available in a game of Scrabble
-
-
-This class again uses a linked list to store the tiles. A linked list was chosen for its overall faster implementation of the add method which is used many times.
-
-#### Gameplay (Tarik + Andrew)
-
-##### GameState class:
-
-GameState represents the current state of the game with various int and boolean values representing different aspects of the game. This way the game’s state can be accessed through many classes and info stays organized in one place.
-
-#### Parser class:
-
-This class deals with all user input involving choosing commands. It uses an enum of ValidCommands that allow the class to ahve support for multiple new commands if needed by simply adding an element to the enum
-
-#### Game class:
-
-The main class that stores the gameplay loop. The loop takes user input and executes methods depending on the prompt. It has methods place, pass and quit to represent the actions a user can take. The class has all relevent classes created previously as object fields, such as the Board, WordBank, GameState and Parser classes, as well as primitive fields like points and turns.
-
-#### Database (Jaan)
-
-##### Word Retrieval
-
-To view the implementation, click [here](src/WordReader.java).
-
-The lists of valid words that can be used are retrieved from a website using the Java URL library. We download the data from a specified URL, and extract the words from the data. If the user has no internet connection or the download failed, we also have a backup list of words stored in a local text file which can be extracted in the same manner. Currently, there are ten thousand valid words in the database, however, this can be increased by downloading the words from different website or creating a larger local database of words.
-
-##### Word Storage
-
-To view the implementation, click [here](src/WordBank.java).
-
-Since we have to store many words and each word can consume a large amount of memory, it is not ideal to store the words as plain strings. Instead, we can hash all the words so that we can store the words as integers, and if we want to check if a word is valid, we can hash that word and check if the hash value exists. This greatly reduces the amount of memory used, allowing us to add many more words in the future. We store the hashes (integers) as a set, as there is already a hashing function for integers and a set offers fast lookup times.
-
-#### Word Values
-
-To view the implementation, click [here](src/WordBank.java).
-
-The value of a word depends on the values of the letters it contains. Therefore, to determine the value of the word, we can iterate over the word and take the sum of the values of the letters it contains. We can store the values of the letters using a basic hash map, where the letters map to integers representing the values of the letters.
 
 ### Glossary
 
@@ -122,6 +73,8 @@ The value of a word depends on the values of the letters it contains. Therefore,
 #### UML Diagram (Haravind)
 
 ### Known issues
+
+- It is not possible for the player to create two words in a single turn
 
 ### Roadmap ahead
 
