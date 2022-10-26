@@ -53,7 +53,7 @@ Creates an instance of the game and calls play, where all the logic is handled i
 
 ##### [Parser](src/Parser.java)
 
-Provides a facility for interpreting the command line input by the user. Essentially, the user can input commands such as place, pass, or quit, and we need to determine what the user said. The parser reads from stdin in a string, and checks if the string matches any of the available commands. We can also filter out bad user input here by looping until the user provides a valid command. This allows us to abstract out a large amount of the user input into a separate class.
+Provides a facility for interpreting the command line input by the user. Essentially, the user can input commands such as place, pass, or quit, and we need to determine what the user said. The parser reads from stdin into a string, and checks if the string matches any of the available commands. We can also filter out bad user input here by looping until the user provides a valid command. This allows us to abstract out a large amount of the user input into a separate class.
 
 ##### [TileList](src/TileList.java)
 
