@@ -1,5 +1,7 @@
 # Scrabble
 
+![Scrabble Screenshot](screenshots/scrabble.png)
+
 A simple version of Scrabble written in Java. See the [glossary](#Glossary) for the list of terms used.
 
 ### Rules
@@ -95,8 +97,8 @@ The value of a word depends on the values of the letters it contains. Therefore,
 
 ### Glossary
 
-- Turn: A point throughout the game where a player gets the opportunity to pick between [passing](#Passing), [exchanging](#Exchanging), and [playing](#Playing).
-- Bag: The finite remaining letters used throughout the game. Can be used to [exchange](#Exchange) letters with, or refill the [rack](#Glossary) after making a word.
+- Turn: Where a player gets the opportunity to pick between [passing](#Passing), [exchanging](#Exchanging), and [playing](#Playing).
+- Bag: The remaining letters. Can be used to [exchange](#Exchange) letters with, or refill the [rack](#Glossary) after making a word.
 - Rack: The one to seven letters that each player has the opportunity to make a word with.
 - Tile: The physical representation of a letter. Consists of the letter, and the value of the letter.
 - Board: The device for which players can place [tiles](#Glossary) on to make words.
