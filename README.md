@@ -29,37 +29,43 @@ Use the Text User Interface to type and respond to prompts generated and display
 
 ##### [Board](src/Board.java)
 
+Provides a way for the [Game](src/Game.java) class to update and check specific cells within the board. Also, until a GUI is implemented, provides a way to get a string representation of the board, used periodically throughout the application.
+
 ##### [Cell](src/Cell.java)
 
-The [Game](src/Game.java) acts as the core of the game, incorporating all the various classes created throughout the project. It holds a list of all the [hands](src/Hand.java), an instance of the [WordBank](src/WordBank.java) class, the , 
+Acts as a cell within the [board](#Glossary), where a cell can have a specific letter (and later, word modifiers). 
 
-##### [GameState](src/GameState)
+##### [Game](src/Game.java)
 
-The [GameState](src/GameState.java) class provides a way of checking and setting the state of the game. Since the game is command line based, there are many steps involved in, for example, placing a letter. We need a way to preserve what the user previously inputted, allow us to check if the user placed a valid letter. The [GameState](src/GameState.java) class also provides other methods such as checking if the user has quit the game, advancing the xy coordinates for the current letter, and more.
+Acts as the core of the game, incorporating all the various classes created throughout the project. It holds an instance of all of the [Hand](src/Hand.java), [WordBank](src/WordBank.java), [Parser](src/Parser.java), [GameState](src/GameState.java), and [Board](src/Board.java) classes. It provides a way to place letters, check if a newly placed word is valid, start and end turns, and more.
 
-##### [Hand](src/Hand)
+##### [GameState](src/GameState.java)
 
-The [Hand](src/Hand.java) class acts as the state for a player, where the player can have a name, and a set of letters. 
+Provides a way of checking and setting the state of the game. Since the game is command line based, there are many steps involved in, for example, placing a letter. We need a way to preserve what the user previously inputted, allow us to check if the user placed a valid letter. The [GameState](src/GameState.java) class also provides other methods such as checking if the user has quit the game, advancing the xy coordinates for the current letter, and more.
 
-##### [Main](src/Main)
+##### [Hand](src/Hand.java)
 
-The [Main](src/Main.java) class creates an instance of the game and calls play, where all the logic is handled inside of the [Game](src/Game.java) class.
+Acts as the state for a player, where the player can have a name, and a set of letters. Is extensively used in the [Game](src/Game.java) and [Board](src/Board.java) classes for checking and updating the state of the players.
 
-##### [Parser](src/Parser)
+##### [Main](src/Main.java)
 
-The [Parser](src/Parser.java) class provides a facility for interpreting the command line input by the user. Essentially, the user can input commands such as place, pass, or quit, and we need to determine what the user said. The parser reads from stdin in a string, and checks if the string matches any of the available commands. We can also filter out bad user input here by looping until the user provides a valid command. This allows us to abstract out a large amount of the user input into a separate class.
+Creates an instance of the game and calls play, where all the logic is handled inside of the [Game](src/Game.java) class. Contains the main method, acting as the main entry point into the application.
 
-##### [TileList](src/TileList)
+##### [Parser](src/Parser.java)
 
-The [TileList](src/TileList.java) class provides a facility, similar to that of the [bag](#Glossary). It contains a data structure of all the available letters, so that we can later populate the player's [racks](#Glossary) with these letters. For the data structure, we decided to use a Java Collection, as it provides a method for shuffling the contents. We can use this to shuffle the letters to provide some randomness to the game.
+Provides a facility for interpreting the command line input by the user. Essentially, the user can input commands such as place, pass, or quit, and we need to determine what the user said. The parser reads from stdin in a string, and checks if the string matches any of the available commands. We can also filter out bad user input here by looping until the user provides a valid command. This allows us to abstract out a large amount of the user input into a separate class.
 
-##### [WordBank](src/WordBank)
+##### [TileList](src/TileList.java)
 
-The [WordBank](src/WordBank.java) class provides a facility for storing many words in memory and checking if words are valid, and the value of the words. Since we have to store many words and each word can consume a large amount of memory, it is not ideal to store the words as plain strings. Instead, we can hash all the words so that we can store the words as integers, and if we want to check if a word is valid, we can hash that word and check if the hash value exists. This greatly reduces the amount of memory used, allowing us to add many more words in the future. We store the hashes (integers) as a set, as there is already a hashing function for integers and a set offers fast lookup times. The value of a word depends on the values of the letters it contains. Therefore, to determine the value of the word, we can iterate over the word and take the sum of the values of the letters it contains. We can store the values of the letters using a basic hash map, where the letters map to integers representing the values of the letters.
+Provides a facility similar to that of the [bag](#Glossary). It contains a data structure of all the available letters, so that we can later populate the player's [racks](#Glossary) with these letters. For the data structure, we decided to use a Java Collection, as it provides a method for shuffling the contents. We can use this to shuffle the letters to provide some randomness to the game.
 
-##### [WordReader](src/WordReader)
+##### [WordBank](src/WordBank.java)
 
-The [WordReader](src/WordReader.java) class provides a facility for reading many words into a local buffer in memory. The lists of valid words that can be used are retrieved from a website using the Java URL library. We download the data from a specified URL, and extract the words from the data. If the user has no internet connection or the download failed, we also have a backup list of words stored in a local text file which can be extracted in the same manner. Currently, there are ten thousand valid words in the database, however, this can be increased by downloading the words from different website or creating a larger local database of words.
+Provides a facility for storing many words in memory and checking if words are valid, and the value of the words. Since we have to store many words and each word can consume a large amount of memory, it is not ideal to store the words as plain strings. Instead, we can hash all the words so that we can store the words as integers, and if we want to check if a word is valid, we can hash that word and check if the hash value exists. This greatly reduces the amount of memory used, allowing us to add many more words in the future. We store the hashes (integers) as a set, as there is already a hashing function for integers and a set offers fast lookup times. The value of a word depends on the values of the letters it contains. Therefore, to determine the value of the word, we can iterate over the word and take the sum of the values of the letters it contains. We can store the values of the letters using a basic hash map, where the letters map to integers representing the values of the letters.
+
+##### [WordReader](src/WordReader.java)
+
+Provides a facility for reading many words into a local buffer in memory. The lists of valid words that can be used are retrieved from a website using the Java URL library. We download the data from a specified URL, and extract the words from the data. If the user has no internet connection or the download failed, we also have a backup list of words stored in a local text file which can be extracted in the same manner. Currently, there are ten thousand valid words in the database, however, this can be increased by downloading the words from different website or creating a larger local database of words.
 
 
 ### Glossary
@@ -72,9 +78,11 @@ The [WordReader](src/WordReader.java) class provides a facility for reading many
 
 #### UML Diagram (Haravind)
 
+![](milestone1_UML.png)
+
+
+UML, standing for Unified Modeling Language, was done to visually represent the architecture, design, and implementation of the scrabble game. All classes in the program are related to each other with a dependency or inheritance relationship. The class Board inherits Class Call, tileList, and Hand to make a game Board. The class Game inherits class WordBank and class Parser. Class WordBank and Class WordReader are dependent.
+
 ### Known issues
 
 - It is not possible for the player to create two words in a single turn
-
-### Roadmap ahead
-
