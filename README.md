@@ -75,7 +75,7 @@ Provides a facility for reading many words into a local buffer in memory. The li
 - Tile: The physical representation of a letter. Consists of the letter, and the value of the letter.
 - Board: The device for which players can place [tiles](#Glossary) on to make words.
 
-#### UML Diagram (Jaan)
+#### UML Diagram 
 
 ![](UML.png)
 
