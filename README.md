@@ -83,3 +83,8 @@ Provides a facility for reading many words into a local buffer in memory. The li
 
 - It is not possible for the player to create two words in a single turn
 - Clearing the board does not work properly so words that are not valid stay on the board
+
+### Roadmap
+- Adding a GUI and testing in Milestone 2
+- All tests need to pass and an AI player added in Milestone 3
+- Added features like Undo/Redo, Save/Load, and custom boards in Milestone 4
