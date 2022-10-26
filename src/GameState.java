@@ -30,12 +30,14 @@ public class GameState {
     //Checks whether the info entered is valid
     private boolean validResponse;
     //Checks whether you should stop placing letters
-    boolean stopPlacingLetter;
+    private boolean stopPlacingLetter;
+    private int currentPlayer;
+    private int maxPlayers;
 
     /**
      * Creates the default game state
      */
-    public GameState(){
+    public GameState(int maxPlayers){
         turns = 1;
         points = 0;
         isVertical = true;
@@ -49,6 +51,18 @@ public class GameState {
         firstLetterPlaced = false;
         validResponse = false;
         stopPlacingLetter = false;
+        currentPlayer = 0;
+        this.maxPlayers = maxPlayers;
+    }
+
+    public boolean shouldStopPlacingLetter()
+    {
+        return stopPlacingLetter;
+    }
+
+    public int getCurrentPlayer()
+    {
+        return currentPlayer;
     }
 
     public boolean isValidResponse() {
@@ -117,6 +131,7 @@ public class GameState {
 
     public void incrementTurns() {
         turns++;
+        currentPlayer = (currentPlayer + 1) % maxPlayers;
     }
 
     public int getPoints() {

@@ -1,7 +1,5 @@
 # Scrabble
 
-![Scrabble Screenshot](screenshots/scrabble.png)
-
 A simple version of Scrabble written in Java. See the [glossary](#Glossary) for the list of terms used.
 
 ### Rules
@@ -32,6 +30,24 @@ Use the Text User Interface to type and respond to prompts generated and display
 To view the source code, click [here](src).
 
 #### Board (Andrew)
+
+##### Board Representation
+
+To view the implementation, click [here](src/Board.java).
+
+To represent the [board](#Glossary), we decided to use a 2D array of, where every element in the array could be a cell. By using a simple data structure, we can access each cell using xy coordinates, allowing us to easily map the selected cell by the user to the underlying cell. 
+
+##### Cell Representation
+
+Since each cell is stored in the [board](#Glossary) using xy coordinates, all the cell needs to keep is the current letter at that position. 
+
+#### Gameplay (Andrew, Tarik)
+
+##### Parsing
+
+To view the implementation, click [here](src/GameState.java).
+
+The game is currently command line driven, meaning, we need a way to interpret what the user is trying to input.
 
 ##### Board Class:
 gameBoard: Created the actual game board using a 2-d array of Cells. A 2-d array was chosen so that each cell could have a 2-d coordinate to be easily accessed and printed. 

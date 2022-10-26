@@ -6,21 +6,11 @@
 public class Cell {
     // The game piece that may be placed in the cell.
     private char letter;
-    private int x_location;
-    private int y_location;
-    private Cell up;
-    private Cell down;
-    private Cell right;
-    private Cell left;
 
     /**
      * Initializes the cell with its location.
-     * @param x the x location
-     * @param y the y location
      */
-    public Cell(int x, int y){
-        x_location = x;
-        y_location = y;
+    public Cell() {
         letter = ' ';
     }
 
@@ -47,39 +37,4 @@ public class Cell {
     public String toString(){
         return "[" + letter + "]";
     }
-
-    //Below to be implemented in Milestone 2
-    /**
-    public Cell getUp() {
-        return up;
-    }
-
-    public void setUp(Cell up) {
-        this.up = up;
-    }
-
-    public Cell getDown() {
-        return down;
-    }
-
-    public void setDown(Cell down) {
-        this.down = down;
-    }
-
-    public Cell getRight() {
-        return right;
-    }
-
-    public void setRight(Cell right) {
-        this.right = right;
-    }
-
-    public Cell getLeft() {
-        return left;
-    }
-
-    public void setLeft(Cell left) {
-        this.left = left;
-    }
-     */
 }

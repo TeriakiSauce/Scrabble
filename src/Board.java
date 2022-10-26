@@ -10,12 +10,8 @@ public class Board {
     private Cell[][] gameBoard;
     //List of all available tiles
     private TileList tiles;
-    //The player's hand
-    private Hand player1Hand;
     //Size of the board
     private int size;
-    //To be implemented in milestone 2
-    //private Hand player2Hand;
 
     /**
      * Initializes the game board as a 2d array of Cells.
@@ -27,17 +23,13 @@ public class Board {
         gameBoard = new Cell[size +'a'][size];
         tiles = new TileList();
 
-        player1Hand = new Hand("Player 1");
-        //player2Hand = new Hand("Player 2");
-
         //Fill the player's hands
-        populateHand();
         //populateHand(player2Hand, tiles);
 
         //Loops through each location on the board and creates a cell there
         for (char i = 'a'; i< size + 'a'; i++){
             for (int j = 0; j<size; j++){
-                gameBoard[i][j] = new Cell(i,j);
+                gameBoard[i][j] = new Cell();
             }
         }
         //To be implemented in Milestone 2
@@ -60,17 +52,17 @@ public class Board {
      * @param x The x coordinate of the letter
      * @param y The y coordinate of the letter
      */
-    public void placeLetter(char letter, int x, int y){
+    public void placeLetter(Hand hand, char letter, int x, int y){
         gameBoard[x][y].setLetter(letter);
-        player1Hand.removeLetter(letter);
+        hand.removeLetter(letter);
     }
 
     /**
      * Fills up the player's hand with the available tiles
      */
-    public void populateHand(){
-        while (player1Hand.getSize() < 7){
-            player1Hand.addLetter(tiles.grabTile());
+    public void populateHand(Hand hand){
+        while (hand.getSize() < 7){
+            hand.addLetter(tiles.grabTile());
         }
     }
 
@@ -79,16 +71,8 @@ public class Board {
      * @param letter The character being checked
      * @return true if the letter is in the player's hand, false otherwise
      */
-    public boolean checkHand(char letter){
-        return player1Hand.checkLetter(letter);
-    }
-
-    /**
-     * Checks if the player's hand is empty
-     * @return true if the hand is empty, false otherwise
-     */
-    public boolean isHandEmpty(){
-        return player1Hand.getLetters().size() == 0;
+    public boolean checkHand(Hand hand, char letter){
+        return hand.checkLetter(letter);
     }
 
     /**
@@ -99,14 +83,6 @@ public class Board {
      */
     public boolean isCellEmpty(int x, int y){
         return gameBoard[x][y].getLetter() == ' ';
-    }
-
-    /**
-     * Returns the string of the tiles in a player's hand
-     * @return the string of the tiles in a player's hand
-     */
-    public String printHand(){
-        return "" + player1Hand.getLetters();
     }
 
     /**

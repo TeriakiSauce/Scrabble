@@ -6,10 +6,9 @@ import java.util.*;
  * @author Tarik Beldjehem
  * @version 1.0
  */
-
 public class Parser {
     //scanner that will read the input
-    Scanner scanner;
+    private Scanner scanner;
     //string variable to store the input
     private String input;
     //all the valid commands

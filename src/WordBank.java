@@ -1,26 +1,24 @@
-
-
-/**
- * @author Jaan Soulier
- * @version 1.0
- */
-
 import java.util.HashSet;
 import java.util.HashMap;
 
 /**
  * Stores all the valid words and provides queries for the words.
- * @see WordReader
+ * @author Jaan Soulier
+ * @version 1.0
  */
 public class WordBank
 {
     /**
      * Exception for word not existing.
+     * @author Jaan Soulier
+     * @version 1.0
      */
     public class WordNotFoundException extends RuntimeException
     {
         /**
          * Create new WordNotFoundException.
+         * @author Jaan Soulier
+         * @version 1.0
          */
         public WordNotFoundException()
         {
@@ -30,6 +28,8 @@ public class WordBank
         /**
          * Create new WordNotFoundException.
          * @param data Exception data.
+         * @author Jaan Soulier
+         * @version 1.0
          */
         public WordNotFoundException(String data)
         {
@@ -51,7 +51,8 @@ public class WordBank
      * Create new WordBank.
      * @param path URL to read words from.
      * @throws WordReadingException if word reading fails.
-     * @see WordReader
+     * @author Jaan Soulier
+     * @version 1.0
      */
     public WordBank(String path)
     {
@@ -100,6 +101,8 @@ public class WordBank
      * @param word Word to query.
      * @throws NullPointerException if word is null.
      * @return If the word is valid or not.
+     * @author Jaan Soulier
+     * @version 1.0
      */
     public boolean isWordValid(String word)
     {
@@ -119,6 +122,8 @@ public class WordBank
      * @throws NullPointerException if letter is null.
      * @throws NullPointerException if letter is invalid.
      * @return The value of the letter.
+     * @author Jaan Soulier
+     * @version 1.0
      */
     public int getLetterValue(Character letter)
     {
@@ -138,6 +143,8 @@ public class WordBank
      * @throws NullPointerException if word is null.
      * @throws WordNotFoundException if word is invalid.
      * @return The value of the word.
+     * @author Jaan Soulier
+     * @version 1.0
      */
     public int getWordValue(String word)
     {

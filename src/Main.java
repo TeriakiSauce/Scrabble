@@ -1,5 +1,8 @@
-// TODO:
-
+/**
+ * @author Tarik Beldjehem
+ * @version 1.0
+ * 
+ */
 public class Main {
     /**
      * The Main method that initializes and plays a game object for testing

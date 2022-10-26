@@ -1,10 +1,3 @@
-
-
-/**
- * @author Jaan Soulier
- * @version 1.0
- */
-
 import java.net.URL;
 import java.net.URLConnection;
 import java.io.BufferedReader;
@@ -13,16 +6,22 @@ import java.io.InputStreamReader;
 
 /**
  * Reads all the words from a URL or file.
+ * @author Jaan Soulier
+ * @version 1.0
  */
 public class WordReader
 {
     /**
      * Exception for word reading.
+     * @author Jaan Soulier
+     * @version 1.0
      */
     public class WordReadingException extends RuntimeException
     {
         /**
          * Create new WordReadingException.
+         * @author Jaan Soulier
+         * @version 1.0
          */
         public WordReadingException()
         {
@@ -32,6 +31,8 @@ public class WordReader
         /**
          * Create new WordReadingException.
          * @param data Exception data.
+         * @author Jaan Soulier
+         * @version 1.0
          */
         public WordReadingException(String data)
         {
@@ -53,6 +54,8 @@ public class WordReader
      * Create new WordReader.
      * @param path URL to read words from.
      * @throws WordReadingException if word reading fails.
+     * @author Jaan Soulier
+     * @version 1.0
      */
     public WordReader(String path)
     {
@@ -85,6 +88,8 @@ public class WordReader
     /**
      * Read next line from buffer.
      * @return The next word or null.
+     * @author Jaan Soulier
+     * @version 1.0
      */
     public String getLine()
     {

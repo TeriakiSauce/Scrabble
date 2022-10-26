@@ -30,6 +30,8 @@ public class Game {
     private int turns;
     //counter to keep track of points
     private int points;
+    //
+    private ArrayList<Hand> hands;
 
     /**
      * Initializes the game and the fields
@@ -42,7 +44,9 @@ public class Game {
 
         gameBoard = new Board(SIZE);
 
-        state = new GameState();
+        hands = new ArrayList<>();
+
+        state = new GameState(hands.size());
 
         input = "";
 
@@ -51,6 +55,11 @@ public class Game {
         turns = 1;
 
         points = 0;
+
+        Hand player1Hand = new Hand("Player 1");
+        hands.add(player1Hand);
+        gameBoard.populateHand(player1Hand);
+        // Add player 2 hand for another player
     }
 
     /**
@@ -101,12 +110,20 @@ public class Game {
         }
     }
 
+    public Hand getCurrentHand()
+    {
+        return hands.get(state.getCurrentPlayer());
+    }
+
     /**
      * Places a letter on the board until valid word is made
      * Tarik Beldjehem
      * Andrew Sahadeo
      */
     public void place(Board board) {
+
+        Hand hand = getCurrentHand();
+
         savedBoard = gameBoard;
         savedState = state;
         while (!state.isDone()) {
@@ -115,7 +132,7 @@ public class Game {
                 getDirection();
                 getCoordinates();
             } else {
-                while(!state.stopPlacingLetter) {
+                while(!state.shouldStopPlacingLetter()) {
                     getLetter();
                     placeLetter();
                     System.out.println(gameBoard);
@@ -127,7 +144,7 @@ public class Game {
                     getEndTurn();
                 }
 
-                if (gameBoard.isHandEmpty() || state.isStopPlacingLetter()) {
+                if (hand.isEmpty() || state.isStopPlacingLetter()) {
                     if (bank.isWordValid(state.getWord())) {
                         state.setPoints(bank.getWordValue(state.getWord()));
                         points+= state.getPoints();
@@ -143,8 +160,8 @@ public class Game {
                 }
             }
         }
-        state = new GameState();
-        gameBoard.populateHand();
+        state = new GameState(hands.size());
+        gameBoard.populateHand(hand);
     }
 
     /**
@@ -154,8 +171,9 @@ public class Game {
      */
 
     private void placeLetter(){
-        if (gameBoard.checkHand(state.getLetter())) {
-            gameBoard.placeLetter(state.getLetter(), state.getX(), state.getY());
+        Hand hand = getCurrentHand();
+        if (gameBoard.checkHand(hand, state.getLetter())) {
+            gameBoard.placeLetter(hand, state.getLetter(), state.getX(), state.getY());
             state.setLetterValid(true);
             return;
         } else {
@@ -228,8 +246,9 @@ public class Game {
     }
 
     private void getLetter(){
+        Hand hand = getCurrentHand();
         System.out.println("What letter do you want to place?");
-        System.out.println("Your hand: " + gameBoard.printHand());
+        System.out.println(hand.getPlayerName()+ " hand: " + hand.getLetters());
         state.setLetter(scan.nextLine().charAt(0));
     }
 

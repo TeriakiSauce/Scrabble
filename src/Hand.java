@@ -43,6 +43,10 @@ public class Hand {
         return letters.size();
     }
 
+    public boolean isEmpty() {
+        return letters.isEmpty();
+    }
+
     /**
      * Returns the player's name (will be used in milestone 2)
      * @return players' name
