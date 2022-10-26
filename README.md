@@ -29,7 +29,7 @@ Use the Text User Interface to type and respond to prompts generated and display
 
 ##### [Board](src/Board.java)
 
-Provides a way for the [Game](src/Game.java) class to update and check specific cells within the board. Also, until a GUI is implemented, provides a way to get a string representation of the board, used periodically throughout the application.
+Provides a way for the [game](#Game) class to update and check specific cells within the board. Also, until a GUI is implemented, provides a way to get a string representation of the board, used periodically throughout the application.
 
 ##### [Cell](src/Cell.java)
 
@@ -37,19 +37,19 @@ Acts as a cell within the [board](#Glossary), where a cell can have a specific l
 
 ##### [Game](src/Game.java)
 
-Acts as the core of the game, incorporating all the various classes created throughout the project. It holds an instance of all of the [hands](#Hand), [WordBank](src/WordBank.java), [Parser](src/Parser.java), [GameState](src/GameState.java), and [Board](src/Board.java) classes. It provides a way to place letters, check if a newly placed word is valid, start and end turns, and more.
+Acts as the core of the game, incorporating all the various classes created throughout the project. It holds the [hands](#Hand), [word bank](#WordBank), [parser](#Parser), [state](#State), and the [board](#Board). It provides a way to place letters, check if a newly placed word is valid, start and end turns, and more.
 
 ##### [GameState](src/GameState.java)
 
-Provides a way of checking and setting the state of the game. Since the game is command line based, there are many steps involved in, for example, placing a letter. We need a way to preserve what the user previously inputted, allow us to check if the user placed a valid letter. The [GameState](src/GameState.java) class also provides other methods such as checking if the user has quit the game, advancing the xy coordinates for the current letter, and more.
+Provides a way of checking and setting the state of the game. Since the game is command line based, there are many steps involved in, for example, placing a letter. We need a way to preserve what the user previously inputted, allow us to check if the user placed a valid letter. The [game state](#GameState) class also provides other methods such as checking if the user has quit the game, advancing the xy coordinates for the current letter, and more.
 
 ##### [Hand](src/Hand.java)
 
-Acts as the state for a player, where the player can have a name, and a set of letters. Is extensively used in the [Game](src/Game.java) and [Board](src/Board.java) classes for checking and updating the state of the players.
+Acts as the state for a player, where the player can have a name, and a set of letters. Is extensively used in the [game](#Game) and [board](#Board) for checking and updating the state of the players.
 
 ##### [Main](src/Main.java)
 
-Creates an instance of the game and calls play, where all the logic is handled inside of the [Game](src/Game.java) class. Contains the main method, acting as the main entry point into the application.
+Creates an instance of the game and calls play, where all the logic is handled inside of the [game](#Game) class. Contains the main method, acting as the main entry point into the application.
 
 ##### [Parser](src/Parser.java)
 
@@ -78,8 +78,6 @@ Provides a facility for reading many words into a local buffer in memory. The li
 #### UML Diagram (Haravind)
 
 ![](UML.png)
-
-UML, standing for Unified Modeling Language, was done to visually represent the architecture, design, and implementation of the scrabble game. All classes in the program are related to each other with a dependency or inheritance relationship. The class Board inherits Class Call, tileList, and Hand to make a game Board. The class Game inherits class WordBank and class Parser. Class WordBank and Class WordReader are dependent.
 
 ### Known issues
 
