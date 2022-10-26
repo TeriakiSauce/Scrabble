@@ -37,7 +37,7 @@ Acts as a cell within the [board](#Glossary), where a cell can have a specific l
 
 ##### [Game](src/Game.java)
 
-Acts as the core of the game, incorporating all the various classes created throughout the project. It holds an instance of all of the [Hand](src/Hand.java), [WordBank](src/WordBank.java), [Parser](src/Parser.java), [GameState](src/GameState.java), and [Board](src/Board.java) classes. It provides a way to place letters, check if a newly placed word is valid, start and end turns, and more.
+Acts as the core of the game, incorporating all the various classes created throughout the project. It holds an instance of all of the [hands](#Hand), [WordBank](src/WordBank.java), [Parser](src/Parser.java), [GameState](src/GameState.java), and [Board](src/Board.java) classes. It provides a way to place letters, check if a newly placed word is valid, start and end turns, and more.
 
 ##### [GameState](src/GameState.java)
 
@@ -67,7 +67,6 @@ Provides a facility for storing many words in memory and checking if words are v
 
 Provides a facility for reading many words into a local buffer in memory. The lists of valid words that can be used are retrieved from a website using the Java URL library. We download the data from a specified URL, and extract the words from the data. If the user has no internet connection or the download failed, we also have a backup list of words stored in a local text file which can be extracted in the same manner. Currently, there are ten thousand valid words in the database, however, this can be increased by downloading the words from different website or creating a larger local database of words.
 
-
 ### Glossary
 
 - Turn: Where a player gets the opportunity to pick between [passing](#Passing), [exchanging](#Exchanging), and [playing](#Playing).
@@ -78,8 +77,7 @@ Provides a facility for reading many words into a local buffer in memory. The li
 
 #### UML Diagram (Haravind)
 
-![](milestone1_UML.png)
-
+![](UML.png)
 
 UML, standing for Unified Modeling Language, was done to visually represent the architecture, design, and implementation of the scrabble game. All classes in the program are related to each other with a dependency or inheritance relationship. The class Board inherits Class Call, tileList, and Hand to make a game Board. The class Game inherits class WordBank and class Parser. Class WordBank and Class WordReader are dependent.
 
