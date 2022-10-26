@@ -1,3 +1,5 @@
+
+
 /**
  * @author Jaan Soulier
  * @version 1.0
@@ -12,7 +14,7 @@ import java.io.InputStreamReader;
 /**
  * Reads all the words from a URL or file.
  */
-public class WordReader 
+public class WordReader
 {
     /**
      * Exception for word reading.

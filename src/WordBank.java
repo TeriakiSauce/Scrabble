@@ -1,3 +1,5 @@
+
+
 /**
  * @author Jaan Soulier
  * @version 1.0
@@ -58,7 +60,7 @@ public class WordBank
         WordReader reader = new WordReader(path);
 
         // add hash codes of words to valid words
-        while ((line = reader.getLine()) != null) 
+        while ((line = reader.getLine()) != null)
         {
             hashedWords.add(line.hashCode());
         }
