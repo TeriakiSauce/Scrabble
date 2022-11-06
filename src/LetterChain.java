@@ -82,9 +82,14 @@ public class LetterChain {
         return cells.size();
     }
 
+    /**
+     * 
+     * @return
+     */
     public Integer getScore() {
         Integer score = 0;
 
+        // TODO: Last step is ensuring that the letters are continuous and together.
 
         for (LetterCell cell : cells) {
             score += getScore(cell.getX(), cell.getY());
@@ -93,6 +98,12 @@ public class LetterChain {
         return score;
     }
 
+    /**
+     * 
+     * @param x
+     * @param y
+     * @return
+     */
     public Integer getScore(Integer x, Integer y) {
         Integer score = 0;
         WordBank bank = state.getWordBank();
@@ -121,6 +132,13 @@ public class LetterChain {
         return score;
     }
 
+    /**
+     * 
+     * @param direction
+     * @param x
+     * @param y
+     * @return
+     */
     public String walkHorizontal(Integer direction, Integer x, Integer y) {
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
@@ -133,6 +151,13 @@ public class LetterChain {
         return string.toString();
     }
 
+    /**
+     * 
+     * @param direction
+     * @param x
+     * @param y
+     * @return
+     */
     public String walkVertical(Integer direction, Integer x, Integer y) {
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
