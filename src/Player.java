@@ -39,15 +39,6 @@ public class Player {
         oldHand = new PlayerHand();
         newHand = new PlayerHand();
         score = 0;
-
-        // TODO:
-        newHand.setLetter(0, 'C');
-        newHand.setLetter(1, 'A');
-        newHand.setLetter(2, 'U');
-        newHand.setLetter(3, 'S');
-        newHand.setLetter(4, 'E');
-        newHand.setLetter(5, 'D');
-        newHand.setLetter(6, 'S');
     }
 
     /**

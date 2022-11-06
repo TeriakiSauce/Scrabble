@@ -2,10 +2,8 @@
   <artifact type="jar" name="Scrabble:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Scrabble_jar</output-path>
     <root id="archive" name="Scrabble.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      </element>
-      <element id="dir-copy" path="$PROJECT_DIR$" />
+      <element id="module-output" name="Scrabble" />
+      <element id="module-source" name="Scrabble" />
     </root>
   </artifact>
 </component>
