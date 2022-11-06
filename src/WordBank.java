@@ -6,22 +6,19 @@ import java.util.HashMap;
  * @author Jaan Soulier
  * @version 1.0
  */
-public class WordBank
-{
+public class WordBank {
     /**
      * Exception for word not existing.
      * @author Jaan Soulier
      * @version 1.0
      */
-    public class WordNotFoundException extends RuntimeException
-    {
+    public class WordNotFoundException extends RuntimeException {
         /**
          * Create new WordNotFoundException.
          * @author Jaan Soulier
          * @version 1.0
          */
-        public WordNotFoundException()
-        {
+        public WordNotFoundException() {
             super();
         }
 
@@ -31,8 +28,7 @@ public class WordBank
          * @author Jaan Soulier
          * @version 1.0
          */
-        public WordNotFoundException(String data)
-        {
+        public WordNotFoundException(String data) {
             super(data);
         }
     };
@@ -40,7 +36,7 @@ public class WordBank
     /**
      * Hashes of all the words to save memory.
      */
-    private HashSet<Integer> hashedWords = new HashSet<>();
+    private HashSet<String> validWords = new HashSet<>();
 
     /**
      * Values of all the letters in the alphabet.
@@ -50,23 +46,20 @@ public class WordBank
     /**
      * Create new WordBank.
      * @param path URL to read words from.
-     * @throws WordReadingException if word reading fails.
+     * @throws WordReader.WordReadingException if word reading fails.
      * @author Jaan Soulier
      * @version 1.0
      */
-    public WordBank(String path)
-    {
+    public WordBank(String path) {
         // read words from URL or file
         String line;
         WordReader reader = new WordReader(path);
 
         // add hash codes of words to valid words
-        while ((line = reader.getLine()) != null)
-        {
-            hashedWords.add(line.hashCode());
+        while ((line = reader.getLine()) != null) {
+            validWords.add(line.toUpperCase());
         }
 
-        // TODO: should this be configurable?
         // add values of letters to letter values
         letterValues.put('E', 1);
         letterValues.put('A', 1);
@@ -104,16 +97,14 @@ public class WordBank
      * @author Jaan Soulier
      * @version 1.0
      */
-    public boolean isWordValid(String word)
-    {
+    public Boolean isWordValid(String word) {
         // we can't accept null words
-        if (word == null)
-        {
+        if (word == null) {
             throw new NullPointerException();
         }
 
         // return if the valid words contains the word hash
-        return hashedWords.contains(word.hashCode());
+        return validWords.contains(word.toUpperCase());
     }
 
     /**
@@ -125,11 +116,9 @@ public class WordBank
      * @author Jaan Soulier
      * @version 1.0
      */
-    public int getLetterValue(Character letter)
-    {
+    public Integer getLetterValue(Character letter) {
         // we can't accept null letters
-        if (letter == null)
-        {
+        if (letter == null) {
             throw new NullPointerException();
         }
 
@@ -146,18 +135,15 @@ public class WordBank
      * @author Jaan Soulier
      * @version 1.0
      */
-    public int getWordValue(String word)
-    {
+    public Integer getWordValue(String word) {
         // we can't accept invalid words
-        if (!isWordValid(word))
-        {
+        if (!isWordValid(word)) {
             throw new WordNotFoundException();
         }
 
         // iterate over letters and add value to total
-        int total = 0;
-        for (Character letter : word.toCharArray())
-        {
+        Integer total = 0;
+        for (Character letter : word.toCharArray()) {
             total += getLetterValue(letter);
         }
 

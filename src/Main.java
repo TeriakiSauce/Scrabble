@@ -1,16 +1,11 @@
 /**
- * @author Tarik Beldjehem
- * @version 1.0
  * 
  */
 public class Main {
-    /**
-     * The Main method that initializes and plays a game object for testing
-     * @author Tarik Beldjehem
-     */
     public static void main(String[] args) {
         Game game = new Game();
-        game.play();
+        View view = new View();
+        Model model = new Model(view, game);
+        new Controller(model, view);
     }
-
 }
