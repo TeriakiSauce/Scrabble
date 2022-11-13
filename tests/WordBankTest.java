@@ -4,6 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * This class tests the WordBank class methods
+ * @author Jaan
+ * @version 1.0
+ */
 public class WordBankTest {
 
     private WordBank bank;
