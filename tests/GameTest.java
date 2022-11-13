@@ -18,7 +18,7 @@ public class GameTest {
     @Test
     public void testReset() {
         game.reset();
-        game.getState();
+        assertEquals(game.getState(), new Game().getState());
     }
 
     @Test

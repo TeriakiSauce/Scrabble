@@ -19,15 +19,6 @@ public class PlayerTest {
         Game game = new Game();
         player = new Player("test", game);
     }
-    /*
-    @Test
-    public void placeBoard() {
-    }
-
-    @Test
-    public void placeHand() {
-    }
-    */
 
     @Test
     public void TestStep() {
@@ -65,7 +56,6 @@ public class PlayerTest {
 
     @Test
     public void TestGetName() {
-        player.getName();
         assertEquals(player.getName(), "test");
     }
 
