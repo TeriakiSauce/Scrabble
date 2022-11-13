@@ -4,14 +4,16 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * 
+ * Represents a cell within the panel hand.
+ * @author Jaan
+ * @version 1.0
  */
 public class PanelHandCell extends JButton {
 
     /**
-     * 
-     * @param hand
-     * @param n
+     * Create new panel hand cell.
+     * @param hand The hand.
+     * @param n The index.
      */
     public PanelHandCell(PanelHand hand, Integer n) {
         super(" ");
@@ -25,8 +27,8 @@ public class PanelHandCell extends JButton {
     }
 
     /**
-     * 
-     * @param letter
+     * Set the letter for the cell.
+     * @param letter The letter.
      */
     public void setLetter(Character letter) {
         if (letter == null) {

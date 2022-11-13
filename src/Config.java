@@ -1,7 +1,10 @@
 import java.awt.Color;
 
 /**
- * 
+ * Represents several configurable values. Eventually may be moved
+ * into a configuration file or an options menu.
+ * @author Jaan
+ * @version 1.0
  */
 public class Config {
 

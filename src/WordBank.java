@@ -2,7 +2,6 @@ import java.util.HashSet;
 import java.util.HashMap;
 
 /**
- * @author Jaan Soulier
  * Stores all the valid words and provides queries for the words.
  * @author Jaan Soulier
  * @version 1.0

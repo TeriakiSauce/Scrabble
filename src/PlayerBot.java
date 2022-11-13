@@ -1,5 +1,5 @@
 /**
- * 
+ * TODO: Milestone 3
  */
 public class PlayerBot extends Player {
 

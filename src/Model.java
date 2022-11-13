@@ -1,21 +1,25 @@
 /**
- * 
+ * Represents the model computing of the model view controller. Receives callbacks from the 
+ * controller which it uses to update the view and the game.
+ * @author Jaan
+ * @version 1.0
  */
 public class Model {
 
     /**
-     * 
+     * The game.
      */
     private Game game;
 
     /**
-     * 
+     * The view.
      */
     private View view;
 
     /**
-     * 
-     * @param view
+     * Create a new model and attach a view and game.
+     * @param view The view.
+     * @param game The game.
      */
     public Model(View view, Game game) {
         this.view = view;
@@ -24,7 +28,7 @@ public class Model {
     }
 
     /**
-     * 
+     * Call the game place board action and repaint.
      */
     public void placeBoard() {
         game.placeBoard();
@@ -32,7 +36,7 @@ public class Model {
     }
 
     /**
-     * 
+     * Call the game place hand action and repaint.
      */
     public void placeHand() {
         game.placeHand();
@@ -40,7 +44,7 @@ public class Model {
     }
 
     /**
-     * 
+     * Call the game quit action, the view quit action, and repaint.
      */
     public void quit() {
         game.quit();
@@ -49,7 +53,7 @@ public class Model {
     }
 
     /**
-     * 
+     * Call the game pass action and repaint.
      */
     public void pass() {
         game.pass();
@@ -57,7 +61,7 @@ public class Model {
     }
 
     /**
-     * 
+     * Call the game finish action and repaint.
      */
     public void finish() {
         game.finish();
@@ -65,7 +69,7 @@ public class Model {
     }
 
     /**
-     * 
+     * Call the game reset action and repaint.
      */
     public void reset() {
         game.reset();
@@ -73,31 +77,32 @@ public class Model {
     }
 
     /**
-     * 
-     * @param x
+     * Call the game set x position.
+     * @param x The x position.
      */
     public void setX(Integer x) {
         game.setX(x);
     }
 
     /**
-     * 
-     * @param y
+     * Call the game set y position.
+     * @param y The y position.
      */
     public void setY(Integer y) {
         game.setY(y);
     }
 
     /**
-     * 
-     * @param n
+     * Call the game set letter.
+     * @param n The letter.
      */
     public void setN(Integer n) {
         game.setN(n);
     }
 
     /**
-     * 
+     * Acquire the board and player hand and update the
+     * view with the data.
      */
     public void paint() {
         State state = game.getState();

@@ -3,22 +3,24 @@ import javax.swing.BorderFactory;
 import java.awt.GridLayout;
 
 /**
- * 
+ * Represents the hand section of the view.
+ * @author Jaan
+ * @version 1.0
  */
 public class PanelHand extends JPanel {
 
     /**
-     * 
+     * The hand cells.
      */
     private PanelHandCell[] cells;
 
     /**
-     * 
+     * The hand listener.
      */
     private PanelHandListener listener;
 
     /**
-     * 
+     * Create new panel hand.
      */
     public PanelHand() {
         setLayout(new GridLayout(
@@ -43,25 +45,25 @@ public class PanelHand extends JPanel {
     }
 
     /**
-     * 
-     * @param n
-     * @param letter
+     * Set letter at index.
+     * @param n The index.
+     * @param letter The letter.
      */
     public void setLetter(Integer n, Character letter) {
         cells[n].setLetter(letter);
     }
 
     /**
-     * 
-     * @param listener
+     * Set on click action listener.
+     * @param listener The action listener.
      */
     public void setOnClick(PanelHandListener listener) {
         this.listener = listener;
     }
 
     /**
-     * 
-     * @param n
+     * On click callback.
+     * @param n The index.
      */
     public void onClick(Integer n) {
         listener.actionPerformed(n);

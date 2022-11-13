@@ -60,21 +60,16 @@ public class WordReader {
      */
     public WordReader(String path) {
         try {
-            // if there is no URL, throw and try to read from file
             if (path == null) {
                 throw new NullPointerException();
             }
-
-            // read from URL into a buffered reader. if this fails, read from file
             URL url = new URL(path);
             URLConnection connection = url.openConnection();
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         } catch (Exception outer) {
             try {
-                // read words from hard coded path. if this fails, there is no recovery
                 reader = new BufferedReader(new FileReader(BACKUP));
             } catch (Exception inner) {
-                // nothing else to try, so throw unchecked exception
                 throw new WordReadingException();
             }
         }
