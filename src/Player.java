@@ -100,6 +100,14 @@ public class Player {
     }
 
     /**
+     *
+     * @param
+     */
+    public void setHand(PlayerHand hand) {
+        newHand = hand;
+    }
+
+    /**
      * 
      * @return
      */

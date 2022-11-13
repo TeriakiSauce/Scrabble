@@ -15,11 +15,15 @@ public class PlayerHandTest {
     @Before
     public void setUp() throws Exception {
         hand = new PlayerHand();
+        hand.setLetter(1, 'b');
+        hand.setLetter(2, 'c');
+        hand.setLetter(3, 'd');
+        hand.setLetter(4, 'e');
     }
 
     @Test
     public void testSetLetter() {
-        assertFalse(hand.hasLetter(1));
+        assertFalse(hand.hasLetter(0));
         hand.setLetter(0, 'a');
         assertTrue(hand.hasLetter(0));
         char letter = hand.getLetter(0);
@@ -36,8 +40,6 @@ public class PlayerHandTest {
 
     @Test
     public void testMakeCopy() {
-        hand.setLetter(0, 'a');
-        hand.setLetter(1, 'b');
         PlayerHand copy = hand.makeCopy();
         assertEquals(hand, copy);
     }

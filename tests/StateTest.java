@@ -10,44 +10,26 @@ import static org.junit.Assert.*;
  */
 public class StateTest {
 
+    State state;
+
     @Before
     public void setUp() throws Exception {
-
+        state = new State();
     }
 
     @Test
-    public void reset() {
+    public void testReset() {
     }
 
     @Test
-    public void addPlayer() {
+    public void testStep() {
     }
 
     @Test
-    public void revert() {
+    public void testRevert() {
     }
 
     @Test
-    public void getBag() {
-    }
-
-    @Test
-    public void getWordBank() {
-    }
-
-    @Test
-    public void getChain() {
-    }
-
-    @Test
-    public void getBoard() {
-    }
-
-    @Test
-    public void getPlayer() {
-    }
-
-    @Test
-    public void getTurn() {
+    public void testAddPlayer() {
     }
 }

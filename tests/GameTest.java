@@ -18,54 +18,42 @@ public class GameTest {
     @Test
     public void testReset() {
         game.reset();
+        game.getState();
     }
 
     @Test
     public void testQuit() {
         game.quit();
+        game.getState();
     }
-    /*
-    @Test
-    public void placeBoard() {
-        game.placeBoard();
-    }
-
-    @Test
-    public void placeHand() {
-        game.placeHand();
-    }
-    */
 
     @Test
     public void testFinish() {
         game.finish();
+        game.getState();
     }
 
     @Test
     public void testPass() {
         game.pass();
-    }
-
-    @Test
-    public void testState() {
         game.getState();
     }
 
     @Test
-    public void testX() {
+    public void testSetX() {
         game.setX(1);
-        game.getX();
+        assertEquals(game.getX(), new Integer(1));
     }
 
     @Test
-    public void testY() {
+    public void testSetY() {
         game.setY(1);
-        game.getY();
+        assertEquals(game.getY(), new Integer(1));
     }
 
     @Test
-    public void testN() {
+    public void testSetN() {
         game.setN(1);
-        game.getN();
+        assertEquals(game.getN(), new Integer(1));
     }
 }

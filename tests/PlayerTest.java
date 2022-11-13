@@ -31,12 +31,25 @@ public class PlayerTest {
 
     @Test
     public void TestStep() {
+        PlayerHand hand = new PlayerHand();
+        hand.setLetter(0, 'a');
+        hand.setLetter(1, 'b');
+        player.setHand(hand);
+        assertNotEquals(player.getOldHand(), player.getHand());
         player.step();
         assertEquals(player.getOldHand(), player.getHand());
     }
 
     @Test
     public void TestRevert() {
+        PlayerHand hand = new PlayerHand();
+        hand.setLetter(0, 'a');
+        hand.setLetter(1, 'b');
+        player.setHand(hand);
+        player.step();
+        PlayerHand hand2 = new PlayerHand();
+        player.setHand(hand2);
+        assertNotEquals(player.getOldHand(), player.getHand());
         player.revert();
         assertEquals(player.getHand(), player.getOldHand());
     }
@@ -44,7 +57,10 @@ public class PlayerTest {
     @Test
     public void TestAddScore() {
         player.addScore(5);
-        assertEquals(player.getScore(), new Integer(5));
+        player.addScore(7);
+        player.addScore(2);
+        player.addScore(4);
+        assertEquals(player.getScore(), new Integer(18));
     }
 
     @Test

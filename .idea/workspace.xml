@@ -14,7 +14,11 @@
       <change beforePath="$PROJECT_DIR$/out/test/Scrabble/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/GameTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Scrabble/PlayerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/PlayerTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Scrabble/StateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/StateTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/GameTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/PlayerHandTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/PlayerHandTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/PlayerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/StateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/StateTest.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
@@ -84,10 +88,20 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PlayerHandTest">
+  <component name="RunManager" selected="JUnit.PlayerTest.TestRevert">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Scrabble" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest.testSetN" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
+      <option name="METHOD_NAME" value="testSetN" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -101,52 +115,43 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayerHandTest.testMakeCopy" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Scrabble" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerHandTest" />
-      <option name="METHOD_NAME" value="testMakeCopy" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayerHandTest.testRemoveLetter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Scrabble" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerHandTest" />
-      <option name="METHOD_NAME" value="testRemoveLetter" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayerHandTest.testSetLetter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Scrabble" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PlayerHandTest" />
-      <option name="METHOD_NAME" value="testSetLetter" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest.TestAddScore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Scrabble" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="PlayerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="METHOD_NAME" value="TestAddScore" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerTest.TestRevert" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
+      <option name="METHOD_NAME" value="TestRevert" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PlayerTest.TestStep" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
+      <option name="METHOD_NAME" value="TestStep" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlayerTest.TestRevert" />
+        <item itemvalue="JUnit.PlayerTest.TestStep" />
         <item itemvalue="JUnit.PlayerHandTest" />
-        <item itemvalue="JUnit.PlayerHandTest.testMakeCopy" />
-        <item itemvalue="JUnit.PlayerHandTest.testRemoveLetter" />
-        <item itemvalue="JUnit.PlayerHandTest.testSetLetter" />
-        <item itemvalue="JUnit.PlayerTest" />
+        <item itemvalue="JUnit.PlayerTest.TestAddScore" />
+        <item itemvalue="JUnit.GameTest.testSetN" />
       </list>
     </recent_temporary>
   </component>
