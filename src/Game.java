@@ -76,7 +76,7 @@ public class Game {
      */
     public void finish() {
         Integer score = state.getChain().getScore();
-        if ((state.getTurn() == 0 && state.getChain().getSize() == 1) || score == 0) {
+        if ((state.getTurn() != 0 && state.getChain().getSize() == 1) || score == 0) {
             state.getPlayer().revert();
             state.revert();
             return;
