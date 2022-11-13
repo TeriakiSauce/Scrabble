@@ -99,7 +99,10 @@ public class LetterChain {
      */
     public Integer getScore() {
         Integer score = 0;
-
+        // Returns 0 if size is empty or placement is invalid
+        if (this.getSize() == 0){
+            return 0;
+        }
         if (!(validPlacementX() || validPlacementY())){
             return 0;
         }

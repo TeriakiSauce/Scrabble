@@ -9,48 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Added tests for the wordbank, also changed the word list to the official scrabble list">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" afterDir="false" />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Added tests for the wordbank, also fixed scoring so that the game only allows you to place letters in a valid way.">
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterBag$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterBag$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterBag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterBag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Model.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Model.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelAction.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelHand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelHand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelHandCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelHandCell$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelHandCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelHandCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelOther.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelOther.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelScore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelScore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerHand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayerHand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerMove.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordBank$WordNotFoundException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/WordBank$WordNotFoundException.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/WordBank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordReader$WordReadingException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/WordReader$WordReadingException.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordReader.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/WordReader.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LetterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WordBankTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WordBankTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/words.txt" beforeDir="false" afterPath="$PROJECT_DIR$/words.txt" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
@@ -95,14 +58,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "create.test.in.the.same.root": "true",
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
