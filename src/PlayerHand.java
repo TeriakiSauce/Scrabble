@@ -1,50 +1,52 @@
 /**
- * 
+ * Represents the tiles for the player.
+ * @author Andrew/Tarik
+ * @version 1.0
  */
 public class PlayerHand {
 
     /**
-     * 
+     * The tiles.
      */
     protected Character[] tiles;
 
     /**
-     * 
+     * Create new player hand.
      */
     public PlayerHand() {
         tiles = new Character[Config.HAND_SIZE];
     }
 
     /**
-     * 
-     * @param n
-     * @param letter
+     * Set the letter at the index.
+     * @param n The index.
+     * @param letter THe letter.
      */
     public void setLetter(Integer n, Character letter) {
         tiles[n] = letter;
     }
 
     /**
-     * 
-     * @param n
-     * @return
+     * Get the letter at the index.
+     * @param n The index.
+     * @return The letter.
      */
     public Character getLetter(Integer n) {
         return tiles[n];
     }
 
     /**
-     * 
-     * @param n
-     * @return
+     * Check if there is a letter at the position.
+     * @param n The index.
+     * @return If the letter exists at the position.
      */
-    public Boolean  hasLetter(Integer n) {
+    public Boolean hasLetter(Integer n) {
         return tiles[n] != null;
     }
 
     /**
-     * 
-     * @param n
+     * Remove the letter at the position.
+     * @param n The index.
      */
     public void removeLetter(Integer n) {
         assert(tiles[n] != null);
@@ -52,8 +54,8 @@ public class PlayerHand {
     }
 
     /**
-     * 
-     * @return
+     * Make a deep copy of the player hand.
+     * @return The deep copy of the player hand.
      */
     public PlayerHand makeCopy() {
         PlayerHand hand = new PlayerHand();

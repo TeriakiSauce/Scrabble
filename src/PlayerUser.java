@@ -1,19 +1,21 @@
 /**
- * 
+ * Represents a user player. Provides methods for manual placing of letters.
+ * @author Jaan
+ * @version 1.0
  */
 public class PlayerUser extends Player {
 
     /**
-     * 
-     * @param name
-     * @param game
+     * Create new player user.
+     * @param name The player name.
+     * @param game The game.
      */
     public PlayerUser(String name, Game game) {
         super(name, game);
     }
     
     /**
-     * 
+     * Place board action.
      */
     @Override
     public void placeBoard() {
@@ -36,7 +38,7 @@ public class PlayerUser extends Player {
     }
     
     /**
-     * 
+     * Place hand action.
      */
     @Override
     public void placeHand() {

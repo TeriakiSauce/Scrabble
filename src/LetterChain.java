@@ -2,23 +2,26 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * 
+ * Represents several letters that a player has placed. Can be used to compute
+ * the score of the placed word.
+ * @author Jaan
+ * @version 1.0
  */
 public class LetterChain {
 
     /**
-     * 
+     * The letters and positions.
      */
     private ArrayList<LetterCell> cells;
 
     /**
-     * 
+     * The state.
      */
     private State state;
 
     /**
-     * 
-     * @param state 
+     * Create new letter chain.
+     * @param state The state.
      */
     public LetterChain(State state) {
         this.state = state;
@@ -26,26 +29,26 @@ public class LetterChain {
     }
 
     /**
-     * 
+     * Clear the chain.
      */
     public void clear() {
         cells.clear();
     }
 
     /**
-     * 
-     * @param x
-     * @param y
-     * @param letter
+     * Add a letter to the chain.
+     * @param x The x position.
+     * @param y The y position.
+     * @param letter The letter.
      */
     public void addLetter(Integer x, Integer y, Character letter) {
         cells.add(new LetterCell(x, y, letter));
     }
 
     /**
-     * 
-     * @param x
-     * @param y
+     * Remove a letter at a specified position.
+     * @param x The x position.
+     * @param y The y position.
      */
     public void removeLetter(Integer x, Integer y) {
         Iterator<LetterCell> iterator = cells.iterator();
@@ -59,10 +62,10 @@ public class LetterChain {
     }
 
     /**
-     * 
-     * @param x
-     * @param y
-     * @return
+     * Check if a letter exists at the specified position.
+     * @param x The x position.
+     * @param y The y position.
+     * @return If the letter exists.
      */
     public Boolean hasLetter(Integer x, Integer y) {
         for (LetterCell cell : cells) {
@@ -75,16 +78,17 @@ public class LetterChain {
     }
 
     /**
-     *
-     * @return
+     * Get the size of the chain.
+     * @return The size.
      */
     public Integer getSize() {
         return cells.size();
     }
 
     /**
-     * 
-     * @return
+     * Get the score from the placed letters. This is the main method for computing
+     * the total score of the placed word.
+     * @return The score.
      */
     public Integer getScore() {
         Integer score = 0;
@@ -99,12 +103,12 @@ public class LetterChain {
     }
 
     /**
-     * 
-     * @param x
-     * @param y
-     * @return
+     * Helper function for computing the score.
+     * @param x The x position.
+     * @param y The y position.
+     * @return The score.
      */
-    public Integer getScore(Integer x, Integer y) {
+    private Integer getScore(Integer x, Integer y) {
         Integer score = 0;
         WordBank bank = state.getWordBank();
         String word;
@@ -133,13 +137,13 @@ public class LetterChain {
     }
 
     /**
-     * 
-     * @param direction
-     * @param x
-     * @param y
-     * @return
+     * Helper function for computing the word.
+     * @param direction The travel direction.
+     * @param x The x position.
+     * @param y The y position.
+     * @return The computed word.
      */
-    public String walkHorizontal(Integer direction, Integer x, Integer y) {
+    private String walkHorizontal(Integer direction, Integer x, Integer y) {
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
 
@@ -152,13 +156,13 @@ public class LetterChain {
     }
 
     /**
-     * 
-     * @param direction
-     * @param x
-     * @param y
-     * @return
+     * Helper function for computing the word.
+     * @param direction The travel direction.
+     * @param x The x position.
+     * @param y The y position.
+     * @return The computed word.
      */
-    public String walkVertical(Integer direction, Integer x, Integer y) {
+    private String walkVertical(Integer direction, Integer x, Integer y) {
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
 
