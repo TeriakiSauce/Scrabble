@@ -19,8 +19,8 @@ public class WordBankTest {
 
     @Test
     public void testIsWordValid() {
-        assertTrue(bank.isWordValid("u"));
-        assertFalse(bank.isWordValid("tum"));
+        assertTrue(bank.isWordValid("god"));
+        assertFalse(bank.isWordValid("gama"));
     }
 
     @Test
@@ -30,6 +30,6 @@ public class WordBankTest {
 
     @Test
     public void testGetWordValue() {
-        assert(bank.getWordValue("u") == 1);
+        assertEquals(5,(int) bank.getWordValue("goat"));
     }
 }

@@ -1,11 +1,13 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
  * Represents several letters that a player has placed. Can be used to compute
  * the score of the placed word.
  * @author Jaan
- * @version 1.0
+ * @author Andrew
+ * @version 1.5
  */
 public class LetterChain {
 
@@ -18,6 +20,11 @@ public class LetterChain {
      * The state.
      */
     private State state;
+
+    /**
+     * The direction that the word was played, false for horizontal, true for vertical
+     */
+    private boolean isVertical;
 
     /**
      * Create new letter chain.
@@ -93,13 +100,68 @@ public class LetterChain {
     public Integer getScore() {
         Integer score = 0;
 
-        // TODO: Last step is ensuring that the letters are continuous and together.
-
+        if (!(validPlacementX() || validPlacementY())){
+            return 0;
+        }
         for (LetterCell cell : cells) {
             score += getScore(cell.getX(), cell.getY());
         }
-
         return score;
+    }
+
+    /**
+     * Returns true if letters are placed in a valid  horizontal configuration
+     * @return true if letters are valid, false otherwise
+     */
+    private boolean validPlacementX(){
+        Board board = state.getBoard();
+        // Sorts the cells by their x values
+        cells.sort(Comparator.comparing(a -> a.getX()));
+        // Checks that cells are in the same row
+        for (int i = 0; i <this.getSize(); i++) {
+            if(i>0){
+                if (!(cells.get(i).getY() == cells.get(i-1).getY())){
+                    return false;
+                }
+            }
+        }
+        // Checks that there are no gaps between cells
+        int y = cells.get(0).getY();
+        for (int x = cells.get(0).getX(); x < cells.get(cells.size()-1).getX(); x++) {
+            if (!(board.hasLetter(x,y))){
+                return false;
+            }
+        }
+
+        isVertical = false;
+        return true;
+    }
+
+    /**
+     * Returns true if letters are placed in a valid vertical configuration
+     * @return true if letters are valid, false otherwise
+     */
+    private boolean validPlacementY(){
+        Board board = state.getBoard();
+        // Sorts the cells by their y values
+        cells.sort(Comparator.comparing(a -> a.getY()));
+        // Checks that cells are in the same column
+        for (int i = 0; i <this.getSize(); i++) {
+            if(i>0){
+                if (!(cells.get(i).getX() == cells.get(i-1).getX())){
+                    return false;
+                }
+            }
+        }
+        // Checks that there are no gaps between cells
+        int x = cells.get(0).getX();
+        for (int y = cells.get(0).getY(); y < cells.get(cells.size()-1).getY(); y++) {
+            if (!(board.hasLetter(x,y))){
+                return false;
+            }
+        }
+        isVertical = true;
+        return true;
     }
 
     /**

@@ -21,8 +21,9 @@ public class LetterCell {
 
     /**
      * Create a new letter cell.
-     * @param x The x position.
-     * @param y The y position.
+     *
+     * @param x      The x position.
+     * @param y      The y position.
      * @param letter The letter.
      */
     public LetterCell(Integer x, Integer y, Character letter) {
@@ -33,6 +34,7 @@ public class LetterCell {
 
     /**
      * Get the letter.
+     *
      * @return The letter.
      */
     public Character getLetter() {
@@ -41,6 +43,7 @@ public class LetterCell {
 
     /**
      * Get the x position.
+     *
      * @return The x position.
      */
     public Integer getX() {
@@ -49,9 +52,14 @@ public class LetterCell {
 
     /**
      * Get the y position.
+     *
      * @return The y position.
      */
     public Integer getY() {
         return y;
+    }
+
+    public String toString() {
+        return letter + "," + x + y;
     }
 }
