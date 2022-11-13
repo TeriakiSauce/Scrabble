@@ -4,15 +4,17 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * 
+ * Represents a cell within the board.
+ * @author Jaan
+ * @version 1.0
  */
 public class PanelBoardCell extends JButton {
 
     /**
-     * 
-     * @param board
-     * @param x
-     * @param y
+     * Create new panel board cell.
+     * @param board The board.
+     * @param x The x position.
+     * @param y The y position.
      */
     public PanelBoardCell(PanelBoard board, Integer x, Integer y) {
         super(" ");
@@ -26,8 +28,8 @@ public class PanelBoardCell extends JButton {
     }
 
     /**
-     * 
-     * @param letter
+     * Set the letter for the cell.
+     * @param letter The letter.
      */
     public void setLetter(Character letter) {
         if (letter == null) {

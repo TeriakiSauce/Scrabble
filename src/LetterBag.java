@@ -4,22 +4,25 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
- * 
+ * Represents the bag (the source for the remaining letters used throughout the game). Provides
+ * a method for populating a player hand, to refill the player's tiles.
+ * @author Andrew
+ * @version 1.1
  */
 public class LetterBag {
 
     /**
-     * 
+     * The list of remaining tiles.
      */
     private List<Character> tiles;
 
     /**
-     * 
+     * The number of tiles per character.
      */
     private HashMap<Character, Integer> counts;
 
     /**
-     * 
+     * Create a new letter bag.
      */
     public LetterBag() {
         tiles = new LinkedList<>();
@@ -56,7 +59,7 @@ public class LetterBag {
     }
 
     /**
-     * 
+     * Repopulate the tiles.
      */
     public void reset() {
         tiles.clear();
@@ -72,8 +75,8 @@ public class LetterBag {
     }
 
     /**
-     * 
-     * @param hand
+     * Repopulate the player hand.
+     * @param hand The player hand.
      */
     void updateHand(PlayerHand hand) {
         for (Integer i = 0; i < Config.HAND_SIZE; i++) {
@@ -84,8 +87,9 @@ public class LetterBag {
     }
 
     /**
-     * 
-     * @return
+     * Get a tile from the remaining tiles. If no tiles remain,
+     * return null. Decrements the tile count.
+     * @return The tile.
      */
     public Character getTile() {
         if (tiles.size() != 0) {

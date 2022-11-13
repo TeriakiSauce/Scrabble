@@ -1,28 +1,29 @@
 /**
- * 
+ * @author Jaan
+ * @version 1.1
  */
 public class LetterCell {
 
     /**
-     * 
+     * The letter.
      */
     public Character letter;
 
     /**
-     * 
+     * The letter x position.
      */
     public Integer x;
 
     /**
-     * 
+     * The letter y position.
      */
     public Integer y;
 
     /**
-     * 
-     * @param x
-     * @param y
-     * @param letter
+     * Create a new letter cell.
+     * @param x The x position.
+     * @param y The y position.
+     * @param letter The letter.
      */
     public LetterCell(Integer x, Integer y, Character letter) {
         this.letter = letter;
@@ -31,24 +32,24 @@ public class LetterCell {
     }
 
     /**
-     * 
-     * @return
+     * Get the letter.
+     * @return The letter.
      */
     public Character getLetter() {
         return letter;
     }
 
     /**
-     * 
-     * @return
+     * Get the x position.
+     * @return The x position.
      */
     public Integer getX() {
         return x;
     }
 
     /**
-     * 
-     * @return
+     * Get the y position.
+     * @return The y position.
      */
     public Integer getY() {
         return y;

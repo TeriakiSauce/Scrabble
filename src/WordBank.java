@@ -8,12 +8,14 @@ import java.util.HashMap;
  */
 public class WordBank {
     /**
+     * @author Jaan Soulier
      * Exception for word not existing.
      * @author Jaan Soulier
      * @version 1.0
      */
     public class WordNotFoundException extends RuntimeException {
         /**
+         * @author Jaan Soulier
          * Create new WordNotFoundException.
          * @author Jaan Soulier
          * @version 1.0
@@ -23,6 +25,7 @@ public class WordBank {
         }
 
         /**
+         * @author Jaan Soulier
          * Create new WordNotFoundException.
          * @param data Exception data.
          * @author Jaan Soulier
@@ -44,6 +47,7 @@ public class WordBank {
     private HashMap<Character, Integer> letterValues = new HashMap<>();
 
     /**
+     * @author Jaan Soulier
      * Create new WordBank.
      * @param path URL to read words from.
      * @throws WordReader.WordReadingException if word reading fails.
@@ -57,6 +61,16 @@ public class WordBank {
 
         // add hash codes of words to valid words
         while ((line = reader.getLine()) != null) {
+            if (line.length() == 1) {
+                switch (line.charAt(0)) {
+                    case 'a': break;
+                    case 'i': break;
+                    case 'A': break;
+                    case 'I': break;
+                    default: continue;
+                }
+            }
+
             validWords.add(line.toUpperCase());
         }
 
@@ -90,6 +104,7 @@ public class WordBank {
     }
 
     /**
+     * @author Jaan Soulier
      * Check if a word is valid.
      * @param word Word to query.
      * @throws NullPointerException if word is null.
@@ -108,6 +123,7 @@ public class WordBank {
     }
 
     /**
+     * @author Jaan Soulier
      * Check the value of the letter.
      * @param letter Letter to query.
      * @throws NullPointerException if letter is null.
@@ -127,6 +143,7 @@ public class WordBank {
     }
 
     /**
+     * @author Jaan Soulier
      * Check the value of the word.
      * @param word Word to query.
      * @throws NullPointerException if word is null.
