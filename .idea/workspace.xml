@@ -10,13 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
-      <change afterPath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/junit-4.13.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GameTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ModelTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Scrabble.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrabble.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/GameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/ModelTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ModelTest.java" beforeDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
@@ -66,9 +64,15 @@
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -136,6 +140,7 @@
       <workItem from="1666661445401" duration="2978000" />
       <workItem from="1666672275550" duration="8165000" />
       <workItem from="1666705462549" duration="13033000" />
+      <workItem from="1668366516870" duration="398000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
