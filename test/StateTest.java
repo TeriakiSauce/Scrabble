@@ -7,6 +7,7 @@ public class StateTest {
 
     @Before
     public void setUp() throws Exception {
+
     }
 
     @Test

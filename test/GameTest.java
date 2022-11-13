@@ -19,7 +19,7 @@ public class GameTest {
     public void quit() {
         game.quit();
     }
-
+    /*
     @Test
     public void placeBoard() {
         game.placeBoard();
@@ -29,6 +29,7 @@ public class GameTest {
     public void placeHand() {
         game.placeHand();
     }
+    */
 
     @Test
     public void finish() {
