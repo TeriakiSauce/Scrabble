@@ -61,6 +61,16 @@ public class WordBank {
 
         // add hash codes of words to valid words
         while ((line = reader.getLine()) != null) {
+            if (line.length() == 1) {
+                switch (line.charAt(0)) {
+                    case 'a': break;
+                    case 'i': break;
+                    case 'A': break;
+                    case 'I': break;
+                    default: continue;
+                }
+            }
+
             validWords.add(line.toUpperCase());
         }
 
