@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * 
  */
@@ -112,4 +114,13 @@ public class Player {
     public PlayerHand getOldHand() {
         return oldHand;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Objects.equals(oldHand, player.oldHand) && Objects.equals(newHand, player.newHand) && Objects.equals(name, player.name) && Objects.equals(score, player.score) && Objects.equals(game, player.game);
+    }
+
 }

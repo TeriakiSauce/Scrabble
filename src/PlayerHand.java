@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * 
  */
@@ -63,4 +65,13 @@ public class PlayerHand {
 
         return hand;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerHand that = (PlayerHand) o;
+        return Arrays.equals(tiles, that.tiles);
+    }
+
 }
