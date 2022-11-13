@@ -1,18 +1,18 @@
 # Scrabble
 
-A simple version of Scrabble written in Java. See the [glossary](#Glossary) for the list of terms used.
+A simple version of Scrabble written in Java. 
 
 ### Rules
 
-In short, Scrabble is about placing neighbouring letters to make words. For each [turn](#Glossary), the player must choose one of three options. They can [pass](#Passing) the [turn](#Glossary), [exchange](#Exchanging) letters with the [bag](#Glossary), or [play](#Playing) [tiles](#Glossary) to make a word.
+In short, Scrabble is about placing neighbouring letters to make words. For each turn, the player must choose one of three options. They can pass the turn, exchange letters with the bag, or play tiles to make a word.
 
 #### Passing
 
-Passing allows the player to forfeit their [turn](#Glossary) and score no points. Passing is usually done when the [bag](#Glossary) has no more letters, and the player cannot make a valid word on the board with their current letters.
+Passing allows the player to forfeit their turn and score no points. Passing is usually done when the bag has no more letters, and the player cannot make a valid word on the board with their current letters.
 
 #### Exchanging
 
-Exchanging allows the player to exchange one or more [tiles](#Glossary) with the [bag](#Glossary), for an equal number of [tiles](#Glossary). The player will not be able to score any points and forfeits their opportunity to play a word for that [turn](#Glossary). The player may not exchange if there are less than seven [tiles](#Glossary) remaining in the [bag](#Glossary). Exchanging is usually done when the player cannot make any valid words on the [board](#Glossary) with their current letters, or if the player is close to a high value word but is missing one or more letters.
+Exchanging allows the player to exchange one or more tiles with the bag, for an equal number of tiles. The player will not be able to score any points and forfeits their opportunity to play a word for that turn. The player may not exchange if there are less than seven tiles remaining in the bag. Exchanging is usually done when the player cannot make any valid words on the board with their current letters, or if the player is close to a high value word but is missing one or more letters.
 
 #### Playing
 
