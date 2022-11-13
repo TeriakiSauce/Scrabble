@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Represents the tiles for the player.
  * @author Andrew/Tarik
@@ -64,5 +66,17 @@ public class PlayerHand {
         }
 
         return hand;
+    }
+    /**
+     * Compares this player hand with the provided hand.
+     * @param o the hand being compared.
+     * @return true if the hands are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerHand that = (PlayerHand) o;
+        return Arrays.equals(tiles, that.tiles);
     }
 }

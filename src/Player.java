@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Represents a player type. Can be either a user or a bot.
  * @author Jaan
@@ -105,5 +107,26 @@ public class Player {
      */
     public PlayerHand getHand() {
         return newHand;
+    }
+
+    /**
+     * Get the old hand.
+     * @return The old hand.
+     */
+    public PlayerHand getOldHand() {
+        return oldHand;
+    }
+
+    /**
+     * Compares this player with the provided.
+     * @param o the player being compared.
+     * @return true if the players are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Objects.equals(oldHand, player.oldHand) && Objects.equals(newHand, player.newHand) && Objects.equals(name, player.name) && Objects.equals(score, player.score) && Objects.equals(game, player.game);
     }
 }

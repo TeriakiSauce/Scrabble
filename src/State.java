@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Represents the state of the game. Represents all that needs to be saved and loaded.
@@ -149,5 +150,18 @@ public class State {
      */
     public Integer getTurn() {
         return turn;
+    }
+
+    /**
+     * Compares this state with the provided state.
+     * @param o the state being compared.
+     * @return true if the states are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        State state = (State) o;
+        return Objects.equals(bag, state.bag) && Objects.equals(chain, state.chain) && Objects.equals(bank, state.bank) && Objects.equals(oldBoard, state.oldBoard) && Objects.equals(newBoard, state.newBoard) && Objects.equals(players, state.players) && Objects.equals(turn, state.turn) && Objects.equals(player, state.player);
     }
 }
