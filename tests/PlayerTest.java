@@ -5,6 +5,11 @@ import java.util.Optional;
 
 import static org.junit.Assert.*;
 
+/**
+ * This class tests the Player class methods
+ * @author Tarik Beldjehem
+ * @version 1.0
+ */
 public class PlayerTest {
 
     Player player;

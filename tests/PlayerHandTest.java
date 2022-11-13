@@ -3,6 +3,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * This class tests the PlayerHand class methods
+ * @author Tarik Beldjehem
+ * @version 1.0
+ */
 public class PlayerHandTest {
 
     @Before

@@ -1,6 +1,11 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 
+/**
+ * This class tests the Game class methods
+ * @author Tarik Beldjehem
+ * @version 1.0
+ */
 public class GameTest {
 
     Game game;
