@@ -11,12 +11,12 @@ public class GameTest {
     }
 
     @Test
-    public void reset() {
+    public void testReset() {
         game.reset();
     }
 
     @Test
-    public void quit() {
+    public void testQuit() {
         game.quit();
     }
     /*
@@ -32,47 +32,35 @@ public class GameTest {
     */
 
     @Test
-    public void finish() {
+    public void testFinish() {
         game.finish();
     }
 
     @Test
-    public void pass() {
+    public void testPass() {
         game.pass();
     }
 
     @Test
-    public void getState() {
+    public void testState() {
         game.getState();
     }
 
     @Test
-    public void getX() {
+    public void testX() {
+        game.setX(1);
         game.getX();
     }
 
     @Test
-    public void setX() {
-        game.setX(1);
-    }
-
-    @Test
-    public void getY() {
+    public void testY() {
+        game.setY(1);
         game.getY();
     }
 
     @Test
-    public void setY() {
-        game.setY(1);
-    }
-
-    @Test
-    public void getN() {
-        game.getN();
-    }
-
-    @Test
-    public void setN() {
+    public void testN() {
         game.setN(1);
+        game.getN();
     }
 }
