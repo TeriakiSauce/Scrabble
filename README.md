@@ -156,7 +156,7 @@ Reads from either or website or as a fallback, a local file to acquire a buffer 
 
 #### UML Diagram 
 
-![](UML.png)
+![](UML.jpg)
 
 ### Known issues
 - The word bank allows words which are not valid
