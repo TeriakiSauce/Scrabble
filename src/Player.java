@@ -104,4 +104,12 @@ public class Player {
     public PlayerHand getHand() {
         return newHand;
     }
+
+    /**
+     *
+     * @return
+     */
+    public PlayerHand getOldHand() {
+        return oldHand;
+    }
 }

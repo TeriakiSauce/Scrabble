@@ -10,10 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
-      <change afterPath="$PROJECT_DIR$/test/PlayerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/GameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/GameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/StateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/StateTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/GameTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/GameTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/StateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/StateTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/PlayerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/PlayerTest.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
@@ -83,7 +84,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.PlayerTest">
     <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="Scrabble" />
@@ -122,8 +123,28 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PlayerTest" />
+        <item itemvalue="JUnit.StateTest" />
         <item itemvalue="JUnit.GameTest" />
         <item itemvalue="JUnit.ModelTest" />
         <item itemvalue="Application.Main" />
@@ -150,7 +171,7 @@
       <workItem from="1666661445401" duration="2978000" />
       <workItem from="1666672275550" duration="8165000" />
       <workItem from="1666705462549" duration="13033000" />
-      <workItem from="1668366516870" duration="3585000" />
+      <workItem from="1668366516870" duration="4529000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
