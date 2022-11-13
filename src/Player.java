@@ -118,7 +118,7 @@ public class Player {
     }
 
     /**
-     * Compares this player with the provided.
+     * Compares this player with the provided player.
      * @param o the player being compared.
      * @return true if the players are equal, false otherwise.
      */
