@@ -165,10 +165,11 @@ Reads from either or website or as a fallback, a local file to acquire a buffer 
 ![](UML.jpg)
 
 ### Known issues
-- The score and turn are not shown to the users.
+- The score and turn are not shown to the users
 - Ugly
 
 ### Roadmap Ahead
+- Displaying the issue when you get 0 points for a turn
 - Displaying the score and turn for players to see
 - Added serialization/derialization
 - Adding player AI
