@@ -24,8 +24,8 @@ public class WordBankTest {
 
     @Test
     public void testIsWordValid() {
-        assertTrue(bank.isWordValid("u"));
-        assertFalse(bank.isWordValid("tum"));
+        assertTrue(bank.isWordValid("hi"));
+        assertFalse(bank.isWordValid("u"));
     }
 
     @Test
@@ -35,6 +35,6 @@ public class WordBankTest {
 
     @Test
     public void testGetWordValue() {
-        assert(bank.getWordValue("u") == 1);
+        assert(bank.getWordValue("hi") == 5);
     }
 }
