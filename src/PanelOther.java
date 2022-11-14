@@ -3,6 +3,6 @@ import javax.swing.*;
 /**
  * TODO: Haravind
  */
-public class PanelOther extends JOptionPane {
+public class PanelOther extends JPanel {
 
 }

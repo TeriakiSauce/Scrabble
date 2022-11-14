@@ -9,26 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Added tile list and hand classes, implemented additional functionality in Board and Cell">
-      <change afterPath="$PROJECT_DIR$/tests/LetterChainTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Board.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/State.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/WordBank.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PanelBoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBoardCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WordBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WordBank.java" afterDir="false" />
-    </list>
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Scoring for words actually works and only allows legal placements" />
     <list id="4e28f429-68d1-4f24-b682-37428a5838b9" name="Changes by rikbe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -264,7 +245,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668363840888</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Scoring for words actually works and only allows legal placements">
+      <created>1668393960552</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668393960552</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,7 +284,8 @@
     <MESSAGE value="Refactored Game into Game2 class so that it is much more readable, some bugs still persist" />
     <MESSAGE value="Changed Hand to represent the letters with a Linked list instead of array list." />
     <MESSAGE value="Added tests for the wordbank, also changed the word list to the official scrabble list" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added tests for the wordbank, also changed the word list to the official scrabble list" />
+    <MESSAGE value="Scoring for words actually works and only allows legal placements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scoring for words actually works and only allows legal placements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
