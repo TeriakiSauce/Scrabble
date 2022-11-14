@@ -1,39 +1,41 @@
 import java.util.Objects;
 
 /**
- * 
+ * Represents a player type. Can be either a user or a bot.
+ * @author Jaan
+ * @version 1.0
  */
 public class Player {
 
     /**
-     * 
+     * The old hand.
      */
     protected PlayerHand oldHand;
 
     /**
-     * 
+     * The new hand.
      */
     protected PlayerHand newHand;
 
     /**
-     * 
+     * The player name.
      */
     private String name;
 
     /**
-     * 
+     * The player score.
      */
     private Integer score;
 
     /**
-     * 
+     * The game.
      */
     protected Game game;
 
     /**
-     * 
-     * @param name
-     * @param game
+     * Creates a new player.
+     * @param name of the player.
+     * @param game that is played.
      */
     public Player(String name, Game game) {
         this.name = name;
@@ -44,7 +46,7 @@ public class Player {
     }
 
     /**
-     * 
+     * Place board action.
      */
     public void placeBoard() {
         game.setX(null);
@@ -53,7 +55,7 @@ public class Player {
     }
 
     /**
-     * 
+     * Place hand action.
      */
     public void placeHand() {
         game.setX(null);
@@ -62,67 +64,72 @@ public class Player {
     }
 
     /**
-     * 
+     * Step player hand forward.
      */
     public void step() {
         oldHand = newHand.makeCopy();
     }
 
     /**
-     * 
+     * Reverts player hand.
      */
     public void revert() {
         newHand = oldHand.makeCopy();
     }
 
     /**
-     * 
-     * @param score
+     * Add to player score.
+     * @param score The added score.
      */
     public void addScore(Integer score) {
         this.score += score;
     }
 
     /**
-     * 
-     * @return
+     * Get the player name.
+     * @return The player name.
      */
     public String getName() {
         return name;
     }
 
     /**
-     * 
-     * @return
+     * Get the score.
+     * @return The score.
      */
     public Integer getScore() {
         return score;
     }
 
     /**
-     *
-     * @param
+     * Sets the hand.
+     * @param The hand to be set.
      */
     public void setHand(PlayerHand hand) {
         newHand = hand;
     }
 
     /**
-     * 
-     * @return
+     * Returns the current hand.
+     * @return the current hand.
      */
     public PlayerHand getHand() {
         return newHand;
     }
 
     /**
-     *
-     * @return
+     * Returns the old hand.
+     * @return the old hand.
      */
     public PlayerHand getOldHand() {
         return oldHand;
     }
 
+    /**
+     * Compares the player with the specified player.
+     * @param o the player to be compared.
+     * @return true if player are equal, false otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

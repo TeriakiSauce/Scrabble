@@ -24,19 +24,19 @@ public class GameTest {
     @Test
     public void testQuit() {
         game.quit();
-        game.getState();
+        assertEquals(game.getState(), new Game().getState());
     }
 
     @Test
     public void testFinish() {
         game.finish();
-        game.getState();
+        assertEquals(game.getState(), new Game().getState());
     }
 
     @Test
     public void testPass() {
         game.pass();
-        game.getState();
+        assertEquals(game.getState(), new Game().getState());
     }
 
     @Test
