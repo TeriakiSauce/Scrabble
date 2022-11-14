@@ -166,11 +166,11 @@ Reads from either or website or as a fallback, a local file to acquire a buffer 
 
 ### Known issues
 - The score and turn are not shown to the users
-- Ugly
+- Ugly GUI
 
 ### Roadmap Ahead
 - Displaying the issue when you get 0 points for a turn
 - Displaying the score and turn for players to see
-- Added serialization/derialization
+- Adding serialization/derialization
 - Adding player AI
 - Visual improvements
