@@ -32,8 +32,9 @@ public class PlayerUser extends Player {
 
         Character letter = newHand.getLetter(n);
         newHand.removeLetter(n);
-        chain.addLetter(x, y, letter);
-        board.setLetter(x, y, letter);
+        LetterCell cell = new LetterCell(x, y, letter);
+        chain.addLetter(cell);
+        board.setLetter(cell);
         super.placeBoard();
     }
     
