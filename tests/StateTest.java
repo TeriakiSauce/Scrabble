@@ -19,8 +19,8 @@ public class StateTest {
 
     @Test
     public void testReset() {
-        State state = new State();
-        state.getBoard().setLetter(0, 0, 'a');
+        state.step();
+        System.out.println(state.getTurn());
         assertNotEquals(state, new State());
         state.reset();
         assertEquals(state, new State());
@@ -32,6 +32,12 @@ public class StateTest {
 
     @Test
     public void testRevert() {
+        State state
+        state.step();
+        System.out.println(state.getTurn());
+        assertEquals(state, state2);
+        state.revert();
+        assertNotEquals(state, state2);
     }
 
     @Test
