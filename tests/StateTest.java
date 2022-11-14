@@ -26,12 +26,11 @@ public class StateTest {
         assertEquals(state, new State());
     }
 
-    @Test
+    @Test //To be tested better
     public void testStep() {
         state.step();
-        state.step();
-        state.step();
-        assertEquals(state.getTurn(), new Integer(3));
+        assertEquals(state.getTurn(), new Integer(0));
+
     }
 
     @Test
