@@ -1,11 +1,13 @@
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 
 /**
  * Represents several letters that a player has placed. Can be used to compute
  * the score of the placed word.
  * @author Jaan
- * @version 1.0
+ * @author Andrew
+ * @version 1.5
  */
 public class LetterChain {
 
@@ -18,6 +20,11 @@ public class LetterChain {
      * The state.
      */
     private State state;
+
+    /**
+     * The direction that the word was played, false for horizontal, true for vertical
+     */
+    private boolean isVertical;
 
     /**
      * Create new letter chain.
@@ -37,12 +44,10 @@ public class LetterChain {
 
     /**
      * Add a letter to the chain.
-     * @param x The x position.
-     * @param y The y position.
-     * @param letter The letter.
+     * @param cell The cell to be added
      */
-    public void addLetter(Integer x, Integer y, Character letter) {
-        cells.add(new LetterCell(x, y, letter));
+    public void addLetter(LetterCell cell) {
+        cells.add(cell);
     }
 
     /**
@@ -92,14 +97,99 @@ public class LetterChain {
      */
     public Integer getScore() {
         Integer score = 0;
-
-        // TODO: Last step is ensuring that the letters are continuous and together.
-
-        for (LetterCell cell : cells) {
-            score += getScore(cell.getX(), cell.getY());
+        // Returns 0 if size is empty or placement is invalid
+        if (this.getSize() == 0){
+            return 0;
+        }
+        // Returns 0 if  placement is invalid
+        if (!(validPlacementX() || validPlacementY())){
+            return 0;
+        }
+        //Sorts the list of letters according to its direction
+        if (isVertical){
+            cells.sort(Comparator.comparing(a -> a.getY()));
+        } else {
+            cells.sort(Comparator.comparing(a -> a.getX()));
         }
 
+        // Returns 0 if the letter is not connected to another letter on the board or the middle square
+        boolean connected = false;
+        for (LetterCell cell : cells){
+            if (cell.getX() == Config.BOARD_HEIGHT/2 && cell.getY() == Config.BOARD_HEIGHT/2){
+                connected = true;
+            }
+            if (state.getOldBoard().hasLetter(cell.getX()+1, cell.getY())){
+                connected = true;
+            }
+            if (state.getOldBoard().hasLetter(cell.getX()-1, cell.getY())){
+                connected = true;
+            }
+            if (state.getOldBoard().hasLetter(cell.getX(), cell.getY()+1)){
+                connected = true;
+            }
+            if (state.getOldBoard().hasLetter(cell.getX(), cell.getY()-1)){
+                connected = true;
+            }
+        }
+        if (!connected){
+            return 0;
+        }
+
+        score += getScore(cells.get(0).getX(), cells.get(0).getY());
         return score;
+    }
+
+    /**
+     * Returns true if letters are placed in a valid  horizontal configuration
+     * @return true if letters are valid, false otherwise
+     */
+    private boolean validPlacementX(){
+        // Sorts the cells by their x values
+        cells.sort(Comparator.comparing(a -> a.getX()));
+        // Checks that cells are in the same row
+        for (int i = 0; i <this.getSize(); i++) {
+            if(i>0){
+                if (!(cells.get(i).getY() == cells.get(i-1).getY())){
+                    return false;
+                }
+            }
+        }
+        // Checks that there are no gaps between cells
+        int y = cells.get(0).getY();
+        for (int x = cells.get(0).getX(); x < cells.get(cells.size()-1).getX(); x++) {
+            if (!(state.getBoard().hasLetter(x,y))){
+                return false;
+            }
+        }
+
+        isVertical = false;
+        return true;
+    }
+
+    /**
+     * Returns true if letters are placed in a valid vertical configuration
+     * @return true if letters are valid, false otherwise
+     */
+    private boolean validPlacementY(){
+        // Sorts the cells by their y values
+        cells.sort(Comparator.comparing(a -> a.getY()));
+        // Checks that cells are in the same column
+        for (int i = 0; i <this.getSize(); i++) {
+            if(i>0){
+                if (!(cells.get(i).getX() == cells.get(i-1).getX())){
+                    return false;
+                }
+            }
+        }
+        // Checks that there are no gaps between cells
+        int x = cells.get(0).getX();
+        for (int y = cells.get(0).getY(); y < cells.get(cells.size()-1).getY(); y++) {
+            if (!(state.getBoard().hasLetter(x,y))){
+                return false;
+            }
+        }
+        isVertical = true;
+        return true;
     }
 
     /**
@@ -112,27 +202,51 @@ public class LetterChain {
         Integer score = 0;
         WordBank bank = state.getWordBank();
         String word;
+        Board board = state.getBoard();
 
-        word = walkHorizontal(1, x, y);
-        if (bank.isWordValid(word)) {
-            score += bank.getWordValue(word);
+        if(isVertical){
+            // Traverses towards the top of the word then counts the letters going down
+            while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
+                y--;
+            }
+            word = walkVertical(1,x,y);
+            if (bank.isWordValid(word)) {
+                score += bank.getWordValue(word);
+            } else {return 0;}
+            //Finding leftmost cell with a letter then adding the letters while traversing right
+            for(LetterCell cell : cells){
+                x = cell.getX();
+                y = cell.getY();
+                while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
+                    x--;
+                }
+                word = walkHorizontal(1,x,y);
+                if (bank.isWordValid(word)) {
+                    score += bank.getWordValue(word);
+                } else if (word.length() > 1){return 0;}
+            }
+        } else {
+            // Traverses towards the left of the word then counts the letters going right
+            while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
+                x--;
+            }
+            word = walkHorizontal(1,x,y);
+            if (bank.isWordValid(word)) {
+                score += bank.getWordValue(word);
+            } else {return 0;}
+            //Finding topmost cell with a letter then adding the letters while traversing down
+            for(LetterCell cell : cells){
+                x = cell.getX();
+                y = cell.getY();
+                while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
+                    y--;
+                }
+                word = walkVertical(1,x,y);
+                if (bank.isWordValid(word)) {
+                    score += bank.getWordValue(word);
+                } else if (word.length() > 1){return 0;}
+            }
         }
-
-        word = walkHorizontal(-1, x, y);
-        if (bank.isWordValid(word)) {
-            score += bank.getWordValue(word);
-        }
-
-        word = walkVertical(1, x, y);
-        if (bank.isWordValid(word)) {
-            score += bank.getWordValue(word);
-        }
-
-        word = walkVertical(-1, x, y);
-        if (bank.isWordValid(word)) {
-            score += bank.getWordValue(word);
-        }
-
         return score;
     }
 
@@ -172,5 +286,11 @@ public class LetterChain {
         }
 
         return string.toString();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        LetterChain chain = (LetterChain) obj;
+        return (chain.cells == this.cells && chain.isVertical == this.isVertical);
     }
 }
