@@ -86,6 +86,7 @@ public class Game {
         state.getPlayer().addScore(score);
         state.getPlayer().step();
         state.step();
+        System.out.println("Points earned: " + score);
     }
 
     /**
