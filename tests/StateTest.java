@@ -32,11 +32,13 @@ public class StateTest {
 
     @Test
     public void testRevert() {
-        State state
+        State state2 = new State();
+        state2.step();
         state.step();
         System.out.println(state.getTurn());
         assertEquals(state, state2);
         state.revert();
+        System.out.println(state.getTurn());
         assertNotEquals(state, state2);
     }
 
