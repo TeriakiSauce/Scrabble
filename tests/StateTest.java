@@ -20,7 +20,7 @@ public class StateTest {
     @Test
     public void testReset() {
         State state = new State();
-        state.getBoard().setLetter(0, 0, 'a');
+        state.getBoard().setLetter(new LetterCell(0,0,'a'));
         assertNotEquals(state, new State());
         state.reset();
         assertEquals(state, new State());

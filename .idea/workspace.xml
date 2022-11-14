@@ -9,12 +9,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/State.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/WordBank.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Scrabble/StateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/StateTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/StateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/StateTest.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
@@ -60,22 +66,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
-    <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_directory_selection" value="$PROJECT_DIR$/test" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "node.js.selected.package.tslint": "(autodetect)"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -85,7 +80,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StateTest.testReset">
+  <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Scrabble" />
