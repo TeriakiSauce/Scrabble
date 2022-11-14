@@ -59,7 +59,12 @@ public class LetterCell {
         return y;
     }
 
+    /**
+     * Returns a string representation of LetterCell
+     * @return the string
+     */
     public String toString() {
         return letter + "," + x + y;
     }
+
 }

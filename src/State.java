@@ -136,6 +136,14 @@ public class State {
     }
 
     /**
+     * Get the old board
+     * @return the old board
+     */
+    public Board getOldBoard() {
+        return oldBoard;
+    }
+
+    /**
      * Get the current player.
      * @return The player.
      */

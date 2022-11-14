@@ -117,7 +117,10 @@ public class WordBank {
         if (word == null) {
             throw new NullPointerException();
         }
-
+        // doesn't allow words of one letter to count
+        if (word.length() == 1){
+            return false;
+        }
         // return if the valid words contains the word hash
         return validWords.contains(word.toUpperCase());
     }

@@ -50,7 +50,7 @@ public class Game {
 
     /**
      * Quit the game.
-     * @see model
+     * @see Model
      */
     public void quit() {
 

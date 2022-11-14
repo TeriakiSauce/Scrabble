@@ -137,4 +137,5 @@ public class View extends JFrame {
     public void setHandLetter(Integer n, Character letter) {
         hand.setLetter(n, letter);
     }
+
 }

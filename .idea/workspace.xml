@@ -9,14 +9,27 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Added tests for the wordbank, also fixed scoring so that the game only allows you to place letters in a valid way.">
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Game.class" afterDir="false" />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Added tile list and hand classes, implemented additional functionality in Board and Cell">
+      <change afterPath="$PROJECT_DIR$/tests/LetterChainTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Board.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Board.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PanelBoardCell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/State.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/State.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordBank.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/WordBank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LetterCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LetterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PanelBoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PanelBoardCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WordBank.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WordBank.java" afterDir="false" />
     </list>
-    <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
-    <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
+    <list id="4e28f429-68d1-4f24-b682-37428a5838b9" name="Changes by rikbe" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,6 +105,16 @@
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Scrabble" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LetterChainTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LetterChainTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

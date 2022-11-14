@@ -1,8 +1,8 @@
-import javax.swing.JPanel;
+import javax.swing.*;
 
 /**
  * TODO: Haravind
  */
-public class PanelOther extends JPanel {
-    
+public class PanelOther extends JOptionPane {
+
 }
