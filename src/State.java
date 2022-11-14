@@ -89,9 +89,8 @@ public class State {
         player++;
         if (player == players.size()) {
             player = 0;
-            turn++;
         }
-
+        turn++;
         chain.clear();
         oldBoard = newBoard.makeCopy();
     }
