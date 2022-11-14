@@ -19,6 +19,10 @@ public class StateTest {
 
     @Test
     public void testReset() {
+        State state = new State();
+        LetterChain chain = new LetterChain(state);
+        LetterChain chain2 = new LetterChain(state);
+        assertEquals(chain, chain2);
     }
 
     @Test

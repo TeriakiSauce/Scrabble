@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Represents all of the cells in the game. Allows for the setting, getting,
  * clearing, and checking of letters in the board.
@@ -98,5 +100,17 @@ public class Board {
         }
 
         return board;
+    }
+    /**
+     * Compares this board with the specified board.
+     * @param o the board to be compared.
+     * @return true if the boards are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Board board = (Board) o;
+        return Arrays.equals(cells, board.cells);
     }
 }
