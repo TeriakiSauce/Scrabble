@@ -20,9 +20,10 @@ public class StateTest {
     @Test
     public void testReset() {
         State state = new State();
-        LetterChain chain = new LetterChain(state);
-        LetterChain chain2 = new LetterChain(state);
-        assertEquals(chain, chain2);
+        state.getBoard().setLetter(0, 0, 'a');
+        assertNotEquals(state, new State());
+        state.reset();
+        assertEquals(state, new State());
     }
 
     @Test

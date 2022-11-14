@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Represents a specific cell or tile within the board. Allows for
  * the getting, setting, and checking of the contained letter.
@@ -41,4 +43,18 @@ public class BoardCell {
     public Boolean hasLetter() {
         return letter != null;
     }
+
+    /**
+     * Compares this board cell with the specified board cell.
+     * @param o the board cell to be compared.
+     * @return true if the board cells are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BoardCell boardCell = (BoardCell) o;
+        return letter == boardCell.letter;
+    }
+
 }

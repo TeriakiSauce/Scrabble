@@ -162,8 +162,7 @@ public class State {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         State state = (State) o;
-        return bag.equals(state.bag) && chain.equals(state.chain)
-                && oldBoard.equals(state.oldBoard) && newBoard.equals(state.newBoard)
+        return oldBoard.equals(state.oldBoard) && newBoard.equals(state.newBoard)
                 && players.equals(state.players) && turn.equals(state.turn)
                 && player.equals(state.player);
     }

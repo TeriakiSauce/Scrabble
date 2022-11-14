@@ -111,6 +111,6 @@ public class Board {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Board board = (Board) o;
-        return Arrays.equals(cells, board.cells);
+        return Arrays.deepEquals(cells, board.cells);
     }
 }

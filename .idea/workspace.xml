@@ -13,8 +13,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Scrabble/StateTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/StateTest.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterBag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterBag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/StateTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/StateTest.java" afterDir="false" />
     </list>
