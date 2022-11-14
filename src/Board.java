@@ -93,7 +93,7 @@ public class Board {
         Board board = new Board();
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                board.setLetter(j, i, getLetter(j, i));
+                board.setLetter(new LetterCell(j,i, getLetter(j,i)));
             }
         }
 
