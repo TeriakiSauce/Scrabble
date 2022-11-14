@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  * Represents a player type. Can be either a user or a bot.
  * @author Jaan
@@ -31,9 +33,9 @@ public class Player {
     protected Game game;
 
     /**
-     * Create new player.
-     * @param name The player name.
-     * @param game The game.
+     * Creates a new player.
+     * @param name of the player.
+     * @param game that is played.
      */
     public Player(String name, Game game) {
         this.name = name;
@@ -69,7 +71,7 @@ public class Player {
     }
 
     /**
-     * Revert player hand.
+     * Reverts player hand.
      */
     public void revert() {
         newHand = oldHand.makeCopy();
@@ -100,10 +102,40 @@ public class Player {
     }
 
     /**
-     * Get the hand.
-     * @return The hand.
+     * Sets the hand.
+     * @param The hand to be set.
+     */
+    public void setHand(PlayerHand hand) {
+        newHand = hand;
+    }
+
+    /**
+     * Returns the current hand.
+     * @return the current hand.
      */
     public PlayerHand getHand() {
         return newHand;
     }
+
+    /**
+     * Returns the old hand.
+     * @return the old hand.
+     */
+    public PlayerHand getOldHand() {
+        return oldHand;
+    }
+
+    /**
+     * Compares the player with the specified player.
+     * @param o the player to be compared.
+     * @return true if player are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return Objects.equals(oldHand, player.oldHand) && Objects.equals(newHand, player.newHand) && Objects.equals(name, player.name) && Objects.equals(score, player.score) && Objects.equals(game, player.game);
+    }
+
 }

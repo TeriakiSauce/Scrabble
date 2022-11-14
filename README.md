@@ -32,7 +32,8 @@ placed was valid. Finally, the reset button allows the user
 ##### [Board](src/Board.java)
 
 Represents all of the cells on the board. By storing an old one and a new one, we can reset to the old one whenever the player wishes
-to undo, or makes an invalid set of moves. The board is integral to representing the current state of the game.
+to undo, or makes an invalid set of moves. The board is integral to representing the current state of the game. To represent the board
+we decided to use a simple 2D array, so that we can look up specific elements using basic x and y coordinates. 
 
 ##### [BoardCell](src/BoardCell.java)
 
@@ -55,7 +56,9 @@ provide an interface for placing, removing, passing, quitting, resetting, and mo
 
 ##### [LetterBag](src/LetterBag.java)
 
-Represents the bag or the leftover letters for the game. Can be used to populate the player hands after placing a word.
+Represents the bag or the leftover letters for the game. Can be used to populate the player hands after placing a word. We decided
+to use a linked list to represent the letters, so that we can quickly pop off the head letter and since we would never have to iterate
+the letters.
 
 ##### [LetterCell](src/LetterCell.java)
 
@@ -64,7 +67,8 @@ Similar to a board cell, however it now contains a position. Can be used to stor
 ##### [LetterChain](src/LetterChain.java)
 
 Represents the word that the player is attempting to create. Holds several letter cells, and on demand, will attempt to compute
-the score acheived placing the word.
+the score acheived placing the word. To represent the letter, we decided to use an array list so that we can quickly iterate over
+the entire list as we would be doing this whenever we had to check if a turn was valid.
 
 ##### [Main](src/Main.java)
 
@@ -128,7 +132,8 @@ To be implemented in Milestone 3.
 ##### [PlayerHand](src/PlayerHand.java)
 
 Represents the tiles that the player holds. Provides methods for setting the letter at a specific index, removing it, and 
-checking if it exists.
+checking if it exists. To represent the tiles, we decided to use a basic 1D array, since we would have to iterate the array
+often and wanted to get and set elements by their respective index.
 
 ##### [PlayerUser](src/PlayerUser.java)
 
@@ -148,7 +153,8 @@ into the panels. Also creates and manages the frame.
 ##### [WordBank](src/WordBank.java)
 
 Represents the word database. Has methods for checking if a word is valid, getting the value of a letter, and computing the value
-of a word. Uses the word reader to acquire the valid words.
+of a word. Uses the word reader to acquire the valid words. To store the words, we decided to use a hash set. This way, we can hash
+the string and quickly check if they are valid instead of having to iterate over the entire list of words.
 
 ##### [WordReader](src/WordReader.java)
 

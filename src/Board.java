@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Represents all of the cells in the game. Allows for the setting, getting,
  * clearing, and checking of letters in the board.
@@ -38,12 +40,10 @@ public class Board {
 
     /**
      * Set letter at specified position.
-     * @param x The x position.
-     * @param y The y position.
-     * @param letter The letter.
+     * @param cell The cell being set
      */
-    public void setLetter(Integer x, Integer y, Character letter) {
-        cells[x][y].setLetter(letter);
+    public void setLetter(LetterCell cell) {
+        cells[cell.getX()][cell.getY()].setLetter(cell.getLetter());
     }
 
     /**
@@ -93,10 +93,22 @@ public class Board {
         Board board = new Board();
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                board.setLetter(j, i, getLetter(j, i));
+                board.setLetter(new LetterCell(j,i, getLetter(j,i)));
             }
         }
 
         return board;
+    }
+    /**
+     * Compares this board with the specified board.
+     * @param o the board to be compared.
+     * @return true if the boards are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Board board = (Board) o;
+        return Arrays.deepEquals(cells, board.cells);
     }
 }

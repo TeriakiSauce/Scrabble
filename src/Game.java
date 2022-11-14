@@ -1,5 +1,3 @@
-import java.sql.SQLOutput;
-
 /**
  * Represents the main component of the game. Combines several components
  * to create the game.
@@ -37,7 +35,7 @@ public class Game {
     }
 
     /**
-     * Reset the game. Currently, it creates one player for the main user.
+     * Reset the game. Currently creates one player for the main user.
      */
     public void reset() {
         state.reset();
@@ -88,7 +86,7 @@ public class Game {
         state.getPlayer().addScore(score);
         state.getPlayer().step();
         state.step();
-        System.out.println(score);
+        System.out.println("Points earned: " + score);
     }
 
     /**

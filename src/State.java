@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * Represents the state of the game. Represents all that needs to be saved and loaded.
@@ -61,7 +62,7 @@ public class State {
     }
 
     /**
-     * Reset the state.
+     * Resets the state.
      */
     public void reset() {
         bag.reset();
@@ -118,7 +119,7 @@ public class State {
     public WordBank getWordBank() {
         return bank;
     }
-    
+
     /**
      * Get the letter chain.
      * @return The letter chain.
@@ -134,7 +135,15 @@ public class State {
     public Board getBoard() {
         return newBoard;
     }
-
+    
+     /**
+     * Get the old board
+     * @return the old board
+     */
+    public Board getOldBoard() {
+        return oldBoard;
+    }
+    
     /**
      * Get the current player.
      * @return The player.
@@ -150,4 +159,20 @@ public class State {
     public Integer getTurn() {
         return turn;
     }
+
+    /**
+     * Compares the state with the specified state.
+     * @param o the state to be compared.
+     * @return true if states are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        State state = (State) o;
+        return oldBoard.equals(state.oldBoard) && newBoard.equals(state.newBoard)
+                && players.equals(state.players) && turn.equals(state.turn)
+                && player.equals(state.player);
+    }
+
 }

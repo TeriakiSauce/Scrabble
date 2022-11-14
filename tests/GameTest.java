@@ -1,61 +1,59 @@
 import static org.junit.Assert.*;
 import org.junit.*;
 
+/**
+ * This class tests the Game class methods
+ * @author Tarik Beldjehem
+ * @version 1.0
+ */
 public class GameTest {
+
+    Game game;
 
     @Before
     public void setUp() throws Exception {
+        game = new Game();
     }
 
     @Test
-    public void reset() {
+    public void testReset() {
+        game.reset();
+        assertEquals(game.getState(), new Game().getState());
     }
 
     @Test
-    public void quit() {
+    public void testQuit() {
+        game.quit();
+        assertEquals(game.getState(), new Game().getState());
     }
 
     @Test
-    public void placeBoard() {
+    public void testFinish() {
+        game.finish();
+        assertEquals(game.getState(), new Game().getState());
     }
 
     @Test
-    public void placeHand() {
+    public void testPass() {
+        game.pass();
+        assertEquals(game.getState(), new Game().getState());
     }
 
     @Test
-    public void finish() {
+    public void testSetX() {
+        game.setX(1);
+        assertEquals(game.getX(), new Integer(1));
     }
 
     @Test
-    public void pass() {
+    public void testSetY() {
+        game.setY(1);
+        assertEquals(game.getY(), new Integer(1));
     }
 
     @Test
-    public void getState() {
-    }
-
-    @Test
-    public void getX() {
-    }
-
-    @Test
-    public void setX() {
-    }
-
-    @Test
-    public void getY() {
-    }
-
-    @Test
-    public void setY() {
-    }
-
-    @Test
-    public void getN() {
-    }
-
-    @Test
-    public void setN() {
+    public void testSetN() {
+        game.setN(1);
+        assertEquals(game.getN(), new Integer(1));
     }
 }

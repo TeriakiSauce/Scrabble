@@ -1,5 +1,6 @@
 import javax.swing.JButton;
 import javax.swing.BorderFactory;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -18,7 +19,12 @@ public class PanelBoardCell extends JButton {
      */
     public PanelBoardCell(PanelBoard board, Integer x, Integer y) {
         super(" ");
+        //Setting middle cell to light gray
+        if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
+            setBackground(Color.LIGHT_GRAY);
+        }
         setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
