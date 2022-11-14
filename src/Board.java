@@ -40,12 +40,10 @@ public class Board {
 
     /**
      * Set letter at specified position.
-     * @param x The x position.
-     * @param y The y position.
-     * @param letter The letter.
+     * @param cell The cell being set
      */
-    public void setLetter(Integer x, Integer y, Character letter) {
-        cells[x][y].setLetter(letter);
+    public void setLetter(LetterCell cell) {
+        cells[cell.getX()][cell.getY()].setLetter(cell.getLetter());
     }
 
     /**
