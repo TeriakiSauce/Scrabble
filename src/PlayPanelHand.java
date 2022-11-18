@@ -7,22 +7,22 @@ import java.awt.GridLayout;
  * @author Jaan
  * @version 1.0
  */
-public class PanelHand extends JPanel {
+public class PlayPanelHand extends JPanel {
 
     /**
      * The hand cells.
      */
-    private PanelHandCell[] cells;
+    private PlayPanelHandCell[] cells;
 
     /**
      * The hand listener.
      */
-    private PanelHandListener listener;
+    private PlayPanelHandListener listener;
 
     /**
      * Create new panel hand.
      */
-    public PanelHand() {
+    public PlayPanelHand() {
         setLayout(new GridLayout(
             1,
             Config.HAND_SIZE,
@@ -37,9 +37,9 @@ public class PanelHand extends JPanel {
             Config.BOARD_BORDER_WIDTH
         ));
 
-        cells = new PanelHandCell[Config.HAND_SIZE];
+        cells = new PlayPanelHandCell[Config.HAND_SIZE];
         for (Integer i = 0; i < Config.HAND_SIZE; i++) {
-            cells[i] = new PanelHandCell(this, i);
+            cells[i] = new PlayPanelHandCell(this, i);
             add(cells[i]);
         }
     }
@@ -57,7 +57,7 @@ public class PanelHand extends JPanel {
      * Set on click action listener.
      * @param listener The action listener.
      */
-    public void setOnClick(PanelHandListener listener) {
+    public void setOnClick(PlayPanelHandListener listener) {
         this.listener = listener;
     }
 

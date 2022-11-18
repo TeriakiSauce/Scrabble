@@ -21,22 +21,32 @@ public class Config {
     /**
      * 
      */
-    public static final String PASS_BUTTON_TEXT = "PASS";
+    public static final String PLAY_PASS_BUTTON_TEXT = "PASS";
 
     /**
      * 
      */
-    public static final String QUIT_BUTTON_TEXT = "QUIT";
+    public static final String PLAY_QUIT_BUTTON_TEXT = "QUIT";
 
     /**
      * 
      */
-    public static final String FINISH_BUTTON_TEXT = "FINISH";
+    public static final String PLAY_FINISH_BUTTON_TEXT = "FINISH";
 
     /**
      * 
      */
-    public static final String RESET_BUTTON_TEXT = "RESET";
+    public static final String PLAY_RESET_BUTTON_TEXT = "RESET";
+
+    /**
+     * 
+     */
+    public static final String START_START_BUTTON_TEXT = "START";
+
+    /**
+     * 
+     */
+    public static final String START_HELP_BUTTON_TEXT = "HELP";
 
     /**
      * 

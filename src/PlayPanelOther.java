@@ -3,6 +3,6 @@ import javax.swing.JPanel;
 /**
  * TODO: Haravind
  */
-public class PanelScore extends JPanel {
+public class PlayPanelOther extends JPanel {
     
 }
