@@ -144,6 +144,14 @@ public class State {
     }
 
     /**
+     * Get the players.
+     * @return The players.
+     */
+    public ArrayList<Player> getPlayers() {
+        return players;
+    }
+
+    /**
      * Get the current turn.
      * @return The turn.
      */

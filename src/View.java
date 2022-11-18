@@ -1,6 +1,4 @@
 import javax.swing.JFrame;
-import java.awt.event.ActionListener;
-import java.awt.BorderLayout;
 
 /**
  * Represents the view component of the model view controller.
@@ -8,29 +6,19 @@ import java.awt.BorderLayout;
 public class View extends JFrame {
 
     /**
-     * The action panel.
+     * The start screen.
      */
-    private PanelAction action;
+    private ViewStart start;
 
     /**
-     * The board panel.
+     * The help screen.
      */
-    private PanelBoard board;
+    private ViewHelp help;
 
     /**
-     * The hand panel.
+     * The play screen.
      */
-    private PanelHand hand;
-
-    /**
-     * The other/misc panel.
-     */
-    private PanelOther other;
-
-    /**
-     * The score panel.
-     */
-    private PanelScore score;
+    private ViewPlay play;
 
     /**
      * Create new view.
@@ -41,19 +29,9 @@ public class View extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-
-        action = new PanelAction();
-        board = new PanelBoard();
-        hand = new PanelHand();
-        other = new PanelOther();
-        score = new PanelScore();
-
-        setLayout(new BorderLayout());
-        add(action, BorderLayout.EAST);
-        add(board, BorderLayout.CENTER);
-        add(hand, BorderLayout.SOUTH);
-        add(other, BorderLayout.NORTH);
-        add(score, BorderLayout.WEST);
+        start = new ViewStart(this);
+        help = new ViewHelp(this);
+        play = new ViewPlay(this);
     }
 
     /**
@@ -62,7 +40,7 @@ public class View extends JFrame {
     public void reset() {
 
     }
-    
+
     /**
      * Quit the view. Just closed the window.
      */
@@ -72,69 +50,53 @@ public class View extends JFrame {
     }
 
     /**
-     * Set the board on click action listener.
-     * @param listener The action listener.
+     * Get the start screen.
+     * @return The start screen.
      */
-    public void setBoardOnClick(PanelBoardListener listener) {
-        board.setOnClick(listener);
+    public ViewStart getStartScreen() {
+        return start;
     }
 
     /**
-     * Set the hand on click action listener.
-     * @param listener The action listener.
+     * Set the screen to the play screen.
      */
-    public void setHandOnClick(PanelHandListener listener) {
-        hand.setOnClick(listener);
+    public void setStartScreen() {
+        getContentPane().removeAll();
+        repaint();
+        start.add();
     }
 
     /**
-     * Set action on pass button clicked action listener.
-     * @param listener The action listener.
+     * Get the help screen.
+     * @return The help screen.
      */
-    public void setActionOnPass(ActionListener listener) {
-        action.setOnPass(listener);
+    public ViewHelp getHelpScreen() {
+        return help;
     }
 
     /**
-     * Set action on quit button clicked action listener.
-     * @param listener The action listener.
+     * Set the screen to the help screen.
      */
-    public void setActionOnQuit(ActionListener listener) {
-        action.setOnQuit(listener);
+    public void setHelpScreen() {
+        getContentPane().removeAll();
+        repaint();
+        help.add();
     }
 
     /**
-     * Set action on finish button clicked action listener.
-     * @param listener The action listener.
+     * Get the play screen.
+     * @return The play screen.
      */
-    public void setActionOnFinish(ActionListener listener) {
-        action.setOnFinish(listener);
+    public ViewPlay getPlayScreen() {
+        return play;
     }
 
     /**
-     * Set action on reset button clicked action listener.
-     * @param listener The action listener.
+     * Set the screen to the play screen.
      */
-    public void setActionOnReset(ActionListener listener) {
-        action.setOnReset(listener);
-    }
-
-    /**
-     * Set board letter at specified position.
-     * @param x The x position.
-     * @param y The y position.
-     * @param letter The letter.
-     */
-    public void setBoardLetter(Integer x, Integer y, Character letter) {
-        board.setLetter(x, y, letter);
-    }
-
-    /**
-     * Set hand letter at specified index.
-     * @param n The index.
-     * @param letter The letter.
-     */
-    public void setHandLetter(Integer n, Character letter) {
-        hand.setLetter(n, letter);
+    public void setPlayScreen() {
+        getContentPane().removeAll();
+        repaint();
+        play.add();
     }
 }

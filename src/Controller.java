@@ -15,7 +15,24 @@ public class Controller {
      * @param view The view.
      */
     public Controller(Model model, View view) {
-        view.setBoardOnClick(new PanelBoardListener() {
+        ViewStart start = view.getStartScreen();
+        ViewPlay play = view.getPlayScreen();
+
+        start.setActionOnStart(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.setPlayScreen();
+            }
+        });
+
+        start.setActionOnHelp(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                model.setHelpScreen();
+            }
+        });
+
+        play.setBoardOnClick(new PlayPanelBoardListener() {
             @Override
             public void actionPerformed(Integer x, Integer y) {
                 model.setX(x);
@@ -24,7 +41,7 @@ public class Controller {
             }
         });
 
-        view.setHandOnClick(new PanelHandListener() {
+        play.setHandOnClick(new PlayPanelHandListener() {
             @Override
             public void actionPerformed(Integer n) {
                 model.setN(n);
@@ -32,28 +49,28 @@ public class Controller {
             }
         });
 
-        view.setActionOnPass(new ActionListener() {
+        play.setActionOnPass(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.pass();
             }
         });
 
-        view.setActionOnQuit(new ActionListener() {
+        play.setActionOnQuit(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.quit();
+                model.setStartScreen();
             }
         });
 
-        view.setActionOnFinish(new ActionListener() {
+        play.setActionOnFinish(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.finish();
             }
         });
 
-        view.setActionOnReset(new ActionListener() {
+        play.setActionOnReset(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.reset();
