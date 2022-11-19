@@ -91,7 +91,6 @@ public class State {
             player = 0;
             turn++;
         }
-
         chain.clear();
         oldBoard = newBoard.makeCopy();
     }
@@ -150,6 +149,14 @@ public class State {
      */
     public Player getPlayer() {
         return players.get(player);
+    }
+
+    /**
+     * Get the players.
+     * @return The players.
+     */
+    public ArrayList<Player> getPlayers() {
+        return players;
     }
 
     /**

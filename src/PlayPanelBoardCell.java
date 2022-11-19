@@ -1,27 +1,34 @@
 import javax.swing.JButton;
 import javax.swing.BorderFactory;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 /**
- * Represents a cell within the panel hand.
+ * Represents a cell within the board.
  * @author Jaan
  * @version 1.0
  */
-public class PanelHandCell extends JButton {
+public class PlayPanelBoardCell extends JButton {
 
     /**
-     * Create new panel hand cell.
-     * @param hand The hand.
-     * @param n The index.
+     * Create new panel board cell.
+     * @param board The board.
+     * @param x The x position.
+     * @param y The y position.
      */
-    public PanelHandCell(PanelHand hand, Integer n) {
+    public PlayPanelBoardCell(PlayPanelBoard board, Integer x, Integer y) {
         super(" ");
+        //Setting middle cell to light gray
+        if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
+            setBackground(Color.LIGHT_GRAY);
+        }
         setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                hand.onClick(n);
+                board.onClick(x, y);
             }
         });
     }

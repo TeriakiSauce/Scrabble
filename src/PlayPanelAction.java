@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
  * @author Jaan
  * @version 1.0
  */
-public class PanelAction extends JPanel {
+public class PlayPanelAction extends JPanel {
 
     /**
      * The pass button.
@@ -35,7 +35,7 @@ public class PanelAction extends JPanel {
     /**
      * Create new panel action.
      */
-    public PanelAction() {
+    public PlayPanelAction() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setBorder(BorderFactory.createEmptyBorder(
             Config.BOARD_BORDER_WIDTH,
@@ -44,10 +44,10 @@ public class PanelAction extends JPanel {
             Config.BOARD_BORDER_WIDTH
         ));
 
-        pass = new JButton(Config.PASS_BUTTON_TEXT);
-        quit = new JButton(Config.QUIT_BUTTON_TEXT);
-        finish = new JButton(Config.FINISH_BUTTON_TEXT);
-        reset = new JButton(Config.RESET_BUTTON_TEXT);
+        pass = new JButton(Config.PLAY_PASS_BUTTON_TEXT);
+        quit = new JButton(Config.PLAY_QUIT_BUTTON_TEXT);
+        finish = new JButton(Config.PLAY_FINISH_BUTTON_TEXT);
+        reset = new JButton(Config.PLAY_RESET_BUTTON_TEXT);
 
         add(pass);
         add(quit);
