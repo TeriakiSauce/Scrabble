@@ -11,6 +11,12 @@ import java.awt.event.ActionEvent;
  */
 public class PlayPanelBoardCell extends JButton {
 
+    private Integer x;
+
+    private Integer y;
+
+    private PlayPanelBoard board;
+
     /**
      * Create new panel board cell.
      * @param board The board.
@@ -19,10 +25,21 @@ public class PlayPanelBoardCell extends JButton {
      */
     public PlayPanelBoardCell(PlayPanelBoard board, Integer x, Integer y) {
         super(" ");
+        this.x = x;
+        this.y = y;
+        this.board = board;
+
+        setRedPremiumCells();
+        setMiddleCell();
+    }
+
+
+    public void setRedPremiumCells(){
         //Set Premium 3x Word Score cells to red
         int i = 0;
+        int j;
         while (i < 15){
-            int j = 0;
+            j = 0;
             while (j < 15) {
                 if (x == j && y == i) {
                     setBackground(Color.RED);
@@ -39,18 +56,22 @@ public class PlayPanelBoardCell extends JButton {
             }
             i+=7;
         }
-        //Setting middle cell to light gray
-        if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
-            setBackground(Color.LIGHT_GRAY);
-        }
-        setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+    }
 
-        addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                board.onClick(x, y);
+    public void setMiddleCell(){
+            //Setting middle cell to light gray
+            if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
+                setBackground(Color.LIGHT_GRAY);
             }
-        });
+            setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+
+            addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    board.onClick(x, y);
+                }
+            });
+
     }
 
     /**
