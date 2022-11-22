@@ -16,19 +16,61 @@ public class Controller {
      */
     public Controller(Model model, View view) {
         ViewStart start = view.getStartScreen();
+        ViewHelp help = view.getHelpScreen();
         ViewPlay play = view.getPlayScreen();
+        ViewSetup setup = view.getSetupScreen();
 
         start.setActionOnStart(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.setPlayScreen();
+                view.setSetupScreen();
+                setup.showNameField();
             }
         });
 
         start.setActionOnHelp(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.setHelpScreen();
+                view.setHelpScreen();
+            }
+        });
+
+        setup.setActionOnAdd(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                NameGen names = model.getNames();
+                String name = names.getName() + " (bot)";
+                setup.addBot(name);
+            }
+        });
+
+        setup.setActionOnRemove(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        setup.setActionOnStart(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {    
+                view.setPlayScreen();
+            }
+        });
+
+        setup.setActionOnBack(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (view.getConfirmation()) {
+                    view.setStartScreen();
+                }
+            }
+        });
+
+        help.setOnBack(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setStartScreen();
             }
         });
 
@@ -59,7 +101,9 @@ public class Controller {
         play.setActionOnQuit(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.setStartScreen();
+                if (view.getConfirmation()) {
+                    view.setStartScreen();
+                }
             }
         });
 
@@ -73,7 +117,9 @@ public class Controller {
         play.setActionOnReset(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.reset();
+                if (view.getConfirmation()) {
+                    model.reset();
+                }
             }
         });
     }

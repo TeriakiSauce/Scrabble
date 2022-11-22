@@ -18,6 +18,11 @@ public class Model {
     private View view;
 
     /**
+     * 
+     */
+    private NameGen names;
+
+    /**
      * Create a new model and attach a view and game.
      * @param view The view.
      * @param game The game.
@@ -25,6 +30,7 @@ public class Model {
     public Model(View view, Game game) {
         this.view = view;
         this.game = game;
+        names = new NameGen();
         view.setStartScreen();
         paint();
     }
@@ -126,31 +132,16 @@ public class Model {
             }
         }
 
+        // Ensure that the view is updated
         view.revalidate();
         view.repaint();
     }
 
     /**
      * 
+     * @return
      */
-    public void setStartScreen() {
-        view.setStartScreen();
-        paint();
-    }
-
-    /**
-     * 
-     */
-    public void setHelpScreen() {
-        view.setHelpScreen();
-        paint();
-    }
-
-    /**
-     * 
-     */
-    public void setPlayScreen() {
-        view.setPlayScreen();
-        paint();
+    public NameGen getNames() {
+        return names;
     }
 }

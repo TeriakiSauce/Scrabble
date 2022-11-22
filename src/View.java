@@ -1,4 +1,5 @@
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  * Represents the view component of the model view controller.
@@ -21,6 +22,11 @@ public class View extends JFrame {
     private ViewPlay play;
 
     /**
+     * 
+     */
+    private ViewSetup setup;
+
+    /**
      * Create new view.
      */
     public View() {
@@ -32,6 +38,7 @@ public class View extends JFrame {
         start = new ViewStart(this);
         help = new ViewHelp(this);
         play = new ViewPlay(this);
+        setup = new ViewSetup(this);
     }
 
     /**
@@ -62,8 +69,9 @@ public class View extends JFrame {
      */
     public void setStartScreen() {
         getContentPane().removeAll();
-        repaint();
         start.add();
+        revalidate();
+        repaint();
     }
 
     /**
@@ -79,8 +87,9 @@ public class View extends JFrame {
      */
     public void setHelpScreen() {
         getContentPane().removeAll();
-        repaint();
         help.add();
+        revalidate();
+        repaint();
     }
 
     /**
@@ -92,11 +101,39 @@ public class View extends JFrame {
     }
 
     /**
+     * Set the screen to the setup screen.
+     */
+    public void setSetupScreen() {
+        getContentPane().removeAll();
+        setup.add();
+        revalidate();
+        repaint();
+    }
+
+    /**
+     * Get the setup screen.
+     * @return The setup screen.
+     */
+    public ViewSetup getSetupScreen() {
+        return setup;
+    }
+
+    /**
      * Set the screen to the play screen.
      */
     public void setPlayScreen() {
         getContentPane().removeAll();
-        repaint();
         play.add();
+        revalidate();
+        repaint();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public boolean getConfirmation() {
+        return JOptionPane.showConfirmDialog(this, "Are you sure?",
+            null, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 }
