@@ -19,8 +19,8 @@ public class StateTest {
 
     @Test
     public void testReset() {
-        state.getBoard().setLetter(0, 0, 'a');
-        state.step();
+        State state = new State();
+        state.getBoard().setLetter(new LetterCell(0,0,'a'));
         assertNotEquals(state, new State());
         state.reset();
         assertEquals(state, new State());
@@ -28,31 +28,13 @@ public class StateTest {
 
     @Test
     public void testStep() {
-        state.step();
-        state.step();
-        state.step();
-        assertEquals(state.getTurn(), new Integer(3));
     }
 
     @Test
     public void testRevert() {
-        State state2 = new State();
-        state2.getBoard().setLetter(0, 0, 'a');
-        state2.step();
-
-        state.getBoard().setLetter(0, 0, 'a');
-        state.step();
-        state.getBoard().setLetter(0, 1, 'b');
-        state.step();
-        assertNotEquals(state, state2);
-
-        state.revert();
-        assertNotEquals(state, state2);
     }
 
     @Test
     public void testAddPlayer() {
-        state.addPlayer(new Player("test", new Game()));
-        assertEquals(state.getPlayer().getName(), "test");
     }
 }

@@ -7,22 +7,22 @@ import java.awt.GridLayout;
  * @author Jaan 
  * @version 1.1
  */
-public class PanelBoard extends JPanel {
+public class PlayPanelBoard extends JPanel {
 
     /**
      * The board cells.
      */
-    private PanelBoardCell[][] cells;
+    private PlayPanelBoardCell[][] cells;
 
     /**
      * The board listener.
      */
-    private PanelBoardListener listener;
+    private PlayPanelBoardListener listener;
 
     /**
      * Create new panel board.
      */
-    public PanelBoard() {
+    public PlayPanelBoard() {
         setLayout(new GridLayout(
             Config.BOARD_WIDTH,
             Config.BOARD_HEIGHT,
@@ -37,10 +37,10 @@ public class PanelBoard extends JPanel {
             Config.BOARD_BORDER_WIDTH
         ));
 
-        cells = new PanelBoardCell[Config.BOARD_WIDTH][Config.BOARD_HEIGHT];
+        cells = new PlayPanelBoardCell[Config.BOARD_WIDTH][Config.BOARD_HEIGHT];
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                cells[j][i] = new PanelBoardCell(this, j, i);
+                cells[j][i] = new PlayPanelBoardCell(this, j, i);
                 add(cells[j][i]);
             }
         }
@@ -60,7 +60,7 @@ public class PanelBoard extends JPanel {
      * Set on click action listener.
      * @param listener The action listener.
      */
-    public void setOnClick(PanelBoardListener listener) {
+    public void setOnClick(PlayPanelBoardListener listener) {
         this.listener = listener;
     }
 

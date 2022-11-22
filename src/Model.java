@@ -4,6 +4,7 @@
  * @author Jaan
  * @version 1.0
  */
+
 public class Model {
 
     /**
@@ -17,6 +18,11 @@ public class Model {
     private View view;
 
     /**
+     * 
+     */
+    private NameGen names;
+
+    /**
      * Create a new model and attach a view and game.
      * @param view The view.
      * @param game The game.
@@ -24,6 +30,8 @@ public class Model {
     public Model(View view, Game game) {
         this.view = view;
         this.game = game;
+        names = new NameGen();
+        view.setStartScreen();
         paint();
     }
 
@@ -105,19 +113,35 @@ public class Model {
      * view with the data.
      */
     public void paint() {
+        ViewPlay play = view.getPlayScreen();
         State state = game.getState();
         Board board = state.getBoard();
         Player player = state.getPlayer();
-        PlayerHand hand = player.getHand();
 
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                view.setBoardLetter(j, i, board.getLetter(j, i));
+                play.setBoardLetter(j, i, board.getLetter(j, i));
             }
         }
 
-        for (Integer i = 0; i < Config.HAND_SIZE; i++) {
-            view.setHandLetter(i, hand.getLetter(i));
+        // Only draw the current hand if a user is playing
+        if (player instanceof PlayerUser) {
+            PlayerHand hand = player.getHand();
+            for (Integer i = 0; i < Config.HAND_SIZE; i++) {
+                play.setHandLetter(i, hand.getLetter(i));
+            }
         }
+
+        // Ensure that the view is updated
+        view.revalidate();
+        view.repaint();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public NameGen getNames() {
+        return names;
     }
 }

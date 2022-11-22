@@ -41,11 +41,6 @@ public class WordReader {
     };
 
     /**
-     * Backup location of words.
-     */
-    public static final String BACKUP = "words.txt";
-
-    /**
      * Reader for reading words.
      */
     private BufferedReader reader;
@@ -68,7 +63,7 @@ public class WordReader {
             reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
         } catch (Exception outer) {
             try {
-                reader = new BufferedReader(new FileReader(BACKUP));
+                reader = new BufferedReader(new FileReader(Config.WORD_BANK_BACKUP_PATH));
             } catch (Exception inner) {
                 throw new WordReadingException();
             }

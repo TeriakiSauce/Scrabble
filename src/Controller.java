@@ -15,7 +15,66 @@ public class Controller {
      * @param view The view.
      */
     public Controller(Model model, View view) {
-        view.setBoardOnClick(new PanelBoardListener() {
+        ViewStart start = view.getStartScreen();
+        ViewHelp help = view.getHelpScreen();
+        ViewPlay play = view.getPlayScreen();
+        ViewSetup setup = view.getSetupScreen();
+
+        start.setActionOnStart(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setSetupScreen();
+                setup.showNameField();
+            }
+        });
+
+        start.setActionOnHelp(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setHelpScreen();
+            }
+        });
+
+        setup.setActionOnAdd(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                NameGen names = model.getNames();
+                String name = names.getName() + " (bot)";
+                setup.addBot(name);
+            }
+        });
+
+        setup.setActionOnRemove(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+        setup.setActionOnStart(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {    
+                view.setPlayScreen();
+            }
+        });
+
+        setup.setActionOnBack(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (view.getConfirmation()) {
+                    view.setStartScreen();
+                }
+            }
+        });
+
+        help.setOnBack(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setStartScreen();
+            }
+        });
+
+        play.setBoardOnClick(new PlayPanelBoardListener() {
             @Override
             public void actionPerformed(Integer x, Integer y) {
                 model.setX(x);
@@ -24,7 +83,7 @@ public class Controller {
             }
         });
 
-        view.setHandOnClick(new PanelHandListener() {
+        play.setHandOnClick(new PlayPanelHandListener() {
             @Override
             public void actionPerformed(Integer n) {
                 model.setN(n);
@@ -32,31 +91,35 @@ public class Controller {
             }
         });
 
-        view.setActionOnPass(new ActionListener() {
+        play.setActionOnPass(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.pass();
             }
         });
 
-        view.setActionOnQuit(new ActionListener() {
+        play.setActionOnQuit(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.quit();
+                if (view.getConfirmation()) {
+                    view.setStartScreen();
+                }
             }
         });
 
-        view.setActionOnFinish(new ActionListener() {
+        play.setActionOnFinish(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.finish();
             }
         });
 
-        view.setActionOnReset(new ActionListener() {
+        play.setActionOnReset(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.reset();
+                if (view.getConfirmation()) {
+                    model.reset();
+                }
             }
         });
     }

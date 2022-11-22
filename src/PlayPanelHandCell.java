@@ -8,14 +8,14 @@ import java.awt.event.ActionEvent;
  * @author Jaan
  * @version 1.0
  */
-public class PanelHandCell extends JButton {
+public class PlayPanelHandCell extends JButton {
 
     /**
      * Create new panel hand cell.
      * @param hand The hand.
      * @param n The index.
      */
-    public PanelHandCell(PanelHand hand, Integer n) {
+    public PlayPanelHandCell(PlayPanelHand hand, Integer n) {
         super(" ");
         setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
         addActionListener(new ActionListener() {

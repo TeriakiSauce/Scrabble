@@ -165,11 +165,12 @@ Reads from either or website or as a fallback, a local file to acquire a buffer 
 ![](UML.jpg)
 
 ### Known issues
-- The word bank allows words which are not valid
-- The word solving algorithm is imperfect, and can allow for the user to make illegal moves
+- The score and turn are not shown to the users
+- Ugly GUI
 
 ### Roadmap Ahead
-- Ensuring all tests pass
-- Added serialization/derialization
+- Displaying the issue when you get 0 points for a turn
+- Displaying the score and turn for players to see
+- Adding serialization/derialization
 - Adding player AI
 - Visual improvements
