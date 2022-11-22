@@ -28,6 +28,7 @@ public class PlayPanelBoardCell extends JButton {
         this.x = x;
         this.y = y;
         this.board = board;
+        setPinkPremiumCell();
         setRedPremiumCell();
         setMiddleCell();
         setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
@@ -39,28 +40,51 @@ public class PlayPanelBoardCell extends JButton {
         });
     }
 
-
-    public void PremiumCells(){
+    public void setRedPremiumCell() {
         //Set Premium 3x Word Score cell to red
         int i;
         int j = 0;
-        while (j < 15){
+        while (j < 15) {
             i = 0;
             while (i < 15) {
                 if (x == i && y == j) {
                     setBackground(Color.RED);
                 }
-                i+=7;
+                i += 7;
             }
             j+=7;
         }
     }
 
-    public void setRedPremiumCell() {
-        //Set Premium 3x Word Score cell to red
-        if (x == 0 && y == 0) {
-            setBackground(Color.RED);
+    public void setPinkPremiumCell() {
+        //Set Premium 2x Word Score cell to magenta
+        int i = 0;
+        int j = 15;
+        while (i < 15) {
+            j--;
+            if (x == i && y == i) {
+                setBackground(Color.MAGENTA);
+            }
+            if (x == i && y == j) {
+                setBackground(Color.MAGENTA);
+            }
+            i++;
         }
+        /*
+        int i = 0;
+        int j = 0;
+        while (j < 15) {
+            while (i < 15) {
+                if (x == i && y == j) {
+                    setBackground(Color.MAGENTA);
+                }
+                i++;
+            }
+            j++;
+        }
+
+         */
+
     }
 
     public void setMiddleCell(){
