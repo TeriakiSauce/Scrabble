@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 /**
  * Represents a cell within the board.
- * @author Jaan
+ * @author Jaan/Tarik
  * @version 1.0
  */
 public class PlayPanelBoardCell extends JButton {
@@ -19,6 +19,26 @@ public class PlayPanelBoardCell extends JButton {
      */
     public PlayPanelBoardCell(PlayPanelBoard board, Integer x, Integer y) {
         super(" ");
+        //Set Premium 3x Word Score cells to red
+        int i = 0;
+        while (i < 15){
+            int j = 0;
+            while (j < 15) {
+                if (x == j && y == i) {
+                    setBackground(Color.RED);
+                }
+                setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+
+                addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        board.onClick(x, y);
+                    }
+                });
+                j+=7;
+            }
+            i+=7;
+        }
         //Setting middle cell to light gray
         if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
             setBackground(Color.LIGHT_GRAY);
