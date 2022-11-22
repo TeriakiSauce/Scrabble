@@ -28,33 +28,38 @@ public class PlayPanelBoardCell extends JButton {
         this.x = x;
         this.y = y;
         this.board = board;
-
-        setRedPremiumCells();
+        setRedPremiumCell();
         setMiddleCell();
+        setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+        addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                board.onClick(x, y);
+            }
+        });
     }
 
 
-    public void setRedPremiumCells(){
-        //Set Premium 3x Word Score cells to red
-        int i = 0;
-        int j;
-        while (i < 15){
-            j = 0;
-            while (j < 15) {
-                if (x == j && y == i) {
+    public void PremiumCells(){
+        //Set Premium 3x Word Score cell to red
+        int i;
+        int j = 0;
+        while (j < 15){
+            i = 0;
+            while (i < 15) {
+                if (x == i && y == j) {
                     setBackground(Color.RED);
                 }
-                setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
-
-                addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        board.onClick(x, y);
-                    }
-                });
-                j+=7;
+                i+=7;
             }
-            i+=7;
+            j+=7;
+        }
+    }
+
+    public void setRedPremiumCell() {
+        //Set Premium 3x Word Score cell to red
+        if (x == 0 && y == 0) {
+            setBackground(Color.RED);
         }
     }
 
@@ -63,15 +68,6 @@ public class PlayPanelBoardCell extends JButton {
             if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
                 setBackground(Color.LIGHT_GRAY);
             }
-            setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
-
-            addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    board.onClick(x, y);
-                }
-            });
-
     }
 
     /**
