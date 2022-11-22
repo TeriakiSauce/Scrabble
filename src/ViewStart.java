@@ -30,7 +30,7 @@ public class ViewStart {
      */
     public void add() {
         view.setLayout(new BorderLayout());
-        view.add(action);
+        view.add(action, BorderLayout.CENTER);
     }
 
     /**

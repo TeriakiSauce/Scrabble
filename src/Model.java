@@ -125,6 +125,9 @@ public class Model {
                 play.setHandLetter(i, hand.getLetter(i));
             }
         }
+
+        view.revalidate();
+        view.repaint();
     }
 
     /**
