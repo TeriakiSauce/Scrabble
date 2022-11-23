@@ -108,10 +108,10 @@ public class PlayPanelBoardCell extends JButton {
     }
 
     public void setMiddleCell(){
-            //Setting middle cell to light gray
-            if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
-                setBackground(Color.LIGHT_GRAY);
-            }
+        //Setting middle cell to light gray
+        if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
+            setBackground(Color.LIGHT_GRAY);
+        }
     }
 
     /**
