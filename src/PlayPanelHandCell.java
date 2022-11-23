@@ -8,7 +8,7 @@ import java.awt.event.ActionEvent;
  * @author Jaan
  * @version 1.0
  */
-public class PlayPanelHandCell extends JButton {
+public abstract class PlayPanelHandCell extends JButton {
 
     /**
      * Create new panel hand cell.
