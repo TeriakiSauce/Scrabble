@@ -9,8 +9,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Scoring for words actually works and only allows legal placements" />
-    <list id="4e28f429-68d1-4f24-b682-37428a5838b9" name="Changes by rikbe" comment="" />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Implemented AI">
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$7.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$8.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/HelpPanelAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoard.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHand.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandCell$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandCell.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelOther.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelScore.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelScoreLabel.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayerBot$DIFFICULTY.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/StartPanelAction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewHelp.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewPlay.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewStart.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/test/Scrabble/PlayerBotTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/PlayerBotTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerBot.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerHand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordReader$WordReadingException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LetterCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LetterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterChain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerBot.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerHand.java" afterDir="false" />
+    </list>
+    <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
+    <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,6 +156,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.Game" />
+      <item itemvalue="JUnit.LetterChainTest" />
+      <item itemvalue="JUnit.WordBankTest" />
+      <item itemvalue="JUnit.ModelTest" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.ModelTest" />
@@ -310,5 +354,8 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Scrabble$GameTest_testSetY.ic" NAME="GameTest.testSetY Coverage Results" MODIFIED="1668397421008" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

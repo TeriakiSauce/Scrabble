@@ -7,17 +7,17 @@ public class LetterCell {
     /**
      * The letter.
      */
-    public Character letter;
+    private Character letter;
 
     /**
      * The letter x position.
      */
-    public Integer x;
+    private Integer x;
 
     /**
      * The letter y position.
      */
-    public Integer y;
+    private Integer y;
 
     /**
      * Create a new letter cell.
@@ -64,7 +64,11 @@ public class LetterCell {
      * @return the string
      */
     public String toString() {
-        return letter + "," + x + y;
+        return letter + "";
+    }
+
+    public boolean equals(LetterCell cell) {
+        return letter == cell.letter && x == cell.getX() && y == cell.getY();
     }
 
 }

@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * Represents the tiles for the player.
  * @author Andrew/Tarik
@@ -36,6 +38,14 @@ public class PlayerHand {
     }
 
     /**
+     * Get the letters in the hand
+     * @return The letters
+     */
+    public Character[] getLetters() {
+        return tiles;
+    }
+
+    /**
      * Check if there is a letter at the position.
      * @param n The index.
      * @return If the letter exists at the position.
@@ -51,6 +61,14 @@ public class PlayerHand {
     public void removeLetter(Integer n) {
         assert(tiles[n] != null);
         tiles[n] = null;
+    }
+
+    /**
+     * Remove the specified letter
+     * @param c the letter
+     */
+    public void removeLetter(Character c) {
+        Arrays.asList(tiles).remove(c);
     }
 
     /**
