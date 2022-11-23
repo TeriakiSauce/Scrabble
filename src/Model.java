@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Represents the model computing of the model view controller. Receives callbacks from the 
  * controller which it uses to update the view and the game.
@@ -17,6 +19,11 @@ public class Model {
     private View view;
 
     /**
+     * 
+     */
+    private NameGen names;
+
+    /**
      * Create a new model and attach a view and game.
      * @param view The view.
      * @param game The game.
@@ -24,6 +31,8 @@ public class Model {
     public Model(View view, Game game) {
         this.view = view;
         this.game = game;
+        names = new NameGen();
+        view.setStartScreen();
         paint();
     }
 
@@ -105,19 +114,76 @@ public class Model {
      * view with the data.
      */
     public void paint() {
+        ViewPlay play = view.getPlayScreen();
         State state = game.getState();
         Board board = state.getBoard();
         Player player = state.getPlayer();
-        PlayerHand hand = player.getHand();
+        ArrayList<Player> players = state.getPlayers();
 
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                view.setBoardLetter(j, i, board.getLetter(j, i));
+                play.setBoardLetter(j, i, board.getLetter(j, i));
             }
         }
 
-        for (Integer i = 0; i < Config.HAND_SIZE; i++) {
-            view.setHandLetter(i, hand.getLetter(i));
+        if (player != null) {
+            // Only draw the current hand if a user is playing
+            if (player instanceof PlayerUser) {
+                PlayerHand hand = player.getHand();
+                for (Integer i = 0; i < Config.HAND_SIZE; i++) {
+                    play.setHandLetter(i, hand.getLetter(i));
+                }
+            }
+        }
+
+        for (Integer i = 0; i < players.size(); i++) {
+            play.setScorePlayer(i, players.get(i));
+        }
+
+        play.setTurn(String.valueOf(state.getTurn()));
+
+        if (player != null) {
+            play.setPlayer(player);
+        } 
+
+        // Ensure that the view is updated
+        view.revalidate();
+        view.repaint();
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public NameGen getNames() {
+        return names;
+    }
+
+    /**
+     * 
+     * @param name
+     */
+    public void addUser(String name) {
+        game.getState().addPlayer(new PlayerUser(name, game));
+    }
+
+    /**
+     * 
+     * @param name
+     */
+    public void addBot(String name) {
+        game.getState().addPlayer(new PlayerBot(name, game));
+    }
+
+    /**
+     * 
+     */
+    public void fillAllHands() {
+        LetterBag bag = game.getState().getBag();
+        ArrayList<Player> players = game.getState().getPlayers();
+        for (Player player : players) {
+            bag.updateHand(player.getHand());
+            player.step();
         }
     }
 }

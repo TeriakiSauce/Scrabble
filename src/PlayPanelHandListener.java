@@ -1,7 +1,7 @@
 /**
  * On click action Listener for the panel hand.
  */
-public interface PanelHandListener {
+public interface PlayPanelHandListener {
     /**
      * Set the action performed.
      * @param n The index.

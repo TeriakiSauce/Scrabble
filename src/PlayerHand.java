@@ -50,7 +50,7 @@ public class PlayerHand {
      * @param n The index.
      * @return If the letter exists at the position.
      */
-    public Boolean hasLetter(Integer n) {
+    public Boolean  hasLetter(Integer n) {
         return tiles[n] != null;
     }
 
@@ -83,4 +83,17 @@ public class PlayerHand {
 
         return hand;
     }
+    /**
+     * Compares the hand with the specified hand.
+     * @param o the hand to be compared.
+     * @return true if hands are equal, false otherwise.
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        PlayerHand that = (PlayerHand) o;
+        return Arrays.equals(tiles, that.tiles);
+    }
+
 }

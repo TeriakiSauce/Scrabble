@@ -3,7 +3,7 @@
  * @author Jaan
  * @version 1.1
  */
-public interface PanelBoardListener {
+public interface PlayPanelBoardListener {
     /**
      * Set the action performed.
      * @param x The x position.

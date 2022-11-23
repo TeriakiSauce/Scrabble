@@ -9,42 +9,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Implemented AI">
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$7.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$8.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/HelpPanelAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoard.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHand.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandCell$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandCell.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandListener.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelOther.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelScore.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelScoreLabel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayerBot$DIFFICULTY.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/StartPanelAction.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewHelp.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewPlay.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewStart.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/out/test/Scrabble/PlayerBotTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/PlayerBotTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterCell.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerBot.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerHand.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordReader$WordReadingException.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/WordReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerBot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerHand.java" afterDir="false" />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
+      <change beforePath="$PROJECT_DIR$/src/PlayPanelBoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayPanelBoardCell.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
@@ -89,14 +55,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit4&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
-  }
-}</component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
+    <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/test" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -107,19 +81,6 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
-    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Game" />
-      <module name="Scrabble" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="src.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Scrabble" />
@@ -127,30 +88,45 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LetterChainTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <configuration name="All in Scrabble" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Scrabble" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LetterChainTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="GameTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Scrabble" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="ModelTest" />
+      <option name="MAIN_CLASS_NAME" value="PlayerTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WordBankTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <configuration name="StateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StateTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WordBankTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Scrabble" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="WordBankTest" />
-      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -158,15 +134,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.Game" />
-      <item itemvalue="JUnit.LetterChainTest" />
+      <item itemvalue="JUnit.PlayerTest" />
       <item itemvalue="JUnit.WordBankTest" />
-      <item itemvalue="JUnit.ModelTest" />
+      <item itemvalue="JUnit.StateTest" />
+      <item itemvalue="JUnit.GameTest" />
+      <item itemvalue="JUnit.All in Scrabble" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.ModelTest" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.All in Scrabble" />
+        <item itemvalue="JUnit.GameTest" />
+        <item itemvalue="JUnit.StateTest" />
+        <item itemvalue="JUnit.WordBankTest" />
+        <item itemvalue="JUnit.PlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -190,6 +170,8 @@
       <workItem from="1666661445401" duration="2978000" />
       <workItem from="1666672275550" duration="8165000" />
       <workItem from="1666705462549" duration="13033000" />
+      <workItem from="1668366516870" duration="4975000" />
+      <workItem from="1668371819882" duration="305000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>
@@ -282,35 +264,7 @@
       <option name="project" value="LOCAL" />
       <updated>1666718834131</updated>
     </task>
-    <task id="LOCAL-00014" summary="Added tests for the wordbank, also changed the word list to the official scrabble list">
-      <created>1668363840888</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1668363840888</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Scoring for words actually works and only allows legal placements">
-      <created>1668393960552</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1668393960552</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Scoring for words actually works and only allows legal placements">
-      <created>1668394278044</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1668394278044</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Scoring for words actually works and only allows legal placements">
-      <created>1668394360860</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1668394360860</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,9 +295,7 @@
     <MESSAGE value="Made loops for invalid inputs that loop until the input is valid" />
     <MESSAGE value="Refactored Game into Game2 class so that it is much more readable, some bugs still persist" />
     <MESSAGE value="Changed Hand to represent the letters with a Linked list instead of array list." />
-    <MESSAGE value="Added tests for the wordbank, also changed the word list to the official scrabble list" />
-    <MESSAGE value="Scoring for words actually works and only allows legal placements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scoring for words actually works and only allows legal placements" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed Hand to represent the letters with a Linked list instead of array list." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

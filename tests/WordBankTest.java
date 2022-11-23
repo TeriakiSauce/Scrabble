@@ -4,6 +4,11 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
+/**
+ * This class tests the WordBank class methods
+ * @author Jaan
+ * @version 1.0
+ */
 public class WordBankTest {
 
     private WordBank bank;
@@ -19,8 +24,8 @@ public class WordBankTest {
 
     @Test
     public void testIsWordValid() {
-        assertTrue(bank.isWordValid("god"));
-        assertFalse(bank.isWordValid("gama"));
+        assertTrue(bank.isWordValid("hi"));
+        assertFalse(bank.isWordValid("u"));
     }
 
     @Test
@@ -30,6 +35,6 @@ public class WordBankTest {
 
     @Test
     public void testGetWordValue() {
-        assertEquals(5,(int) bank.getWordValue("goat"));
+        assert(bank.getWordValue("hi") == 5);
     }
 }

@@ -1,5 +1,7 @@
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Represents the controller component of the model view controller. Sets callbacks in
@@ -15,7 +17,84 @@ public class Controller {
      * @param view The view.
      */
     public Controller(Model model, View view) {
-        view.setBoardOnClick(new PanelBoardListener() {
+        ViewStart start = view.getStartScreen();
+        ViewHelp help = view.getHelpScreen();
+        ViewPlay play = view.getPlayScreen();
+        ViewSetup setup = view.getSetupScreen();
+
+        start.setActionOnStart(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setSetupScreen();
+                if (!setup.showNameField()) {
+                    view.setStartScreen();
+                }
+            }
+        });
+
+        start.setActionOnHelp(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setHelpScreen();
+            }
+        });
+
+        setup.setActionOnAdd(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (setup.getNumBots() + 1 < Config.MAX_PLAYERS) {
+                    NameGen names = model.getNames();
+                    String name = names.getName() + " (bot)";
+                    setup.addBot(name);
+                } else {
+                    setup.showTooManyPlayersError();
+                }
+            }
+        });
+
+        setup.setActionOnRemove(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String botName = setup.getSelectedBot();
+                if (botName != null) {
+                    setup.clearSelectedBot();
+                    setup.removeSelectedBot(botName);
+                }
+            }
+        });
+
+        setup.setActionOnStart(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {    
+                view.setPlayScreen();
+                String bots[] = setup.getBotNames();
+                String playerName = setup.getPlayerName();
+                model.addUser(playerName);
+                for (int i = 0; i < bots.length; i++) {
+                    model.addBot(bots[i]);
+                }
+                model.fillAllHands();
+                model.paint();
+            }
+        });
+
+        setup.setActionOnBack(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (view.getConfirmation()) {
+                    view.setStartScreen();
+                }
+            }
+        });
+
+        help.setOnBack(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setStartScreen();
+            }
+        });
+
+        play.setBoardOnClick(new PlayPanelBoardListener() {
             @Override
             public void actionPerformed(Integer x, Integer y) {
                 model.setX(x);
@@ -24,7 +103,7 @@ public class Controller {
             }
         });
 
-        view.setHandOnClick(new PanelHandListener() {
+        play.setHandOnClick(new PlayPanelHandListener() {
             @Override
             public void actionPerformed(Integer n) {
                 model.setN(n);
@@ -32,31 +111,44 @@ public class Controller {
             }
         });
 
-        view.setActionOnPass(new ActionListener() {
+        play.setActionOnPass(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.pass();
             }
         });
 
-        view.setActionOnQuit(new ActionListener() {
+        play.setActionOnQuit(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.quit();
+                if (view.getConfirmation()) {
+                    view.setStartScreen();
+                }
             }
         });
 
-        view.setActionOnFinish(new ActionListener() {
+        play.setActionOnFinish(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 model.finish();
             }
         });
 
-        view.setActionOnReset(new ActionListener() {
+        play.setActionOnReset(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.reset();
+                if (view.getConfirmation()) {
+                    model.reset();
+                }
+            }
+        });
+
+        view.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                if (view.getConfirmation()) {
+                    view.quit();
+                }
             }
         });
     }
