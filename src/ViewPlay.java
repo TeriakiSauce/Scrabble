@@ -1,3 +1,5 @@
+import javax.swing.JPanel;
+import javax.swing.BorderFactory;
 import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
 

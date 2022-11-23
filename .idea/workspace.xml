@@ -10,9 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerHand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewPlay.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
@@ -27,6 +27,13 @@
         <option value="Class" />
         <option value="JUnit4 Test Class" />
       </list>
+    </option>
+  </component>
+  <component name="Git.Pull.Settings">
+    <option name="OPTIONS">
+      <set>
+        <option value="SQUASH" />
+      </set>
     </option>
   </component>
   <component name="Git.Rebase.Settings">
