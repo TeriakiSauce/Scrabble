@@ -1,9 +1,11 @@
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.JLabel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionListener;
@@ -13,6 +15,11 @@ import java.awt.BorderLayout;
  * 
  */
 public class ViewSetup extends JPanel {
+
+    /**
+     * 
+     */
+    private JLabel header;
 
     /**
      * 
@@ -77,6 +84,10 @@ public class ViewSetup extends JPanel {
         back = new JButton(Config.SETUP_BACK_TEXT);
         listModel = new DefaultListModel<>();
         list = new JList<>(listModel);
+        header = new JLabel(Config.SETUP_BOT_HEADER_TEXT);
+        header.setHorizontalAlignment(SwingConstants.CENTER);
+        header.setVerticalAlignment(SwingConstants.CENTER);
+        header.setBackground(Config.BG_COLOR);
 
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -99,6 +110,7 @@ public class ViewSetup extends JPanel {
         view.setLayout(new BorderLayout());
         view.add(actions, BorderLayout.EAST);
         view.add(list, BorderLayout.CENTER);
+        view.add(header, BorderLayout.NORTH);
     }
 
     /**

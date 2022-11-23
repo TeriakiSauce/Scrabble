@@ -2,6 +2,7 @@ import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 
 public class ViewPlay {
 
@@ -150,5 +151,12 @@ public class ViewPlay {
      */
     public void setPlayer(Player player) {
         other.setPlayer(player);
+    }
+
+    /**
+     * 
+     */
+    public void showBadMove() {
+        JOptionPane.showMessageDialog(board, "Invalid Move!");
     }
 }

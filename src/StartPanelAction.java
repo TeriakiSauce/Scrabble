@@ -1,8 +1,8 @@
 import javax.swing.JPanel;
-import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import java.awt.Component;
 import java.awt.event.ActionListener;
 
 /**
@@ -35,10 +35,15 @@ public class StartPanelAction extends JPanel {
         start = new JButton(Config.START_START_BUTTON_TEXT);
         help = new JButton(Config.START_HELP_BUTTON_TEXT);
 
-        start.setHorizontalAlignment(JLabel.CENTER);
-        start.setVerticalAlignment(JLabel.CENTER);
-        help.setHorizontalAlignment(JLabel.CENTER);
-        help.setVerticalAlignment(JLabel.CENTER);
+        start.setAlignmentX(Component.CENTER_ALIGNMENT);
+        start.setAlignmentY(Component.CENTER_ALIGNMENT);
+        help.setAlignmentX(Component.CENTER_ALIGNMENT);
+        help.setAlignmentY(Component.CENTER_ALIGNMENT);
+
+        // start.setForeground(Config.FG_COLOR);
+        // start.setBackground(Config.BG_COLOR);
+        // help.setForeground(Config.FG_COLOR);
+        // help.setBackground(Config.BG_COLOR);
 
         add(start);
         add(help);

@@ -14,13 +14,14 @@ public class Config {
     public static final String HELP_TEXT_PATH = "res/help.txt";
 
     public static final String FRAME_TITLE = "Scrabble";
-    public static final Integer WINDOW_WIDTH = 640;
+    public static final Integer WINDOW_WIDTH = 700;
     public static final Integer WINDOW_HEIGHT = 640;
 
     public static final String SETUP_START_TEXT = "Start Game";
     public static final String SETUP_ADD_TEXT = "Add Bot";
     public static final String SETUP_REMOVE_TEXT = "Remove Bot";
     public static final String SETUP_BACK_TEXT = "Back";
+    public static final String SETUP_BOT_HEADER_TEXT = "Bots";
     public static final String HELP_BACK_BUTTON_TEXT = "Back";
     public static final String PLAY_PASS_BUTTON_TEXT = "Pass Turn";
     public static final String PLAY_QUIT_BUTTON_TEXT = "Quit";
@@ -39,6 +40,8 @@ public class Config {
 
     public static final Color BORDER_COLOR = Color.BLACK;
     public static final Integer BOARD_BORDER_WIDTH = 1;
+    public static final Color FG_COLOR = Color.BLACK;
+    public static final Color BG_COLOR = Color.WHITE;
 
     public static final Integer A_VALUE = 1;
     public static final Integer B_VALUE = 1;

@@ -44,8 +44,7 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (setup.getNumBots() + 1 < Config.MAX_PLAYERS) {
                     NameGen names = model.getNames();
-                    String name = names.getName() + " (bot)";
-                    setup.addBot(name);
+                    setup.addBot(names.getName());
                 } else {
                     setup.showTooManyPlayersError();
                 }
@@ -114,7 +113,9 @@ public class Controller {
         play.setActionOnPass(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.pass();
+                if (view.getConfirmation()) {
+                    model.pass();
+                }
             }
         });
 
@@ -130,7 +131,9 @@ public class Controller {
         play.setActionOnFinish(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                model.finish();
+                if (!model.finish()) {
+                    play.showBadMove();
+                }
             }
         });
 

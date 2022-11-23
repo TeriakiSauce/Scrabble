@@ -72,9 +72,10 @@ public class Model {
     /**
      * Call the game finish action and repaint.
      */
-    public void finish() {
-        game.finish();
+    public boolean finish() {
+        boolean tmp = game.finish();
         paint();
+        return tmp;
     }
 
     /**

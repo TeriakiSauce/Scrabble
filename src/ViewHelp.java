@@ -1,5 +1,5 @@
 import javax.swing.JPanel;
-import javax.swing.JScrollBar;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
@@ -25,6 +25,11 @@ public class ViewHelp extends JPanel {
     /**
      * 
      */
+    private JScrollPane pane;
+
+    /**
+     * 
+     */
     private View view;
 
     /**
@@ -34,9 +39,9 @@ public class ViewHelp extends JPanel {
         this.view = view;
         back = new JButton();
         text = new JTextArea();
+        pane = new JScrollPane(text);
         back.setText(Config.HELP_BACK_BUTTON_TEXT);
         text.setEditable(false);
-        text.add(new JScrollBar());
 
         try {
             Path path = Path.of(Config.HELP_TEXT_PATH);
@@ -53,7 +58,7 @@ public class ViewHelp extends JPanel {
     public void add() {
         view.setLayout(new BorderLayout());
         view.add(back, BorderLayout.NORTH);
-        view.add(text, BorderLayout.CENTER);
+        view.add(pane, BorderLayout.CENTER);
     }
 
     /**

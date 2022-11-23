@@ -11,10 +11,19 @@ import java.awt.event.ActionEvent;
  */
 public class PlayPanelBoardCell extends JButton {
 
+    /**
+     * 
+     */
     private Integer x;
 
+    /**
+     * 
+     */
     private Integer y;
 
+    /**
+     * 
+     */
     private PlayPanelBoard board;
 
     /**
