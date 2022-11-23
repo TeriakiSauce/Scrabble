@@ -18,12 +18,14 @@ public class PlayPanelHandCell extends JButton {
     public PlayPanelHandCell(PlayPanelHand hand, Integer n) {
         super(" ");
         setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+        /*
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 hand.onClick(n);
             }
         });
+         */
     }
 
     /**
