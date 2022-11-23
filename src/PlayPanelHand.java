@@ -39,7 +39,12 @@ public class PlayPanelHand extends JPanel {
 
         cells = new PlayPanelHandCell[Config.HAND_SIZE];
         for (Integer i = 0; i < Config.HAND_SIZE; i++) {
-            cells[i] = new PlayPanelHandCell(this, i);
+            if (i  == Config.HAND_SIZE-1){
+                cells[i] = new PlayPanelHandBlankCell(this, i);
+            }
+            else {
+                cells[i] = new PlayPanelHandLetterCell(this, i);
+            }
             add(cells[i]);
         }
     }

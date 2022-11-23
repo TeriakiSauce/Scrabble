@@ -12,17 +12,17 @@ import java.awt.event.ActionEvent;
 public class PlayPanelBoardCell extends JButton {
 
     /**
-     * 
+     * The x coordinate of the cell.
      */
     private Integer x;
 
     /**
-     * 
+     * The y coordinate of the cell.
      */
     private Integer y;
 
     /**
-     * 
+     * The Board to be passed.
      */
     private PlayPanelBoard board;
 
@@ -51,6 +51,9 @@ public class PlayPanelBoardCell extends JButton {
         });
     }
 
+    /**
+     * Sets red cells
+     */
     public void setRedPremiumCell() {
         //Set Premium 3x Word Score cell to Red
         int i;
@@ -67,6 +70,9 @@ public class PlayPanelBoardCell extends JButton {
         }
     }
 
+    /**
+     * Sets pink cells
+     */
     public void setPinkPremiumCell() {
         //Set Premium 2x Word Score cell to Magenta
         int i = 0;
@@ -82,7 +88,9 @@ public class PlayPanelBoardCell extends JButton {
             i++;
         }
     }
-
+    /**
+     * Sets cyan cells
+     */
     public void setCyanPremiumCell() {
         //Set Premium 2x Letter Score cell to Cyan
         if (y == 0 || y == 7 || y == 14) {
@@ -103,6 +111,10 @@ public class PlayPanelBoardCell extends JButton {
             }
         }
     }
+
+    /**
+     * Sets blue cells
+     */
     public void setBluePremiumCell() {
         //Set Premium 2x Letter Score cell to Blue
         if (y == 1 || y == 13) {
@@ -116,6 +128,9 @@ public class PlayPanelBoardCell extends JButton {
         }
     }
 
+    /**
+     * Sets middle cell
+     */
     public void setMiddleCell(){
         //Setting middle cell to light gray
         if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
