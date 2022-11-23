@@ -25,7 +25,12 @@ public class PlayerHand {
      * @param letter THe letter.
      */
     public void setLetter(Integer n, Character letter) {
-        tiles[n] = letter;
+        if (n==(Config.HAND_SIZE-1)){
+            tiles[n] = ' '; //blank tile
+        }
+        else {
+            tiles[n] = letter;
+        }
     }
 
     /**

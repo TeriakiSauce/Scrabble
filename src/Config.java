@@ -34,7 +34,7 @@ public class Config {
 
     public static final Integer BOARD_WIDTH = 15;
     public static final Integer BOARD_HEIGHT = 15;
-    public static final Integer HAND_SIZE = 7;
+    public static final Integer HAND_SIZE = 8;
     public static final Integer MAX_PLAYERS = 16;
 
     public static final Color BORDER_COLOR = Color.BLACK;
