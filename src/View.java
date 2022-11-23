@@ -33,7 +33,7 @@ public class View extends JFrame {
         setTitle(Config.FRAME_TITLE);
         setSize(Config.WINDOW_WIDTH, Config.WINDOW_HEIGHT);
         setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        // setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
         start = new ViewStart(this);
         help = new ViewHelp(this);
