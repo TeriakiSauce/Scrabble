@@ -27,14 +27,8 @@ public class StateTest {
     }
 
     @Test
-    public void testStep() {
-    }
-
-    @Test
-    public void testRevert() {
-    }
-
-    @Test
     public void testAddPlayer() {
+        state.addPlayer(new Player("sample", new Game()));
+        assertEquals(state.getPlayer().getName(), "sample");
     }
 }

@@ -9,21 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
-      <change afterPath="$PROJECT_DIR$/tests/PlayerBotTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandBlankCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandBlankCell$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandBlankCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandBlankCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandLetterCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandLetterCell$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandLetterCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandLetterCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LetterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayerBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerBot.java" afterDir="false" />
-    </list>
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice" />
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
     <option name="SHOW_DIALOG" value="false" />
@@ -67,13 +53,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit4",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4": "",
-    "node.js.selected.package.tslint": "(autodetect)"
-  }
-}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -83,7 +62,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Scrabble" />

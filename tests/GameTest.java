@@ -15,22 +15,12 @@ public class GameTest {
         game = new Game();
     }
 
-    @Test //To be tested better
+    @Test
     public void testReset() {
         game.reset();
-        assertEquals(game.getState().getPlayer().getName(), "Player 1");
-    }
-
-    @Test //To be tested better
-    public void testFinish() {
-        game.finish();
-        assertEquals(game.getState().getTurn(), new Integer(0));
-    }
-
-    @Test //To be tested better
-    public void testPass() {
-        game.pass();
-        assertEquals(game.getState().getTurn(), new Integer(1));
+        assertNull(game.getX());
+        assertNull(game.getY());
+        assertNull(game.getN());
     }
 
     @Test
