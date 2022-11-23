@@ -148,7 +148,11 @@ public class State {
      * @return The player.
      */
     public Player getPlayer() {
-        return players.get(player);
+        if (!players.isEmpty()) {
+            return players.get(player);
+        } else {
+            return null;
+        }
     }
 
     /**

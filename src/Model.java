@@ -1,10 +1,11 @@
+import java.util.ArrayList;
+
 /**
  * Represents the model computing of the model view controller. Receives callbacks from the 
  * controller which it uses to update the view and the game.
  * @author Jaan
  * @version 1.0
  */
-
 public class Model {
 
     /**
@@ -117,6 +118,7 @@ public class Model {
         State state = game.getState();
         Board board = state.getBoard();
         Player player = state.getPlayer();
+        ArrayList<Player> players = state.getPlayers();
 
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
@@ -124,13 +126,25 @@ public class Model {
             }
         }
 
-        // Only draw the current hand if a user is playing
-        if (player instanceof PlayerUser) {
-            PlayerHand hand = player.getHand();
-            for (Integer i = 0; i < Config.HAND_SIZE; i++) {
-                play.setHandLetter(i, hand.getLetter(i));
+        if (player != null) {
+            // Only draw the current hand if a user is playing
+            if (player instanceof PlayerUser) {
+                PlayerHand hand = player.getHand();
+                for (Integer i = 0; i < Config.HAND_SIZE; i++) {
+                    play.setHandLetter(i, hand.getLetter(i));
+                }
             }
         }
+
+        for (Integer i = 0; i < players.size(); i++) {
+            play.setScorePlayer(i, players.get(i));
+        }
+
+        play.setTurn(String.valueOf(state.getTurn()));
+
+        if (player != null) {
+            play.setPlayer(player);
+        } 
 
         // Ensure that the view is updated
         view.revalidate();
@@ -143,5 +157,33 @@ public class Model {
      */
     public NameGen getNames() {
         return names;
+    }
+
+    /**
+     * 
+     * @param name
+     */
+    public void addUser(String name) {
+        game.getState().addPlayer(new PlayerUser(name, game));
+    }
+
+    /**
+     * 
+     * @param name
+     */
+    public void addBot(String name) {
+        game.getState().addPlayer(new PlayerBot(name, game));
+    }
+
+    /**
+     * 
+     */
+    public void fillAllHands() {
+        LetterBag bag = game.getState().getBag();
+        ArrayList<Player> players = game.getState().getPlayers();
+        for (Player player : players) {
+            bag.updateHand(player.getHand());
+            player.step();
+        }
     }
 }
