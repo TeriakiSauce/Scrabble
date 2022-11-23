@@ -82,54 +82,54 @@ Represents the model component of the MVC. Attaches itself to a view, and upon b
 
 Loads various names from a file, shuffles the words using collections and a linked list, and provides a method for taking a name from the front. Once a name is taken, the same name is added back to the end of the linked list so that it may be recycled.
 
-##### [PanelAction](src/PanelAction.java)
+##### [PanelAction](src/PlayPanelAction.java)
 
 Represents the action panel of the view. Provides several buttons for passing, quitting, resetting, and finishing along with
-the associated callbacks.
+the associated callbacks. Allows for the registering of callbacks in the form of action listeners to specific buttons.
 
-##### [PanelBoard](src/PanelBoard.java)
+##### [PanelBoard](src/PlayPanelBoard.java)
 
 Represents the board panel of the view. Contains many buttons/cells which can be used to specify which cell was clicked, and
-provides a callback for when a specific cell is clicked.
+provides a callback for when a specific cell is clicked. Since cells are implemented as buttons, they can instruct the class the coordinates of which cell was clicked, allowing for the information to be forwarded to the controller.
 
-##### [PanelBoardCell](src/PanelBoardCell.java)
+##### [PanelBoardCell](src/PlayPanelBoardCell.java)
 
-Represents a button/cell within the board panel. Provides a method for setting the letter in the cell and notifies the board panel when it is pressed.
+Represents a button/cell within the board panel. Provides a method for setting the letter in the cell and notifies the board panel when it is pressed. Each cell inherits from a JButton, which automatically sets the action listener to instruct the board about the coordinates of the cell that was pressed.
 
-##### [PanelBoardListener](src/PanelBoardListener.java)
+##### [PanelBoardListener](src/PlayPanelBoardListener.java)
 
 Similar to a common action listener, however it specializes the callback method with position parameters.
 
-##### [PanelHand](src/PanelHand.java)
+##### [PanelHand](src/PlayPanelHand.java)
 
 Represents the hand panel of the view. Contains several buttons/cells which can be used to specify which cell was clicked, and
-provides a callback for when a specific cell is clicked.
+provides a callback for when a specific cell is clicked. Since cells are implemented as buttons, they can instruct the class the index of which cell was clicked, allowing for the information to be forward to the controller.
 
-##### [PanelHandCell](src/PanelHandCell.java)
+##### [PanelHandCell](src/PlayPanelHandCell.java)
 
 Represents a button/cell within the hand panel. Provides a method for setting the letter in the cell and notifies the hand panel
-when it is pressed.
+when it is pressed. Each cell inherits from a Jbutton, which automatically sets the action listener to instruct the hand about the index of the cell that was pressed.
 
-##### [PanelHandListener](src/PanelHandListener.java)
+##### [PanelHandListener](src/PlayPanelHandListener.java)
 
 Similar to a common action listener, however it specializes the callback method with an index parameter.
 
-##### [PanelOther](src/PanelOther.java)
+##### [PanelOther](src/PlayPanelOther.java)
 
-Represents the other/misc panel of the view. Provides various information about the game such as the current turn.
+Represents the other/misc panel of the view. Provides information such as the current turn, along with the current player within the current turn. Also provides methods for updating the current turn and the current player.
 
-##### [PanelScore](src/PanelScore.java)
+##### [PanelScore](src/PlayPanelScore.java)
 
-Represents the score panel of the view. Acts as a scoreboard that contains the players and the associated scores.
+Represents the score panel of the view. Displays each of the players in the game along with their respective scores. Provides a method for updating the score and the player name at a certain index in the scoreboard. The scores are all implemented as JLabels for simplicity.
 
 ##### [Player](src/Player.java)
 
 Represents a player within the game. Both the user player and the bot player inherit from it to provide a polymorphic 
-player type that can make moves.
+player type that can make moves. The player contains two hands being the previous hand and the current hand. This allows the game to reset the player back to the previous hand in the case of bad player input.
 
 ##### [PlayerBot](src/PlayerBot.java)
 
-Represents a computer player in the game. Provides an automatic method for placing letters on the board to make a word.
+Represents a computer player in the game. Provides an automatic method for placing letters on the board to make a word. The words are generated and decided on by generating all of the possible words that can be placed on the board with the current hand, and then picking the word that would give the player the highest number of points.
 
 ##### [PlayerHand](src/PlayerHand.java)
 
@@ -150,7 +150,7 @@ needs to be saved and loaded.
 ##### [View](src/View.java)
 
 Represents the view component of the MVC. Contains all the previously listed panels and provides a wrapper to forward calls
-into the panels. Also creates and manages the frame.
+into the panels. Also creates and manages the frame. The view can be in several states such as the start screen, the play screen, the setup screen, and the help screen.
 
 ##### [WordBank](src/WordBank.java)
 
