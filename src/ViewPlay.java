@@ -124,4 +124,29 @@ public class ViewPlay {
     public void setHandLetter(Integer n, Character letter) {
         hand.setLetter(n, letter);
     }
+
+    /**
+     * 
+     * @param n
+     * @param player
+     */
+    public void setScorePlayer(int n, Player player) {
+        score.setPlayer(n, player);
+    }
+
+    /**
+     * 
+     * @param turn
+     */
+    public void setTurn(String turn) {
+        other.setTurn(turn);
+    }
+
+    /**
+     * 
+     * @param player
+     */
+    public void setPlayer(Player player) {
+        other.setPlayer(player);
+    }
 }

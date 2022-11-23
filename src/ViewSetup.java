@@ -4,9 +4,10 @@ import javax.swing.JOptionPane;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
-import java.util.ArrayList;
 
 /**
  * 
@@ -36,11 +37,6 @@ public class ViewSetup extends JPanel {
     /**
      * 
      */
-    private ArrayList<Player> bots;
-
-    /**
-     * 
-     */
     private String playerName;
 
     /**
@@ -65,6 +61,11 @@ public class ViewSetup extends JPanel {
 
     /**
      * 
+     */
+    private String selectedBot;
+
+    /**
+     * 
      * @param view
      */
     public ViewSetup(View view) {
@@ -76,6 +77,13 @@ public class ViewSetup extends JPanel {
         back = new JButton(Config.SETUP_BACK_TEXT);
         listModel = new DefaultListModel<>();
         list = new JList<>(listModel);
+
+        list.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                selectedBot = list.getSelectedValue();
+            }
+        });
 
         actions.setLayout(new BoxLayout(actions, BoxLayout.Y_AXIS));
         actions.add(start);
@@ -136,16 +144,31 @@ public class ViewSetup extends JPanel {
     /**
      * 
      */
-    public void showNameField() {
-        playerName = JOptionPane.showInputDialog(this, "Enter your player name");
+    public boolean showNameField() {
+        while (true) {
+            playerName = JOptionPane.showInputDialog(this, "Enter your player name");
+            if (playerName == null) {
+                return false;
+            } else if (playerName.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Invalid name!");
+            } else {
+                return true;
+            }
+        }
     }
 
     /**
      * 
      * @return
      */
-    public ArrayList<Player> getBots() {
-        return bots;
+    public String[] getBotNames() {
+        Object objects[] = listModel.toArray();
+        String names[] = new String[objects.length];
+        for (int i = 0; i < objects.length; i++) {
+            names[i] = (String) objects[i];
+        }
+
+        return names;
     }
 
     /**
@@ -154,5 +177,53 @@ public class ViewSetup extends JPanel {
      */
     public String getPlayerName() {
         return playerName;
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public Integer getNumBots() {
+        return listModel.size();
+    }
+
+    /**
+     * 
+     */
+    public void showTooManyPlayersError() {
+        JOptionPane.showMessageDialog(this, "Maximum of " + Config.MAX_PLAYERS
+            + " players are supported!");
+    }
+
+    /**
+     * 
+     * @return
+     */
+    public String getSelectedBot() {
+        return selectedBot;
+    }
+
+    /**
+     * 
+     */
+    public void clearSelectedBot() {
+        selectedBot = null;
+    }
+
+    /**
+     * 
+     * @param bot
+     */
+    public void removeSelectedBot(String bot) {
+        int index = 0;
+        Object objects[] = listModel.toArray();
+        for (int i = 0; i < objects.length; i++) {
+            if ((String) objects[i] == bot) {
+                index = i;
+                break;
+            }
+        }
+
+        listModel.removeElementAt(index);
     }
 }

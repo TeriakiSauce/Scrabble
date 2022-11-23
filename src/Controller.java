@@ -24,7 +24,9 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 view.setSetupScreen();
-                setup.showNameField();
+                if (!setup.showNameField()) {
+                    view.setStartScreen();
+                }
             }
         });
 
@@ -38,16 +40,24 @@ public class Controller {
         setup.setActionOnAdd(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                NameGen names = model.getNames();
-                String name = names.getName() + " (bot)";
-                setup.addBot(name);
+                if (setup.getNumBots() + 1 < Config.MAX_PLAYERS) {
+                    NameGen names = model.getNames();
+                    String name = names.getName() + " (bot)";
+                    setup.addBot(name);
+                } else {
+                    setup.showTooManyPlayersError();
+                }
             }
         });
 
         setup.setActionOnRemove(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                String botName = setup.getSelectedBot();
+                if (botName != null) {
+                    setup.clearSelectedBot();
+                    setup.removeSelectedBot(botName);
+                }
             }
         });
 
@@ -55,6 +65,14 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {    
                 view.setPlayScreen();
+                String bots[] = setup.getBotNames();
+                String playerName = setup.getPlayerName();
+                model.addUser(playerName);
+                for (int i = 0; i < bots.length; i++) {
+                    model.addBot(bots[i]);
+                }
+                model.fillAllHands();
+                model.paint();
             }
         });
 

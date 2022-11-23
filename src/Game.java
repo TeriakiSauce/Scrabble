@@ -39,11 +39,6 @@ public class Game {
      */
     public void reset() {
         state.reset();
-
-        PlayerUser player = new PlayerUser("Player 1", this);
-        state.addPlayer(player);
-        state.getBag().updateHand(player.getHand());
-        player.step();
     }
 
     /**
@@ -86,7 +81,6 @@ public class Game {
         state.getPlayer().addScore(score);
         state.getPlayer().step();
         state.step();
-        System.out.println("Points earned: " + score);
     }
 
     /**
