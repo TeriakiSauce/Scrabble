@@ -14,7 +14,7 @@ public class Config {
     public static final String HELP_TEXT_PATH = "res/help.txt";
 
     public static final String FRAME_TITLE = "Scrabble";
-    public static final Integer WINDOW_WIDTH = 700;
+    public static final Integer WINDOW_WIDTH = 720;
     public static final Integer WINDOW_HEIGHT = 640;
 
     public static final String SETUP_START_TEXT = "Start Game";

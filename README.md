@@ -16,59 +16,59 @@ Exchanging allows the player to exchange one or more tiles with the bag, for an 
 
 #### Playing
 
-Playing is how a player scores points and win. To score points, the player must make a word on the  board. To make a word, the player must place one to seven letters to make a word. The player may not place any letters if they do not contribute to making a word in the same turn. For the first turn of the game, the player must play at least two letters to form a valid word. After, the player may place a single letter as long as it forms a valid word.
+Playing is how a player scores points and win. To score points, the player must make a word on the board. To make a word, the player must place one to seven letters to make a word. The player may not place any letters if they do not contribute to making a word in the same turn. For the first turn of the game, the player must play at least two letters to form a valid word. After, the player may place a single letter as long as it forms a valid word.
 
 Once the player has played a valid word, they may retrieve the number of letters used from the bag, such that they have seven letters. If the bag does not have enough letters such that the player cannot obtain seven letters on their rack, they may empty the bag and take the remaining letters. Create words out of the letters given to you in your hand. Words have different values depending on the number and type of letters in them.
 
 ### How To Play
 
-Start the application by executing the Jar file, or by using an IDE to build and execute the source code directly. When the window
-is created, you are free to play. There are several buttons on the right. The pass button allows the user to pass a turn. The quit
-button allows the user to quit the application. The finish button allows the user to finish there turn and to check if the word
-placed was valid. Finally, the reset button allows the user 
+Start the application by executing the Jar file, or by using an IDE to build and execute the source code directly. When the application starts, you will be greeted by a start screen. To read about how to play the game, click the help button on the start screen, where you will be presented with detailed information about how to configure a game, what the various buttons are for, and more.
 
 ### Implementation
 
+#### Structure
+
+The basis of the design follows MVC, where we have a view that contains the window and GUI elements, the model that contains
+the state of the program, and the controller that manipulates the model. In the view, there are many classes that implement various components of the GUI. These components include the start, setup, play, and help screen. Within each of these components, there are several smaller components. For example, the play screen contains a board component, and hand component, etc.
+
+The two types of supported players are users and bots. Users are players that are controlled by a user, whereas bots are players that are controlled automatically in the code. Each player inherits from a generic player and overrides several methods that allow the player to make a move. This way, we can call a specific method and the correct implementation of the method will be called automatically.
+
+#### Classes
+
 ##### [Board](src/Board.java)
 
-Represents all of the cells on the board. By storing an old one and a new one, we can reset to the old one whenever the player wishes
-to undo, or makes an invalid set of moves. The board is integral to representing the current state of the game. To represent the board
-we decided to use a simple 2D array, so that we can look up specific elements using basic x and y coordinates. 
+Represents all of the cells on the board. By storing an old one and a new one, we can reset to the old one whenever the player wishes to undo, or makes an invalid set of moves. The board is integral to representing the current state of the game. To represent the board we decided to use a simple 2D array, so that we can look up specific elements using basic x and y coordinates. 
 
 ##### [BoardCell](src/BoardCell.java)
 
-Represents a cell within the board. A cell consists of a letter, along with a few getter and setter methods for setting the letter.
+Represents a cell within the board. A cell consists of a letter, along with a few getter and setter methods for setting the letter. In addition to the letter, the cell also can contain a specific modifier, which can be used for increasing the value of the letter or word if the letter is placed in the cell.
 
 ##### [Config](src/Config.java)
 
-Represents the configuration for the game. Provides several global variables for manipulating the style of the game, the values of
-the letters, the number of letters, the website to fetch the words from, and more.
+Represents the configuration for the game. Provides several global variables for manipulating the style of the game, the values of the letters, the number of letters, the website to fetch the words from, and more. Eventually, this will provide an easy way to allow for the configuration of variables persisted in a file.
 
 ##### [Controller](src/Controller.java)
 
 Represents the controller component of the MVC. Attaches itself to a view and model and sets callbacks for the view which notify
-the model of any changes.
+the model of any changes. The controller does not hold any state itself, but instead responds to events triggered by the view in the form of callbacks and manipulates the model.
 
 ##### [Game](src/Game.java)
 
 Ties together multiple components of the application. Uses the board, the letter chain, the word bank, the players, and more to
-provide an interface for placing, removing, passing, quitting, resetting, and more for the application.
+provide an interface for placing, removing, passing, quitting, resetting, and more for the application. Currently, the game is owned by the model but eventually, this may be removed and the model will inherit all of its methods.
 
 ##### [LetterBag](src/LetterBag.java)
 
-Represents the bag or the leftover letters for the game. Can be used to populate the player hands after placing a word. We decided
-to use a linked list to represent the letters, so that we can quickly pop off the head letter and since we would never have to iterate
-the letters.
+Represents the bag or the leftover letters for the game. Can be used to populate the player hands after placing a word. We decided to use a linked list to represent the letters, so that we can quickly pop off the head letter and since we would never have to iterate the letters.
 
 ##### [LetterCell](src/LetterCell.java)
 
-Similar to a board cell, however it now contains a position. Can be used to store the states of the placed letters.
+Similar to a board cell, however, instead of just having a letter, it also has a position. This is used in the letter chain to represent where the letters are placed. Unlike the board cell, this does not possess any modifiers.
 
 ##### [LetterChain](src/LetterChain.java)
 
 Represents the word that the player is attempting to create. Holds several letter cells, and on demand, will attempt to compute
-the score acheived placing the word. To represent the letter, we decided to use an array list so that we can quickly iterate over
-the entire list as we would be doing this whenever we had to check if a turn was valid.
+the score acheived placing the word. To represent the letter, we decided to use an array list so that we can quickly iterate over the entire list as we would be doing this whenever we had to check if a turn was valid.
 
 ##### [Main](src/Main.java)
 
@@ -76,8 +76,11 @@ Initializes several components of the application, attaches them, and starts the
 
 ##### [Model](src/Model.java)
 
-Represents the model component of the MVC. Attaches itself to a view, and upon being notified by the controller, updates the view
-and the game.
+Represents the model component of the MVC. Attaches itself to a view, and upon being notified by the controller, updates the view and the game. Holds the entire state of the program, providing a simple interface for manipulating the state with a single method call. Instructs the view about the current state of the board, the hand, the scoreboard, and more.
+
+##### [Model](src/NameGen.java)
+
+Loads various names from a file, shuffles the words using collections and a linked list, and provides a method for taking a name from the front. Once a name is taken, the same name is added back to the end of the linked list so that it may be recycled.
 
 ##### [PanelAction](src/PanelAction.java)
 
@@ -91,8 +94,7 @@ provides a callback for when a specific cell is clicked.
 
 ##### [PanelBoardCell](src/PanelBoardCell.java)
 
-Represents a button/cell within the board panel. Provides a method for setting the letter in the cell and notifies the board panel
-when it is pressed.
+Represents a button/cell within the board panel. Provides a method for setting the letter in the cell and notifies the board panel when it is pressed.
 
 ##### [PanelBoardListener](src/PanelBoardListener.java)
 
@@ -127,7 +129,7 @@ player type that can make moves.
 
 ##### [PlayerBot](src/PlayerBot.java)
 
-To be implemented in Milestone 3.
+Represents a computer player in the game. Provides an automatic method for placing letters on the board to make a word.
 
 ##### [PlayerHand](src/PlayerHand.java)
 
@@ -152,9 +154,7 @@ into the panels. Also creates and manages the frame.
 
 ##### [WordBank](src/WordBank.java)
 
-Represents the word database. Has methods for checking if a word is valid, getting the value of a letter, and computing the value
-of a word. Uses the word reader to acquire the valid words. To store the words, we decided to use a hash set. This way, we can hash
-the string and quickly check if they are valid instead of having to iterate over the entire list of words.
+Represents the word database. Has methods for checking if a word is valid, getting the value of a letter, and computing the value of a word. Uses the word reader to acquire the valid words. To store the words, we decided to use a hash set. This way, we can hash the string and quickly check if they are valid instead of having to iterate over the entire list of words.
 
 ##### [WordReader](src/WordReader.java)
 
@@ -164,13 +164,7 @@ Reads from either or website or as a fallback, a local file to acquire a buffer 
 
 ![](UML.jpg)
 
-### Known issues
-- The score and turn are not shown to the users
-- Ugly GUI
-
 ### Roadmap Ahead
-- Displaying the issue when you get 0 points for a turn
-- Displaying the score and turn for players to see
-- Adding serialization/derialization
-- Adding player AI
-- Visual improvements
+- Adding saving/loading
+- Adding unlimited undos/redos
+- Adding custom boards
