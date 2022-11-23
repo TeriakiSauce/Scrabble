@@ -1,7 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
 
-<<<<<<< Updated upstream
 /**
  * Testing the PlayerBot class which has AI functionality
  */
@@ -14,7 +13,7 @@ public class PlayerBotTest {
     public void setUp() throws Exception {
         game = new Game();
         board = game.getState().getBoard();
-        bot = new PlayerBot("bot", game, PlayerBot.DIFFICULTY.EASY);
+        bot = new PlayerBot("bot", game);
         board.setLetter(new LetterCell(7,7,'b'));
         board.setLetter(new LetterCell(7,8,'o'));
         board.setLetter(new LetterCell(7,9,'y'));
@@ -40,7 +39,6 @@ public class PlayerBotTest {
 
         bot.findHandCombos();
         System.out.println(bot.getHandCombos());
-
     }
 
     @Test
@@ -51,20 +49,10 @@ public class PlayerBotTest {
 
         System.out.println(bot.choosePlay());
     }
-}
-
-=======
-import static org.junit.Assert.*;
-
-public class PlayerBotTest {
-    @Before
-    public void setUp() throws Exception {
-        
-    }
-
     @Test
-    public void testClear() {
+    public void testPlaceBoard() {
+
+        bot.placeBoard();
 
     }
 }
->>>>>>> Stashed changes

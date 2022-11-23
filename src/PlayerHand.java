@@ -99,12 +99,4 @@ public class PlayerHand {
         PlayerHand that = (PlayerHand) o;
         return Arrays.equals(tiles, that.tiles);
     }
-
-    /**
-     * Returns the tiles
-     * @return tiles
-     */
-    public Character[] getLetters() {
-        return tiles;
-    }
 }

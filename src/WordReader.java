@@ -17,7 +17,7 @@ public class WordReader {
      * @author Jaan Soulier
      * @version 1.0
      */
-    public class WordReadingException extends RuntimeException {
+    public static class WordReadingException extends RuntimeException {
         /**
          * @author Jaan Soulier
          * Create new WordReadingException.

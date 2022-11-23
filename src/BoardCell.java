@@ -44,8 +44,10 @@ public class BoardCell {
     /**
      * Create new board cell.
      */
-    public BoardCell() {
+    public BoardCell(int x, int y) {
         this.letter = null;
+        this.x = x;
+        this.y = y;
     }
 
     /**

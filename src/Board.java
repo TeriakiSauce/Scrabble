@@ -20,19 +20,39 @@ public class Board {
         cells = new BoardCell[Config.BOARD_WIDTH][Config.BOARD_HEIGHT];
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                cells[j][i] = new BoardCell();
+                cells[i][j] = new BoardCell(i,j);
             }
         }
+        init_adj();
         clear();
+    }
+
+    private void init_adj(){
+        for (int i = 0; i < Config.BOARD_HEIGHT; i++) {
+            for (int j = 0; j < Config.BOARD_WIDTH; j++) {
+                if(j-1 > 0){
+                    cells[i][j].setNorthCell(cells[i][j-1]);
+                }
+                if(j+1 < Config.BOARD_HEIGHT){
+                    cells[i][j].setSouthCell(cells[i][j+1]);
+                }
+                if(i-1 > 0){
+                    cells[i][j].setWestCell(cells[i-1][j]);
+                }
+                if(i+1 < Config.BOARD_WIDTH){
+                    cells[i][j].setEastCell(cells[i+1][j]);
+                }
+            }
+        }
     }
 
     /**
      * Clear the board.
      */
     public void clear() {
-        for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
-            for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                cells[j][i].setLetter(null);
+        for (int i = 0; i < Config.BOARD_HEIGHT; i++) {
+            for (int j = 0; j < Config.BOARD_WIDTH; j++) {
+                cells[i][j].setLetter(null);
             }
         }
     }
@@ -111,6 +131,10 @@ public class Board {
         return Arrays.deepEquals(cells, board.cells);
     }
 
+    /**
+     * Returns the board's cells
+     * @return cells
+     */
     public BoardCell[][] getCells() {
         return cells;
     }
