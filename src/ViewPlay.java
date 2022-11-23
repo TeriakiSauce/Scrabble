@@ -62,6 +62,13 @@ public class ViewPlay {
     }
 
     /**
+     * 
+     */
+    void reset() {
+        score.reset();
+    }
+
+    /**
      * Set the board on click action listener.
      * @param listener The action listener.
      */

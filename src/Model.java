@@ -83,6 +83,7 @@ public class Model {
      */
     public void reset() {
         game.reset();
+        view.reset();
         paint();
     }
 
@@ -186,5 +187,10 @@ public class Model {
             bag.updateHand(player.getHand());
             player.step();
         }
+    }
+
+    public void fullReset() {
+        game.fullReset();
+        reset();
     }
 }

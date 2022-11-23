@@ -124,6 +124,7 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (view.getConfirmation()) {
                     view.setStartScreen();
+                    model.fullReset();
                 }
             }
         });

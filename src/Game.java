@@ -38,7 +38,18 @@ public class Game {
      * Reset the game. Currently creates one player for the main user.
      */
     public void reset() {
+        setX(null);
+        setY(null);
+        setN(null);
         state.reset();
+    }
+
+    /**
+     * 
+     */
+    public void fullReset() {
+        state.fullReset();
+        reset();
     }
 
     /**

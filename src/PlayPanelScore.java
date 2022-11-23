@@ -18,15 +18,7 @@ public class PlayPanelScore extends JPanel {
     public PlayPanelScore() {
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         players = new PlayPanelScorePlayer[Config.MAX_PLAYERS];
-
-        // TODO: Bad solution
-        JLabel space = new JLabel("\n");
-        setupLabel(space);
-        add(space);
-
-        JLabel score = new JLabel(Config.PLAY_SCOREBOARD_TEXT);
-        setupLabel(score);
-        add(score);
+        reset();
     }
 
     /**
@@ -53,5 +45,24 @@ public class PlayPanelScore extends JPanel {
     private void setupLabel(JLabel label) {
         label.setHorizontalAlignment(SwingConstants.CENTER);
         label.setVerticalAlignment(SwingConstants.CENTER);
+    }
+
+    /**
+     * 
+     */
+    public void reset() {
+        removeAll();
+        for (int i = 0; i < players.length; i++) {
+            players[i] = null;
+        }
+
+        // TODO: Bad solution
+        JLabel space = new JLabel("\n");
+        setupLabel(space);
+        add(space);
+
+        JLabel score = new JLabel(Config.PLAY_SCOREBOARD_TEXT);
+        setupLabel(score);
+        add(score);
     }
 }

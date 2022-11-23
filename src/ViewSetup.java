@@ -238,4 +238,11 @@ public class ViewSetup extends JPanel {
 
         listModel.removeElementAt(index);
     }
+
+    /**
+     * 
+     */
+    public void clear() {
+        listModel.clear();
+    }
 }

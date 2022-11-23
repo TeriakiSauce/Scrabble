@@ -60,7 +60,8 @@ public class View extends JFrame {
      * Reset the view.
      */
     public void reset() {
-
+        setup.clear();
+        play.reset();
     }
 
     /**
