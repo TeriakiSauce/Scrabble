@@ -11,20 +11,26 @@ import java.util.List;
 public class PlayerBot extends Player {
 
     enum DIFFICULTY{EASY,MEDIUM,HARD};
+<<<<<<< Updated upstream
     private DIFFICULTY difficulty;
+=======
+>>>>>>> Stashed changes
     private List<LetterChain> validPlays;
     private List<LetterChain> possibleWords;
     private List<LetterChain> currentWords;
     private List<String> handCombos;
 
     /**
-     * 
+     *
      * @param name
      * @param game
      */
     public PlayerBot(String name, Game game, DIFFICULTY difficulty) {
         super(name, game);
+<<<<<<< Updated upstream
         this.difficulty = difficulty;
+=======
+>>>>>>> Stashed changes
         possibleWords = new LinkedList<LetterChain>();
         validPlays = new LinkedList<LetterChain>();
         currentWords = new LinkedList<LetterChain>();
@@ -34,7 +40,7 @@ public class PlayerBot extends Player {
 
 
     /**
-     * 
+     *
      */
     @Override
     public void placeBoard() {
@@ -107,6 +113,7 @@ public class PlayerBot extends Player {
         for (int i = 1; i < subsets; i++){
             String str = "";
             int temp = i;
+<<<<<<< Updated upstream
 
             for (int j = characters.length-1; j >= 0; --j){
                 int remainder = temp % 2;
@@ -233,6 +240,134 @@ public class PlayerBot extends Player {
     public List<String> getHandCombos() {
         return handCombos;
     }
+=======
+
+            for (int j = characters.length-1; j >= 0; --j){
+                int remainder = temp % 2;
+                temp /=2;
+                if (remainder != 0){
+                    str = characters[j] + str;
+                }
+            }
+            for (int j = characters.length-1; j >= 0; --j){
+                int remainder = temp % 2;
+                temp /=2;
+                if (remainder != 0){
+                    str = characters[j] + str;
+                }
+            }
+            ArrayList<String> perms = getPermutations(str,"", new ArrayList<>());
+            for(String string : perms){
+                if (!handCombos.contains(string)){
+                    handCombos.add(string);
+                }
+            }
+        }
+    }
+
+    /**
+     * Helper function that returns all permutations of a string
+     * @param str ex: "abb"
+     * @return ex: "abb bab bba"
+     */
+    private ArrayList<String> getPermutations(String str, String ans, ArrayList<String> perms){
+        //base case
+        if (str.length() == 0) {
+
+            // add ans to arraylist
+            perms.add(ans);
+            return perms;
+        }
+        // Make a boolean value for each letter in the alphabet
+        boolean alphabet[] = new boolean[26];
+
+        for (int i = 0; i < str.length(); i++) {
+            str = str.toLowerCase();
+            char chr = str.charAt(i);
+
+            // The string excluding the ith character
+            String ros = str.substring(0, i) +
+                    str.substring(i + 1);
+
+            // Calls recursive call if the character hasn't already been used
+            if (!alphabet[chr - 'a'])
+                getPermutations(ros, ans + chr, perms);
+            alphabet[chr - 'a'] = true;
+        }
+        return perms;
+    }
+
+
+    public void calculatePossiblePoints(){
+        for (LetterChain chain : currentWords){
+            for(String string : handCombos){
+                for (int i = 0; i < string.length()+1; i++){
+                    LetterChain temp_chain = new LetterChain(game.getState());
+                    temp_chain.setIsVertical(chain.isVertical());
+                    for(int j = 0; j < string.length(); j++){
+                        if(j<i){
+                            int[] coords = chain.getBeginning();
+                            if(temp_chain.getSize()>0){
+                                coords = temp_chain.getBeginning();
+                            }
+                            if (chain.isVertical()) {
+                                if (!(game.getState().getBoard().hasLetter(coords[0], coords[1] - 1))) {
+                                    temp_chain.addLetter(new LetterCell(coords[0], coords[1] - 1, string.charAt(j)));
+                                    game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] - 1, string.charAt(j)));
+                                }
+                            } else if (!(game.getState().getBoard().hasLetter(coords[0]-1,coords[1]))){
+                                temp_chain.addLetter(new LetterCell(coords[0]-1, coords[1], string.charAt(j)));
+                                game.getState().getBoard().setLetter(new LetterCell(coords[0]-1, coords[1], string.charAt(j)));
+                            }
+                        } else {
+                            int[] coords = chain.getEnd();
+                            if(temp_chain.getSize()>0 && (i!=j)){
+                                coords = temp_chain.getEnd();
+                            }
+                            if (chain.isVertical()) {
+                                if (!(game.getState().getBoard().hasLetter(coords[0], coords[1] + 1))) {
+                                    temp_chain.addLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                    game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                }
+                            } else if (!(game.getState().getBoard().hasLetter(coords[0]+1,coords[1]))){
+                                temp_chain.addLetter(new LetterCell(coords[0]+1, coords[1], string.charAt(j)));
+                                game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
+                            }
+                        }
+                        temp_chain.sortChain();
+                    }
+                    //System.out.println(temp_chain);
+                    if (temp_chain.getScore() > 0) {
+                        validPlays.add(temp_chain);
+                    }
+                    game.getState().revert();
+                }
+            }
+        }
+    }
+
+    public LetterChain choosePlay(){
+        validPlays.sort(Comparator.comparingInt(LetterChain::getPlayValue));
+        LetterChain bestPlay = validPlays.get(validPlays.size()-1);
+        System.out.println(bestPlay.getScore());
+        //System.out.println(bestPlay);
+        return bestPlay;
+    }
+    /**
+     * Returns current words on the board
+     * @return
+     */
+    public List<LetterChain> getCurrentWords() {
+        return currentWords;
+    }
+    /**
+     * Returns all permutations of a player's hand
+     * @return
+     */
+    public List<String> getHandCombos() {
+        return handCombos;
+    }
+>>>>>>> Stashed changes
     /**
      * Returns valid words that can be played
      * @return

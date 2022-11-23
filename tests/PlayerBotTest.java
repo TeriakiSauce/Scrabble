@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+<<<<<<< Updated upstream
 /**
  * Testing the PlayerBot class which has AI functionality
  */
@@ -52,3 +53,18 @@ public class PlayerBotTest {
     }
 }
 
+=======
+import static org.junit.Assert.*;
+
+public class PlayerBotTest {
+    @Before
+    public void setUp() throws Exception {
+        
+    }
+
+    @Test
+    public void testClear() {
+
+    }
+}
+>>>>>>> Stashed changes

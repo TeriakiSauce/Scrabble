@@ -110,4 +110,8 @@ public class Board {
         Board board = (Board) o;
         return Arrays.deepEquals(cells, board.cells);
     }
+
+    public BoardCell[][] getCells() {
+        return cells;
+    }
 }

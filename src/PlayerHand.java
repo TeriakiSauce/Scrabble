@@ -65,7 +65,11 @@ public class PlayerHand {
 
     /**
      * Remove the specified letter
+<<<<<<< Updated upstream
      * @param c the letter
+=======
+     * @param c the character
+>>>>>>> Stashed changes
      */
     public void removeLetter(Character c) {
         Arrays.asList(tiles).remove(c);
@@ -96,4 +100,11 @@ public class PlayerHand {
         return Arrays.equals(tiles, that.tiles);
     }
 
+    /**
+     * Returns the tiles
+     * @return tiles
+     */
+    public Character[] getLetters() {
+        return tiles;
+    }
 }

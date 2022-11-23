@@ -13,6 +13,34 @@ public class BoardCell {
      */
     private Character letter;
 
+
+    /**
+     * Tracks if the cell is in a vertical chain
+     */
+    private boolean inVertChain;
+    /**
+     * Tracks if the cell is in a horizontal chain
+     */
+    private boolean inHorizChain;
+
+    /**
+     * Represents the cell's x value
+     */
+    private int x;
+
+    /**
+     * Represents the cell's y value
+     */
+    private int y;
+
+    /**
+     * Tracks all the cell's adjacent cells
+     */
+    private BoardCell northCell;
+    private BoardCell southCell;
+    private BoardCell eastCell;
+    private BoardCell westCell;
+
     /**
      * Create new board cell.
      */
@@ -57,4 +85,78 @@ public class BoardCell {
         return letter == boardCell.letter;
     }
 
+    /**
+     * Gets inVertChain
+     * @return
+     */
+    public boolean isInVertChain() {
+        return inVertChain;
+    }
+
+    /**
+     * Sets inVertChain
+     * @param inVertChain
+     */
+    public void setInVertChain(boolean inVertChain) {
+        this.inVertChain = inVertChain;
+    }
+    /**
+     * Gets inVertChain
+     * @return
+     */
+    public boolean isInHorizChain() {
+        return inHorizChain;
+    }
+
+    /**
+     * Sets inHorizChain
+     * @param inHorizChain
+     */
+    public void setInHorizChain(boolean inHorizChain) {
+        this.inHorizChain = inHorizChain;
+    }
+
+    /**
+     * Getters and setters for all adjacent cells
+     */
+
+    public BoardCell getNorthCell() {
+        return northCell;
+    }
+
+    public void setNorthCell(BoardCell northCell) {
+        this.northCell = northCell;
+    }
+
+    public BoardCell getSouthCell() {
+        return southCell;
+    }
+
+    public void setSouthCell(BoardCell southCell) {
+        this.southCell = southCell;
+    }
+
+    public BoardCell getEastCell() {
+        return eastCell;
+    }
+
+    public void setEastCell(BoardCell eastCell) {
+        this.eastCell = eastCell;
+    }
+
+    public BoardCell getWestCell() {
+        return westCell;
+    }
+
+    public void setWestCell(BoardCell westCell) {
+        this.westCell = westCell;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
 }
