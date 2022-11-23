@@ -164,6 +164,13 @@ Reads from either or website or as a fallback, a local file to acquire a buffer 
 
 ![](UML.jpg)
 
+### Known Issues
+- Player bot is not able to place letters, but can compute the optimal move
+- On turn 0, points are not added right away to the score
+- ArrayOutOfBoundsException when selecting tiles on the edge of the board
+- Premium Squares not properly modifying score
+- Blank Tile not properly functioning
+
 ### Roadmap Ahead
 - Adding saving/loading
 - Adding unlimited undos/redos
