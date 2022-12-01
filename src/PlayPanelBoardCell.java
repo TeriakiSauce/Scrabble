@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 /**
  * Represents a cell within the board.
- * @author Jaan/Tarik
+ * @author Jaan
  * @version 1.0
  */
 public class PlayPanelBoardCell extends JButton {

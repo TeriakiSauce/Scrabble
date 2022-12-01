@@ -4,7 +4,7 @@ import java.awt.*;
 
 /**
  * Represents the board component of the view.
- * @author Jaan 
+ * @author Jaan/Tarik
  * @version 1.1
  */
 public class PlayPanelBoard extends JPanel {
