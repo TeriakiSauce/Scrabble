@@ -1,11 +1,12 @@
 import java.util.Objects;
+import java.io.Serializable;
 
 /**
  * Represents a player type. Can be either a user or a bot.
  * @author Jaan
  * @version 1.0
  */
-public class Player {
+public class Player implements Serializable {
 
     /**
      * The old hand.

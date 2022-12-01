@@ -12,6 +12,11 @@ public class Game {
     private State state;
 
     /**
+     * The word bank.
+     */
+    private WordBank bank;
+
+    /**
      * The currently selected x position.
      */
     private Integer x;
@@ -30,7 +35,8 @@ public class Game {
      * Create new game.
      */
     public Game() {
-        state = new State();
+        state = new State(this);
+        bank = new WordBank(Config.WORD_BANK_PATH);
         reset();
     }
 
@@ -54,7 +60,6 @@ public class Game {
 
     /**
      * Quit the game.
-     * @see model
      */
     public void quit() {
 
@@ -112,6 +117,14 @@ public class Game {
      */
     public State getState() {
         return state;
+    }
+
+    /**
+     * Get the word bank.
+     * @return The word bank.
+     */
+    public WordBank getWordBank() {
+        return bank;
     }
 
     /**

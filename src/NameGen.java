@@ -23,12 +23,11 @@ public class NameGen {
 
         try {
             String line;
-            BufferedReader reader = new BufferedReader(new FileReader(Config.NAMES_PATH));
+            Reader reader = new Reader(Config.NAMES_PATH);
             while ((line = reader.readLine()) != null) {
                 names.add(line);
             }
 
-            reader.close();
             if (names.isEmpty()) {
                 throw new IOException("Found no names from " + Config.NAMES_PATH);
             }

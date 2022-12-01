@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.io.Serializable;
 
 /**
  * Represents several letters that a player has placed. Can be used to compute
@@ -9,12 +10,17 @@ import java.util.Iterator;
  * @author Andrew
  * @version 1.5
  */
-public class LetterChain {
+public class LetterChain implements Serializable {
 
     /**
      * The letters and positions.
      */
     private ArrayList<LetterCell> cells;
+
+    /**
+     * The game.
+     */
+    private Game game;
 
     /**
      * The state.
@@ -28,10 +34,11 @@ public class LetterChain {
 
     /**
      * Create new letter chain.
-     * @param state The state.
+     * @param game The game.
      */
-    public LetterChain(State state) {
-        this.state = state;
+    public LetterChain(Game game) {
+        this.game = game;
+        this.state = game.getState();
         cells = new ArrayList<>();
     }
 
@@ -200,7 +207,7 @@ public class LetterChain {
      */
     private Integer getScore(Integer x, Integer y) {
         Integer score = 0;
-        WordBank bank = state.getWordBank();
+        WordBank bank = game.getWordBank();
         String word;
         Board board = state.getBoard();
 

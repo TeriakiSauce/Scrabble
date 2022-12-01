@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.io.Serializable;
 
 /**
  * Represents all of the cells in the game. Allows for the setting, getting,
@@ -6,7 +7,7 @@ import java.util.Arrays;
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class Board {
+public class Board implements Serializable {
 
     /**
      * 2D array of cells.

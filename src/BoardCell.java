@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.io.Serializable;
 
 /**
  * Represents a specific cell or tile within the board. Allows for
@@ -6,7 +7,7 @@ import java.util.Objects;
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class BoardCell {
+public class BoardCell implements Serializable {
 
     /**
      * The contained letter.

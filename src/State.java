@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 import java.util.Objects;
+import java.io.Serializable;
 
 /**
  * Represents the state of the game. Represents all that needs to be saved and loaded.
  * @author Jaan
  * @version 1.0
  */
-public class State {
+public class State implements Serializable {
 
     /**
      * The letter bag.
@@ -17,11 +18,6 @@ public class State {
      * The current letter chain.
      */
     private LetterChain chain;
-
-    /**
-     * The word bank.
-     */
-    private WordBank bank;
 
     /**
      * The old board.
@@ -50,11 +46,11 @@ public class State {
 
     /**
      * Create a new state.
+     * @param game The game
      */
-    public State() {
+    public State(Game game) {
         bag = new LetterBag();
-        chain = new LetterChain(this);
-        bank = new WordBank(Config.WORD_BANK_PATH);
+        chain = new LetterChain(game);
         oldBoard = new Board();
         newBoard = new Board();
         players = new ArrayList<>();
@@ -116,14 +112,6 @@ public class State {
      */
     public LetterBag getBag() {
         return bag;
-    }
-
-    /**
-     * Get the word bank.
-     * @return The word bank.
-     */
-    public WordBank getWordBank() {
-        return bank;
     }
 
     /**
