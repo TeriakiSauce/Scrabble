@@ -43,7 +43,7 @@ public class PlayPanelHand extends JPanel {
                 cells[i] = new PlayPanelHandBlankCell(this, i);
             }
             else {
-                cells[i] = new PlayPanelHandNonBlankCell(this, i);
+                cells[i] = new PlayPanelHandLetterCell(this, i);
             }
             add(cells[i]);
         }

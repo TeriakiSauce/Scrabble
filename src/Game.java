@@ -38,12 +38,23 @@ public class Game {
      * Reset the game. Currently creates one player for the main user.
      */
     public void reset() {
+        setX(null);
+        setY(null);
+        setN(null);
         state.reset();
     }
 
     /**
+     * 
+     */
+    public void fullReset() {
+        state.fullReset();
+        reset();
+    }
+
+    /**
      * Quit the game.
-     * @see model
+     * @see Model
      */
     public void quit() {
 
@@ -68,19 +79,21 @@ public class Game {
      * that more than 1 letter was placed unless it was the first turn. If this fails, the board and
      * player are reverted to before anything was placed for the turn. Otherwise, the score is added
      * and the next turn is started.
+     * @return
      */
-    public void finish() {
+    public boolean finish() {
         Integer score = state.getChain().getScore();
         if ((state.getTurn() != 0 && state.getChain().getSize() == 1) || score == 0) {
             state.getPlayer().revert();
             state.revert();
-            return;
+            return false;
         }
 
         state.getBag().updateHand(state.getPlayer().getHand());
         state.getPlayer().addScore(score);
         state.getPlayer().step();
         state.step();
+        return true;
     }
 
     /**

@@ -26,9 +26,9 @@ public class PlayerTest {
         hand.setLetter(0, 'a');
         hand.setLetter(1, 'b');
         player.setHand(hand);
-        assertNotEquals(player.getOldHand(), player.getHand());
+        assertNotEquals(player.getOldHand().getLetter(0), player.getHand().getLetter(0));
         player.step();
-        assertEquals(player.getOldHand(), player.getHand());
+        assertEquals(player.getOldHand().getLetter(0), player.getHand().getLetter(0));
     }
 
     @Test

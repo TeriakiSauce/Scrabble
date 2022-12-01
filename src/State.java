@@ -68,9 +68,16 @@ public class State {
         bag.reset();
         oldBoard.clear();
         newBoard.clear();
-        players.clear();
         turn = 0;
         player = 0;
+    }
+
+    /**
+     * 
+     */
+    public void fullReset() {
+        players.clear();
+        reset();
     }
 
     /**

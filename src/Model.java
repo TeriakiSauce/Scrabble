@@ -72,9 +72,10 @@ public class Model {
     /**
      * Call the game finish action and repaint.
      */
-    public void finish() {
-        game.finish();
+    public boolean finish() {
+        boolean tmp = game.finish();
         paint();
+        return tmp;
     }
 
     /**
@@ -82,6 +83,7 @@ public class Model {
      */
     public void reset() {
         game.reset();
+        view.reset();
         paint();
     }
 
@@ -185,5 +187,10 @@ public class Model {
             bag.updateHand(player.getHand());
             player.step();
         }
+    }
+
+    public void fullReset() {
+        game.fullReset();
+        reset();
     }
 }

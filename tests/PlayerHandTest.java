@@ -40,7 +40,12 @@ public class PlayerHandTest {
 
     @Test
     public void testMakeCopy() {
+        hand.setLetter(0, 'a');
         PlayerHand copy = hand.makeCopy();
-        assertEquals(hand, copy);
+        assertEquals(hand.getLetter(0), copy.getLetter(0));
+        assertEquals(hand.getLetter(1), copy.getLetter(1));
+        assertEquals(hand.getLetter(2), copy.getLetter(2));
+        assertEquals(hand.getLetter(3), copy.getLetter(3));
+        assertEquals(hand.getLetter(4), copy.getLetter(4));
     }
 }
