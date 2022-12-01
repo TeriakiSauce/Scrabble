@@ -5,6 +5,7 @@
       <element id="module-output" name="Scrabble" />
       <element id="module-test-output" name="Scrabble" />
       <element id="module-source" name="Scrabble" />
+      <element id="dir-copy" path="$PROJECT_DIR$/res" />
     </root>
   </artifact>
 </component>

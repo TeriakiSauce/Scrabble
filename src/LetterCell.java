@@ -1,8 +1,10 @@
+import java.io.Serializable;
+
 /**
  * @author Jaan
  * @version 1.1
  */
-public class LetterCell {
+public class LetterCell implements Serializable {
 
     /**
      * The letter.
