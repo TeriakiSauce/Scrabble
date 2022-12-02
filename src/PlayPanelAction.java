@@ -33,6 +33,16 @@ public class PlayPanelAction extends JPanel {
     private JButton reset;
 
     /**
+     * The undo button.
+     */
+    private JButton undo;
+
+    /**
+     * The redo button.
+     */
+    private JButton redo;
+
+    /**
      * Create new panel action.
      */
     public PlayPanelAction() {
@@ -48,11 +58,15 @@ public class PlayPanelAction extends JPanel {
         quit = new JButton(Config.PLAY_QUIT_BUTTON_TEXT);
         finish = new JButton(Config.PLAY_FINISH_BUTTON_TEXT);
         reset = new JButton(Config.PLAY_RESET_BUTTON_TEXT);
+        undo = new JButton(Config.PLAY_UNDO_BUTTON_TEXT);
+        redo = new JButton(Config.PLAY_REDO_BUTTON_TEXT);
 
         add(pass);
         add(quit);
         add(finish);
         add(reset);
+        add(undo);
+        add(redo);
     }
 
     /**
@@ -85,5 +99,21 @@ public class PlayPanelAction extends JPanel {
      */
     public void setOnReset(ActionListener listener) {
         reset.addActionListener(listener);
+    }
+
+    /**
+     * Set on undo button clicked action listener.
+     * @param listener The action listener.
+     */
+    public void setOnUndo(ActionListener listener) {
+        undo.addActionListener(listener);
+    }
+
+    /**
+     * Set on redo button clicked action listener.
+     * @param listener The action listener.
+     */
+    public void setOnRedo(ActionListener listener) {
+        redo.addActionListener(listener);
     }
 }

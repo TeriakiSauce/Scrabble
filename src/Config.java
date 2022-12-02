@@ -22,15 +22,20 @@ public class Config {
     public static final String SETUP_REMOVE_TEXT = "Remove Bot";
     public static final String SETUP_BACK_TEXT = "Back";
     public static final String SETUP_BOT_HEADER_TEXT = "Bots";
+    public static final String SETUP_PLAYER_HEADER_TEXT = "Player Name";
+    public static final String SETUP_GAME_HEADER_TEXT = "Game Save Name";
     public static final String HELP_BACK_BUTTON_TEXT = "Back";
     public static final String PLAY_PASS_BUTTON_TEXT = "Pass Turn";
     public static final String PLAY_QUIT_BUTTON_TEXT = "Quit";
     public static final String PLAY_FINISH_BUTTON_TEXT = "Finish Turn";
     public static final String PLAY_RESET_BUTTON_TEXT = "Reset Game";
+    public static final String PLAY_UNDO_BUTTON_TEXT = "Undo";
+    public static final String PLAY_REDO_BUTTON_TEXT = "Redo";
     public static final String PLAY_SCOREBOARD_TEXT = "Scores";
     public static final String PLAY_TURN_TEXT = "Current Turn: ";
     public static final String PLAY_PLAYER_TEXT = "Player: ";
-    public static final String START_START_BUTTON_TEXT = "Start Game";
+    public static final String START_NEW_BUTTON_TEXT = "New";
+    public static final String START_LOAD_BUTTON_TEXT = "Load";
     public static final String START_HELP_BUTTON_TEXT = "Help";
 
     public static final Integer BOARD_WIDTH = 15;

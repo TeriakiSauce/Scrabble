@@ -31,7 +31,7 @@ public class Player implements Serializable {
     /**
      * The game.
      */
-    protected Game game;
+    protected transient Game game;
 
     /**
      * Creates a new player.
@@ -44,6 +44,14 @@ public class Player implements Serializable {
         oldHand = new PlayerHand();
         newHand = new PlayerHand();
         score = 0;
+    }
+
+    /**
+     *
+     * @param game
+     */
+    public void setGame(Game game) {
+        this.game = game;
     }
 
     /**

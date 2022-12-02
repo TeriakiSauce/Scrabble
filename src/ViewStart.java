@@ -1,5 +1,4 @@
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
 import java.awt.Font;
@@ -49,11 +48,19 @@ public class ViewStart {
     }
 
     /**
-     * 
+     *
      * @param listener
      */
-    public void setActionOnStart(ActionListener listener) {
-        action.setOnStart(listener);
+    public void setActionOnNew(ActionListener listener) {
+        action.setOnNew(listener);
+    }
+
+    /**
+     *
+     * @param listener
+     */
+    public void setActionOnLoad(ActionListener listener) {
+        action.setOnLoad(listener);
     }
 
     /**
@@ -62,5 +69,27 @@ public class ViewStart {
      */
     public void setActionOnHelp(ActionListener listener) {
         action.setOnHelp(listener);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getLoadPath() {
+        return JOptionPane.showInputDialog(action, "Specify a game to load");
+    }
+
+    /**
+     *
+     */
+    public void showErrorNoInput() {
+        JOptionPane.showMessageDialog(action, "You must specify a game!");
+    }
+
+    /**
+     *
+     */
+    public void showErrorNoFile() {
+        JOptionPane.showMessageDialog(action, "You must specify an existing game!");
     }
 }

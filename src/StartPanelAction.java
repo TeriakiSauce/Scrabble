@@ -11,9 +11,14 @@ import java.awt.event.ActionListener;
 public class StartPanelAction extends JPanel {
 
     /**
-     * 
+     *
      */
-    private JButton start;
+    private JButton newGame;
+
+    /**
+     *
+     */
+    private JButton load;
 
     /**
      * 
@@ -32,29 +37,36 @@ public class StartPanelAction extends JPanel {
             Config.BOARD_BORDER_WIDTH
         ));
 
-        start = new JButton(Config.START_START_BUTTON_TEXT);
+        newGame = new JButton(Config.START_NEW_BUTTON_TEXT);
+        load = new JButton(Config.START_LOAD_BUTTON_TEXT);
         help = new JButton(Config.START_HELP_BUTTON_TEXT);
 
-        start.setAlignmentX(Component.CENTER_ALIGNMENT);
-        start.setAlignmentY(Component.CENTER_ALIGNMENT);
+        newGame.setAlignmentX(Component.CENTER_ALIGNMENT);
+        newGame.setAlignmentY(Component.CENTER_ALIGNMENT);
+        load.setAlignmentX(Component.CENTER_ALIGNMENT);
+        load.setAlignmentY(Component.CENTER_ALIGNMENT);
         help.setAlignmentX(Component.CENTER_ALIGNMENT);
         help.setAlignmentY(Component.CENTER_ALIGNMENT);
 
-        // start.setForeground(Config.FG_COLOR);
-        // start.setBackground(Config.BG_COLOR);
-        // help.setForeground(Config.FG_COLOR);
-        // help.setBackground(Config.BG_COLOR);
-
-        add(start);
+        add(newGame);
+        add(load);
         add(help);
     }
 
     /**
-     * 
+     *
      * @param listener
      */
-    public void setOnStart(ActionListener listener) {
-        start.addActionListener(listener);
+    public void setOnNew(ActionListener listener) {
+        newGame.addActionListener(listener);
+    }
+
+    /**
+     *
+     * @param listener
+     */
+    public void setOnLoad(ActionListener listener) {
+        load.addActionListener(listener);
     }
 
     /**

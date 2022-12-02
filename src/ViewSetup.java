@@ -6,6 +6,7 @@ import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionListener;
@@ -15,11 +16,6 @@ import java.awt.BorderLayout;
  * 
  */
 public class ViewSetup extends JPanel {
-
-    /**
-     * 
-     */
-    private JLabel header;
 
     /**
      * 
@@ -44,12 +40,22 @@ public class ViewSetup extends JPanel {
     /**
      * 
      */
-    private String playerName;
+    private JPanel actions;
 
     /**
-     * 
+     *
      */
-    private JPanel actions;
+    private JPanel misc;
+
+    /**
+     *
+     */
+    private JTextField playerName;
+
+    /**
+     *
+     */
+    private JTextField gameTitle;
 
     /**
      * 
@@ -84,10 +90,16 @@ public class ViewSetup extends JPanel {
         back = new JButton(Config.SETUP_BACK_TEXT);
         listModel = new DefaultListModel<>();
         list = new JList<>(listModel);
-        header = new JLabel(Config.SETUP_BOT_HEADER_TEXT);
-        header.setHorizontalAlignment(SwingConstants.CENTER);
-        header.setVerticalAlignment(SwingConstants.CENTER);
-        header.setBackground(Config.BG_COLOR);
+        playerName = new JTextField();
+        gameTitle = new JTextField();
+
+        misc = new JPanel();
+        misc.setLayout(new BoxLayout(misc, BoxLayout.Y_AXIS));
+        misc.add(new JLabel(Config.SETUP_PLAYER_HEADER_TEXT));
+        misc.add(playerName);
+        misc.add(new JLabel(Config.SETUP_GAME_HEADER_TEXT));
+        misc.add(gameTitle);
+        misc.add(new JLabel(Config.SETUP_BOT_HEADER_TEXT));
 
         list.addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -110,7 +122,7 @@ public class ViewSetup extends JPanel {
         view.setLayout(new BorderLayout());
         view.add(actions, BorderLayout.EAST);
         view.add(list, BorderLayout.CENTER);
-        view.add(header, BorderLayout.NORTH);
+        view.add(misc, BorderLayout.NORTH);
     }
 
     /**
@@ -155,22 +167,6 @@ public class ViewSetup extends JPanel {
 
     /**
      * 
-     */
-    public boolean showNameField() {
-        while (true) {
-            playerName = JOptionPane.showInputDialog(this, "Enter your player name");
-            if (playerName == null) {
-                return false;
-            } else if (playerName.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Invalid name!");
-            } else {
-                return true;
-            }
-        }
-    }
-
-    /**
-     * 
      * @return
      */
     public String[] getBotNames() {
@@ -184,11 +180,19 @@ public class ViewSetup extends JPanel {
     }
 
     /**
-     * 
+     *
      * @return
      */
     public String getPlayerName() {
-        return playerName;
+        return playerName.getText();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getGameName() {
+        return gameTitle.getText();
     }
 
     /**
@@ -244,5 +248,26 @@ public class ViewSetup extends JPanel {
      */
     public void clear() {
         listModel.clear();
+    }
+
+    /**
+     *
+     */
+    public void showNoPlayerNameError() {
+        JOptionPane.showMessageDialog(this, "You must enter a player name!");
+    }
+
+    /**
+     *
+     */
+    public void showNoGameNameError() {
+        JOptionPane.showMessageDialog(this, "You must enter a game name!");
+    }
+
+    public boolean showGameAlreadyExists() {
+        return JOptionPane.showConfirmDialog(this,
+                "Would you like to overwrite the game?",
+                "The game name already exists.",
+                JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 }

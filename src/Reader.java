@@ -5,16 +5,19 @@ import java.io.IOException;
 import java.util.stream.Collectors;
 
 /**
- * 
+ * @author Jaan
+ * @version 1.3
+ * For reading files contained in the packaged jar.
  */
 public class Reader {
+
     /**
      * 
      */
     private BufferedReader reader;
 
     /**
-     * 
+     * For reading from a file contained in the packaged jar.
      * @param path
      */
     public Reader(String path) {
@@ -23,7 +26,8 @@ public class Reader {
     }
 
     /**
-     * 
+     * For reading from an existing InputStreamReader.
+     * Currently used for receiving an InputStreamReader from a URLConnection InputStream.
      * @param isr
      */
     public Reader(InputStreamReader isr) {

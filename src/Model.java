@@ -88,6 +88,53 @@ public class Model {
     }
 
     /**
+     *
+     * @return
+     */
+    public boolean undo() {
+        boolean rc = game.undo();
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean redo() {
+        boolean rc = game.redo();
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public boolean create(String name) {
+        boolean rc = game.create(name);
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void load(String name) {
+        game.load(name);
+        paint();
+    }
+
+    /**
+     *
+     */
+    public void save() {
+        game.save();
+    }
+
+    /**
      * Call the game set x position.
      * @param x The x position.
      */

@@ -20,12 +20,7 @@ public class LetterChain implements Serializable {
     /**
      * The game.
      */
-    private Game game;
-
-    /**
-     * The state.
-     */
-    private State state;
+    private transient Game game;
 
     /**
      * The direction that the word was played, false for horizontal, true for vertical
@@ -43,7 +38,6 @@ public class LetterChain implements Serializable {
      */
     public LetterChain(Game game) {
         this.game = game;
-        this.state = game.getState();
         cells = new ArrayList<>();
     }
 
@@ -116,6 +110,7 @@ public class LetterChain implements Serializable {
      * @return The score.
      */
     public Integer getScore() {
+        State state = game.getState();
         Integer score = 0;
         // Returns 0 if size is empty or placement is invalid
         if (this.getSize() == 0){
@@ -164,6 +159,7 @@ public class LetterChain implements Serializable {
      * @return true if letters are valid, false otherwise
      */
     private boolean validPlacementX(){
+        State state = game.getState();
         // Sorts the cells by their x values
         cells.sort(Comparator.comparing(a -> a.getX()));
         // Checks that cells are in the same row
@@ -191,6 +187,7 @@ public class LetterChain implements Serializable {
      * @return true if letters are valid, false otherwise
      */
     private boolean validPlacementY(){
+        State state = game.getState();
         // Sorts the cells by their y values
         cells.sort(Comparator.comparing(a -> a.getY()));
         // Checks that cells are in the same column
@@ -219,6 +216,7 @@ public class LetterChain implements Serializable {
      * @return The score.
      */
     private Integer getScore(Integer x, Integer y) {
+        State state = game.getState();
         Integer score = 0;
         WordBank bank = game.getWordBank();
         String word;
@@ -278,6 +276,7 @@ public class LetterChain implements Serializable {
      * @return The computed word.
      */
     private String walkHorizontal(Integer direction, Integer x, Integer y) {
+        State state = game.getState();
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
 
@@ -297,6 +296,7 @@ public class LetterChain implements Serializable {
      * @return The computed word.
      */
     private String walkVertical(Integer direction, Integer x, Integer y) {
+        State state = game.getState();
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
 
@@ -330,6 +330,14 @@ public class LetterChain implements Serializable {
 
     public int getPlayValue() {
         return playValue;
+    }
+
+    /**
+     *
+     * @param game
+     */
+    public void setGame(Game game) {
+        this.game = game;
     }
 
     /**

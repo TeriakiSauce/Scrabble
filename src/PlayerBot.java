@@ -2,17 +2,16 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Represents a bot player which has AI to decide what move it will make.
  * @author Andrew
  * @version 1.0
  */
-public class PlayerBot extends Player {
+public class PlayerBot extends Player implements Serializable {
 
-    enum DIFFICULTY {EASY, MEDIUM, HARD}
-
-    ;
+    enum DIFFICULTY {EASY, MEDIUM, HARD};
 
     private DIFFICULTY difficulty;
 
