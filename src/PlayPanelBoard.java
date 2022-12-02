@@ -42,6 +42,7 @@ public class PlayPanelBoard extends JPanel {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
                 cells[j][i] = new PlayPanelBoardCell(this, j, i);
                 add(cells[j][i]);
+                cells[j][i].setOpaque(true);
                 setPinkPremiumCells(j, i);
                 setRedPremiumCells(j, i);
                 setCyanPremiumCells(j, i);
