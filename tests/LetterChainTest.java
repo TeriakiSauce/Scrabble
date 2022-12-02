@@ -8,13 +8,15 @@ import static org.junit.Assert.*;
  * @version 1.0
  */
 public class LetterChainTest {
-    private State state;
+    private Game game;
     private LetterChain chain;
+    private State state;
 
     @Before
     public void setUp() throws Exception {
-        state = new State();
-        chain = new LetterChain(state);
+        game = new Game();
+        chain = new LetterChain(game);
+        state = game.getState();
     }
 
     @Test

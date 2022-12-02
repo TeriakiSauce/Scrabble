@@ -72,9 +72,10 @@ public class Model {
     /**
      * Call the game finish action and repaint.
      */
-    public void finish() {
-        game.finish();
+    public boolean finish() {
+        boolean tmp = game.finish();
         paint();
+        return tmp;
     }
 
     /**
@@ -82,7 +83,55 @@ public class Model {
      */
     public void reset() {
         game.reset();
+        view.reset();
         paint();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean undo() {
+        boolean rc = game.undo();
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean redo() {
+        boolean rc = game.redo();
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public boolean create(String name) {
+        boolean rc = game.create(name);
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void load(String name) {
+        game.load(name);
+        paint();
+    }
+
+    /**
+     *
+     */
+    public void save() {
+        game.save();
     }
 
     /**
@@ -185,5 +234,10 @@ public class Model {
             bag.updateHand(player.getHand());
             player.step();
         }
+    }
+
+    public void fullReset() {
+        game.fullReset();
+        reset();
     }
 }

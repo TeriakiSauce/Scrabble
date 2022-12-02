@@ -2,17 +2,16 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Represents a bot player which has AI to decide what move it will make.
  * @author Andrew
  * @version 1.0
  */
-public class PlayerBot extends Player {
+public class PlayerBot extends Player implements Serializable {
 
-    enum DIFFICULTY {EASY, MEDIUM, HARD}
-
-    ;
+    enum DIFFICULTY {EASY, MEDIUM, HARD};
 
     private DIFFICULTY difficulty;
 
@@ -49,16 +48,15 @@ public class PlayerBot extends Player {
         findHandCombos();
         calculatePossiblePoints();
         LetterChain play = choosePlay();
-
+        /*
         for (LetterCell cell : play.getCells()) {
             chain.addLetter(cell);
             board.setLetter(cell);
             newHand.removeLetter(cell.getLetter());
             super.placeBoard();
-        }
-        System.out.println(chain);
-        System.out.println(chain.getScore());
-        //game.finish();
+        }*/
+        System.out.println(play);
+        System.out.println(play.getScore());
     }
 
 
@@ -73,7 +71,7 @@ public class PlayerBot extends Player {
                 BoardCell currentCell = cells[i][j];
                 if (currentCell.hasLetter()) {
                     if (!currentCell.isInVertChain()) {
-                        LetterChain vertChain = new LetterChain(game.getState());
+                        LetterChain vertChain = new LetterChain(game);
                         vertChain.addLetter(new LetterCell(i, j, currentCell.getLetter()));
                         currentCell.setInVertChain(true);
                         while (currentCell.getSouthCell().hasLetter()) {
@@ -86,7 +84,7 @@ public class PlayerBot extends Player {
                     }
                     currentCell = cells[i][j];
                     if (!currentCell.isInHorizChain()) {
-                        LetterChain horizChain = new LetterChain(game.getState());
+                        LetterChain horizChain = new LetterChain(game);
                         horizChain.addLetter(new LetterCell(i, j, currentCell.getLetter()));
                         currentCell.setInHorizChain(true);
                         while (currentCell.getEastCell().hasLetter()) {
@@ -106,7 +104,6 @@ public class PlayerBot extends Player {
      * Returns a list of all possible combinations of the player's cards in their hand.
      */
     public void findHandCombos() {
-        //Character[] characters = newHand.getLetters();
         Character[] characters = {'a','b','c'};
         int subsets = (int) Math.pow(2, characters.length);
         for (int i = 1; i < subsets; i++) {
@@ -173,7 +170,7 @@ public class PlayerBot extends Player {
         for (LetterChain chain : currentWords) {
             for (String string : handCombos) {
                 for (int i = 0; i < string.length() + 1; i++) {
-                    LetterChain temp_chain = new LetterChain(game.getState());
+                    LetterChain temp_chain = new LetterChain(game);
                     temp_chain.setIsVertical(chain.isVertical());
                     for (int j = 0; j < string.length(); j++) {
                         if (j < i) {

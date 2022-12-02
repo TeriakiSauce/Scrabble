@@ -1,5 +1,6 @@
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  * Represents the view component of the model view controller.
@@ -22,30 +23,51 @@ public class View extends JFrame {
     private ViewPlay play;
 
     /**
-     * 
+     * The setup screen.
      */
     private ViewSetup setup;
+
+    /**
+     * The editor screen;
+     */
+    private ViewEditor editor;
 
     /**
      * Create new view.
      */
     public View() {
-        setTitle(Config.FRAME_TITLE);
-        setSize(Config.WINDOW_WIDTH, Config.WINDOW_HEIGHT);
-        setLocationRelativeTo(null);
-        // setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
+        UIManager.put("Label.background", Config.BG_COLOR);
+        UIManager.put("Label.foreground", Config.FG_COLOR);
+        UIManager.put("Button.background", Config.BG_COLOR);
+        UIManager.put("Button.foreground", Config.FG_COLOR);
+        UIManager.put("TextField.background", Config.BG_COLOR);
+        UIManager.put("TextField.foreground", Config.FG_COLOR);
+        UIManager.put("TextArea.background", Config.BG_COLOR);
+        UIManager.put("TextArea.foreground", Config.FG_COLOR);
+        UIManager.put("OptionPane.background", Config.BG_COLOR);
+        UIManager.put("OptionPane.foreground", Config.FG_COLOR);
+        UIManager.put("Panel.background", Config.BG_COLOR);
+        UIManager.put("Panel.foreground", Config.FG_COLOR);
+
         start = new ViewStart(this);
         help = new ViewHelp(this);
         play = new ViewPlay(this);
         setup = new ViewSetup(this);
+        editor = new ViewEditor(this);
+
+        setTitle(Config.FRAME_TITLE);
+        setSize(Config.WINDOW_WIDTH, Config.WINDOW_HEIGHT);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+        setVisible(true);
     }
 
     /**
      * Reset the view.
      */
     public void reset() {
-
+        setup.clear();
+        play.reset();
     }
 
     /**
@@ -124,6 +146,24 @@ public class View extends JFrame {
     public void setPlayScreen() {
         getContentPane().removeAll();
         play.add();
+        revalidate();
+        repaint();
+    }
+
+    /**
+     * Get the editor screen.
+     * @return The editor screen.
+     */
+    public ViewEditor getEditorScreen() {
+        return editor;
+    }
+
+    /**
+     * Set the screen to the editor screen.
+     */
+    public void setEditorScreen() {
+        getContentPane().removeAll();
+        editor.add();
         revalidate();
         repaint();
     }

@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.io.Serializable;
 
 /**
  * Represents several letters that a player has placed. Can be used to compute
@@ -9,7 +10,7 @@ import java.util.Iterator;
  * @author Andrew
  * @version 1.5
  */
-public class LetterChain {
+public class LetterChain implements Serializable {
 
     /**
      * The letters and positions.
@@ -17,9 +18,9 @@ public class LetterChain {
     private ArrayList<LetterCell> cells;
 
     /**
-     * The state.
+     * The game.
      */
-    private State state;
+    private transient Game game;
 
     /**
      * The direction that the word was played, false for horizontal, true for vertical
@@ -33,10 +34,10 @@ public class LetterChain {
 
     /**
      * Create new letter chain.
-     * @param state The state.
+     * @param game The game.
      */
-    public LetterChain(State state) {
-        this.state = state;
+    public LetterChain(Game game) {
+        this.game = game;
         cells = new ArrayList<>();
     }
 
@@ -109,6 +110,7 @@ public class LetterChain {
      * @return The score.
      */
     public Integer getScore() {
+        State state = game.getState();
         Integer score = 0;
         // Returns 0 if size is empty or placement is invalid
         if (this.getSize() == 0){
@@ -131,25 +133,17 @@ public class LetterChain {
             if (cell.getX() == Config.BOARD_HEIGHT/2 && cell.getY() == Config.BOARD_HEIGHT/2){
                 connected = true;
             }
-            if (cell.getX()<Config.BOARD_WIDTH) {
-                if (state.getOldBoard().hasLetter(cell.getX() + 1, cell.getY())) {
-                    connected = true;
-                }
+            if (state.getOldBoard().hasLetter(cell.getX()+1, cell.getY())){
+                connected = true;
             }
-            if (cell.getX()>0) {
-                if (state.getOldBoard().hasLetter(cell.getX() - 1, cell.getY())) {
-                    connected = true;
-                }
+            if (state.getOldBoard().hasLetter(cell.getX()-1, cell.getY())){
+                connected = true;
             }
-            if (cell.getY()<Config.BOARD_HEIGHT) {
-                if (state.getOldBoard().hasLetter(cell.getX(), cell.getY() + 1)) {
-                    connected = true;
-                }
+            if (state.getOldBoard().hasLetter(cell.getX(), cell.getY()+1)){
+                connected = true;
             }
-            if (cell.getY()>0) {
-                if (state.getOldBoard().hasLetter(cell.getX(), cell.getY() - 1)) {
-                    connected = true;
-                }
+            if (state.getOldBoard().hasLetter(cell.getX(), cell.getY()-1)){
+                connected = true;
             }
         }
         if (!connected){
@@ -157,7 +151,6 @@ public class LetterChain {
         }
 
         score += getScore(cells.get(0).getX(), cells.get(0).getY());
-        playValue = score;
         return score;
     }
 
@@ -166,6 +159,7 @@ public class LetterChain {
      * @return true if letters are valid, false otherwise
      */
     private boolean validPlacementX(){
+        State state = game.getState();
         // Sorts the cells by their x values
         cells.sort(Comparator.comparing(a -> a.getX()));
         // Checks that cells are in the same row
@@ -193,6 +187,7 @@ public class LetterChain {
      * @return true if letters are valid, false otherwise
      */
     private boolean validPlacementY(){
+        State state = game.getState();
         // Sorts the cells by their y values
         cells.sort(Comparator.comparing(a -> a.getY()));
         // Checks that cells are in the same column
@@ -221,8 +216,9 @@ public class LetterChain {
      * @return The score.
      */
     private Integer getScore(Integer x, Integer y) {
+        State state = game.getState();
         Integer score = 0;
-        WordBank bank = state.getWordBank();
+        WordBank bank = game.getWordBank();
         String word;
         Board board = state.getBoard();
 
@@ -280,6 +276,7 @@ public class LetterChain {
      * @return The computed word.
      */
     private String walkHorizontal(Integer direction, Integer x, Integer y) {
+        State state = game.getState();
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
 
@@ -299,6 +296,7 @@ public class LetterChain {
      * @return The computed word.
      */
     private String walkVertical(Integer direction, Integer x, Integer y) {
+        State state = game.getState();
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
 
@@ -335,6 +333,14 @@ public class LetterChain {
     }
 
     /**
+     *
+     * @param game
+     */
+    public void setGame(Game game) {
+        this.game = game;
+    }
+
+    /**
      * Sets the isVertical field
      */
     public void setIsVertical(boolean value){
@@ -352,7 +358,7 @@ public class LetterChain {
     }
 
     public LetterChain makeCopy(LetterChain og){
-        LetterChain copy = new LetterChain(og.state);
+        LetterChain copy = new LetterChain(og.game);
         copy.isVertical = og.isVertical;
         for (LetterCell cell : cells){
             copy.addLetter(cell);
@@ -362,7 +368,16 @@ public class LetterChain {
     @Override
     public boolean equals(Object obj) {
         LetterChain chain = (LetterChain) obj;
-        return (chain.cells == this.cells && chain.isVertical == this.isVertical);
+        boolean equals = true;
+        for(int i = 0; i < getSize();i++){
+            if(!(chain.cells.get(i) == cells.get(i))){
+                equals = true;
+            }
+        }
+        if(!(chain.isVertical() == isVertical)){
+            equals = false;
+        }
+        return equals;
     }
 
     /**

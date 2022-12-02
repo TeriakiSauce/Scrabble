@@ -1,12 +1,18 @@
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
+import java.io.Serializable;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 /**
  * Represents the state of the game. Represents all that needs to be saved and loaded.
  * @author Jaan
  * @version 1.0
  */
-public class State {
+public class State implements Serializable {
 
     /**
      * The letter bag.
@@ -17,11 +23,6 @@ public class State {
      * The current letter chain.
      */
     private LetterChain chain;
-
-    /**
-     * The word bank.
-     */
-    private WordBank bank;
 
     /**
      * The old board.
@@ -49,12 +50,17 @@ public class State {
     private Integer player;
 
     /**
-     * Create a new state.
+     *
      */
-    public State() {
+    private String name;
+
+    /**
+     * Create a new state.
+     * @param game The game
+     */
+    public State(Game game) {
         bag = new LetterBag();
-        chain = new LetterChain(this);
-        bank = new WordBank(Config.WORD_BANK_PATH);
+        chain = new LetterChain(game);
         oldBoard = new Board();
         newBoard = new Board();
         players = new ArrayList<>();
@@ -68,9 +74,16 @@ public class State {
         bag.reset();
         oldBoard.clear();
         newBoard.clear();
-        players.clear();
         turn = 0;
         player = 0;
+    }
+
+    /**
+     * 
+     */
+    public void fullReset() {
+        players.clear();
+        reset();
     }
 
     /**
@@ -83,16 +96,34 @@ public class State {
     }
 
     /**
+     *
+     */
+    public void back() {
+        if (player == 0) {
+            turn--;
+            player = players.size() - 1;
+        } else {
+            player--;
+        }
+    }
+
+    /**
      * Step the turn/player forward.
      */
-    public void step() {
+    public void next() {
         player++;
         if (player == players.size()) {
             player = 0;
             turn++;
         }
+    }
+
+    public void step() {
+        next();
         chain.clear();
         oldBoard = newBoard.makeCopy();
+        save();
+        saveWithVersion();
     }
 
     /**
@@ -109,14 +140,6 @@ public class State {
      */
     public LetterBag getBag() {
         return bag;
-    }
-
-    /**
-     * Get the word bank.
-     * @return The word bank.
-     */
-    public WordBank getWordBank() {
-        return bank;
     }
 
     /**
@@ -156,6 +179,22 @@ public class State {
     }
 
     /**
+     *
+     * @return
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public Integer getPlayerTurn() {
+        return player;
+    }
+
+    /**
      * Get the players.
      * @return The players.
      */
@@ -186,4 +225,131 @@ public class State {
                 && player.equals(state.player);
     }
 
+    /**
+     *
+     * @param game
+     */
+    public void setGame(Game game) {
+        chain.setGame(game);
+        for (Player player : players) {
+            player.setGame(game);
+        }
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     *
+     * @param game
+     * @param path
+     * @return
+     */
+    static State load(Game game, String path) {
+        State state = null;
+        try {
+            FileInputStream fis = new FileInputStream(path);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            state = (State) ois.readObject();
+            state.setGame(game);
+        } catch (Exception e) {}
+        return state;
+    }
+
+    /**
+     *
+     * @return
+     */
+    private boolean save(String path) {
+        try {
+            FileOutputStream fos = new FileOutputStream(path);
+            ObjectOutputStream oos = new ObjectOutputStream(fos);
+            oos.writeObject(this);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean save() {
+        return save(getPath());
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean saveWithVersion() {
+        return save(getPathWithVersion());
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getPath() {
+        return name;
+    }
+
+    /**
+     * Return a path in the form: <name>_<turn>_<player>
+     * e.g. test_3_1 would specify turn 3 for player 1 in game "test"
+     * @return The path.
+     */
+    public String getPathWithVersion() {
+        return getPath() + getVersion(turn, player);
+    }
+
+    /**
+     *
+     * @param turn
+     * @param player
+     * @return
+     */
+    public static String getVersion(Integer turn, Integer player) {
+        return "_" + String.valueOf(turn) + "_" + String.valueOf(player);
+    }
+
+    /**
+     *
+     * @param game
+     * @return
+     */
+    public boolean loadNext(State state, Game game) {
+        next();
+        State nextState = load(game, getPathWithVersion());
+        back();
+        if (nextState == null) {
+            return false;
+        } else {
+            game.state = nextState;
+            return true;
+        }
+    }
+
+    /**
+     *
+     * @param game
+     * @return
+     */
+    public boolean loadPrev(State state, Game game) {
+        back();
+        State nextState = load(game, getPathWithVersion());
+        next();
+        if (nextState == null) {
+            return false;
+        } else {
+            game.state = nextState;
+            return true;
+        }
+    }
 }

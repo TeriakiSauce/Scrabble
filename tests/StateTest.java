@@ -10,31 +10,23 @@ import static org.junit.Assert.*;
  */
 public class StateTest {
 
+    Game game;
     State state;
 
     @Before
     public void setUp() throws Exception {
-        state = new State();
+        game = new Game();
+        state = game.getState();
     }
 
     @Test
     public void testReset() {
-        State state = new State();
-        state.getBoard().setLetter(new LetterCell(0,0,'a'));
-        assertNotEquals(state, new State());
-        state.reset();
-        assertEquals(state, new State());
-    }
 
-    @Test
-    public void testStep() {
-    }
-
-    @Test
-    public void testRevert() {
     }
 
     @Test
     public void testAddPlayer() {
+        state.addPlayer(new Player("sample", new Game()));
+        assertEquals(state.getPlayer().getName(), "sample");
     }
 }

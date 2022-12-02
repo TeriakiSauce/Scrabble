@@ -1,12 +1,13 @@
 import java.util.Arrays;
+import java.io.Serializable;
 
 /**
- * Represents all the cells in the game. Allows for the setting, getting,
+ * Represents all of the cells in the game. Allows for the setting, getting,
  * clearing, and checking of letters in the board.
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class Board {
+public class Board implements Serializable {
 
     /**
      * 2D array of cells.
@@ -26,7 +27,6 @@ public class Board {
         init_adj();
         clear();
     }
-
     private void init_adj(){
         for (int i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (int j = 0; j < Config.BOARD_WIDTH; j++) {
@@ -45,14 +45,13 @@ public class Board {
             }
         }
     }
-
     /**
      * Clear the board.
      */
     public void clear() {
-        for (int i = 0; i < Config.BOARD_HEIGHT; i++) {
-            for (int j = 0; j < Config.BOARD_WIDTH; j++) {
-                cells[i][j].setLetter(null);
+        for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
+            for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
+                cells[j][i].setLetter(null);
             }
         }
     }
@@ -118,6 +117,15 @@ public class Board {
 
         return board;
     }
+
+    /**
+     * Returns the board's cells
+     * @return cells
+     */
+    public BoardCell[][] getCells() {
+        return cells;
+    }
+
     /**
      * Compares this board with the specified board.
      * @param o the board to be compared.
@@ -129,13 +137,5 @@ public class Board {
         if (o == null || getClass() != o.getClass()) return false;
         Board board = (Board) o;
         return Arrays.deepEquals(cells, board.cells);
-    }
-
-    /**
-     * Returns the board's cells
-     * @return cells
-     */
-    public BoardCell[][] getCells() {
-        return cells;
     }
 }

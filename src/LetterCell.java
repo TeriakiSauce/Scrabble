@@ -1,8 +1,10 @@
+import java.io.Serializable;
+
 /**
  * @author Jaan
  * @version 1.1
  */
-public class LetterCell {
+public class LetterCell implements Serializable {
 
     /**
      * The letter.
@@ -67,7 +69,9 @@ public class LetterCell {
         return letter + "";
     }
 
-    public boolean equals(LetterCell cell) {
+    @Override
+    public boolean equals(Object obj) {
+        LetterCell cell = (LetterCell) obj;
         return letter == cell.letter && x == cell.getX() && y == cell.getY();
     }
 

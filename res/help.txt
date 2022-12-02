@@ -1,4 +1,42 @@
-1. Testing help
 
+How to Play:
 
-2. How does this look?
+    Goal:
+
+        To win the game, you need to get the highest number of points. You can get points by making various words
+        on the board, which will be automatically validated. Certain words may be worth more or less points,
+        depending on the value of the letters, the number of letters, and if the word was made over any modifiers.
+        Essentially, you win the game by making the longest and most complex words whilst achieving using modifiers.
+
+    Setup:
+
+        When creating a new game, you have the opportunity to specify your name, and to add any number of
+        computer players. Once you have specified your desired settings, you can click start and the game will begin.
+
+    Playing:
+
+        Once you have started a game, you will see the scoreboard to the left, various information at the top,
+        several actions to the right, your hand at the bottom, and the board in the center. At the top, the current
+        player and turn number will be listed. When the current player is listed as your name, it is time for you to
+        make a turn.
+
+        When making a turn, you currently have two options. You can attempt to place a word, or you can skip your
+        turn. To make a word, select the desired letter you wish to place from your hand and click on the desired
+        location. For the location to be valid, it must be within the board, currently empty and attached to another
+        word with a few exceptions. Once you have placed your letters, you can click finish to end your turn and
+        validate the word the you created. If the word is valid, you will receive points and the turn will be passed
+        on to the next player. If the word was invalid, your letters will be returned.
+
+Special Rules:
+
+    First Turn:
+
+        Usually, to place a word, you must place a word consisting of at least two letters and connected to another
+        word. For the first turn however, the player has to place their word at the center of the board. In
+        addition, they are allowed to make a word consisting of a single letter.
+
+    Modifiers:
+
+        There exists several modifiers on the board which increase the points that you may receive when placing a 
+        word. These modifiers include double letter score, triple letter score, double word score, and triple word
+        score. They are indicated by the colours light blue, dark blue, pink, and red, respectively.

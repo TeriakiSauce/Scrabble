@@ -1,15 +1,26 @@
+import java.io.IOException;
+import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * Represents the main component of the game. Combines several components
  * to create the game.
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class Game {
+public class Game implements Serializable {
 
     /**
      * The game state.
      */
-    private State state;
+    public transient State state;
+
+    /**
+     * The word bank.
+     */
+    private transient WordBank bank;
 
     /**
      * The currently selected x position.
@@ -30,7 +41,8 @@ public class Game {
      * Create new game.
      */
     public Game() {
-        state = new State();
+        state = new State(this);
+        bank = new WordBank(Config.WORD_BANK_PATH);
         reset();
     }
 
@@ -38,12 +50,22 @@ public class Game {
      * Reset the game. Currently creates one player for the main user.
      */
     public void reset() {
+        setX(null);
+        setY(null);
+        setN(null);
         state.reset();
     }
 
     /**
+     * 
+     */
+    public void fullReset() {
+        state.fullReset();
+        reset();
+    }
+
+    /**
      * Quit the game.
-     * @see Model
      */
     public void quit() {
 
@@ -68,19 +90,106 @@ public class Game {
      * that more than 1 letter was placed unless it was the first turn. If this fails, the board and
      * player are reverted to before anything was placed for the turn. Otherwise, the score is added
      * and the next turn is started.
+     * @return
      */
-    public void finish() {
+    public boolean finish() {
         Integer score = state.getChain().getScore();
         if ((state.getTurn() != 0 && state.getChain().getSize() == 1) || score == 0) {
             state.getPlayer().revert();
             state.revert();
-            return;
+            return false;
         }
 
+//        removeSavesAfter();
         state.getBag().updateHand(state.getPlayer().getHand());
         state.getPlayer().addScore(score);
         state.getPlayer().step();
         state.step();
+        return true;
+    }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public boolean create(String name) {
+        Path path = Paths.get(name);
+        if (Files.exists(path)) {
+            return false;
+        } else {
+            state = new State(this);
+            state.setName(name);
+            return true;
+        }
+    }
+
+    /**
+     *
+     */
+    public void save() {
+        state.save();
+        state.saveWithVersion();
+
+    }
+
+    /**
+     *
+     */
+    private void removeSavesAfter() {
+
+        // TODO:
+        // TODO: This needs to be fixed!!!!!
+        // TODO:
+        
+        Integer turn = state.getTurn();
+        Integer player = state.getPlayerTurn();
+        Integer maxPlayers = state.getPlayers().size();
+
+        while (true) {
+            String path = state.getName() + State.getVersion(turn, player);
+            Path filePath = Paths.get(path);
+            if (Files.exists(filePath)) {
+                try {
+                    Files.delete(filePath);
+                } catch (IOException e) {
+                    return;
+                }
+            } else {
+                return;
+            }
+
+            if (player >= maxPlayers - 1) {
+                turn++;
+                player = 0;
+            } else {
+                player++;
+            }
+        }
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void load(String name) {
+        state = State.load(this, name);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean undo() {
+        return state.loadPrev(state, this);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean redo() {
+        return state.loadNext(state, this);
     }
 
     /**
@@ -90,6 +199,7 @@ public class Game {
     public void pass() {
         state.getPlayer().revert();
         state.revert();
+//        removeSavesAfter();
         state.step();
     }
 
@@ -99,6 +209,14 @@ public class Game {
      */
     public State getState() {
         return state;
+    }
+
+    /**
+     * Get the word bank.
+     * @return The word bank.
+     */
+    public WordBank getWordBank() {
+        return bank;
     }
 
     /**

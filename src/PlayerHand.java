@@ -1,11 +1,12 @@
 import java.util.Arrays;
+import java.io.Serializable;
 
 /**
  * Represents the tiles for the player.
  * @author Andrew/Tarik
  * @version 1.0
  */
-public class PlayerHand {
+public class PlayerHand implements Serializable {
 
     /**
      * The tiles.
@@ -25,7 +26,12 @@ public class PlayerHand {
      * @param letter THe letter.
      */
     public void setLetter(Integer n, Character letter) {
-        tiles[n] = letter;
+        if (n==(Config.HAND_SIZE-1)){
+            tiles[n] = ' '; //blank tile
+        }
+        else {
+            tiles[n] = letter;
+        }
     }
 
     /**

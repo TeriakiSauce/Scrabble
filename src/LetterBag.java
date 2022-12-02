@@ -2,6 +2,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.HashMap;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Represents the bag (the source for the remaining letters used throughout the game). Provides
@@ -9,7 +10,7 @@ import java.util.List;
  * @author Andrew
  * @version 1.1
  */
-public class LetterBag {
+public class LetterBag implements Serializable {
 
     /**
      * The list of remaining tiles.

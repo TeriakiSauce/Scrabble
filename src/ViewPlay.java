@@ -2,6 +2,7 @@ import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 import java.awt.event.ActionListener;
 import java.awt.BorderLayout;
+import javax.swing.JOptionPane;
 
 public class ViewPlay {
 
@@ -61,6 +62,13 @@ public class ViewPlay {
     }
 
     /**
+     * 
+     */
+    void reset() {
+        score.reset();
+    }
+
+    /**
      * Set the board on click action listener.
      * @param listener The action listener.
      */
@@ -109,6 +117,22 @@ public class ViewPlay {
     }
 
     /**
+     * Set action on undo button clicked action listener.
+     * @param listener The action listener.
+     */
+    public void setActionOnUndo(ActionListener listener) {
+        action.setOnUndo(listener);
+    }
+
+    /**
+     * Set action on redo button clicked action listener.
+     * @param listener The action listener.
+     */
+    public void setActionOnRedo(ActionListener listener) {
+        action.setOnRedo(listener);
+    }
+
+    /**
      * Set board letter at specified position.
      * @param x The x position.
      * @param y The y position.
@@ -150,5 +174,12 @@ public class ViewPlay {
      */
     public void setPlayer(Player player) {
         other.setPlayer(player);
+    }
+
+    /**
+     * 
+     */
+    public void showBadMove() {
+        JOptionPane.showMessageDialog(board, "Invalid Move!");
     }
 }

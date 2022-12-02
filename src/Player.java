@@ -1,11 +1,12 @@
 import java.util.Objects;
+import java.io.Serializable;
 
 /**
  * Represents a player type. Can be either a user or a bot.
  * @author Jaan
  * @version 1.0
  */
-public class Player {
+public class Player implements Serializable {
 
     /**
      * The old hand.
@@ -30,7 +31,7 @@ public class Player {
     /**
      * The game.
      */
-    protected Game game;
+    protected transient Game game;
 
     /**
      * Creates a new player.
@@ -43,6 +44,14 @@ public class Player {
         oldHand = new PlayerHand();
         newHand = new PlayerHand();
         score = 0;
+    }
+
+    /**
+     *
+     * @param game
+     */
+    public void setGame(Game game) {
+        this.game = game;
     }
 
     /**
