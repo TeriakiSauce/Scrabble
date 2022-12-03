@@ -33,6 +33,13 @@ public class BoardCell {
      */
     private int y;
 
+    public enum Type{
+        NORMAL, BLUE, CYAN, PINK, RED, MIDDLE
+    }
+
+    private Type type;
+
+
     /**
      * Tracks all the cell's adjacent cells
      */
@@ -44,10 +51,11 @@ public class BoardCell {
     /**
      * Create new board cell.
      */
-    public BoardCell(int x, int y) {
+    public BoardCell(int x, int y, Type type) {
         this.letter = null;
         this.x = x;
         this.y = y;
+        this.type = type;
     }
 
     /**
