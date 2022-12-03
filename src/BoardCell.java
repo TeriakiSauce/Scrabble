@@ -70,7 +70,7 @@ public class BoardCell implements Serializable {
      * @param y y value
      * @param letter letter in the cell
      */
-    public BoardCell(int x, int y, char letter){
+    public BoardCell(int x, int y, Character letter){
         this.x = x;
         this.y = y;
         this.letter = letter;

@@ -184,7 +184,7 @@ public class PlayerBot extends Player implements Serializable {
                                     game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                 }
                             } else if (!(game.getState().getBoard().hasLetter(coords[0] - 1, coords[1]))) {
-                                temp_chain.addLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
+                                temp_chain.addLetter(new BoardCell(coords[0] - 1, coords[1],string.charAt(j)));
                                 game.getState().getBoard().setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
                             }
                         } else {
