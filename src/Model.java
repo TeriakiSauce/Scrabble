@@ -154,6 +154,17 @@ public class Model {
     }
 
     /**
+     * Set the blank tile at the end of the hand
+     * @param letter The letter.
+     */
+    public void setBlankTile(Character letter){
+        State state = game.getState();
+        Player player = state.getPlayer();
+        player.getHand().setBlankTile(letter);
+
+    }
+
+    /**
      * 
      * @return
      */

@@ -34,6 +34,14 @@ public class PlayerHand {
     }
 
     /**
+     * Set the blank tile at the end of the hand
+     * @param letter The letter.
+     */
+    public void setBlankTile(Character letter){
+        tiles[Config.HAND_SIZE-1] = letter;
+    }
+
+    /**
      * Get the letter at the index.
      * @param n The index.
      * @return The letter.

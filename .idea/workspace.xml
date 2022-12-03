@@ -11,12 +11,9 @@
   <component name="ChangeListManager">
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/BoardCell$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/BoardCell$Type.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandBlankCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandBlankCell$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandBlankCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelHandBlankCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayPanelHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayPanelHand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayPanelHandBlankCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayPanelHandBlankCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerHand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ViewPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewPlay.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
