@@ -33,10 +33,16 @@ public class BoardCell {
      */
     private int y;
 
+    /**
+     * The possible types of board cells
+     */
     public enum Type{
         NORMAL, BLUE, CYAN, PINK, RED, MIDDLE
     }
 
+    /**
+     * The type of this board cell
+     */
     private Type type;
 
 
