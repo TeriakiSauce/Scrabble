@@ -35,6 +35,18 @@ public class BoardCell implements Serializable {
     private int y;
 
     /**
+     * The possible types of board cells
+     */
+    public enum Type{
+        NORMAL, BLUE, CYAN, PINK, RED, MIDDLE
+    }
+
+    /**
+     * The type of this board cell
+     */
+    private Type type;
+
+    /**
      * Tracks all the cell's adjacent cells
      */
     private BoardCell northCell;
@@ -45,10 +57,11 @@ public class BoardCell implements Serializable {
     /**
      * Create new board cell.
      */
-    public BoardCell(int x, int y) {
+    public BoardCell(int x, int y, Type type) {
         this.letter = null;
         this.x = x;
         this.y = y;
+        this.type = type;
     }
 
     /**
