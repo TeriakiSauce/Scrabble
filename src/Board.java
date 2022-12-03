@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.io.Serializable;
 
 /**
- * Represents all of the cells in the game. Allows for the setting, getting,
+ * Represents all the cells in the game. Allows for the setting, getting,
  * clearing, and checking of letters in the board.
  * @author Andrew/Tarik
  * @version 1.1
@@ -65,7 +65,7 @@ public class Board implements Serializable {
      * Set letter at specified position.
      * @param cell The cell being set
      */
-    public void setLetter(LetterCell cell) {
+    public void setLetter(BoardCell cell) {
         cells[cell.getX()][cell.getY()].setLetter(cell.getLetter());
     }
 
@@ -212,10 +212,9 @@ public class Board implements Serializable {
         Board board = new Board();
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                board.setLetter(new LetterCell(j,i, getLetter(j,i)));
+                board.setLetter(new BoardCell(j,i, getLetter(j,i)));
             }
         }
-
         return board;
     }
 

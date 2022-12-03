@@ -72,11 +72,11 @@ public class PlayerBot extends Player implements Serializable {
                 if (currentCell.hasLetter()) {
                     if (!currentCell.isInVertChain()) {
                         LetterChain vertChain = new LetterChain(game);
-                        vertChain.addLetter(new LetterCell(i, j, currentCell.getLetter()));
+                        vertChain.addLetter(currentCell);
                         currentCell.setInVertChain(true);
                         while (currentCell.getSouthCell().hasLetter()) {
                             currentCell = currentCell.getSouthCell();
-                            vertChain.addLetter(new LetterCell(currentCell.getX(), currentCell.getY(), currentCell.getLetter()));
+                            vertChain.addLetter(currentCell);
                             currentCell.setInVertChain(true);
                         }
                         vertChain.setIsVertical(true);
@@ -85,11 +85,11 @@ public class PlayerBot extends Player implements Serializable {
                     currentCell = cells[i][j];
                     if (!currentCell.isInHorizChain()) {
                         LetterChain horizChain = new LetterChain(game);
-                        horizChain.addLetter(new LetterCell(i, j, currentCell.getLetter()));
+                        horizChain.addLetter(currentCell);
                         currentCell.setInHorizChain(true);
                         while (currentCell.getEastCell().hasLetter()) {
                             currentCell = currentCell.getEastCell();
-                            horizChain.addLetter(new LetterCell(currentCell.getX(), currentCell.getY(), currentCell.getLetter()));
+                            horizChain.addLetter(currentCell);
                             currentCell.setInHorizChain(true);
                         }
                         horizChain.setIsVertical(false);
@@ -180,12 +180,12 @@ public class PlayerBot extends Player implements Serializable {
                             }
                             if (chain.isVertical()) {
                                 if (!(game.getState().getBoard().hasLetter(coords[0], coords[1] - 1))) {
-                                    temp_chain.addLetter(new LetterCell(coords[0], coords[1] - 1, string.charAt(j)));
-                                    game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] - 1, string.charAt(j)));
+                                    temp_chain.addLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
+                                    game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                 }
                             } else if (!(game.getState().getBoard().hasLetter(coords[0] - 1, coords[1]))) {
-                                temp_chain.addLetter(new LetterCell(coords[0] - 1, coords[1], string.charAt(j)));
-                                game.getState().getBoard().setLetter(new LetterCell(coords[0] - 1, coords[1], string.charAt(j)));
+                                temp_chain.addLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
+                                game.getState().getBoard().setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
                             }
                         } else {
                             int[] coords = chain.getEnd();
@@ -194,12 +194,12 @@ public class PlayerBot extends Player implements Serializable {
                             }
                             if (chain.isVertical()) {
                                 if (!(game.getState().getBoard().hasLetter(coords[0], coords[1] + 1))) {
-                                    temp_chain.addLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
-                                    game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                    temp_chain.addLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                    game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                                 }
                             } else if (!(game.getState().getBoard().hasLetter(coords[0] + 1, coords[1]))) {
-                                temp_chain.addLetter(new LetterCell(coords[0] + 1, coords[1], string.charAt(j)));
-                                game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                temp_chain.addLetter(new BoardCell(coords[0] + 1, coords[1], string.charAt(j)));
+                                game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                             }
                         }
                         temp_chain.sortChain();

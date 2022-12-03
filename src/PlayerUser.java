@@ -34,7 +34,7 @@ public class PlayerUser extends Player implements Serializable {
 
         Character letter = newHand.getLetter(n);
         newHand.removeLetter(n);
-        LetterCell cell = new LetterCell(x, y, letter);
+        BoardCell cell = new BoardCell(x, y, letter);
         chain.addLetter(cell);
         board.setLetter(cell);
         super.placeBoard();

@@ -15,7 +15,7 @@ public class LetterChain implements Serializable {
     /**
      * The letters and positions.
      */
-    private ArrayList<LetterCell> cells;
+    private ArrayList<BoardCell> cells;
 
     /**
      * The game.
@@ -52,7 +52,7 @@ public class LetterChain implements Serializable {
      * Add a letter to the chain.
      * @param cell The cell to be added
      */
-    public void addLetter(LetterCell cell) {
+    public void addLetter(BoardCell cell) {
         cells.add(cell);
     }
 
@@ -62,9 +62,9 @@ public class LetterChain implements Serializable {
      * @param y The y position.
      */
     public void removeLetter(Integer x, Integer y) {
-        Iterator<LetterCell> iterator = cells.iterator();
+        Iterator<BoardCell> iterator = cells.iterator();
         while (iterator.hasNext()) {
-            LetterCell cell = iterator.next();
+            BoardCell cell = iterator.next();
             if (cell.getX() == x && cell.getY() == y) {
                 iterator.remove();
                 return;
@@ -79,7 +79,7 @@ public class LetterChain implements Serializable {
      * @return If the letter exists.
      */
     public Boolean hasLetter(Integer x, Integer y) {
-        for (LetterCell cell : cells) {
+        for (BoardCell cell : cells) {
             if (cell.getX() == x && cell.getY() == y) {
                 return true;
             }
@@ -129,7 +129,7 @@ public class LetterChain implements Serializable {
 
         // Returns 0 if the letter is not connected to another letter on the board or the middle square
         boolean connected = false;
-        for (LetterCell cell : cells){
+        for (BoardCell cell : cells){
             if (cell.getX() == Config.BOARD_HEIGHT/2 && cell.getY() == Config.BOARD_HEIGHT/2){
                 connected = true;
             }
@@ -232,7 +232,7 @@ public class LetterChain implements Serializable {
                 score += bank.getWordValue(word);
             } else {return 0;}
             //Finding leftmost cell with a letter then adding the letters while traversing right
-            for(LetterCell cell : cells){
+            for(BoardCell cell : cells){
                 x = cell.getX();
                 y = cell.getY();
                 while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
@@ -253,7 +253,7 @@ public class LetterChain implements Serializable {
                 score += bank.getWordValue(word);
             } else {return 0;}
             //Finding topmost cell with a letter then adding the letters while traversing down
-            for(LetterCell cell : cells){
+            for(BoardCell cell : cells){
                 x = cell.getX();
                 y = cell.getY();
                 while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
@@ -360,7 +360,7 @@ public class LetterChain implements Serializable {
     public LetterChain makeCopy(LetterChain og){
         LetterChain copy = new LetterChain(og.game);
         copy.isVertical = og.isVertical;
-        for (LetterCell cell : cells){
+        for (BoardCell cell : cells){
             copy.addLetter(cell);
         }
         return copy;
@@ -386,7 +386,7 @@ public class LetterChain implements Serializable {
      */
     public String toString(){
         String chain = new String();
-        for (LetterCell cell : cells){
+        for (BoardCell cell : cells){
             chain += cell.toString();
             chain += cell.getX();
             chain += cell.getY();
@@ -395,7 +395,7 @@ public class LetterChain implements Serializable {
         return chain;
     }
 
-    public ArrayList<LetterCell> getCells() {
+    public ArrayList<BoardCell> getCells() {
         return cells;
     }
 }
