@@ -21,7 +21,7 @@ public class Board {
         cells = new BoardCell[Config.BOARD_WIDTH][Config.BOARD_HEIGHT];
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                cells[i][j] = new BoardCell(i,j, BoardCell.Type.NORMAL);
+                setNormalCells(i, j);
                 setPinkPremiumCells(i, j);
                 setRedPremiumCells(i, j);
                 setCyanPremiumCells(i, j);
@@ -97,6 +97,14 @@ public class Board {
     public void removeLetter(Integer x, Integer y) {
         cells[x][y].setLetter(null);
     }
+
+    /**
+     * Sets normal cells
+     */
+    public void setNormalCells(int x, int y){
+        cells[x][y] = new BoardCell(x,y, BoardCell.Type.NORMAL);
+    }
+
 
     /**
      * Sets red cells
