@@ -18,15 +18,12 @@ public class PlayPanelHandBlankCell extends PlayPanelHandCell{
 
     private View view;
 
-    private Model model;
-
     private int counter;
 
-    public PlayPanelHandBlankCell(PlayPanelHand hand, Integer n, View view, Model model) {
+    public PlayPanelHandBlankCell(PlayPanelHand hand, Integer n, View view) {
         super(hand, n);
         counter = 0;
         this.view = view;
-        this.model = model;
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -36,7 +33,7 @@ public class PlayPanelHandBlankCell extends PlayPanelHandCell{
                 else {
                     String letter = JOptionPane.showInputDialog(view,"Enter a letter: ").toUpperCase();
                     hand.setLetter(n, letter.charAt(0));
-                    model.setBlankTile(letter.charAt(0));
+                    //model.setBlankTile(letter.charAt(0));
                     counter++;
 
                 }
