@@ -1,9 +1,11 @@
+import java.io.Serializable;
+
 /**
  * Represents a user player. Provides methods for manual placing of letters.
  * @author Jaan
  * @version 1.0
  */
-public class PlayerUser extends Player {
+public class PlayerUser extends Player implements Serializable {
 
     /**
      * Create new player user.
@@ -32,7 +34,7 @@ public class PlayerUser extends Player {
 
         Character letter = newHand.getLetter(n);
         newHand.removeLetter(n);
-        LetterCell cell = new LetterCell(x, y, letter);
+        BoardCell cell = new BoardCell(x, y, letter);
         chain.addLetter(cell);
         board.setLetter(cell);
         super.placeBoard();

@@ -1,4 +1,5 @@
 import java.util.Objects;
+import java.io.Serializable;
 
 /**
  * Represents a specific cell or tile within the board. Allows for
@@ -6,7 +7,7 @@ import java.util.Objects;
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class BoardCell {
+public class BoardCell implements Serializable {
 
     /**
      * The contained letter.
@@ -26,12 +27,12 @@ public class BoardCell {
     /**
      * Represents the cell's x value
      */
-    private int x;
+    private Integer x;
 
     /**
      * Represents the cell's y value
      */
-    private int y;
+    private Integer y;
 
     /**
      * The possible types of board cells
@@ -44,7 +45,6 @@ public class BoardCell {
      * The type of this board cell
      */
     private Type type;
-
 
     /**
      * Tracks all the cell's adjacent cells
@@ -62,6 +62,19 @@ public class BoardCell {
         this.x = x;
         this.y = y;
         this.type = type;
+    }
+
+    /**
+     * An alternative constructor used by the AI player to calculate points
+     * @param x x value
+     * @param y y value
+     * @param letter letter in the cell
+     */
+    public BoardCell(int x, int y, Character letter){
+        this.x = x;
+        this.y = y;
+        this.letter = letter;
+        this.type = Type.NORMAL;
     }
 
     /**
@@ -133,46 +146,47 @@ public class BoardCell {
     }
 
     /**
+     * Get the x position.
+     *
+     * @return The x position.
+     */
+    public Integer getX() {
+        return x;
+    }
+    /**
+     * Get the y position.
+     *
+     * @return The y position.
+     */
+    public Integer getY() {
+        return y;
+    }
+
+    /**
      * Getters and setters for all adjacent cells
      */
-
     public BoardCell getNorthCell() {
         return northCell;
     }
-
     public void setNorthCell(BoardCell northCell) {
         this.northCell = northCell;
     }
-
     public BoardCell getSouthCell() {
         return southCell;
     }
-
     public void setSouthCell(BoardCell southCell) {
         this.southCell = southCell;
     }
-
     public BoardCell getEastCell() {
         return eastCell;
     }
-
     public void setEastCell(BoardCell eastCell) {
         this.eastCell = eastCell;
     }
-
     public BoardCell getWestCell() {
         return westCell;
     }
-
     public void setWestCell(BoardCell westCell) {
         this.westCell = westCell;
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
     }
 }

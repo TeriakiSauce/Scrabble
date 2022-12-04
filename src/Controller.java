@@ -2,6 +2,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 /**
  * Represents the controller component of the model view controller. Sets callbacks in
@@ -22,12 +25,35 @@ public class Controller {
         ViewPlay play = view.getPlayScreen();
         ViewSetup setup = view.getSetupScreen();
 
-        start.setActionOnStart(new ActionListener() {
+        start.setActionOnNew(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 view.setSetupScreen();
-                if (!setup.showNameField()) {
-                    view.setStartScreen();
+            }
+        });
+
+        start.setActionOnLoad(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                while (true) {
+                    String path = start.getLoadPath();
+                    if (path == null) {
+                        return;
+                    }
+
+                    if (path.isEmpty()) {
+                        start.showErrorNoInput();
+                        continue;
+                    }
+
+                    Path filePath = Paths.get(path);
+                    if (!Files.exists(filePath)) {
+                        start.showErrorNoFile();
+                    } else {
+                        model.load(path);
+                        view.setPlayScreen();
+                        return;
+                    }
                 }
             }
         });
@@ -64,16 +90,37 @@ public class Controller {
 
         setup.setActionOnStart(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) {    
+            public void actionPerformed(ActionEvent e) {
+                String playerName = setup.getPlayerName();
+                String gameName = setup.getGameName();
+
+                if (playerName == null || playerName.isEmpty()) {
+                    setup.showNoPlayerNameError();
+                    return;
+                }
+
+                if (gameName == null || gameName.isEmpty()) {
+                    setup.showNoGameNameError();
+                    return;
+                }
+
+                Path path = Paths.get(gameName);
+                if (Files.exists(path)) {
+                    if (!setup.showGameAlreadyExists()) {
+                        return;
+                    }
+                }
+
                 view.setPlayScreen();
                 String bots[] = setup.getBotNames();
-                String playerName = setup.getPlayerName();
+                model.create(gameName);
                 model.addUser(playerName);
                 for (int i = 0; i < bots.length; i++) {
                     model.addBot(bots[i]);
                 }
                 model.fillAllHands();
                 model.paint();
+                model.save();
             }
         });
 
@@ -143,6 +190,24 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (view.getConfirmation()) {
                     model.reset();
+                }
+            }
+        });
+
+        play.setActionOnUndo(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!model.undo()) {
+                    // TODO: there is nothing to undo message
+                }
+            }
+        });
+
+        play.setActionOnRedo(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!model.redo()) {
+                    // TODO: there is nothing to redo message
                 }
             }
         });

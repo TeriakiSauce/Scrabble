@@ -1,5 +1,5 @@
 /**
- * Main class containg main method.
+ * Main class containing main method.
  * @author Andrew/Tarik/Jaan/Haravind
  * @version 1.0
  */

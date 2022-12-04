@@ -9,8 +9,6 @@ import java.awt.GridLayout;
  */
 public class PlayPanelHand extends JPanel {
 
-    private View view;
-
     /**
      * The hand cells.
      */
@@ -20,6 +18,11 @@ public class PlayPanelHand extends JPanel {
      * The hand listener.
      */
     private PlayPanelHandListener listener;
+
+    /**
+     * The view.
+     */
+    private View view;
 
     /**
      * Create new panel hand.

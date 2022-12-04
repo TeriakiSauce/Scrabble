@@ -4,8 +4,6 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import java.awt.BorderLayout;
 import java.awt.event.ActionListener;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.io.IOException;
 
 /**
@@ -44,9 +42,8 @@ public class ViewHelp extends JPanel {
         text.setEditable(false);
 
         try {
-            Path path = Path.of(Config.HELP_TEXT_PATH);
-            String string = Files.readString(path);
-            text.setText(string);
+            Reader reader = new Reader(Config.HELP_TEXT_PATH);
+            text.setText(reader.readLines());
         } catch (IOException e) {
             text.setText("Error Loading Help Text");
         }

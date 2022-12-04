@@ -2,17 +2,16 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import java.io.Serializable;
 
 /**
  * Represents a bot player which has AI to decide what move it will make.
  * @author Andrew
  * @version 1.0
  */
-public class PlayerBot extends Player {
+public class PlayerBot extends Player implements Serializable {
 
-    enum DIFFICULTY {EASY, MEDIUM, HARD}
-
-    ;
+    enum DIFFICULTY {EASY, MEDIUM, HARD};
 
     private DIFFICULTY difficulty;
 
@@ -72,12 +71,12 @@ public class PlayerBot extends Player {
                 BoardCell currentCell = cells[i][j];
                 if (currentCell.hasLetter()) {
                     if (!currentCell.isInVertChain()) {
-                        LetterChain vertChain = new LetterChain(game.getState());
-                        vertChain.addLetter(new LetterCell(i, j, currentCell.getLetter()));
+                        LetterChain vertChain = new LetterChain(game);
+                        vertChain.addLetter(currentCell);
                         currentCell.setInVertChain(true);
                         while (currentCell.getSouthCell().hasLetter()) {
                             currentCell = currentCell.getSouthCell();
-                            vertChain.addLetter(new LetterCell(currentCell.getX(), currentCell.getY(), currentCell.getLetter()));
+                            vertChain.addLetter(currentCell);
                             currentCell.setInVertChain(true);
                         }
                         vertChain.setIsVertical(true);
@@ -85,12 +84,12 @@ public class PlayerBot extends Player {
                     }
                     currentCell = cells[i][j];
                     if (!currentCell.isInHorizChain()) {
-                        LetterChain horizChain = new LetterChain(game.getState());
-                        horizChain.addLetter(new LetterCell(i, j, currentCell.getLetter()));
+                        LetterChain horizChain = new LetterChain(game);
+                        horizChain.addLetter(currentCell);
                         currentCell.setInHorizChain(true);
                         while (currentCell.getEastCell().hasLetter()) {
                             currentCell = currentCell.getEastCell();
-                            horizChain.addLetter(new LetterCell(currentCell.getX(), currentCell.getY(), currentCell.getLetter()));
+                            horizChain.addLetter(currentCell);
                             currentCell.setInHorizChain(true);
                         }
                         horizChain.setIsVertical(false);
@@ -171,7 +170,7 @@ public class PlayerBot extends Player {
         for (LetterChain chain : currentWords) {
             for (String string : handCombos) {
                 for (int i = 0; i < string.length() + 1; i++) {
-                    LetterChain temp_chain = new LetterChain(game.getState());
+                    LetterChain temp_chain = new LetterChain(game);
                     temp_chain.setIsVertical(chain.isVertical());
                     for (int j = 0; j < string.length(); j++) {
                         if (j < i) {
@@ -181,12 +180,12 @@ public class PlayerBot extends Player {
                             }
                             if (chain.isVertical()) {
                                 if (!(game.getState().getBoard().hasLetter(coords[0], coords[1] - 1))) {
-                                    temp_chain.addLetter(new LetterCell(coords[0], coords[1] - 1, string.charAt(j)));
-                                    game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] - 1, string.charAt(j)));
+                                    temp_chain.addLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
+                                    game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                 }
                             } else if (!(game.getState().getBoard().hasLetter(coords[0] - 1, coords[1]))) {
-                                temp_chain.addLetter(new LetterCell(coords[0] - 1, coords[1], string.charAt(j)));
-                                game.getState().getBoard().setLetter(new LetterCell(coords[0] - 1, coords[1], string.charAt(j)));
+                                temp_chain.addLetter(new BoardCell(coords[0] - 1, coords[1],string.charAt(j)));
+                                game.getState().getBoard().setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
                             }
                         } else {
                             int[] coords = chain.getEnd();
@@ -195,12 +194,12 @@ public class PlayerBot extends Player {
                             }
                             if (chain.isVertical()) {
                                 if (!(game.getState().getBoard().hasLetter(coords[0], coords[1] + 1))) {
-                                    temp_chain.addLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
-                                    game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                    temp_chain.addLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                    game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                                 }
                             } else if (!(game.getState().getBoard().hasLetter(coords[0] + 1, coords[1]))) {
-                                temp_chain.addLetter(new LetterCell(coords[0] + 1, coords[1], string.charAt(j)));
-                                game.getState().getBoard().setLetter(new LetterCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                temp_chain.addLetter(new BoardCell(coords[0] + 1, coords[1], string.charAt(j)));
+                                game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                             }
                         }
                         temp_chain.sortChain();

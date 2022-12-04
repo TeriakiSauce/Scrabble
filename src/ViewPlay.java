@@ -117,6 +117,22 @@ public class ViewPlay {
     }
 
     /**
+     * Set action on undo button clicked action listener.
+     * @param listener The action listener.
+     */
+    public void setActionOnUndo(ActionListener listener) {
+        action.setOnUndo(listener);
+    }
+
+    /**
+     * Set action on redo button clicked action listener.
+     * @param listener The action listener.
+     */
+    public void setActionOnRedo(ActionListener listener) {
+        action.setOnRedo(listener);
+    }
+
+    /**
      * Set board letter at specified position.
      * @param x The x position.
      * @param y The y position.

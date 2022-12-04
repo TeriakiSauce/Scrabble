@@ -88,6 +88,53 @@ public class Model {
     }
 
     /**
+     *
+     * @return
+     */
+    public boolean undo() {
+        boolean rc = game.undo();
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean redo() {
+        boolean rc = game.redo();
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public boolean create(String name) {
+        boolean rc = game.create(name);
+        paint();
+        return rc;
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void load(String name) {
+        game.load(name);
+        paint();
+    }
+
+    /**
+     *
+     */
+    public void save() {
+        game.save();
+    }
+
+    /**
      * Call the game set x position.
      * @param x The x position.
      */
@@ -151,17 +198,6 @@ public class Model {
         // Ensure that the view is updated
         view.revalidate();
         view.repaint();
-    }
-
-    /**
-     * Set the blank tile at the end of the hand
-     * @param letter The letter.
-     */
-    public void setBlankTile(Character letter){
-        State state = game.getState();
-        Player player = state.getPlayer();
-        player.getHand().setBlankTile(letter);
-
     }
 
     /**

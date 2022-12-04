@@ -1,10 +1,12 @@
-import java.io.FileReader;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.util.Collections;
 
 /**
+ * @author Jaan
+ * @version 1.2
+ * For generating random bot names from a file.
+ *
  * Names were generated from:
  * https://www.developmenttools.com/gamertag-generator/
  */
@@ -23,12 +25,11 @@ public class NameGen {
 
         try {
             String line;
-            BufferedReader reader = new BufferedReader(new FileReader(Config.NAMES_PATH));
+            Reader reader = new Reader(Config.NAMES_PATH);
             while ((line = reader.readLine()) != null) {
                 names.add(line);
             }
 
-            reader.close();
             if (names.isEmpty()) {
                 throw new IOException("Found no names from " + Config.NAMES_PATH);
             }

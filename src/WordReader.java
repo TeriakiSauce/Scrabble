@@ -1,7 +1,5 @@
 import java.net.URL;
 import java.net.URLConnection;
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.InputStreamReader;
 
 /**
@@ -17,7 +15,7 @@ public class WordReader {
      * @author Jaan Soulier
      * @version 1.0
      */
-    public class WordReadingException extends RuntimeException {
+    public static class WordReadingException extends RuntimeException {
         /**
          * @author Jaan Soulier
          * Create new WordReadingException.
@@ -43,7 +41,7 @@ public class WordReader {
     /**
      * Reader for reading words.
      */
-    private BufferedReader reader;
+    private Reader reader;
 
     /**
      * @author Jaan Soulier
@@ -60,10 +58,10 @@ public class WordReader {
             }
             URL url = new URL(path);
             URLConnection connection = url.openConnection();
-            reader = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+            reader = new Reader(new InputStreamReader(connection.getInputStream()));
         } catch (Exception outer) {
             try {
-                reader = new BufferedReader(new FileReader(Config.WORD_BANK_BACKUP_PATH));
+                reader = new Reader(Config.WORD_BANK_BACKUP_PATH);
             } catch (Exception inner) {
                 throw new WordReadingException();
             }

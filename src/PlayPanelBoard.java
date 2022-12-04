@@ -24,17 +24,17 @@ public class PlayPanelBoard extends JPanel {
      */
     public PlayPanelBoard() {
         setLayout(new GridLayout(
-            Config.BOARD_WIDTH,
-            Config.BOARD_HEIGHT,
-            -1,
-            -1
+                Config.BOARD_WIDTH,
+                Config.BOARD_HEIGHT,
+                -1,
+                -1
         ));
 
         setBorder(BorderFactory.createEmptyBorder(
-            Config.BOARD_BORDER_WIDTH,
-            Config.BOARD_BORDER_WIDTH,
-            Config.BOARD_BORDER_WIDTH,
-            Config.BOARD_BORDER_WIDTH
+                Config.BOARD_BORDER_WIDTH,
+                Config.BOARD_BORDER_WIDTH,
+                Config.BOARD_BORDER_WIDTH,
+                Config.BOARD_BORDER_WIDTH
         ));
 
         cells = new PlayPanelBoardCell[Config.BOARD_WIDTH][Config.BOARD_HEIGHT];
@@ -42,6 +42,7 @@ public class PlayPanelBoard extends JPanel {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
                 cells[j][i] = new PlayPanelBoardCell(this, j, i);
                 add(cells[j][i]);
+                cells[j][i].setOpaque(true);
                 setPinkPremiumCells(j, i);
                 setRedPremiumCells(j, i);
                 setCyanPremiumCells(j, i);

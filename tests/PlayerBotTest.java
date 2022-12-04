@@ -18,9 +18,9 @@ public class PlayerBotTest {
         game = new Game();
         board = game.getState().getBoard();
         bot = new PlayerBot("bot", game);
-        board.setLetter(new LetterCell(7,7,'a'));
-        board.setLetter(new LetterCell(7,8,'s'));
-        board.setLetter(new LetterCell(7,9,'h'));
+        board.setLetter(new BoardCell(7,7,'a'));
+        board.setLetter(new BoardCell(7,8,'s'));
+        board.setLetter(new BoardCell(7,9,'h'));
 
 
         game.getState().step();
@@ -34,22 +34,22 @@ public class PlayerBotTest {
 
         bot.collectBoardWords();
         LinkedList words = (LinkedList) bot.getCurrentWords();
-        LetterChain answer1 = new LetterChain(game.getState());
-        answer1.addLetter(new LetterCell(7,7,'a'));
-        answer1.addLetter(new LetterCell(7,8,'s'));
-        answer1.addLetter(new LetterCell(7,9,'h'));
+        LetterChain answer1 = new LetterChain(game);
+        answer1.addLetter(new BoardCell(7,7,'a'));
+        answer1.addLetter(new BoardCell(7,8,'s'));
+        answer1.addLetter(new BoardCell(7,9,'h'));
         answer1.setIsVertical(true);
 
-        LetterChain answer2 = new LetterChain(game.getState());
-        answer2.addLetter(new LetterCell(7,7,'a'));
+        LetterChain answer2 = new LetterChain(game);
+        answer2.addLetter(new BoardCell(7,7,'a'));
         answer2.setIsVertical(false);
 
-        LetterChain answer3 = new LetterChain(game.getState());
-        answer3.addLetter(new LetterCell(7,8,'s'));
+        LetterChain answer3 = new LetterChain(game);
+        answer3.addLetter(new BoardCell(7,8,'s'));
         answer3.setIsVertical(false);
 
-        LetterChain answer4 = new LetterChain(game.getState());
-        answer4.addLetter(new LetterCell(7,9,'h'));
+        LetterChain answer4 = new LetterChain(game);
+        answer4.addLetter(new BoardCell(7,9,'h'));
         answer4.setIsVertical(false);
 
         LinkedList answers = new LinkedList<LetterChain>();
@@ -90,9 +90,9 @@ public class PlayerBotTest {
     public void testChoosePlay() {
 
         bot.calculatePossiblePoints();
-        LetterChain optimal = new LetterChain(game.getState());
-        optimal.addLetter(new LetterCell(6,9,'c'));
-        optimal.addLetter(new LetterCell(8,9,'a'));
+        LetterChain optimal = new LetterChain(game);
+        optimal.addLetter(new BoardCell(6,9,'c'));
+        optimal.addLetter(new BoardCell(8,9,'a'));
         assert(bot.choosePlay().equals(optimal));
 
     }

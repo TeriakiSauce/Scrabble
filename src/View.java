@@ -23,9 +23,14 @@ public class View extends JFrame {
     private ViewPlay play;
 
     /**
-     * 
+     * The setup screen.
      */
     private ViewSetup setup;
+
+    /**
+     * The editor screen;
+     */
+    private ViewEditor editor;
 
     /**
      * Create new view.
@@ -48,6 +53,7 @@ public class View extends JFrame {
         help = new ViewHelp(this);
         play = new ViewPlay(this);
         setup = new ViewSetup(this);
+        editor = new ViewEditor(this);
 
         setTitle(Config.FRAME_TITLE);
         setSize(Config.WINDOW_WIDTH, Config.WINDOW_HEIGHT);
@@ -145,6 +151,24 @@ public class View extends JFrame {
     }
 
     /**
+     * Get the editor screen.
+     * @return The editor screen.
+     */
+    public ViewEditor getEditorScreen() {
+        return editor;
+    }
+
+    /**
+     * Set the screen to the editor screen.
+     */
+    public void setEditorScreen() {
+        getContentPane().removeAll();
+        editor.add();
+        revalidate();
+        repaint();
+    }
+
+    /**
      * 
      * @return
      */
@@ -152,4 +176,5 @@ public class View extends JFrame {
         return JOptionPane.showConfirmDialog(this, "Are you sure?",
             null, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
+
 }

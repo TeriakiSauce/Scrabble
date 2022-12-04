@@ -1,11 +1,12 @@
 import java.util.Arrays;
+import java.io.Serializable;
 
 /**
  * Represents the tiles for the player.
  * @author Andrew/Tarik
  * @version 1.0
  */
-public class PlayerHand {
+public class PlayerHand implements Serializable {
 
     /**
      * The tiles.
@@ -34,20 +35,20 @@ public class PlayerHand {
     }
 
     /**
-     * Set the blank tile at the end of the hand
-     * @param letter The letter.
-     */
-    public void setBlankTile(Character letter){
-        tiles[Config.HAND_SIZE-1] = letter;
-    }
-
-    /**
      * Get the letter at the index.
      * @param n The index.
      * @return The letter.
      */
     public Character getLetter(Integer n) {
         return tiles[n];
+    }
+
+    /**
+     * Get the letters in the hand
+     * @return The letters
+     */
+    public Character[] getLetters() {
+        return tiles;
     }
 
     /**
@@ -66,6 +67,18 @@ public class PlayerHand {
     public void removeLetter(Integer n) {
         assert(tiles[n] != null);
         tiles[n] = null;
+    }
+
+    /**
+     * Remove the specified letter
+<<<<<<< Updated upstream
+     * @param c the letter
+=======
+     * @param c the character
+>>>>>>> Stashed changes
+     */
+    public void removeLetter(Character c) {
+        Arrays.asList(tiles).remove(c);
     }
 
     /**
@@ -92,5 +105,4 @@ public class PlayerHand {
         PlayerHand that = (PlayerHand) o;
         return Arrays.equals(tiles, that.tiles);
     }
-
 }

@@ -1,15 +1,26 @@
+import java.io.IOException;
+import java.io.Serializable;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 /**
  * Represents the main component of the game. Combines several components
  * to create the game.
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class Game {
+public class Game implements Serializable {
 
     /**
      * The game state.
      */
-    private State state;
+    public transient State state;
+
+    /**
+     * The word bank.
+     */
+    private transient WordBank bank;
 
     /**
      * The currently selected x position.
@@ -30,7 +41,8 @@ public class Game {
      * Create new game.
      */
     public Game() {
-        state = new State();
+        state = new State(this);
+        bank = new WordBank(Config.WORD_BANK_PATH);
         reset();
     }
 
@@ -54,7 +66,6 @@ public class Game {
 
     /**
      * Quit the game.
-     * @see Model
      */
     public void quit() {
 
@@ -89,11 +100,96 @@ public class Game {
             return false;
         }
 
+//        removeSavesAfter();
         state.getBag().updateHand(state.getPlayer().getHand());
         state.getPlayer().addScore(score);
         state.getPlayer().step();
         state.step();
         return true;
+    }
+
+    /**
+     *
+     * @param name
+     * @return
+     */
+    public boolean create(String name) {
+        Path path = Paths.get(name);
+        if (Files.exists(path)) {
+            return false;
+        } else {
+            state = new State(this);
+            state.setName(name);
+            return true;
+        }
+    }
+
+    /**
+     *
+     */
+    public void save() {
+        state.save();
+        state.saveWithVersion();
+
+    }
+
+    /**
+     *
+     */
+    private void removeSavesAfter() {
+
+        // TODO:
+        // TODO: This needs to be fixed!!!!!
+        // TODO:
+        
+        Integer turn = state.getTurn();
+        Integer player = state.getPlayerTurn();
+        Integer maxPlayers = state.getPlayers().size();
+
+        while (true) {
+            String path = state.getName() + State.getVersion(turn, player);
+            Path filePath = Paths.get(path);
+            if (Files.exists(filePath)) {
+                try {
+                    Files.delete(filePath);
+                } catch (IOException e) {
+                    return;
+                }
+            } else {
+                return;
+            }
+
+            if (player >= maxPlayers - 1) {
+                turn++;
+                player = 0;
+            } else {
+                player++;
+            }
+        }
+    }
+
+    /**
+     *
+     * @param name
+     */
+    public void load(String name) {
+        state = State.load(this, name);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean undo() {
+        return state.loadPrev(state, this);
+    }
+
+    /**
+     *
+     * @return
+     */
+    public boolean redo() {
+        return state.loadNext(state, this);
     }
 
     /**
@@ -103,6 +199,7 @@ public class Game {
     public void pass() {
         state.getPlayer().revert();
         state.revert();
+//        removeSavesAfter();
         state.step();
     }
 
@@ -112,6 +209,14 @@ public class Game {
      */
     public State getState() {
         return state;
+    }
+
+    /**
+     * Get the word bank.
+     * @return The word bank.
+     */
+    public WordBank getWordBank() {
+        return bank;
     }
 
     /**

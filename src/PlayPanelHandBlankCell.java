@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Locale;
-import java.util.Scanner;
 
 public class PlayPanelHandBlankCell extends PlayPanelHandCell{
     /**
@@ -12,9 +10,8 @@ public class PlayPanelHandBlankCell extends PlayPanelHandCell{
      *
      * @param hand The hand.
      * @param n    The index.
+     * @param view The view.
      */
-
-    private JButton button;
 
     private View view;
 
@@ -31,11 +28,10 @@ public class PlayPanelHandBlankCell extends PlayPanelHandCell{
                     hand.onClick(n);
                 }
                 else {
-                    String letter = JOptionPane.showInputDialog(view,"Enter a letter: ").toUpperCase();
+                    String letter = JOptionPane.showInputDialog(view, "Enter a letter: ").toUpperCase();
                     hand.setLetter(n, letter.charAt(0));
                     //model.setBlankTile(letter.charAt(0));
                     counter++;
-
                 }
             }
         });
