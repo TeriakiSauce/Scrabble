@@ -78,6 +78,14 @@ public class BoardCell implements Serializable {
     }
 
     /**
+     * Set the cell type.
+     * @param type The type.
+     */
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    /**
      * Get contained letter.
      * @return Contained letter.
      */
