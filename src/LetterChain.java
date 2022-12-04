@@ -8,7 +8,8 @@ import java.io.Serializable;
  * the score of the placed word.
  * @author Jaan
  * @author Andrew
- * @version 1.5
+ * @author Tarik
+ * @version 1.6
  */
 public class LetterChain implements Serializable {
 
@@ -98,10 +99,41 @@ public class LetterChain implements Serializable {
 
     /**
      * Returns isVertical
-     * @return
+     * @return true if vertical, false otherwise
      */
     public boolean isVertical() {
         return isVertical;
+    }
+
+    /**
+     * Returns premium tile multiplier
+     * @return the multiplier
+     */
+    public Integer getMultiplier(BoardCell.Type type) {
+        switch (type) {
+            case BLUE:
+            case RED:
+                return 3;
+            case CYAN:
+            case PINK:
+                return 2;
+            default:
+                return 1;
+        }
+    }
+
+    /**
+     * Returns if premium tile multiplier is a word multiplier
+     * @return true if word multiplier, false otherwise
+     */
+    public boolean isWordMultiplier(BoardCell.Type type) {
+        switch (type) {
+            case RED:
+            case PINK:
+                return true;
+            default:
+                return false;
+        }
     }
 
     /**
