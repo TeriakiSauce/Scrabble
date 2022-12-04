@@ -76,6 +76,10 @@ public class State implements Serializable {
         newBoard.clear();
         turn = 0;
         player = 0;
+        if (players.size() > 0) {
+            players.get(0).getHand().clear();
+            bag.updateHand(players.get(0).getHand());
+        }
     }
 
     /**

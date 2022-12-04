@@ -35,6 +35,14 @@ public class PlayerHand implements Serializable {
     }
 
     /**
+     * Clears the player's hand
+     */
+    public void clear(){
+        for(int i = 0; i < Config.HAND_SIZE; i++){
+            tiles[i] = null;
+        }
+    }
+    /**
      * Get the letter at the index.
      * @param n The index.
      * @return The letter.
@@ -56,7 +64,7 @@ public class PlayerHand implements Serializable {
      * @param n The index.
      * @return If the letter exists at the position.
      */
-    public Boolean  hasLetter(Integer n) {
+    public Boolean hasLetter(Integer n) {
         return tiles[n] != null;
     }
 
@@ -71,11 +79,7 @@ public class PlayerHand implements Serializable {
 
     /**
      * Remove the specified letter
-<<<<<<< Updated upstream
      * @param c the letter
-=======
-     * @param c the character
->>>>>>> Stashed changes
      */
     public void removeLetter(Character c) {
         Arrays.asList(tiles).remove(c);
