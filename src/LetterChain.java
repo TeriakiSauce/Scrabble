@@ -268,6 +268,8 @@ public class LetterChain implements Serializable {
         WordBank bank = game.getWordBank();
         String word;
         Board board = state.getBoard();
+        Integer totalLetterBonus = 1;
+        Integer totalWordBonus = 1;
 
         if(isVertical){
             // Traverses towards the top of the word then counts the letters going down
@@ -282,12 +284,21 @@ public class LetterChain implements Serializable {
             for(BoardCell cell : cells){
                 x = cell.getX();
                 y = cell.getY();
+
+                //premium tile check
+                if (isWordMultiplier(cell.getType())){
+                    totalLetterBonus*=getMultiplier(cell.getType());
+                }
+                else{
+                    totalWordBonus*=getMultiplier(cell.getType());
+                }
+
                 while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
                     x--;
                 }
                 word = walkHorizontal(1,x,y);
                 if (bank.isWordValid(word)) {
-                    score += bank.getWordValue(word);
+                    score += bank.getWordValue(word)*totalWordBonus;
                 } else if (word.length() > 1){return 0;}
             }
         } else {
@@ -303,12 +314,21 @@ public class LetterChain implements Serializable {
             for(BoardCell cell : cells){
                 x = cell.getX();
                 y = cell.getY();
+
+                //premium tile check
+                if (isWordMultiplier(cell.getType())){
+                    totalLetterBonus*=getMultiplier(cell.getType());
+                }
+                else{
+                    totalWordBonus*=getMultiplier(cell.getType());
+                }
+
                 while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
                     y--;
                 }
                 word = walkVertical(1,x,y);
                 if (bank.isWordValid(word)) {
-                    score += bank.getWordValue(word);
+                    score += bank.getWordValue(word)*totalWordBonus;
                 } else if (word.length() > 1){return 0;}
             }
         }

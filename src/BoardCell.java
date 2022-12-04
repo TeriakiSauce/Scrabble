@@ -55,10 +55,20 @@ public class BoardCell implements Serializable {
     private BoardCell westCell;
 
     /**
-     * Create new board cell.
+     * Create new empty board cell.
      */
     public BoardCell(int x, int y, Type type) {
         this.letter = null;
+        this.x = x;
+        this.y = y;
+        this.type = type;
+    }
+
+    /**
+     * Create new board cell with a letter in it.
+     */
+    public BoardCell(int x, int y, Character letter ,Type type) {
+        this.letter = letter;
         this.x = x;
         this.y = y;
         this.type = type;
