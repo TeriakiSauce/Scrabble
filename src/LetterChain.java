@@ -136,6 +136,21 @@ public class LetterChain implements Serializable {
         }
     }
 
+    /*
+    Initial Framework to be implemented for premium
+      Integer totalLetterBonus = 1;
+      Integer totalWordBonus = 1;
+      for (BoardCell cell : LetterChain chain){
+            if (isWordMultiplier(cell.getType())){
+                totalLetterBonus*=getMultiplier(cell.getType());
+            }
+            else{
+                totalWordBonus*=getMultiplier(cell.getType());
+            }
+      }
+     */
+
+
     /**
      * Get the score from the placed letters. This is the main method for computing
      * the total score of the placed word.
