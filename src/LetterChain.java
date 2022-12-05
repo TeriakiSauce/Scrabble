@@ -28,7 +28,7 @@ public class LetterChain implements Serializable {
     private boolean isVertical;
 
     /**
-     * The value that is certain chain will give when played
+     * The value that a certain chain will give when played
      */
     private int playValue;
 
@@ -149,13 +149,13 @@ public class LetterChain implements Serializable {
         if (!connected){
             return 0;
         }
-
         score += getScore(cells.get(0).getX(), cells.get(0).getY());
+        System.out.println(score);
         return score;
     }
 
     /**
-     * Returns true if letters are placed in a valid  horizontal configuration
+     * Returns true if letters are placed in a valid horizontal configuration
      * @return true if letters are valid, false otherwise
      */
     private boolean validPlacementX(){
@@ -221,8 +221,28 @@ public class LetterChain implements Serializable {
         WordBank bank = game.getWordBank();
         String word;
         Board board = state.getBoard();
+        //Creating special case for chains of size 1
+        if(getSize() == 1){
+            x = cells.get(0).getX();
+            y = cells.get(0).getY();
+            while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
+                x--;
+            }
+            word = walkHorizontal(1,x,y);
+            if (bank.isWordValid(word)) {
+                score += bank.getWordValue(word);
+            } else if (word.length() > 1){return 0;}
+            x = cells.get(0).getX();
+            y = cells.get(0).getY();
+            while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
+                y--;
+            }
+            word = walkVertical(1,x,y);
+            if (bank.isWordValid(word)) {
+                score += bank.getWordValue(word);
+            } else if (word.length() > 1){return 0;}
 
-        if(isVertical){
+        } else if(isVertical){
             // Traverses towards the top of the word then counts the letters going down
             while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
                 y--;
@@ -243,6 +263,7 @@ public class LetterChain implements Serializable {
                     score += bank.getWordValue(word);
                 } else if (word.length() > 1){return 0;}
             }
+
         } else {
             // Traverses towards the left of the word then counts the letters going right
             while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
