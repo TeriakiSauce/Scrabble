@@ -150,7 +150,6 @@ public class LetterChain implements Serializable {
             return 0;
         }
         score += getScore(cells.get(0).getX(), cells.get(0).getY());
-        System.out.println(score);
         return score;
     }
 
@@ -301,7 +300,7 @@ public class LetterChain implements Serializable {
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
 
-        while (board.isValid(x, y) && board.hasLetter(x, y)) {
+        while (board.isValid(x, y) && (board.hasLetter(x, y) || hasLetter(x,y))) {
             string.append(board.getLetter(x, y));
             x += direction;
         }
@@ -321,7 +320,7 @@ public class LetterChain implements Serializable {
         StringBuilder string = new StringBuilder();
         Board board = state.getBoard();
 
-        while (board.isValid(x, y) && board.hasLetter(x, y)) {
+        while (board.isValid(x, y) && (board.hasLetter(x, y) || hasLetter(x,y))) {
             string.append(board.getLetter(x, y));
             y += direction;
         }

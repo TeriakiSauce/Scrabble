@@ -204,10 +204,9 @@ public class PlayerBot extends Player implements Serializable {
                         }
                         temp_chain.sortChain();
                     }
-
                     if (temp_chain.getScore() > 0) {
-                        //System.out.println(temp_chain);
-                        //System.out.println(temp_chain.getScore());
+                        System.out.println(temp_chain);
+                        System.out.println(temp_chain.getScore());
                         validPlays.add(temp_chain);
                     }
                     game.getState().revert();
@@ -241,4 +240,6 @@ public class PlayerBot extends Player implements Serializable {
     public List<String> getHandCombos() {
         return handCombos;
     }
+
+    public List<LetterChain> getValidWords(){return validPlays;}
 }

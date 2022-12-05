@@ -189,4 +189,11 @@ public class BoardCell implements Serializable {
     public void setWestCell(BoardCell westCell) {
         this.westCell = westCell;
     }
+    /**
+     * Returns a string representation of BoardCell
+     * @return the string
+     */
+    public String toString() {
+        return letter + "";
+    }
 }
