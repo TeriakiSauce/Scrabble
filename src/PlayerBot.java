@@ -1,8 +1,6 @@
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 import java.io.Serializable;
+import java.util.stream.Collectors;
 
 /**
  * Represents a bot player which has AI to decide what move it will make.
@@ -104,26 +102,28 @@ public class PlayerBot extends Player implements Serializable {
      * Returns a list of all possible combinations of the player's cards in their hand.
      */
     public void findHandCombos() {
-        Character[] characters = {'a','b','c'};
+        char[] characters = {'q','a','j','r','r','v','s'};
+        // char[] characters = Arrays.stream(newHand.getLetters()).map(ch->ch.toString()).collect(Collectors.joining()).toCharArray();
+        System.out.println(characters);
         int subsets = (int) Math.pow(2, characters.length);
         for (int i = 1; i < subsets; i++) {
-            String str = "";
+            StringBuilder str = new StringBuilder();
             int temp = i;
             for (int j = characters.length - 1; j >= 0; --j) {
                 int remainder = temp % 2;
                 temp /= 2;
                 if (remainder != 0) {
-                    str = characters[j] + str;
+                    str.insert(0, characters[j]);
                 }
             }
             for (int j = characters.length - 1; j >= 0; --j) {
                 int remainder = temp % 2;
                 temp /= 2;
                 if (remainder != 0) {
-                    str = characters[j] + str;
+                    str.insert(0, characters[j]);
                 }
             }
-            ArrayList<String> perms = getPermutations(str, "", new ArrayList<>());
+            ArrayList<String> perms = getPermutations(str.toString(), "", new ArrayList<>());
             for (String string : perms) {
                 if (!handCombos.contains(string)) {
                     handCombos.add(string);
@@ -141,7 +141,6 @@ public class PlayerBot extends Player implements Serializable {
     private ArrayList<String> getPermutations(String str, String ans, ArrayList<String> perms) {
         //base case
         if (str.length() == 0) {
-
             // add ans to arraylist
             perms.add(ans);
             return perms;
@@ -152,6 +151,7 @@ public class PlayerBot extends Player implements Serializable {
         for (int i = 0; i < str.length(); i++) {
             str = str.toLowerCase();
             char chr = str.charAt(i);
+            //System.out.println(chr);
 
             // The string excluding the ith character
             String ros = str.substring(0, i) +
@@ -179,11 +179,11 @@ public class PlayerBot extends Player implements Serializable {
                                 coords = temp_chain.getBeginning();
                             }
                             if (chain.isVertical()) {
-                                if (!(game.getState().getBoard().hasLetter(coords[0], coords[1] - 1))) {
+                                if (isFreeToPlay(coords[0], coords[1] - 1)) {
                                     temp_chain.addLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                     game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                 }
-                            } else if (!(game.getState().getBoard().hasLetter(coords[0] - 1, coords[1]))) {
+                            } else if (isFreeToPlay(coords[0] - 1, coords[1])) {
                                 temp_chain.addLetter(new BoardCell(coords[0] - 1, coords[1],string.charAt(j)));
                                 game.getState().getBoard().setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
                             }
@@ -193,11 +193,11 @@ public class PlayerBot extends Player implements Serializable {
                                 coords = temp_chain.getEnd();
                             }
                             if (chain.isVertical()) {
-                                if (!(game.getState().getBoard().hasLetter(coords[0], coords[1] + 1))) {
+                                if (isFreeToPlay(coords[0], coords[1] + 1)) {
                                     temp_chain.addLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                                     game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                                 }
-                            } else if (!(game.getState().getBoard().hasLetter(coords[0] + 1, coords[1]))) {
+                            } else if (isFreeToPlay(coords[0] + 1, coords[1])) {
                                 temp_chain.addLetter(new BoardCell(coords[0] + 1, coords[1], string.charAt(j)));
                                 game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                             }
@@ -205,8 +205,6 @@ public class PlayerBot extends Player implements Serializable {
                         temp_chain.sortChain();
                     }
                     if (temp_chain.getScore() > 0) {
-                        System.out.println(temp_chain);
-                        System.out.println(temp_chain.getScore());
                         validPlays.add(temp_chain);
                     }
                     game.getState().revert();
@@ -215,8 +213,16 @@ public class PlayerBot extends Player implements Serializable {
         }
     }
 
+    private boolean isFreeToPlay(int x, int y){
+        Board board = game.getState().getBoard();
+        return !(board.hasLetter(x, y)) && board.isValid(x, y);
+    }
+
     public LetterChain choosePlay() {
         validPlays.sort(Comparator.comparingInt(LetterChain::getPlayValue));
+        if(validPlays.size() == 0){
+            return new LetterChain(game);
+        }
         LetterChain bestPlay = validPlays.get(validPlays.size() - 1);
         //System.out.println(bestPlay.getScore());
         //System.out.println(bestPlay);
