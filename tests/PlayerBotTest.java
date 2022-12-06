@@ -90,11 +90,11 @@ public class PlayerBotTest {
     public void testChoosePlay() {
 
         bot.calculatePossiblePoints();
+        //System.out.println(bot.getValidWords());
         LetterChain optimal = new LetterChain(game);
         optimal.addLetter(new BoardCell(6,9,'c'));
         optimal.addLetter(new BoardCell(8,9,'a'));
         assert(bot.choosePlay().equals(optimal));
 
     }
-
 }

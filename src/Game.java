@@ -86,7 +86,7 @@ public class Game implements Serializable {
     }
 
     /**
-     * Finish the turn for the current player. Checks if the score acheived is greater than zero, and
+     * Finish the turn for the current player. Checks if the score achieved is greater than zero, and
      * that more than 1 letter was placed unless it was the first turn. If this fails, the board and
      * player are reverted to before anything was placed for the turn. Otherwise, the score is added
      * and the next turn is started.
@@ -94,7 +94,7 @@ public class Game implements Serializable {
      */
     public boolean finish() {
         Integer score = state.getChain().getScore();
-        if ((state.getTurn() != 0 && state.getChain().getSize() == 1) || score == 0) {
+        if (score == 0) {
             state.getPlayer().revert();
             state.revert();
             return false;

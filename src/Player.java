@@ -112,7 +112,7 @@ public class Player implements Serializable {
 
     /**
      * Sets the hand.
-     * @param The hand to be set.
+     * @param hand to be set.
      */
     public void setHand(PlayerHand hand) {
         newHand = hand;

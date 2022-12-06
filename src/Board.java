@@ -86,7 +86,10 @@ public class Board implements Serializable {
      * @return The letter.
      */
     public Boolean hasLetter(Integer x, Integer y) {
-        return cells[x][y].hasLetter();
+        if(isValid(x,y)){
+            return cells[x][y].hasLetter();
+        }
+        return false;
     }
 
     /**
@@ -201,7 +204,7 @@ public class Board implements Serializable {
      * @return If position is valid.
      */
     public Boolean isValid(Integer x, Integer y) {
-        return x < Config.BOARD_WIDTH && y < Config.BOARD_HEIGHT;
+        return x < Config.BOARD_WIDTH && x > -1 && y < Config.BOARD_HEIGHT && y > -1;
     }
 
     /**

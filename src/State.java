@@ -76,6 +76,10 @@ public class State implements Serializable {
         newBoard.clear();
         turn = 0;
         player = 0;
+        if (players.size() > 0) {
+            players.get(0).getHand().clear();
+            bag.updateHand(players.get(0).getHand());
+        }
     }
 
     /**
@@ -124,6 +128,10 @@ public class State implements Serializable {
         oldBoard = newBoard.makeCopy();
         save();
         saveWithVersion();
+        if(players.get(player) instanceof PlayerBot){
+            players.get(player).placeBoard();
+            step();
+        }
     }
 
     /**
