@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.Serializable;
-import java.util.stream.Collectors;
 
 /**
  * Represents a bot player which has AI to decide what move it will make.
@@ -102,8 +101,12 @@ public class PlayerBot extends Player implements Serializable {
      * Returns a list of all possible combinations of the player's cards in their hand.
      */
     public void findHandCombos() {
-        char[] characters = {'q','a','j','r','r','v','s'};
-        // char[] characters = Arrays.stream(newHand.getLetters()).map(ch->ch.toString()).collect(Collectors.joining()).toCharArray();
+        //Converting the array of Characters to array of chars
+        Character[] handValues = newHand.getLetters();
+        char[] characters = new char[Config.HAND_SIZE-1];
+        for(int i = 0; i < Config.HAND_SIZE-1; i++){
+            characters[i] = Character.toLowerCase(handValues[i]);
+        }
         System.out.println(characters);
         int subsets = (int) Math.pow(2, characters.length);
         for (int i = 1; i < subsets; i++) {
@@ -179,11 +182,11 @@ public class PlayerBot extends Player implements Serializable {
                                 coords = temp_chain.getBeginning();
                             }
                             if (chain.isVertical()) {
-                                if (isFreeToPlay(coords[0], coords[1] - 1)) {
+                                if (isEmptySpace(coords[0], coords[1] - 1)) {
                                     temp_chain.addLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                     game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                 }
-                            } else if (isFreeToPlay(coords[0] - 1, coords[1])) {
+                            } else if (isEmptySpace(coords[0] - 1, coords[1])) {
                                 temp_chain.addLetter(new BoardCell(coords[0] - 1, coords[1],string.charAt(j)));
                                 game.getState().getBoard().setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
                             }
@@ -193,11 +196,11 @@ public class PlayerBot extends Player implements Serializable {
                                 coords = temp_chain.getEnd();
                             }
                             if (chain.isVertical()) {
-                                if (isFreeToPlay(coords[0], coords[1] + 1)) {
+                                if (isEmptySpace(coords[0], coords[1] + 1)) {
                                     temp_chain.addLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                                     game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                                 }
-                            } else if (isFreeToPlay(coords[0] + 1, coords[1])) {
+                            } else if (isEmptySpace(coords[0] + 1, coords[1])) {
                                 temp_chain.addLetter(new BoardCell(coords[0] + 1, coords[1], string.charAt(j)));
                                 game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                             }
@@ -213,7 +216,7 @@ public class PlayerBot extends Player implements Serializable {
         }
     }
 
-    private boolean isFreeToPlay(int x, int y){
+    private boolean isEmptySpace(int x, int y){
         Board board = game.getState().getBoard();
         return !(board.hasLetter(x, y)) && board.isValid(x, y);
     }
