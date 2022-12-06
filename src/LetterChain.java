@@ -8,8 +8,7 @@ import java.io.Serializable;
  * the score of the placed word.
  * @author Jaan
  * @author Andrew
- * @author Tarik
- * @version 1.6
+ * @version 1.5
  */
 public class LetterChain implements Serializable {
 
@@ -99,57 +98,11 @@ public class LetterChain implements Serializable {
 
     /**
      * Returns isVertical
-     * @return true if vertical, false otherwise
+     * @return
      */
     public boolean isVertical() {
         return isVertical;
     }
-
-    /**
-     * Returns premium tile multiplier
-     * @return the multiplier
-     */
-    public Integer getMultiplier(BoardCell.Type type) {
-        switch (type) {
-            case BLUE:
-            case RED:
-                return 3;
-            case CYAN:
-            case PINK:
-                return 2;
-            default:
-                return 1;
-        }
-    }
-
-    /**
-     * Returns if premium tile multiplier is a word multiplier
-     * @return true if word multiplier, false otherwise
-     */
-    public boolean isWordMultiplier(BoardCell.Type type) {
-        switch (type) {
-            case RED:
-            case PINK:
-                return true;
-            default:
-                return false;
-        }
-    }
-
-    /*
-    Initial Framework to be implemented for premium
-      Integer totalLetterBonus = 1;
-      Integer totalWordBonus = 1;
-      for (BoardCell cell : LetterChain chain){
-            if (isWordMultiplier(cell.getType())){
-                totalLetterBonus*=getMultiplier(cell.getType());
-            }
-            else{
-                totalWordBonus*=getMultiplier(cell.getType());
-            }
-      }
-     */
-
 
     /**
      * Get the score from the placed letters. This is the main method for computing
@@ -268,8 +221,6 @@ public class LetterChain implements Serializable {
         WordBank bank = game.getWordBank();
         String word;
         Board board = state.getBoard();
-        Integer totalLetterBonus = 1;
-        Integer totalWordBonus = 1;
 
         if(isVertical){
             // Traverses towards the top of the word then counts the letters going down
@@ -284,21 +235,12 @@ public class LetterChain implements Serializable {
             for(BoardCell cell : cells){
                 x = cell.getX();
                 y = cell.getY();
-
-                //premium tile check
-                if (isWordMultiplier(cell.getType())){
-                    totalLetterBonus*=getMultiplier(cell.getType());
-                }
-                else{
-                    totalWordBonus*=getMultiplier(cell.getType());
-                }
-
                 while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
                     x--;
                 }
                 word = walkHorizontal(1,x,y);
                 if (bank.isWordValid(word)) {
-                    score += bank.getWordValue(word)*totalWordBonus;
+                    score += bank.getWordValue(word);
                 } else if (word.length() > 1){return 0;}
             }
         } else {
@@ -314,21 +256,12 @@ public class LetterChain implements Serializable {
             for(BoardCell cell : cells){
                 x = cell.getX();
                 y = cell.getY();
-
-                //premium tile check
-                if (isWordMultiplier(cell.getType())){
-                    totalLetterBonus*=getMultiplier(cell.getType());
-                }
-                else{
-                    totalWordBonus*=getMultiplier(cell.getType());
-                }
-
                 while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
                     y--;
                 }
                 word = walkVertical(1,x,y);
                 if (bank.isWordValid(word)) {
-                    score += bank.getWordValue(word)*totalWordBonus;
+                    score += bank.getWordValue(word);
                 } else if (word.length() > 1){return 0;}
             }
         }
