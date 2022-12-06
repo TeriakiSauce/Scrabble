@@ -190,7 +190,7 @@ public class BoardCell implements Serializable {
 
     @Override
     public String toString() {
-        return "" + this.getType() + "[" + this.getX() + "," + this.getY() + "]\n";
+        return "" + this.getType() + "[" + this.getX() + "," + this.getY() + "]";
     }
 
     /**
