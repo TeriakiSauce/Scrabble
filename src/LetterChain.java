@@ -9,13 +9,9 @@ import java.io.Serializable;
  * @author Jaan
  * @author Andrew
  * @author Tarik
- * @version 1.6
+ * @version 1.7
  */
 public class LetterChain implements Serializable {
-
-    Integer totalLetterBonus;
-    Integer totalWordBonus;
-
     /**
      * The letters and positions.
      */
@@ -43,8 +39,6 @@ public class LetterChain implements Serializable {
     public LetterChain(Game game) {
         this.game = game;
         cells = new ArrayList<>();
-        totalLetterBonus = 1;
-        totalWordBonus = 1;
     }
 
     /**
@@ -141,24 +135,6 @@ public class LetterChain implements Serializable {
         }
     }
 
-    /*
-    Initial Framework to be implemented for premium
-      Integer totalLetterBonus = 1;
-      Integer totalWordBonus = 1;
-      for (BoardCell cell : LetterChain chain){
-            if (isWordMultiplier(cell.getType())){
-                totalWordBonus*=getMultiplier(cell.getType());
-            }
-            else{
-                totalLetterBonus*=getMultiplier(cell.getType());
-            }
-      }
-     */
-
-    public Integer getTotalWordBonus() {
-        return totalWordBonus;
-    }
-
     /**
      * Get the score from the placed letters. This is the main method for computing
      * the total score of the placed word.
@@ -166,7 +142,11 @@ public class LetterChain implements Serializable {
      */
     public Integer getScore() {
         State state = game.getState();
-        Integer score = 0;
+        Integer scoreTotal = 0;
+        Integer totalLetterBonus = 1;
+        Integer totalWordBonus = 1;
+        //Integer totalLetterBonus = 1;
+        WordBank bank = game.getWordBank();
         // Returns 0 if size is empty or placement is invalid
         if (this.getSize() == 0){
             return 0;
@@ -200,20 +180,35 @@ public class LetterChain implements Serializable {
             if (state.getOldBoard().hasLetter(cell.getX(), cell.getY()-1)){
                 connected = true;
             }
-
-            if (isWordMultiplier(cell.getType())){
-                this.totalWordBonus*=getMultiplier(cell);
-            }
-            else{
-                this.totalLetterBonus*=getMultiplier(cell);
-            }
         }
         if (!connected){
             return 0;
         }
 
-        score += getScore(cells.get(0).getX(), cells.get(0).getY());
-        return score;
+        scoreTotal += getScore(cells.get(0).getX(), cells.get(0).getY());
+        for (BoardCell cell : cells) {
+            if (isWordMultiplier(cell.getType())) {
+                totalWordBonus *= getMultiplier(cell);
+                scoreTotal*=totalWordBonus;
+            }
+            else {
+                totalLetterBonus = getMultiplier(cell);
+                if (totalLetterBonus>1){
+                    totalLetterBonus*= bank.getLetterValue(cell.getLetter());
+                    scoreTotal+= totalLetterBonus - bank.getLetterValue(cell.getLetter());
+                }
+            }
+            /*
+            else {
+                totalLetterBonus *= getMultiplier(cell);
+                if (totalLetterBonus>1){
+                    scoreTotal += bank.getLetterValue(cell.getLetter())*totalLetterBonus;
+                }
+            }
+
+             */
+        }
+        return scoreTotal;
     }
 
     /**
@@ -279,7 +274,7 @@ public class LetterChain implements Serializable {
      */
     private Integer getScore(Integer x, Integer y) {
         State state = game.getState();
-        Integer score = 0;
+        Integer scoreHelper = 0;
         WordBank bank = game.getWordBank();
         String word;
         Board board = state.getBoard();
@@ -291,7 +286,7 @@ public class LetterChain implements Serializable {
             }
             word = walkVertical(1,x,y);
             if (bank.isWordValid(word)) {
-                score += bank.getWordValue(word);
+                scoreHelper += bank.getWordValue(word);
             } else {return 0;}
             //Finding leftmost cell with a letter then adding the letters while traversing right
             for(BoardCell cell : cells){
@@ -303,7 +298,7 @@ public class LetterChain implements Serializable {
                 }
                 word = walkHorizontal(1,x,y);
                 if (bank.isWordValid(word)) {
-                    score += bank.getWordValue(word);
+                    scoreHelper += bank.getWordValue(word);
                 } else if (word.length() > 1){return 0;}
             }
         } else {
@@ -313,7 +308,7 @@ public class LetterChain implements Serializable {
             }
             word = walkHorizontal(1,x,y);
             if (bank.isWordValid(word)) {
-                score += bank.getWordValue(word);
+                scoreHelper += bank.getWordValue(word);
             } else {return 0;}
             //Finding topmost cell with a letter then adding the letters while traversing down
             for(BoardCell cell : cells){
@@ -325,11 +320,11 @@ public class LetterChain implements Serializable {
                 }
                 word = walkVertical(1,x,y);
                 if (bank.isWordValid(word)) {
-                    score += bank.getWordValue(word);
+                    scoreHelper += bank.getWordValue(word);
                 } else if (word.length() > 1){return 0;}
             }
         }
-        return score;
+        return scoreHelper;
     }
 
     /**
@@ -450,6 +445,7 @@ public class LetterChain implements Serializable {
      */
     public String toString(){
         String chain = new String();
+        WordBank bank = game.getWordBank();
         for (BoardCell cell : cells){
             if (isVertical){
                 chain += cell.toString() +"\n";

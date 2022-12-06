@@ -117,21 +117,25 @@ public class LetterChainTest {
 
     @Test
     public void testGetScorePremium() {
+        WordBank bank = game.getWordBank();
         System.out.println("Initial score: " + chain.getScore());
         System.out.println(chain);
         BoardCell cell12 = new BoardCell(7,7,'h', BoardCell.Type.BLUE);
-        BoardCell cell13 = new BoardCell(7,8,'e');
-        BoardCell cell14 = new BoardCell(7,9,'y');
+        BoardCell cell13 = new BoardCell(7,8,'e', BoardCell.Type.NORMAL);
+        BoardCell cell14 = new BoardCell(7,9,'y', BoardCell.Type.NORMAL);
         chain.addLetter(cell12);
-        System.out.println("Cell 12 value: " + chain.getMultiplier(cell12));
         state.getBoard().setLetter(cell12);
         chain.addLetter(cell13);
+        System.out.println("Cell 12 multiplier: " + chain.getMultiplier(cell12));
+        System.out.println("OG Cell 12 value: " + bank.getLetterValue(cell12.getLetter()));
+        System.out.println("OG Cell 13 value: " + bank.getLetterValue(cell13.getLetter()));
+        System.out.println("OG Cell 14 value: " + bank.getLetterValue(cell14.getLetter()));
+        System.out.println();
         state.getBoard().setLetter(cell13);
         chain.addLetter(cell14);
         state.getBoard().setLetter(cell14);
-        System.out.println("Modifier value: " + chain.getTotalWordBonus());
-        System.out.println("Final score: " + chain.getScore());
         System.out.println(chain);
+        System.out.println("Final score: " + chain.getScore());
 
     }
 
