@@ -198,15 +198,6 @@ public class LetterChain implements Serializable {
                     scoreTotal+= totalLetterBonus - bank.getLetterValue(cell.getLetter());
                 }
             }
-            /*
-            else {
-                totalLetterBonus *= getMultiplier(cell);
-                if (totalLetterBonus>1){
-                    scoreTotal += bank.getLetterValue(cell.getLetter())*totalLetterBonus;
-                }
-            }
-
-             */
         }
         return scoreTotal;
     }
