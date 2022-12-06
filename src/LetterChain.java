@@ -142,10 +142,10 @@ public class LetterChain implements Serializable {
       Integer totalWordBonus = 1;
       for (BoardCell cell : LetterChain chain){
             if (isWordMultiplier(cell.getType())){
-                totalLetterBonus*=getMultiplier(cell.getType());
+                totalWordBonus*=getMultiplier(cell.getType());
             }
             else{
-                totalWordBonus*=getMultiplier(cell.getType());
+                totalLetterBonus*=getMultiplier(cell.getType());
             }
       }
      */
@@ -285,12 +285,11 @@ public class LetterChain implements Serializable {
                 x = cell.getX();
                 y = cell.getY();
 
-                //premium tile check
                 if (isWordMultiplier(cell.getType())){
-                    totalLetterBonus*=getMultiplier(cell.getType());
+                    totalWordBonus*=getMultiplier(cell.getType());
                 }
                 else{
-                    totalWordBonus*=getMultiplier(cell.getType());
+                    totalLetterBonus*=getMultiplier(cell.getType());
                 }
 
                 while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
@@ -298,7 +297,7 @@ public class LetterChain implements Serializable {
                 }
                 word = walkHorizontal(1,x,y);
                 if (bank.isWordValid(word)) {
-                    score += bank.getWordValue(word)*totalWordBonus;
+                    score += bank.getWordValue(word);
                 } else if (word.length() > 1){return 0;}
             }
         } else {
@@ -315,24 +314,16 @@ public class LetterChain implements Serializable {
                 x = cell.getX();
                 y = cell.getY();
 
-                //premium tile check
-                if (isWordMultiplier(cell.getType())){
-                    totalLetterBonus*=getMultiplier(cell.getType());
-                }
-                else{
-                    totalWordBonus*=getMultiplier(cell.getType());
-                }
-
                 while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
                     y--;
                 }
                 word = walkVertical(1,x,y);
                 if (bank.isWordValid(word)) {
-                    score += bank.getWordValue(word)*totalWordBonus;
+                    score += bank.getWordValue(word);
                 } else if (word.length() > 1){return 0;}
             }
         }
-        return score;
+        return score*totalWordBonus;
     }
 
     /**
@@ -455,9 +446,6 @@ public class LetterChain implements Serializable {
         String chain = new String();
         for (BoardCell cell : cells){
             chain += cell.toString();
-            chain += cell.getX();
-            chain += cell.getY();
-            chain += " ";
         }
         return chain;
     }

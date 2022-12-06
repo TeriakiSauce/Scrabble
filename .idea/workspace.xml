@@ -11,10 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Got rid of some save files and old irrevelevant classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterChain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Scrabble/LetterChainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/LetterChainTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LetterChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterChain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/LetterChainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/LetterChainTest.java" afterDir="false" />
     </list>
@@ -60,6 +58,9 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
@@ -175,6 +176,7 @@
       <workItem from="1668366516870" duration="4975000" />
       <workItem from="1668371819882" duration="305000" />
       <workItem from="1670019728225" duration="717000" />
+      <workItem from="1670352803029" duration="920000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>

@@ -118,6 +118,7 @@ public class LetterChainTest {
     @Test
     public void testGetScorePremium() {
         System.out.println(chain.getScore());
+        System.out.println(chain);
         BoardCell cell12 = new BoardCell(7,7,'h', BoardCell.Type.BLUE);
         BoardCell cell13 = new BoardCell(8,7,'e');
         BoardCell cell14 = new BoardCell(9,7,'y');
@@ -127,7 +128,8 @@ public class LetterChainTest {
         state.getBoard().setLetter(cell13);
         chain.addLetter(cell14);
         state.getBoard().setLetter(cell14);
-        System.out.println(chain.getScore());
+        System.out.println(chain.getScore()*chain.getMultiplier(cell12.getType()));
+        System.out.println(chain);
 
     }
 

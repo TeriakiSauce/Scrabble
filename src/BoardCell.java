@@ -188,6 +188,11 @@ public class BoardCell implements Serializable {
         return y;
     }
 
+    @Override
+    public String toString() {
+        return "" + this.getType() + "[" + this.getX() + "," + this.getY() + "]\n";
+    }
+
     /**
      * Getters and setters for all adjacent cells
      */
