@@ -78,6 +78,22 @@ public class BoardCell implements Serializable {
     }
 
     /**
+     * Set the cell type.
+     * @param type The type.
+     */
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    /**
+     * Get the cell type.
+     * @return type The type.
+     */
+    public Type getType() {
+        return type;
+    }
+
+    /**
      * Get contained letter.
      * @return Contained letter.
      */
@@ -189,6 +205,7 @@ public class BoardCell implements Serializable {
     public void setWestCell(BoardCell westCell) {
         this.westCell = westCell;
     }
+
     /**
      * Returns a string representation of BoardCell
      * @return the string

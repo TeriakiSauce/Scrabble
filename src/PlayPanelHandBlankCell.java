@@ -1,7 +1,6 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Locale;
-import java.util.Scanner;
 
 public class PlayPanelHandBlankCell extends PlayPanelHandCell{
     /**
@@ -11,26 +10,28 @@ public class PlayPanelHandBlankCell extends PlayPanelHandCell{
      *
      * @param hand The hand.
      * @param n    The index.
+     * @param view The view.
      */
 
-    public static boolean flag = false;
+    private View view;
 
-    public PlayPanelHandBlankCell(PlayPanelHand hand, Integer n) {
+    private int counter;
+
+    public PlayPanelHandBlankCell(PlayPanelHand hand, Integer n, View view) {
         super(hand, n);
+        counter = 0;
+        this.view = view;
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (flag){
+                if (counter > 0){
                     hand.onClick(n);
                 }
                 else {
-                    Scanner s = new Scanner(System.in);
-                    System.out.println("Enter a letter: ");
-                    char tempChar = s.next().charAt(0);
-                    String tempString = ("" + tempChar).toUpperCase();
-                    hand.setLetter(n, tempString.charAt(0));
-                    s.close();
-                    flag = true;
+                    String letter = JOptionPane.showInputDialog(view, "Enter a letter: ").toUpperCase();
+                    hand.setLetter(n, letter.charAt(0));
+                    //model.setBlankTile(letter.charAt(0));
+                    counter++;
                 }
             }
         });
