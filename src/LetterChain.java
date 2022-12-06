@@ -193,7 +193,7 @@ public class LetterChain implements Serializable {
             }
             else {
                 totalLetterBonus = getMultiplier(cell);
-                if (totalLetterBonus>1){
+                if (totalLetterBonus>1 && bank.getLetterValue(cell.getLetter())>1){
                     totalLetterBonus*= bank.getLetterValue(cell.getLetter());
                     scoreTotal+= totalLetterBonus - bank.getLetterValue(cell.getLetter());
                 }
@@ -436,7 +436,6 @@ public class LetterChain implements Serializable {
      */
     public String toString(){
         String chain = new String();
-        WordBank bank = game.getWordBank();
         for (BoardCell cell : cells){
             if (isVertical){
                 chain += cell.toString() +"\n";

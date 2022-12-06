@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Optional;
+
 import static org.junit.Assert.*;
 /**
  * Tests the LetterChain class, more specifically the getScore method
@@ -118,25 +120,44 @@ public class LetterChainTest {
     @Test
     public void testGetScorePremium() {
         WordBank bank = game.getWordBank();
-        System.out.println("Initial score: " + chain.getScore());
+        assertEquals(new Integer(0), chain.getScore());
         System.out.println(chain);
-        BoardCell cell12 = new BoardCell(7,7,'h', BoardCell.Type.BLUE);
-        BoardCell cell13 = new BoardCell(7,8,'e', BoardCell.Type.NORMAL);
-        BoardCell cell14 = new BoardCell(7,9,'y', BoardCell.Type.NORMAL);
+        BoardCell cell12 = new BoardCell(7,7,'h', BoardCell.Type.NORMAL);
+        BoardCell cell13 = new BoardCell(8,7,'e', BoardCell.Type.NORMAL);
+        BoardCell cell14 = new BoardCell(9,7,'y', BoardCell.Type.NORMAL);
         chain.addLetter(cell12);
         state.getBoard().setLetter(cell12);
         chain.addLetter(cell13);
-        System.out.println("Cell 12 multiplier: " + chain.getMultiplier(cell12));
-        System.out.println("OG Cell 12 value: " + bank.getLetterValue(cell12.getLetter()));
-        System.out.println("OG Cell 13 value: " + bank.getLetterValue(cell13.getLetter()));
-        System.out.println("OG Cell 14 value: " + bank.getLetterValue(cell14.getLetter()));
-        System.out.println();
         state.getBoard().setLetter(cell13);
         chain.addLetter(cell14);
         state.getBoard().setLetter(cell14);
-        System.out.println(chain);
-        System.out.println("Final score: " + chain.getScore());
 
+        assertEquals(new Integer(1), chain.getMultiplier(cell12));
+        assertEquals(new Integer(1), chain.getMultiplier(cell13));
+        assertEquals(new Integer(1), chain.getMultiplier(cell14));
+
+        assertEquals(new Integer(4), bank.getLetterValue(cell12.getLetter()));
+        assertEquals(new Integer(1), bank.getLetterValue(cell13.getLetter()));
+        assertEquals(new Integer(4), bank.getLetterValue(cell14.getLetter()));
+
+        //testing with no bonus
+        assertEquals(new Integer(9), chain.getScore());
+
+        //testing word bonus
+        cell13.setType(BoardCell.Type.RED);
+        assertEquals(new Integer(3), chain.getMultiplier(cell13));
+        assertEquals(new Integer(27), chain.getScore());
+
+        //testing letter bonus
+        cell13.setType(BoardCell.Type.NORMAL);
+        cell12.setType(BoardCell.Type.BLUE);
+        assertEquals(new Integer(17), chain.getScore());
+
+        //testing letter bonus on a letter with a value of 1
+        cell12.setType(BoardCell.Type.NORMAL);
+        cell13.setType(BoardCell.Type.CYAN);
+        assertEquals(new Integer(2), chain.getMultiplier(cell13));
+        assertEquals(new Integer(9), chain.getScore());
     }
 
 }
