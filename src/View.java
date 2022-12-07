@@ -177,4 +177,11 @@ public class View extends JFrame {
             null, JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
     }
 
+    /**
+     * Indicates that the bot is done calculating and has made its play
+     */
+    public void showBotDone(){
+        JOptionPane.showMessageDialog(this, "Bot Calculations Completed", "BOT", JOptionPane.INFORMATION_MESSAGE);
+    }
+
 }

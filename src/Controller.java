@@ -168,6 +168,7 @@ public class Controller {
                             play.showBadMove();
                         }
                     }
+                    view.showBotDone();
                 }
             }
         });
@@ -194,6 +195,7 @@ public class Controller {
                             play.showBadMove();
                         }
                     }
+                    view.showBotDone();
                 }
             }
         });
