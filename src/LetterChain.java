@@ -157,6 +157,7 @@ public class LetterChain implements Serializable {
         }
 
         score += getScore(cells.get(0).getX(), cells.get(0).getY());
+        playValue = score;
         return score;
     }
 

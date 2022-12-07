@@ -45,8 +45,8 @@ public class PlayerBot extends Player implements Serializable {
         calculatePossiblePoints();
         LetterChain play = choosePlay();
         for (BoardCell cell : play.getCells()) {
-            newHand.removeLetter(cell.getLetter());
             cell.toUpperCase();
+            newHand.removeLetter(cell.getLetter());
             board.setLetter(cell);
             chain.addLetter(cell);
             super.placeBoard();
@@ -106,6 +106,7 @@ public class PlayerBot extends Player implements Serializable {
         for(int i = 0; i < Config.HAND_SIZE-1; i++){
             characters[i] = Character.toLowerCase(handValues[i]);
         }
+        System.out.println(characters);
         int subsets = (int) Math.pow(2, characters.length);
         for (int i = 1; i < subsets; i++) {
             StringBuilder str = new StringBuilder();
@@ -207,6 +208,8 @@ public class PlayerBot extends Player implements Serializable {
                     }
                     if (temp_chain.getScore() > 0) {
                         validPlays.add(temp_chain);
+                        System.out.println(temp_chain);
+                        System.out.println(temp_chain.getScore());
                     }
                     board.removeTempLetters();
                 }

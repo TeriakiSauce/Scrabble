@@ -82,7 +82,10 @@ public class PlayerHand implements Serializable {
      * @param c the letter
      */
     public void removeLetter(Character c) {
-        Arrays.asList(tiles).remove(c);
+        int index = Arrays.asList(tiles).indexOf(c);
+        if(index >=0) {
+            tiles[index] = null;
+        }
     }
 
     /**
