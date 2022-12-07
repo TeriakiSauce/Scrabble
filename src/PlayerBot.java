@@ -42,16 +42,13 @@ public class PlayerBot extends Player implements Serializable {
         LetterChain chain = state.getChain();
         collectBoardWords();
         findHandCombos();
-        System.out.println(board);
         calculatePossiblePoints();
-        game.getState().revert();
-        System.out.println(board);
         LetterChain play = choosePlay();
         for (BoardCell cell : play.getCells()) {
             newHand.removeLetter(cell.getLetter());
             cell.toUpperCase();
-            chain.addLetter(cell);
             board.setLetter(cell);
+            chain.addLetter(cell);
             super.placeBoard();
         }
         System.out.println(chain);

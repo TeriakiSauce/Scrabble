@@ -23,6 +23,11 @@ public class LetterChain implements Serializable {
     private transient Game game;
 
     /**
+     * The board
+     */
+    private Board board;
+
+    /**
      * The direction that the word was played, false for horizontal, true for vertical
      */
     private boolean isVertical;
@@ -110,9 +115,8 @@ public class LetterChain implements Serializable {
      * @return The score.
      */
     public Integer getScore() {
-
         State state = game.getState();
-
+        board = state.getBoard();
         Integer score = 0;
         // Returns 0 if size is empty or placement is invalid
         if (this.getSize() == 0){
@@ -161,11 +165,12 @@ public class LetterChain implements Serializable {
      * @return true if letters are valid, false otherwise
      */
     private boolean validPlacementX(){
+
         State state = game.getState();
         // Sorts the cells by their x values
         cells.sort(Comparator.comparing(a -> a.getX()));
         // Checks that cells are in the same row
-        for (int i = 0; i <this.getSize(); i++) {
+        for (int i = 0; i < this.getSize(); i++) {
             if(i>0){
                 if (!(cells.get(i).getY() == cells.get(i-1).getY())){
                     return false;
@@ -175,11 +180,10 @@ public class LetterChain implements Serializable {
         // Checks that there are no gaps between cells
         int y = cells.get(0).getY();
         for (int x = cells.get(0).getX(); x < cells.get(cells.size()-1).getX(); x++) {
-            if (!(state.getBoard().hasLetter(x,y))){
+            if (!(board.hasLetter(x,y))){
                 return false;
             }
         }
-
         isVertical = false;
         return true;
     }
@@ -203,7 +207,7 @@ public class LetterChain implements Serializable {
         // Checks that there are no gaps between cells
         int x = cells.get(0).getX();
         for (int y = cells.get(0).getY(); y < cells.get(cells.size()-1).getY(); y++) {
-            if (!(state.getBoard().hasLetter(x,y))){
+            if (!(board.hasLetter(x,y))){
                 return false;
             }
         }
