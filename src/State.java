@@ -128,10 +128,6 @@ public class State implements Serializable {
         oldBoard = newBoard.makeCopy();
         save();
         saveWithVersion();
-        if(players.get(player) instanceof PlayerBot){
-            players.get(player).placeBoard();
-            step();
-        }
     }
 
     /**
