@@ -51,6 +51,7 @@ public class PlayerBot extends Player implements Serializable {
             chain.addLetter(cell);
             super.placeBoard();
         }
+        validPlays.clear();
         System.out.println(chain);
         System.out.println(chain.getScore());
     }
