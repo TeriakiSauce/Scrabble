@@ -162,6 +162,12 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (view.getConfirmation()) {
                     model.pass();
+                    while(model.getGame().getState().isBotPlaying()) {
+                        model.placeBoard();
+                        if (!model.finish()) {
+                            play.showBadMove();
+                        }
+                    }
                 }
             }
         });
@@ -181,10 +187,12 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (!model.finish()) {
                     play.showBadMove();
-                }else if (model.getGame().getState().isBotPlaying()){
-                    model.placeBoard();
-                    if (!model.finish()) {
-                        play.showBadMove();
+                }else {
+                    while(model.getGame().getState().isBotPlaying()) {
+                        model.placeBoard();
+                        if (!model.finish()) {
+                            play.showBadMove();
+                        }
                     }
                 }
             }

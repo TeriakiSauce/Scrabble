@@ -52,6 +52,8 @@ public class PlayerBot extends Player implements Serializable {
             super.placeBoard();
         }
         validPlays.clear();
+        handCombos.clear();
+
         System.out.println(chain);
         System.out.println(chain.getScore());
     }
@@ -71,7 +73,7 @@ public class PlayerBot extends Player implements Serializable {
                         LetterChain vertChain = new LetterChain(game);
                         vertChain.addLetter(currentCell);
                         currentCell.setInVertChain(true);
-                        while (currentCell.getSouthCell().hasLetter()) {
+                        while (currentCell.getSouthCell() != null && currentCell.getSouthCell().hasLetter()) {
                             currentCell = currentCell.getSouthCell();
                             vertChain.addLetter(currentCell);
                             currentCell.setInVertChain(true);
@@ -84,7 +86,7 @@ public class PlayerBot extends Player implements Serializable {
                         LetterChain horizChain = new LetterChain(game);
                         horizChain.addLetter(currentCell);
                         currentCell.setInHorizChain(true);
-                        while (currentCell.getEastCell().hasLetter()) {
+                        while (currentCell.getEastCell() != null && currentCell.getEastCell().hasLetter()) {
                             currentCell = currentCell.getEastCell();
                             horizChain.addLetter(currentCell);
                             currentCell.setInHorizChain(true);
@@ -209,8 +211,8 @@ public class PlayerBot extends Player implements Serializable {
                     }
                     if (temp_chain.getScore() > 0) {
                         validPlays.add(temp_chain);
-                        System.out.println(temp_chain);
-                        System.out.println(temp_chain.getScore());
+                        //System.out.println(temp_chain);
+                        //System.out.println(temp_chain.getScore());
                     }
                     board.removeTempLetters();
                 }
