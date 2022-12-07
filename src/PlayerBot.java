@@ -21,9 +21,9 @@ public class PlayerBot extends Player implements Serializable {
      * @param name name of player
      * @param game game it's part of
      */
-    public PlayerBot(String name, Game game) {
+    public PlayerBot(String name, Game game, DIFFICULTY difficulty) {
         super(name, game);
-
+        this.difficulty = difficulty;
         possibleWords = new LinkedList<LetterChain>();
         validPlays = new LinkedList<LetterChain>();
         currentWords = new LinkedList<LetterChain>();
@@ -230,9 +230,15 @@ public class PlayerBot extends Player implements Serializable {
         if(validPlays.size() == 0){
             return new LetterChain(game);
         }
-        LetterChain bestPlay = validPlays.get(validPlays.size() - 1);
-
-        return bestPlay;
+        int index = 0;
+        if (difficulty == DIFFICULTY.EASY) {
+            index = 0;
+        } else if (difficulty == DIFFICULTY.MEDIUM) {
+            index = validPlays.size() / 2;
+        } else if (difficulty == DIFFICULTY.HARD) {
+            index = validPlays.size() - 1;
+        }
+        return validPlays.get(index);
     }
 
     /**

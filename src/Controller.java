@@ -116,7 +116,7 @@ public class Controller {
                 model.create(gameName);
                 model.addUser(playerName);
                 for (int i = 0; i < bots.length; i++) {
-                    model.addBot(bots[i]);
+                    model.addBot(bots[i], setup.getBotDifficulty());
                 }
                 model.fillAllHands();
                 model.paint();

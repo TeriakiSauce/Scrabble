@@ -1,7 +1,6 @@
 import javax.swing.JPanel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
 import javax.swing.BoxLayout;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -158,7 +157,6 @@ public class ViewSetup extends JPanel {
     }
 
     /**
-     * 
      * @param name
      */
     public void addBot(String name) {
@@ -177,6 +175,21 @@ public class ViewSetup extends JPanel {
         }
 
         return names;
+    }
+
+    public PlayerBot.DIFFICULTY getBotDifficulty(){
+        String dif = JOptionPane.showInputDialog("Choose The Bots Difficulty (1-3): ");
+        switch (dif) {
+            case "1" : {
+                return PlayerBot.DIFFICULTY.EASY;
+            }
+            case "2" : {
+                return PlayerBot.DIFFICULTY.MEDIUM;
+            }
+            default : {
+                return PlayerBot.DIFFICULTY.HARD;
+            }
+        }
     }
 
     /**
