@@ -19,8 +19,8 @@ public class Board implements Serializable {
      */
     public Board() {
         cells = new BoardCell[Config.BOARD_WIDTH][Config.BOARD_HEIGHT];
-        for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
-            for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
+        for (int i = 0; i < Config.BOARD_HEIGHT; i++) {
+            for (int j = 0; j < Config.BOARD_WIDTH; j++) {
                 setNormalCells(i, j);
                 setPinkPremiumCells(i, j);
                 setRedPremiumCells(i, j);
@@ -241,5 +241,32 @@ public class Board implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Board board = (Board) o;
         return Arrays.deepEquals(cells, board.cells);
+    }
+
+    public String toString(){
+        String result = "";
+        // For some reason this breaks the game
+        /**for (int count = 0; 0 < size; count++){
+         result += count + " ";
+         }*/
+        result += "  0  1  2  3  4  5  6  7  8  9  10 11 12 13 14";
+
+        for (int i = 0; i < 15 ; i++){
+            result += "\n" + i;
+            for (int j = 0; j< 15; j++){
+                result += cells[j][i] +"";
+            }
+        }
+        return result;
+    }
+
+    public void removeTempLetters() {
+        for (int i = 0; i < Config.BOARD_HEIGHT; i++) {
+            for (int j = 0; j < Config.BOARD_WIDTH; j++) {
+                if (cells[i][j].isLower()) {
+                    cells[i][j].setLetter(null);
+                }
+            }
+        }
     }
 }

@@ -128,10 +128,6 @@ public class State implements Serializable {
         oldBoard = newBoard.makeCopy();
         save();
         saveWithVersion();
-        if(players.get(player) instanceof PlayerBot){
-            players.get(player).placeBoard();
-            step();
-        }
     }
 
     /**
@@ -359,5 +355,12 @@ public class State implements Serializable {
             game.state = nextState;
             return true;
         }
+    }
+
+    /**
+     * Returns true if a bot is the current player
+     */
+    public boolean isBotPlaying(){
+        return (players.get(player) instanceof PlayerBot);
     }
 }

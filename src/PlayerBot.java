@@ -18,8 +18,8 @@ public class PlayerBot extends Player implements Serializable {
     private List<String> handCombos;
 
     /**
-     * @param name
-     * @param game
+     * @param name name of player
+     * @param game game it's part of
      */
     public PlayerBot(String name, Game game) {
         super(name, game);
@@ -40,20 +40,22 @@ public class PlayerBot extends Player implements Serializable {
         State state = game.getState();
         Board board = state.getBoard();
         LetterChain chain = state.getChain();
-
         collectBoardWords();
         findHandCombos();
+        System.out.println(board);
         calculatePossiblePoints();
+        game.getState().revert();
+        System.out.println(board);
         LetterChain play = choosePlay();
-        /*
-        for (LetterCell cell : play.getCells()) {
+        for (BoardCell cell : play.getCells()) {
+            newHand.removeLetter(cell.getLetter());
+            cell.toUpperCase();
             chain.addLetter(cell);
             board.setLetter(cell);
-            newHand.removeLetter(cell.getLetter());
             super.placeBoard();
-        }*/
-        System.out.println(play);
-        System.out.println(play.getScore());
+        }
+        System.out.println(chain);
+        System.out.println(chain.getScore());
     }
 
 
@@ -107,7 +109,6 @@ public class PlayerBot extends Player implements Serializable {
         for(int i = 0; i < Config.HAND_SIZE-1; i++){
             characters[i] = Character.toLowerCase(handValues[i]);
         }
-        System.out.println(characters);
         int subsets = (int) Math.pow(2, characters.length);
         for (int i = 1; i < subsets; i++) {
             StringBuilder str = new StringBuilder();
@@ -154,7 +155,6 @@ public class PlayerBot extends Player implements Serializable {
         for (int i = 0; i < str.length(); i++) {
             str = str.toLowerCase();
             char chr = str.charAt(i);
-            //System.out.println(chr);
 
             // The string excluding the ith character
             String ros = str.substring(0, i) +
@@ -173,6 +173,7 @@ public class PlayerBot extends Player implements Serializable {
         for (LetterChain chain : currentWords) {
             for (String string : handCombos) {
                 for (int i = 0; i < string.length() + 1; i++) {
+                    Board board = game.getState().getBoard();
                     LetterChain temp_chain = new LetterChain(game);
                     temp_chain.setIsVertical(chain.isVertical());
                     for (int j = 0; j < string.length(); j++) {
@@ -184,11 +185,11 @@ public class PlayerBot extends Player implements Serializable {
                             if (chain.isVertical()) {
                                 if (isEmptySpace(coords[0], coords[1] - 1)) {
                                     temp_chain.addLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
-                                    game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
+                                    board.setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                 }
                             } else if (isEmptySpace(coords[0] - 1, coords[1])) {
                                 temp_chain.addLetter(new BoardCell(coords[0] - 1, coords[1],string.charAt(j)));
-                                game.getState().getBoard().setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
+                                board.setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
                             }
                         } else {
                             int[] coords = chain.getEnd();
@@ -198,11 +199,11 @@ public class PlayerBot extends Player implements Serializable {
                             if (chain.isVertical()) {
                                 if (isEmptySpace(coords[0], coords[1] + 1)) {
                                     temp_chain.addLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
-                                    game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                    board.setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                                 }
                             } else if (isEmptySpace(coords[0] + 1, coords[1])) {
                                 temp_chain.addLetter(new BoardCell(coords[0] + 1, coords[1], string.charAt(j)));
-                                game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                board.setLetter(new BoardCell(coords[0] + 1, coords[1], string.charAt(j)));
                             }
                         }
                         temp_chain.sortChain();
@@ -210,7 +211,7 @@ public class PlayerBot extends Player implements Serializable {
                     if (temp_chain.getScore() > 0) {
                         validPlays.add(temp_chain);
                     }
-                    game.getState().revert();
+                    board.removeTempLetters();
                 }
             }
         }
@@ -227,8 +228,7 @@ public class PlayerBot extends Player implements Serializable {
             return new LetterChain(game);
         }
         LetterChain bestPlay = validPlays.get(validPlays.size() - 1);
-        //System.out.println(bestPlay.getScore());
-        //System.out.println(bestPlay);
+
         return bestPlay;
     }
 

@@ -110,23 +110,25 @@ public class LetterChain implements Serializable {
      * @return The score.
      */
     public Integer getScore() {
+
         State state = game.getState();
+
         Integer score = 0;
         // Returns 0 if size is empty or placement is invalid
         if (this.getSize() == 0){
             return 0;
         }
-        // Returns 0 if  placement is invalid
+        // Returns 0 if placement is invalid
         if (!(validPlacementX() || validPlacementY())){
             return 0;
         }
+
         //Sorts the list of letters according to its direction
         if (isVertical){
             cells.sort(Comparator.comparing(a -> a.getY()));
         } else {
             cells.sort(Comparator.comparing(a -> a.getX()));
         }
-
         // Returns 0 if the letter is not connected to another letter on the board or the middle square
         boolean connected = false;
         for (BoardCell cell : cells){
@@ -149,6 +151,7 @@ public class LetterChain implements Serializable {
         if (!connected){
             return 0;
         }
+
         score += getScore(cells.get(0).getX(), cells.get(0).getY());
         return score;
     }

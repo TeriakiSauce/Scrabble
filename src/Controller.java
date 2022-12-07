@@ -181,6 +181,11 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (!model.finish()) {
                     play.showBadMove();
+                }else if (model.getGame().getState().isBotPlaying()){
+                    model.placeBoard();
+                    if (!model.finish()) {
+                        play.showBadMove();
+                    }
                 }
             }
         });

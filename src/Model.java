@@ -240,4 +240,8 @@ public class Model {
         game.fullReset();
         reset();
     }
+
+    public Game getGame(){
+        return game;
+    }
 }
