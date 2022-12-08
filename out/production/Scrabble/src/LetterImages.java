@@ -46,7 +46,7 @@ public class LetterImages {
      * @return the image of the tile
      */
     public static BufferedImage getImage(Character letter) {
-
+        letter = Character.toLowerCase(letter);
         return images.containsKey(letter) ? images.get(letter) : blank;
     }
 

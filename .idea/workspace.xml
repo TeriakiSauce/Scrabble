@@ -7,19 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9634a098-85ad-447a-b25c-003f582c008e" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Scrabble_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Scrabble_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LetterImages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterImages.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,14 +22,14 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/Users/jaans/SYSC3110/Scrabble/res",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jaans/SYSC3110/Scrabble/res&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Scrabble.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" />
