@@ -6,9 +6,8 @@ import org.xml.sax.helpers.DefaultHandler;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.io.IOException;
+import java.io.*;
 import java.util.Objects;
-import java.io.Serializable;
 
 /**
  * Represents a specific cell or tile within the board. Allows for
@@ -16,7 +15,7 @@ import java.io.Serializable;
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class BoardCell extends DefaultHandler implements Serializable {
+public class BoardCell implements Serializable {
 
     /**
      * The contained letter.
@@ -94,34 +93,6 @@ public class BoardCell extends DefaultHandler implements Serializable {
         this.y = y;
         this.letter = letter;
         this.type = Type.NORMAL;
-    }
-    @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-
-    }
-    @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-
-    }
-    @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
-
-    }
-
-    public void importFromXml(String fileName) throws ParserConfigurationException, IOException, SAXException {
-        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-        try {
-            SAXParser saxParser = saxParserFactory.newSAXParser();
-            XMLReader reader = saxParser.getXMLReader();
-            reader.setContentHandler(this);
-            reader.parse(fileName);
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     /**
@@ -256,6 +227,35 @@ public class BoardCell extends DefaultHandler implements Serializable {
         }
         str+= cLetter + vChain + hChain + xVal + yVal + tType + nCell + sCell + eCell + wCell + "</BoardCell>\n";
         return str;
+    }
+
+    public void exportToXML(String fileName){
+        try{
+            FileOutputStream outputStream = new FileOutputStream(new File(fileName));
+            outputStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes());
+            outputStream.write(toXML().getBytes());
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public void importFromXml(String fileName) throws ParserConfigurationException, IOException, SAXException {
+        BoardCellHandler handler = new BoardCellHandler(this);
+
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+        SAXParser parser;
+
+        try {
+            parser = saxParserFactory.newSAXParser();
+
+            XMLReader reader = parser.getXMLReader();
+            reader.setContentHandler(handler);
+            reader.parse(fileName);
+        } catch (Exception e) {
+            System.out.println("Error in initializing parser");
+        }
     }
 
     /**

@@ -1,6 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -181,6 +184,17 @@ public class LetterChainTest {
         state.getBoard().setLetter(south);
 
         System.out.println(state.getBoard().getCell(7,7).toXML());
+        state.getBoard().getCell(7,7).exportToXML("temp.txt");
+        try {
+            state.getBoard().getCell(7,8).importFromXml("temp.txt");
+            state.getBoard().getCell(7,8).exportToXML("temp2.txt");
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
     }
 
 }
