@@ -86,6 +86,13 @@ public class Game implements Serializable {
     }
 
     /**
+     * Invokes the set blank tile action for the current player.
+     */
+    public void setBlankTile(Character letter) {
+        state.getPlayer().getHand().setBlankTile(letter);
+    }
+
+    /**
      * Finish the turn for the current player. Checks if the score acheived is greater than zero, and
      * that more than 1 letter was placed unless it was the first turn. If this fails, the board and
      * player are reverted to before anything was placed for the turn. Otherwise, the score is added

@@ -35,6 +35,14 @@ public class PlayerHand implements Serializable {
     }
 
     /**
+     * Set the blank tile at the last index.
+     * @param letter THe letter.
+     */
+    public void setBlankTile(Character letter) {
+            tiles[Config.HAND_SIZE-1] = letter; //blank tile
+    }
+
+    /**
      * Get the letter at the index.
      * @param n The index.
      * @return The letter.

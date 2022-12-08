@@ -53,6 +53,14 @@ public class Model {
     }
 
     /**
+     * Call the game set blank tile action and repaint.
+     */
+    public void setBlankTile(Character letter) {
+        game.setBlankTile(letter);
+        paint();
+    }
+
+    /**
      * Call the game quit action, the view quit action, and repaint.
      */
     public void quit() {

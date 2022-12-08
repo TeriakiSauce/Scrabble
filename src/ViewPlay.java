@@ -44,7 +44,7 @@ public class ViewPlay {
         this.view = view;
         action = new PlayPanelAction();
         board = new PlayPanelBoard();
-        hand = new PlayPanelHand(view);
+        hand = new PlayPanelHand();
         other = new PlayPanelOther();
         score = new PlayPanelScore();
     }
