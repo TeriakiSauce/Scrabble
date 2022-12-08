@@ -14,9 +14,6 @@ import java.nio.file.Paths;
  * @version 1.0
  */
 public class Controller {
-
-    Integer counter;
-
     /**
      * Create new controller.
      * @param model The model.
@@ -27,7 +24,6 @@ public class Controller {
         ViewHelp help = view.getHelpScreen();
         ViewPlay play = view.getPlayScreen();
         ViewSetup setup = view.getSetupScreen();
-        counter = 0;
 
         start.setActionOnNew(new ActionListener() {
             @Override
@@ -156,9 +152,9 @@ public class Controller {
         play.setHandOnClick(new PlayPanelHandListener() {
             @Override
             public void actionPerformed(Integer n) {
-                if (n==Config.HAND_SIZE-1 && counter == 0){
+                if (n==Config.HAND_SIZE-1 && model.getCounter() == 0){
                     model.setBlankTile(JOptionPane.showInputDialog(view, "Enter a letter: ").toUpperCase().charAt(0));
-                    counter++;
+                    model.incrementCounter();
                 }
                 else{
                     model.setN(n);
