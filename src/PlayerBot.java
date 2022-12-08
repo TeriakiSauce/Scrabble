@@ -33,7 +33,8 @@ public class PlayerBot extends Player implements Serializable {
 
 
     /**
-     *
+     * This method has the bot scan its hand and board to select its play.
+     * It then places each cell of its play on the boards and updates its hand.
      */
     @Override
     public void placeBoard() {
@@ -51,8 +52,10 @@ public class PlayerBot extends Player implements Serializable {
             chain.addLetter(cell);
             super.placeBoard();
         }
+        //Clears its lists for the next turn
         validPlays.clear();
         handCombos.clear();
+        currentWords.clear();
 
         System.out.println(chain);
         System.out.println(chain.getScore());

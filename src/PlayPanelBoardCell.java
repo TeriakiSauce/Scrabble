@@ -6,7 +6,8 @@ import java.awt.event.ActionEvent;
 /**
  * Represents a cell within the board.
  * @author Jaan
- * @version 1.0
+ * @author Andrew
+ * @version 1.1
  */
 public class PlayPanelBoardCell extends JButton {
 
@@ -36,7 +37,7 @@ public class PlayPanelBoardCell extends JButton {
         this.x = x;
         this.y = y;
         this.board = board;
-        setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+        //setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -46,7 +47,7 @@ public class PlayPanelBoardCell extends JButton {
     }
 
     /**
-     * Set the letter for the cell.
+     * Set the letter image for the cell.
      * @param letter The letter.
      */
     public void setLetter(Character letter) {

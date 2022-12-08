@@ -7,22 +7,32 @@ import java.util.HashMap;
 
 /**
  * A class that loads and stores the images
+ * @author Andrew
  */
 public class LetterImages {
+    //String of all possible tiles excluding blank
     private static final String ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     private static final HashMap<Character, BufferedImage> images = new HashMap<>();
     private static BufferedImage blank = null;
+
+    /*Not Implemented Yet
     private static BufferedImage doubleWord = null;
     private static BufferedImage tripleWord = null;
     private static BufferedImage doubleLetter = null;
     private static BufferedImage tripleLetter = null;
+    */
 
     public static void init() {
         blank = loadImage("scrabble-blank.jpg");
+
+        /* Not Implemented Yet
         doubleWord = loadImage("doubleword.jpg");
         tripleWord = loadImage("tripleword.jpg");
         doubleLetter = loadImage("doubleletter.jpg");
         tripleLetter = loadImage("tripleletter.jpg");
+         */
+
+        //Loads all images into the hash map
         for (Character letter : ALPHABET.toUpperCase().toCharArray()) {
             BufferedImage icon = loadImage("scrabble-" + letter + ".jpg");
 
@@ -30,11 +40,17 @@ public class LetterImages {
         }
     }
 
+    /**
+     * Returns the tile image corresponding to letter
+     * @param letter the letter you need a tile for
+     * @return the image of the tile
+     */
     public static BufferedImage getImage(Character letter) {
 
         return images.containsKey(letter) ? images.get(letter) : blank;
     }
 
+    /* Not Implemented Yet
     public static BufferedImage getDoubleWord() {
         return doubleWord;
     }
@@ -50,6 +66,7 @@ public class LetterImages {
     public static BufferedImage getTripleLetter() {
         return tripleLetter;
     }
+     */
 
     /**
      * Loads an image from the given path
