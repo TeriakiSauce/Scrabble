@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -152,8 +153,14 @@ public class Controller {
         play.setHandOnClick(new PlayPanelHandListener() {
             @Override
             public void actionPerformed(Integer n) {
-                model.setN(n);
-                model.placeHand();
+                if (n==Config.HAND_SIZE-1 && model.getCounter() == 0){
+                    model.setBlankTile(JOptionPane.showInputDialog(view, "Enter a letter: ").toUpperCase().charAt(0));
+                    model.incrementCounter();
+                }
+                else{
+                    model.setN(n);
+                    model.placeHand();
+                }
             }
         });
 

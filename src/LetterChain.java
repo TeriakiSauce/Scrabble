@@ -8,7 +8,8 @@ import java.io.Serializable;
  * the score of the placed word.
  * @author Jaan
  * @author Andrew
- * @version 1.5
+ * @author Tarik
+ * @version 1.7
  */
 public class LetterChain implements Serializable {
 
@@ -110,6 +111,37 @@ public class LetterChain implements Serializable {
     }
 
     /**
+     * Returns premium tile multiplier
+     * @return the multiplier
+     */
+    public Integer getMultiplier(BoardCell cell) {
+        switch (cell.getType()) {
+            case BLUE:
+            case RED:
+                return 3;
+            case CYAN:
+            case PINK:
+                return 2;
+            default:
+                return 1;
+        }
+    }
+
+    /**
+     * Returns if premium tile multiplier is a word multiplier
+     * @return true if word multiplier, false otherwise
+     */
+    public boolean isWordMultiplier(BoardCell.Type type) {
+        switch (type) {
+            case RED:
+            case PINK:
+                return true;
+            default:
+                return false;
+        }
+    }
+
+    /**
      * Get the score from the placed letters. This is the main method for computing
      * the total score of the placed word.
      * @return The score.
@@ -118,6 +150,9 @@ public class LetterChain implements Serializable {
         State state = game.getState();
         board = state.getBoard();
         Integer score = 0;
+        Integer totalLetterBonus = 1;
+        Integer totalWordBonus = 1;
+        WordBank bank = game.getWordBank();
         // Returns 0 if size is empty or placement is invalid
         if (this.getSize() == 0){
             return 0;
@@ -158,6 +193,19 @@ public class LetterChain implements Serializable {
 
         score += getScore(cells.get(0).getX(), cells.get(0).getY());
         playValue = score;
+        for (BoardCell cell : cells) {
+            if (isWordMultiplier(cell.getType())) {
+                totalWordBonus *= getMultiplier(cell);
+                score*=totalWordBonus;
+            }
+            else {
+                totalLetterBonus = getMultiplier(cell);
+                if (totalLetterBonus>1 && bank.getLetterValue(cell.getLetter())>1){
+                    totalLetterBonus*= bank.getLetterValue(cell.getLetter());
+                    score+= totalLetterBonus - bank.getLetterValue(cell.getLetter());
+                }
+            }
+        }
         return score;
     }
 
@@ -418,10 +466,12 @@ public class LetterChain implements Serializable {
     public String toString(){
         String chain = new String();
         for (BoardCell cell : cells){
-            chain += cell.toString();
-            chain += cell.getX();
-            chain += cell.getY();
-            chain += " ";
+            if (isVertical){
+                chain += cell.toString() +"\n";
+            }
+            else{
+                chain += cell.toString() +" ";
+            }
         }
         return chain;
     }

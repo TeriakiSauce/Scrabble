@@ -35,7 +35,7 @@ public class ViewPlay {
      * The view.
      */
     private View view;
-    
+
     /**
      * Create new ViewPlayScreen.
      * @param view The view.
@@ -44,7 +44,7 @@ public class ViewPlay {
         this.view = view;
         action = new PlayPanelAction();
         board = new PlayPanelBoard();
-        hand = new PlayPanelHand(view);
+        hand = new PlayPanelHand();
         other = new PlayPanelOther();
         score = new PlayPanelScore();
     }

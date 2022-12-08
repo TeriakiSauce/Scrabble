@@ -53,6 +53,36 @@ public class Model {
     }
 
     /**
+     * Increments the blank tile counter
+     */
+    public void incrementCounter(){
+        game.incrementCounter();
+    }
+
+    /**
+     * Resets the blank tile counter
+     */
+    public void resetCounter(){
+        game.resetCounter();
+    }
+
+    /**
+     * Gets the blank tile counter
+     */
+    public Integer getCounter(){
+        return game.getCounter();
+    }
+
+    /**
+     * Call the game set blank tile action and repaint.
+     */
+    public void setBlankTile(Character letter) {
+        game.setBlankTile(letter);
+        paint();
+    }
+
+
+    /**
      * Call the game quit action, the view quit action, and repaint.
      */
     public void quit() {

@@ -65,6 +65,16 @@ public class BoardCell implements Serializable {
     }
 
     /**
+     * Create new board cell with a letter in it.
+     */
+    public BoardCell(int x, int y, Character letter ,Type type) {
+        this.letter = letter;
+        this.x = x;
+        this.y = y;
+        this.type = type;
+    }
+
+    /**
      * An alternative constructor used by the AI player to calculate points
      * @param x x value
      * @param y y value
@@ -219,10 +229,8 @@ public class BoardCell implements Serializable {
      * Returns a string representation of BoardCell
      * @return the string
      */
+    @Override
     public String toString() {
-        if(letter == null){
-            return " ";
-        }
-        return letter + "";
+        return "" + this.getType() + "[" + this.getX() + "," + this.getY() + "]";
     }
 }
