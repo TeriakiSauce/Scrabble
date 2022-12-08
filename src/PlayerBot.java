@@ -50,7 +50,6 @@ public class PlayerBot extends Player implements Serializable {
             newHand.removeLetter(cell.getLetter());
             board.setLetter(cell);
             chain.addLetter(cell);
-            super.placeBoard();
         }
         //Clears its lists for the next turn
         validPlays.clear();
@@ -215,10 +214,11 @@ public class PlayerBot extends Player implements Serializable {
                         }
                         temp_chain.sortChain();
                     }
-                    if (temp_chain.getScore() > 0) {
+                    //System.out.println(temp_chain);
+                    if (temp_chain.getScore() > 0 && !validPlays.contains(temp_chain)) {
                         validPlays.add(temp_chain);
-                        //System.out.println(temp_chain);
-                        //System.out.println(temp_chain.getScore());
+                        System.out.println(temp_chain);
+                        System.out.println(temp_chain.getScore());
                     }
                     board.removeTempLetters();
                 }
@@ -253,9 +253,11 @@ public class PlayerBot extends Player implements Serializable {
 
     public LetterChain choosePlay() {
         validPlays.sort(Comparator.comparingInt(LetterChain::getPlayValue));
+
         if(validPlays.size() == 0){
             return new LetterChain(game);
         }
+
         int index = 0;
         if (difficulty == DIFFICULTY.EASY) {
             index = 0;

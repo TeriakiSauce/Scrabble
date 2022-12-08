@@ -397,6 +397,9 @@ public class LetterChain implements Serializable {
     public boolean equals(Object obj) {
         LetterChain chain = (LetterChain) obj;
         boolean equals = true;
+        if(getSize() != chain.getSize()){
+            return false;
+        }
         for(int i = 0; i < getSize();i++){
             if(!(chain.cells.get(i) == cells.get(i))){
                 equals = true;

@@ -165,7 +165,8 @@ public class Controller {
                     while(model.getGame().getState().isBotPlaying()) {
                         model.placeBoard();
                         if (!model.finish()) {
-                            play.showBadMove();
+                            play.showBotPass();
+                            model.pass();
                         }
                     }
                     view.showBotDone();
@@ -193,7 +194,8 @@ public class Controller {
                     while(model.getGame().getState().isBotPlaying()) {
                         model.placeBoard();
                         if (!model.finish()) {
-                            play.showBadMove();
+                            play.showBotPass();
+                            model.pass();
                         }
                     }
                     view.showBotDone();
