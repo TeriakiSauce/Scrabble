@@ -33,7 +33,7 @@ public class LetterImages {
          */
 
         //Loads all images into the hash map
-        for (Character letter : ALPHABET.toUpperCase().toCharArray()) {
+        for (Character letter : ALPHABET.toCharArray()) {
             BufferedImage icon = loadImage("scrabble-" + letter + ".jpg");
 
             images.put(letter, icon);
@@ -74,11 +74,13 @@ public class LetterImages {
      */
     public static BufferedImage loadImage(String path) {
         BufferedImage image = null;
-        InputStream is = LetterImages.class.getResourceAsStream("/images/" + path);
+        InputStream is = LetterImages.class.getResourceAsStream("images/" + path);
+        System.out.println(path);
         if (is == null) {
             return null;
         }
         try {
+            System.out.println("SUCCESS: " + path);
             image = ImageIO.read(is);
         } catch (IOException e){
             e.printStackTrace();
