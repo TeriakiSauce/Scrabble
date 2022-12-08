@@ -160,4 +160,27 @@ public class LetterChainTest {
         assertEquals(new Integer(9), chain.getScore());
     }
 
+    @Test
+    public void testPrint() {
+        WordBank bank = game.getWordBank();
+        System.out.println(chain);
+        BoardCell west = new BoardCell(6,7,'h', BoardCell.Type.NORMAL);
+        BoardCell middle = new BoardCell(7,7,'e', BoardCell.Type.NORMAL);
+        BoardCell east = new BoardCell(8,7,'y', BoardCell.Type.NORMAL);
+        BoardCell north = new BoardCell(7,9,'y', BoardCell.Type.NORMAL);
+        BoardCell south = new BoardCell(7,6,'y', BoardCell.Type.NORMAL);
+        chain.addLetter(west);
+        state.getBoard().setLetter(west);
+        chain.addLetter(middle);
+        state.getBoard().setLetter(middle);
+        chain.addLetter(east);
+        state.getBoard().setLetter(east);
+        chain.addLetter(north);
+        state.getBoard().setLetter(north);
+        chain.addLetter(south);
+        state.getBoard().setLetter(south);
+
+        System.out.println(state.getBoard().getCell(7,7).toXML());
+    }
+
 }

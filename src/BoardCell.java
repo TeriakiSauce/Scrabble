@@ -1,3 +1,12 @@
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.IOException;
 import java.util.Objects;
 import java.io.Serializable;
 
@@ -7,7 +16,7 @@ import java.io.Serializable;
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class BoardCell implements Serializable {
+public class BoardCell extends DefaultHandler implements Serializable {
 
     /**
      * The contained letter.
@@ -85,6 +94,34 @@ public class BoardCell implements Serializable {
         this.y = y;
         this.letter = letter;
         this.type = Type.NORMAL;
+    }
+    @Override
+    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+
+    }
+    @Override
+    public void endElement(String uri, String localName, String qName) throws SAXException {
+
+    }
+    @Override
+    public void characters(char[] ch, int start, int length) throws SAXException {
+
+    }
+
+    public void importFromXml(String fileName) throws ParserConfigurationException, IOException, SAXException {
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+        try {
+            SAXParser saxParser = saxParserFactory.newSAXParser();
+            XMLReader reader = saxParser.getXMLReader();
+            reader.setContentHandler(this);
+            reader.parse(fileName);
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -191,6 +228,34 @@ public class BoardCell implements Serializable {
     @Override
     public String toString() {
         return "" + this.getType() + "[" + this.getX() + "," + this.getY() + "]";
+    }
+
+    public String toXML(){
+        String str = "<BoardCell>\n";
+        String cLetter = "<letter>" + this.getLetter() + "</letter>\n";
+        String vChain = "<inVertChain>" + this.isInVertChain() + "</inVertChain>\n";
+        String hChain = "<inHorizChain>" + this.isInHorizChain() + "</inHorizChain>\n";
+        String xVal = "<x>" + this.getX() + "</x>\n";
+        String yVal = "<y>" + this.getX() + "</y>\n";
+        String tType = "<type>" + this.getType() + "</type>\n";
+        String nCell = "";
+        String sCell = "";
+        String eCell = "";
+        String wCell = "";
+        if (this.getNorthCell()!=null){
+            nCell = "<northCell>" + this.getNorthCell()/*.toXML()*/ + "</northCell>\n";
+        }
+        if (this.getSouthCell()!=null){
+            sCell = "<southCell>" + this.getSouthCell()/*.toXML()*/ + "</southCell>\n";
+        }
+        if (this.getEastCell()!=null){
+            eCell = "<eastCell>" + this.getEastCell()/*.toXML()*/ + "</eastCell>\n";
+        }
+        if (this.getWestCell()!=null){
+            wCell = "<westCell>" + this.getWestCell()/*.toXML()*/ + "</westCell>\n";
+        }
+        str+= cLetter + vChain + hChain + xVal + yVal + tType + nCell + sCell + eCell + wCell + "</BoardCell>\n";
+        return str;
     }
 
     /**

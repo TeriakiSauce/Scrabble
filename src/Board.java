@@ -1,3 +1,12 @@
+import org.xml.sax.Attributes;
+import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
+import org.xml.sax.helpers.DefaultHandler;
+
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.IOException;
 import java.util.Arrays;
 import java.io.Serializable;
 
@@ -7,7 +16,7 @@ import java.io.Serializable;
  * @author Andrew/Tarik
  * @version 1.1
  */
-public class Board implements Serializable {
+public class Board extends DefaultHandler implements Serializable {
 
     /**
      * 2D array of cells.
@@ -32,7 +41,8 @@ public class Board implements Serializable {
         init_adj();
         clear();
     }
-    private void init_adj(){
+
+        private void init_adj(){
         for (int i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (int j = 0; j < Config.BOARD_WIDTH; j++) {
                 if(j-1 > 0){
@@ -80,6 +90,16 @@ public class Board implements Serializable {
     }
 
     /**
+     * Get cell at specified position.
+     * @param x The x position.
+     * @param y The y position.
+     * @return The cell.
+     */
+    public BoardCell getCell(Integer x, Integer y) {
+        return cells[x][y];
+    }
+
+    /**
      * Check if the board has a letter at specified position.
      * @param x The x position.
      * @param y The y position.
@@ -104,7 +124,6 @@ public class Board implements Serializable {
     public void setNormalCells(int x, int y){
         cells[x][y] = new BoardCell(x,y, BoardCell.Type.NORMAL);
     }
-
 
     /**
      * Sets red cells
