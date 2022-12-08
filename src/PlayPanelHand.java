@@ -20,15 +20,9 @@ public class PlayPanelHand extends JPanel {
     private PlayPanelHandListener listener;
 
     /**
-     * The view.
-     */
-    private View view;
-
-    /**
      * Create new panel hand.
      */
-    public PlayPanelHand(View view) {
-        this.view = view;
+    public PlayPanelHand() {
         setLayout(new GridLayout(
             1,
             Config.HAND_SIZE,
@@ -46,7 +40,7 @@ public class PlayPanelHand extends JPanel {
         cells = new PlayPanelHandCell[Config.HAND_SIZE];
         for (Integer i = 0; i < Config.HAND_SIZE; i++) {
             if (i  == Config.HAND_SIZE-1){
-                cells[i] = new PlayPanelHandBlankCell(this, i, view);
+                cells[i] = new PlayPanelHandBlankCell(this, i);
             }
             else {
                 cells[i] = new PlayPanelHandLetterCell(this, i);
