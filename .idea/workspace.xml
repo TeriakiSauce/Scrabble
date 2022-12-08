@@ -9,10 +9,59 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Got rid of some save files and old irrevelevant classes">
-      <change beforePath="$PROJECT_DIR$/src/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCell.java" afterDir="false" />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Added a popup for to indicate when bot calculations are completed">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-a.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-b.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-c.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-d.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-e.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-f.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-g.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-h.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-i.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-j.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-k.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-l.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-m.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-n.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-o.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-p.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-q.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-r.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-s.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-t.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-u.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-v.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-w.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-x.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-y.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/scrabble_tiles/scrabble-z.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Scrabble.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Scrabble.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Config.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoardCell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayerBot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayerBot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/View.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/ViewSetup$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewSetup$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Scrabble/PlayerBotTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/PlayerBotTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayerBot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayerBot.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
+    <list id="1adb24fe-343f-413b-b8ae-446156e9e193" name="Changes by Jeremy" comment="" />
     <list id="5d4f2f6f-e653-49b1-89e8-b3362096a593" name="Changes by rikbe" comment="Changes by rikbe" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +81,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -55,7 +105,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "C:/Users/andre/Documents/GitHub/Scrabble/src",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  }
+}]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\andre\Documents\GitHub\Scrabble\src" />
+    </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
       <recent name="Model" />

@@ -169,6 +169,7 @@ public class Controller {
                         }
                     }
                     view.showBotDone();
+                    model.paint();
                 }
             }
         });
@@ -196,6 +197,7 @@ public class Controller {
                         }
                     }
                     view.showBotDone();
+                    model.paint();
                 }
             }
         });
