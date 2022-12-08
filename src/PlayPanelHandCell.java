@@ -1,5 +1,5 @@
-import javax.swing.JButton;
-import javax.swing.BorderFactory;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -16,8 +16,9 @@ public abstract class PlayPanelHandCell extends JButton {
      * @param n The index.
      */
     public PlayPanelHandCell(PlayPanelHand hand, Integer n) {
-        super(" ");
-        setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
+        super((ImageIcon)null);
+        setMaximumSize(new Dimension(100,100));
+        //setBorder(BorderFactory.createLineBorder(Config.BORDER_COLOR));
         /*
         addActionListener(new ActionListener() {
             @Override
@@ -33,10 +34,12 @@ public abstract class PlayPanelHandCell extends JButton {
      * @param letter The letter.
      */
     public void setLetter(Character letter) {
+        setText(null);
         if (letter == null) {
-            setText(" ");
+            setIcon(null);
         } else {
-            setText(letter.toString());
+            int size = Math.max(getWidth(), getHeight());
+            setIcon(new ImageIcon(LetterImages.resize(LetterImages.getImage(letter), 80, 80)));
         }
     }
 }

@@ -1,5 +1,4 @@
-import javax.swing.JButton;
-import javax.swing.BorderFactory;
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -33,7 +32,7 @@ public class PlayPanelBoardCell extends JButton {
      * @param y The y position.
      */
     public PlayPanelBoardCell(PlayPanelBoard board, Integer x, Integer y) {
-        super(" ");
+        super((ImageIcon) null);
         this.x = x;
         this.y = y;
         this.board = board;
@@ -52,9 +51,11 @@ public class PlayPanelBoardCell extends JButton {
      */
     public void setLetter(Character letter) {
         if (letter == null) {
-            setText(" ");
+            setIcon(null);
+            setText(null);
         } else {
-            setText(letter.toString());
+            int size = Math.max(getWidth(), getHeight());
+            setIcon(new ImageIcon(LetterImages.resize(LetterImages.getImage(letter), size, size)));
         }
     }
 }
