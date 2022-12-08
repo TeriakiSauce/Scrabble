@@ -171,6 +171,9 @@ public class PlayerBot extends Player implements Serializable {
 
 
     public void calculatePossiblePoints() {
+        if(isEmptySpace(Config.BOARD_WIDTH/2,Config.BOARD_HEIGHT/2)){
+            calculateStartingMove();
+        }
         for (LetterChain chain : currentWords) {
             for (String string : handCombos) {
                 for (int i = 0; i < string.length() + 1; i++) {
@@ -217,6 +220,26 @@ public class PlayerBot extends Player implements Serializable {
                     board.removeTempLetters();
                 }
             }
+        }
+    }
+
+    private void calculateStartingMove() {
+        //Loops through each possible play in the bots hand
+        for (String string : handCombos) {
+            Board board = game.getState().getBoard();
+            //Create a new chain beginning on the central tile, going left
+            LetterChain temp_chain = new LetterChain(game);
+            int x_cord = Config.BOARD_WIDTH/2;
+            int y_cord = Config.BOARD_HEIGHT/2;
+            for (int j = 0; j < string.length(); j++) {
+                temp_chain.addLetter(new BoardCell(x_cord+j, y_cord, string.charAt(j)));
+                board.setLetter(new BoardCell(x_cord+j, y_cord, string.charAt(j)));
+            }
+            //Adds to valid plays if it's a usable word
+            if (temp_chain.getScore() > 0) {
+                validPlays.add(temp_chain);
+            }
+            board.removeTempLetters();
         }
     }
 
