@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -116,7 +117,7 @@ public class Controller {
                 model.create(gameName);
                 model.addUser(playerName);
                 for (int i = 0; i < bots.length; i++) {
-                    model.addBot(bots[i]);
+                    model.addBot(bots[i], setup.getBotDifficulty());
                 }
                 model.fillAllHands();
                 model.paint();
@@ -152,8 +153,14 @@ public class Controller {
         play.setHandOnClick(new PlayPanelHandListener() {
             @Override
             public void actionPerformed(Integer n) {
-                model.setN(n);
-                model.placeHand();
+                if (n==Config.HAND_SIZE-1 && model.getCounter() == 0){
+                    model.setBlankTile(JOptionPane.showInputDialog(view, "Enter a letter: ").toUpperCase().charAt(0));
+                    model.incrementCounter();
+                }
+                else{
+                    model.setN(n);
+                    model.placeHand();
+                }
             }
         });
 
@@ -162,6 +169,17 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (view.getConfirmation()) {
                     model.pass();
+                    if (model.getGame().getState().isBotPlaying()) {
+                        while (model.getGame().getState().isBotPlaying()) {
+                            model.placeBoard();
+                            if (!model.finish()) {
+                                play.showBotPass();
+                                model.pass();
+                            }
+                        }
+                        view.showBotDone();
+                    }
+                    model.paint();
                 }
             }
         });
@@ -181,7 +199,18 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (!model.finish()) {
                     play.showBadMove();
+                }else if (model.getGame().getState().isBotPlaying()){
+                    while(model.getGame().getState().isBotPlaying()) {
+                        model.paint();
+                        model.placeBoard();
+                        if (!model.finish()) {
+                            play.showBotPass();
+                            model.pass();
+                        }
+                    }
+                    view.showBotDone();
                 }
+                model.paint();
             }
         });
 
