@@ -356,4 +356,11 @@ public class State implements Serializable {
             return true;
         }
     }
+
+    /**
+     * Returns true if a bot is the current player
+     */
+    public boolean isBotPlaying(){
+        return (players.get(player) instanceof PlayerBot);
+    }
 }

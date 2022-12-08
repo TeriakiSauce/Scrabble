@@ -117,7 +117,7 @@ public class Controller {
                 model.create(gameName);
                 model.addUser(playerName);
                 for (int i = 0; i < bots.length; i++) {
-                    model.addBot(bots[i]);
+                    model.addBot(bots[i], setup.getBotDifficulty());
                 }
                 model.fillAllHands();
                 model.paint();
@@ -169,6 +169,15 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (view.getConfirmation()) {
                     model.pass();
+                    while(model.getGame().getState().isBotPlaying()) {
+                        model.placeBoard();
+                        if (!model.finish()) {
+                            play.showBotPass();
+                            model.pass();
+                        }
+                    }
+                    view.showBotDone();
+                    model.paint();
                 }
             }
         });
@@ -188,6 +197,16 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (!model.finish()) {
                     play.showBadMove();
+                }else {
+                    while(model.getGame().getState().isBotPlaying()) {
+                        model.placeBoard();
+                        if (!model.finish()) {
+                            play.showBotPass();
+                            model.pass();
+                        }
+                    }
+                    view.showBotDone();
+                    model.paint();
                 }
             }
         });

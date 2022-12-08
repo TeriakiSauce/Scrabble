@@ -247,11 +247,10 @@ public class Model {
     }
 
     /**
-     * 
      * @param name
      */
-    public void addBot(String name) {
-        game.getState().addPlayer(new PlayerBot(name, game));
+    public void addBot(String name, PlayerBot.DIFFICULTY difficulty) {
+        game.getState().addPlayer(new PlayerBot(name, game, difficulty));
     }
 
     /**
@@ -269,5 +268,9 @@ public class Model {
     public void fullReset() {
         game.fullReset();
         reset();
+    }
+
+    public Game getGame(){
+        return game;
     }
 }

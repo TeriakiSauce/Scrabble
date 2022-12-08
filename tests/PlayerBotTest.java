@@ -17,7 +17,7 @@ public class PlayerBotTest {
     public void setUp() throws Exception {
         game = new Game();
         board = game.getState().getBoard();
-        bot = new PlayerBot("bot", game);
+        bot = new PlayerBot("bot", game, PlayerBot.DIFFICULTY.HARD);
         board.setLetter(new BoardCell(7,7,'a'));
         board.setLetter(new BoardCell(7,8,'s'));
         board.setLetter(new BoardCell(7,9,'h'));

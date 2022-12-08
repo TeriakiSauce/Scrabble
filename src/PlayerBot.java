@@ -1,6 +1,5 @@
 import java.util.*;
 import java.io.Serializable;
-import java.util.stream.Collectors;
 
 /**
  * Represents a bot player which has AI to decide what move it will make.
@@ -19,12 +18,12 @@ public class PlayerBot extends Player implements Serializable {
     private List<String> handCombos;
 
     /**
-     * @param name
-     * @param game
+     * @param name name of player
+     * @param game game it's part of
      */
-    public PlayerBot(String name, Game game) {
+    public PlayerBot(String name, Game game, DIFFICULTY difficulty) {
         super(name, game);
-
+        this.difficulty = difficulty;
         possibleWords = new LinkedList<LetterChain>();
         validPlays = new LinkedList<LetterChain>();
         currentWords = new LinkedList<LetterChain>();
@@ -34,27 +33,31 @@ public class PlayerBot extends Player implements Serializable {
 
 
     /**
-     *
+     * This method has the bot scan its hand and board to select its play.
+     * It then places each cell of its play on the boards and updates its hand.
      */
     @Override
     public void placeBoard() {
         State state = game.getState();
         Board board = state.getBoard();
         LetterChain chain = state.getChain();
-
         collectBoardWords();
         findHandCombos();
         calculatePossiblePoints();
         LetterChain play = choosePlay();
-        /*
-        for (LetterCell cell : play.getCells()) {
-            chain.addLetter(cell);
-            board.setLetter(cell);
+        for (BoardCell cell : play.getCells()) {
+            cell.toUpperCase();
             newHand.removeLetter(cell.getLetter());
-            super.placeBoard();
-        }*/
-        System.out.println(play);
-        System.out.println(play.getScore());
+            board.setLetter(cell);
+            chain.addLetter(cell);
+        }
+        //Clears its lists for the next turn
+        validPlays.clear();
+        handCombos.clear();
+        currentWords.clear();
+
+        System.out.println(chain);
+        System.out.println(chain.getScore());
     }
 
 
@@ -72,7 +75,7 @@ public class PlayerBot extends Player implements Serializable {
                         LetterChain vertChain = new LetterChain(game);
                         vertChain.addLetter(currentCell);
                         currentCell.setInVertChain(true);
-                        while (currentCell.getSouthCell().hasLetter()) {
+                        while (currentCell.getSouthCell() != null && currentCell.getSouthCell().hasLetter()) {
                             currentCell = currentCell.getSouthCell();
                             vertChain.addLetter(currentCell);
                             currentCell.setInVertChain(true);
@@ -85,7 +88,7 @@ public class PlayerBot extends Player implements Serializable {
                         LetterChain horizChain = new LetterChain(game);
                         horizChain.addLetter(currentCell);
                         currentCell.setInHorizChain(true);
-                        while (currentCell.getEastCell().hasLetter()) {
+                        while (currentCell.getEastCell() != null && currentCell.getEastCell().hasLetter()) {
                             currentCell = currentCell.getEastCell();
                             horizChain.addLetter(currentCell);
                             currentCell.setInHorizChain(true);
@@ -102,8 +105,12 @@ public class PlayerBot extends Player implements Serializable {
      * Returns a list of all possible combinations of the player's cards in their hand.
      */
     public void findHandCombos() {
-        char[] characters = {'q','a','j','r','r','v','s'};
-        // char[] characters = Arrays.stream(newHand.getLetters()).map(ch->ch.toString()).collect(Collectors.joining()).toCharArray();
+        //Converting the array of Characters to array of chars
+        Character[] handValues = newHand.getLetters();
+        char[] characters = new char[Config.HAND_SIZE-1];
+        for(int i = 0; i < Config.HAND_SIZE-1; i++){
+            characters[i] = Character.toLowerCase(handValues[i]);
+        }
         System.out.println(characters);
         int subsets = (int) Math.pow(2, characters.length);
         for (int i = 1; i < subsets; i++) {
@@ -151,7 +158,6 @@ public class PlayerBot extends Player implements Serializable {
         for (int i = 0; i < str.length(); i++) {
             str = str.toLowerCase();
             char chr = str.charAt(i);
-            //System.out.println(chr);
 
             // The string excluding the ith character
             String ros = str.substring(0, i) +
@@ -167,9 +173,13 @@ public class PlayerBot extends Player implements Serializable {
 
 
     public void calculatePossiblePoints() {
+        if(isEmptySpace(Config.BOARD_WIDTH/2,Config.BOARD_HEIGHT/2)){
+            calculateStartingMove();
+        }
         for (LetterChain chain : currentWords) {
             for (String string : handCombos) {
                 for (int i = 0; i < string.length() + 1; i++) {
+                    Board board = game.getState().getBoard();
                     LetterChain temp_chain = new LetterChain(game);
                     temp_chain.setIsVertical(chain.isVertical());
                     for (int j = 0; j < string.length(); j++) {
@@ -179,13 +189,13 @@ public class PlayerBot extends Player implements Serializable {
                                 coords = temp_chain.getBeginning();
                             }
                             if (chain.isVertical()) {
-                                if (isFreeToPlay(coords[0], coords[1] - 1)) {
+                                if (isEmptySpace(coords[0], coords[1] - 1)) {
                                     temp_chain.addLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
-                                    game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
+                                    board.setLetter(new BoardCell(coords[0], coords[1] - 1, string.charAt(j)));
                                 }
-                            } else if (isFreeToPlay(coords[0] - 1, coords[1])) {
+                            } else if (isEmptySpace(coords[0] - 1, coords[1])) {
                                 temp_chain.addLetter(new BoardCell(coords[0] - 1, coords[1],string.charAt(j)));
-                                game.getState().getBoard().setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
+                                board.setLetter(new BoardCell(coords[0] - 1, coords[1], string.charAt(j)));
                             }
                         } else {
                             int[] coords = chain.getEnd();
@@ -193,40 +203,74 @@ public class PlayerBot extends Player implements Serializable {
                                 coords = temp_chain.getEnd();
                             }
                             if (chain.isVertical()) {
-                                if (isFreeToPlay(coords[0], coords[1] + 1)) {
+                                if (isEmptySpace(coords[0], coords[1] + 1)) {
                                     temp_chain.addLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
-                                    game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                    board.setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
                                 }
-                            } else if (isFreeToPlay(coords[0] + 1, coords[1])) {
+                            } else if (isEmptySpace(coords[0] + 1, coords[1])) {
                                 temp_chain.addLetter(new BoardCell(coords[0] + 1, coords[1], string.charAt(j)));
-                                game.getState().getBoard().setLetter(new BoardCell(coords[0], coords[1] + 1, string.charAt(j)));
+                                board.setLetter(new BoardCell(coords[0] + 1, coords[1], string.charAt(j)));
                             }
                         }
                         temp_chain.sortChain();
                     }
-                    if (temp_chain.getScore() > 0) {
+                    //System.out.println(temp_chain);
+                    if (temp_chain.getScore() > 0 && !validPlays.contains(temp_chain)) {
                         validPlays.add(temp_chain);
+                        System.out.println(temp_chain);
+                        System.out.println(temp_chain.getScore());
                     }
-                    game.getState().revert();
+                    board.removeTempLetters();
                 }
             }
         }
     }
 
-    private boolean isFreeToPlay(int x, int y){
+    private void calculateStartingMove() {
+        //Loops through each possible play in the bots hand
+        for (String string : handCombos) {
+            Board board = game.getState().getBoard();
+            //Create a new chain beginning on the central tile, going left
+            LetterChain temp_chain = new LetterChain(game);
+            int x_cord = Config.BOARD_WIDTH/2;
+            int y_cord = Config.BOARD_HEIGHT/2;
+            for (int j = 0; j < string.length(); j++) {
+                temp_chain.addLetter(new BoardCell(x_cord+j, y_cord, string.charAt(j)));
+                board.setLetter(new BoardCell(x_cord+j, y_cord, string.charAt(j)));
+            }
+            //Adds to valid plays if it's a usable word
+            if (temp_chain.getScore() > 0) {
+                validPlays.add(temp_chain);
+            }
+            board.removeTempLetters();
+        }
+    }
+
+    private boolean isEmptySpace(int x, int y){
         Board board = game.getState().getBoard();
         return !(board.hasLetter(x, y)) && board.isValid(x, y);
     }
 
     public LetterChain choosePlay() {
         validPlays.sort(Comparator.comparingInt(LetterChain::getPlayValue));
+
         if(validPlays.size() == 0){
             return new LetterChain(game);
         }
-        LetterChain bestPlay = validPlays.get(validPlays.size() - 1);
-        //System.out.println(bestPlay.getScore());
-        //System.out.println(bestPlay);
-        return bestPlay;
+
+        int index = 0;
+        if (difficulty == DIFFICULTY.EASY) {
+            index = 0;
+        } else if (difficulty == DIFFICULTY.MEDIUM) {
+            index = validPlays.size() / 2;
+        } else if (difficulty == DIFFICULTY.HARD) {
+            index = validPlays.size() - 1;
+        }
+        if(validPlays.get(index) != null) {
+            return validPlays.get(index);
+        }
+        System.out.println("Bot had no play");
+        return null;
     }
 
     /**

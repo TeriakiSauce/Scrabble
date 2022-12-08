@@ -24,6 +24,11 @@ public class LetterChain implements Serializable {
     private transient Game game;
 
     /**
+     * The board
+     */
+    private Board board;
+
+    /**
      * The direction that the word was played, false for horizontal, true for vertical
      */
     private boolean isVertical;
@@ -143,6 +148,7 @@ public class LetterChain implements Serializable {
      */
     public Integer getScore() {
         State state = game.getState();
+        board = state.getBoard();
         Integer score = 0;
         Integer totalLetterBonus = 1;
         Integer totalWordBonus = 1;
@@ -151,17 +157,17 @@ public class LetterChain implements Serializable {
         if (this.getSize() == 0){
             return 0;
         }
-        // Returns 0 if  placement is invalid
+        // Returns 0 if placement is invalid
         if (!(validPlacementX() || validPlacementY())){
             return 0;
         }
+
         //Sorts the list of letters according to its direction
         if (isVertical){
             cells.sort(Comparator.comparing(a -> a.getY()));
         } else {
             cells.sort(Comparator.comparing(a -> a.getX()));
         }
-
         // Returns 0 if the letter is not connected to another letter on the board or the middle square
         boolean connected = false;
         for (BoardCell cell : cells){
@@ -184,7 +190,9 @@ public class LetterChain implements Serializable {
         if (!connected){
             return 0;
         }
+
         score += getScore(cells.get(0).getX(), cells.get(0).getY());
+        playValue = score;
         for (BoardCell cell : cells) {
             if (isWordMultiplier(cell.getType())) {
                 totalWordBonus *= getMultiplier(cell);
@@ -206,11 +214,12 @@ public class LetterChain implements Serializable {
      * @return true if letters are valid, false otherwise
      */
     private boolean validPlacementX(){
+
         State state = game.getState();
         // Sorts the cells by their x values
         cells.sort(Comparator.comparing(a -> a.getX()));
         // Checks that cells are in the same row
-        for (int i = 0; i <this.getSize(); i++) {
+        for (int i = 0; i < this.getSize(); i++) {
             if(i>0){
                 if (!(cells.get(i).getY() == cells.get(i-1).getY())){
                     return false;
@@ -220,11 +229,10 @@ public class LetterChain implements Serializable {
         // Checks that there are no gaps between cells
         int y = cells.get(0).getY();
         for (int x = cells.get(0).getX(); x < cells.get(cells.size()-1).getX(); x++) {
-            if (!(state.getBoard().hasLetter(x,y))){
+            if (!(board.hasLetter(x,y))){
                 return false;
             }
         }
-
         isVertical = false;
         return true;
     }
@@ -248,7 +256,7 @@ public class LetterChain implements Serializable {
         // Checks that there are no gaps between cells
         int x = cells.get(0).getX();
         for (int y = cells.get(0).getY(); y < cells.get(cells.size()-1).getY(); y++) {
-            if (!(state.getBoard().hasLetter(x,y))){
+            if (!(board.hasLetter(x,y))){
                 return false;
             }
         }
@@ -437,6 +445,9 @@ public class LetterChain implements Serializable {
     public boolean equals(Object obj) {
         LetterChain chain = (LetterChain) obj;
         boolean equals = true;
+        if(getSize() != chain.getSize()){
+            return false;
+        }
         for(int i = 0; i < getSize();i++){
             if(!(chain.cells.get(i) == cells.get(i))){
                 equals = true;

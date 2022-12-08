@@ -188,6 +188,15 @@ public class BoardCell implements Serializable {
         return y;
     }
 
+    public void toUpperCase(){
+        letter = Character.toUpperCase(letter);
+    }
+    public boolean isLower() {
+        if (letter == null){
+            return false;
+        }
+        return Character.isLowerCase(letter);
+    }
     /**
      * Getters and setters for all adjacent cells
      */

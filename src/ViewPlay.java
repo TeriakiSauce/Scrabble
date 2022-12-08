@@ -182,4 +182,8 @@ public class ViewPlay {
     public void showBadMove() {
         JOptionPane.showMessageDialog(board, "Invalid Move!");
     }
+
+    public void showBotPass() {
+        JOptionPane.showMessageDialog(board, "Bot Passed!");
+    }
 }
