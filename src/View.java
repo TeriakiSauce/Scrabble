@@ -1,11 +1,15 @@
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
+
+import javax.swing.*;
 
 /**
  * Represents the view component of the model view controller.
  */
 public class View extends JFrame {
+
+    private static final LookAndFeel lightMode = new FlatLightLaf();
+    private static final LookAndFeel darkMode = new FlatDarkLaf();
 
     /**
      * The start screen.
@@ -36,6 +40,7 @@ public class View extends JFrame {
      * Create new view.
      */
     public View() {
+        setLookAndFeel(lightMode);
         UIManager.put("Label.background", Config.BG_COLOR);
         UIManager.put("Label.foreground", Config.FG_COLOR);
         UIManager.put("Button.background", Config.BG_COLOR);
@@ -182,6 +187,17 @@ public class View extends JFrame {
      */
     public void showBotDone(){
         JOptionPane.showMessageDialog(this, "Bot Calculations Completed", "BOT", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    private void setLookAndFeel(LookAndFeel feel) {
+        try {
+            UIManager.setLookAndFeel(feel);
+            if (this != null) {
+                SwingUtilities.updateComponentTreeUI(this);
+            }
+        } catch (UnsupportedLookAndFeelException ex) {
+            System.err.println("Failed to initialize " + feel.getName() + ", it might not be supported");
+        }
     }
 
 }

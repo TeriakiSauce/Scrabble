@@ -8,14 +8,14 @@ import java.awt.Color;
  */
 public class Config {
 
-    public static final String WORD_BANK_PATH = "https://www.mit.edu/~ecprice/wordlist.10000";
+    public static final String WORD_BANK_PATH = "https://www.wordgamedictionary.com/sowpods/download/sowpods.txt";
     public static final String WORD_BANK_BACKUP_PATH = "words.txt";
     public static final String NAMES_PATH = "names.txt";
     public static final String HELP_TEXT_PATH = "help.txt";
 
     public static final String FRAME_TITLE = "Scrabble";
-    public static final Integer WINDOW_WIDTH = 720;
-    public static final Integer WINDOW_HEIGHT = 640;
+    public static final Integer WINDOW_WIDTH = 1200;
+    public static final Integer WINDOW_HEIGHT = 1200;
 
     public static final String SETUP_START_TEXT = "Start Game";
     public static final String SETUP_ADD_TEXT = "Add Bot";

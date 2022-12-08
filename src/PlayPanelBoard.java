@@ -1,5 +1,4 @@
-import javax.swing.JPanel;
-import javax.swing.BorderFactory;
+import javax.swing.*;
 import java.awt.*;
 
 /**
@@ -57,6 +56,8 @@ public class PlayPanelBoard extends JPanel {
      */
     public void setRedPremiumCells(int x, int y){
         //Set Premium 3x Word Score cell to Red
+        PlayPanelBoardCell cell = cells[x][y];
+        int size = Math.max(cell.getWidth(), cell.getHeight());
         int i;
         int j = 0;
         while (j < 15) {
@@ -76,6 +77,8 @@ public class PlayPanelBoard extends JPanel {
      */
     public void setPinkPremiumCells(int x, int y) {
         //Set Premium 2x Word Score cell to Magenta
+        PlayPanelBoardCell cell = cells[x][y];
+        int size = Math.max(cell.getWidth(), cell.getHeight());
         int i = 0;
         int j = 15;
         while (i < 15) {
@@ -95,6 +98,8 @@ public class PlayPanelBoard extends JPanel {
      */
     public void setCyanPremiumCells(int x, int y) {
         //Set Premium 2x Letter Score cell to Cyan
+        PlayPanelBoardCell cell = cells[x][y];
+        int size = Math.max(cell.getWidth(), cell.getHeight());
         if (y == 0 || y == 7 || y == 14) {
             if (x == 3 || x == 11) {
                 cells[x][y].setBackground(Color.CYAN);
@@ -119,6 +124,8 @@ public class PlayPanelBoard extends JPanel {
      */
     public void setBluePremiumCells(int x, int y) {
         //Set Premium 2x Letter Score cell to Blue
+        PlayPanelBoardCell cell = cells[x][y];
+        int size = Math.max(cell.getWidth(), cell.getHeight());
         if (y == 1 || y == 13) {
             if (x == 5 || x == 9) {
                 cells[x][y].setBackground(Color.BLUE);

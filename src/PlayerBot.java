@@ -211,9 +211,8 @@ public class PlayerBot extends Player implements Serializable {
                     }
                     if (temp_chain.getScore() > 0) {
                         validPlays.add(temp_chain);
-                        System.out.println(temp_chain);
-                        System.out.println(temp_chain.getScore());
-
+                        //System.out.println(temp_chain);
+                        //System.out.println(temp_chain.getScore());
                     }
                     board.removeTempLetters();
                 }
