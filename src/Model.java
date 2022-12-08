@@ -18,10 +18,6 @@ public class Model {
      */
     private View view;
 
-    /**
-     * The blank tile counter.
-     */
-    private Integer blankCounter;
 
     /**
      * 
@@ -36,7 +32,6 @@ public class Model {
     public Model(View view, Game game) {
         this.view = view;
         this.game = game;
-        this.blankCounter = 0;
         names = new NameGen();
         view.setStartScreen();
         paint();
@@ -62,21 +57,21 @@ public class Model {
      * Increments the blank tile counter
      */
     public void incrementCounter(){
-        this.blankCounter++;
+        game.incrementCounter();
     }
 
     /**
      * Resets the blank tile counter
      */
     public void resetCounter(){
-        this.blankCounter = 0;
+        game.resetCounter();
     }
 
     /**
      * Gets the blank tile counter
      */
     public Integer getCounter(){
-        return this.blankCounter;
+        return game.getCounter();
     }
 
     /**

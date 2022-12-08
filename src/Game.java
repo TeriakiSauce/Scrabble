@@ -38,12 +38,39 @@ public class Game implements Serializable {
     private Integer n;
 
     /**
+     * The blank tile counter.
+     */
+    private Integer blankCounter;
+
+    /**
      * Create new game.
      */
     public Game() {
+        this.blankCounter = 0;
         state = new State(this);
         bank = new WordBank(Config.WORD_BANK_PATH);
         reset();
+    }
+
+    /**
+     * Increments the blank tile counter
+     */
+    public void incrementCounter(){
+        this.blankCounter++;
+    }
+
+    /**
+     * Resets the blank tile counter
+     */
+    public void resetCounter(){
+        this.blankCounter = 0;
+    }
+
+    /**
+     * Gets the blank tile counter
+     */
+    public Integer getCounter(){
+        return this.blankCounter;
     }
 
     /**
@@ -53,6 +80,7 @@ public class Game implements Serializable {
         setX(null);
         setY(null);
         setN(null);
+        resetCounter();
         state.reset();
     }
 
@@ -60,6 +88,7 @@ public class Game implements Serializable {
      * 
      */
     public void fullReset() {
+        resetCounter();
         state.fullReset();
         reset();
     }
@@ -68,7 +97,7 @@ public class Game implements Serializable {
      * Quit the game.
      */
     public void quit() {
-
+        resetCounter();
     }
 
     /**

@@ -19,15 +19,7 @@ public class PlayPanelHandBlankCell extends PlayPanelHandCell{
         addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //if (counter > 0){
                     hand.onClick(n);
-                //}
-                //else {
-                //    String letter = JOptionPane.showInputDialog(view, "Enter a letter: ").toUpperCase();
-                //    hand.setLetter(n, letter.charAt(0));
-                //    //model.setBlankTile(letter.charAt(0));
-                //    counter++;
-               // }
             }
         });
     }
