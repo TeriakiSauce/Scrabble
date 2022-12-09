@@ -1,4 +1,3 @@
-import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
@@ -6,9 +5,8 @@ import org.xml.sax.helpers.DefaultHandler;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
-import java.io.IOException;
+import java.io.*;
 import java.util.Arrays;
-import java.io.Serializable;
 
 /**
  * Represents all the cells in the game. Allows for the setting, getting,
@@ -236,6 +234,47 @@ public class Board extends DefaultHandler implements Serializable {
             }
         }
         return board;
+    }
+
+    public String toXML(){
+        String str = "<Board>\n";
+        for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
+            for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
+                str+= cells[i][j].toXML();
+            }
+        }
+        str+= "</Board>\n";
+        return str;
+    }
+
+    public void exportToXML(String fileName){
+        try{
+            FileOutputStream outputStream = new FileOutputStream(new File(fileName));
+            outputStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes());
+            outputStream.write(toXML().getBytes());
+            outputStream.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void importFromXml(String fileName) throws ParserConfigurationException, IOException, SAXException {
+        BoardHandler handler = new BoardHandler(this);
+
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+        SAXParser parser;
+
+        try {
+            parser = saxParserFactory.newSAXParser();
+
+            XMLReader reader = parser.getXMLReader();
+            reader.setContentHandler(handler);
+            reader.parse(fileName);
+        } catch (Exception e) {
+            System.out.println("Error in initializing parser");
+        }
     }
 
     /**

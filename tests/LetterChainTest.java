@@ -164,7 +164,7 @@ public class LetterChainTest {
     }
 
     @Test
-    public void testPrint() {
+    public void testPrint() throws ParserConfigurationException, IOException, SAXException {
         WordBank bank = game.getWordBank();
         System.out.println(chain);
         BoardCell west = new BoardCell(6,7,'h', BoardCell.Type.NORMAL);
@@ -183,18 +183,15 @@ public class LetterChainTest {
         chain.addLetter(south);
         state.getBoard().setLetter(south);
 
+        Board board = new Board();
+        System.out.println(board.toXML());
         System.out.println(state.getBoard().getCell(7,7).toXML());
-        state.getBoard().getCell(7,7).exportToXML("temp.txt");
-        try {
-            state.getBoard().getCell(7,8).importFromXml("temp.txt");
-            state.getBoard().getCell(7,8).exportToXML("temp2.txt");
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        }
+        state.getBoard().exportToXML("temp.txt");
+        board.importFromXml("temp.txt");
+        System.out.println(board.toXML());
+
+
+
     }
 
 }

@@ -203,59 +203,12 @@ public class BoardCell implements Serializable {
 
     public String toXML(){
         String str = "<BoardCell>\n";
-        String cLetter = "<letter>" + this.getLetter() + "</letter>\n";
-        String vChain = "<inVertChain>" + this.isInVertChain() + "</inVertChain>\n";
-        String hChain = "<inHorizChain>" + this.isInHorizChain() + "</inHorizChain>\n";
         String xVal = "<x>" + this.getX() + "</x>\n";
         String yVal = "<y>" + this.getX() + "</y>\n";
         String tType = "<type>" + this.getType() + "</type>\n";
-        String nCell = "";
-        String sCell = "";
-        String eCell = "";
-        String wCell = "";
-        if (this.getNorthCell()!=null){
-            nCell = "<northCell>" + this.getNorthCell()/*.toXML()*/ + "</northCell>\n";
-        }
-        if (this.getSouthCell()!=null){
-            sCell = "<southCell>" + this.getSouthCell()/*.toXML()*/ + "</southCell>\n";
-        }
-        if (this.getEastCell()!=null){
-            eCell = "<eastCell>" + this.getEastCell()/*.toXML()*/ + "</eastCell>\n";
-        }
-        if (this.getWestCell()!=null){
-            wCell = "<westCell>" + this.getWestCell()/*.toXML()*/ + "</westCell>\n";
-        }
-        str+= cLetter + vChain + hChain + xVal + yVal + tType + nCell + sCell + eCell + wCell + "</BoardCell>\n";
+
+        str+= xVal + yVal + tType + "</BoardCell>\n";
         return str;
-    }
-
-    public void exportToXML(String fileName){
-        try{
-            FileOutputStream outputStream = new FileOutputStream(new File(fileName));
-            outputStream.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes());
-            outputStream.write(toXML().getBytes());
-            outputStream.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    public void importFromXml(String fileName) throws ParserConfigurationException, IOException, SAXException {
-        BoardCellHandler handler = new BoardCellHandler(this);
-
-        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-        SAXParser parser;
-
-        try {
-            parser = saxParserFactory.newSAXParser();
-
-            XMLReader reader = parser.getXMLReader();
-            reader.setContentHandler(handler);
-            reader.parse(fileName);
-        } catch (Exception e) {
-            System.out.println("Error in initializing parser");
-        }
     }
 
     /**

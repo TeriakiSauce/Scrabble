@@ -9,16 +9,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="Got rid of some save files and old irrevelevant classes">
-      <change afterPath="$PROJECT_DIR$/src/BoardCellHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/temp2.txt" afterDir="false" />
+    <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/BoardCell$Type.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/BoardCell$Type.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Game.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Scrabble/LetterChainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/LetterChainTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BoardCellHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCellHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/LetterChainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/LetterChainTest.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
