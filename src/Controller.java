@@ -3,9 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.InputStream;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -108,11 +106,16 @@ public class Controller {
                 String gameName = setup.getGameName();
                 String customBoardName = setup.getCustomBoardName() + ".xml";
 
-                InputStream customBoardStream;
+                InputStream customBoardStream = null;
                 if (customBoardName == null || customBoardName.equals("")) {
                     customBoardStream = Controller.class.getResourceAsStream("default_board.xml");
                 } else if (new File(customBoardName).exists()) {
-                    customBoardStream = new ByteArrayInputStream(customBoardName.getBytes(StandardCharsets.UTF_8));
+                    File file = new File(customBoardName);
+                    try {
+                        customBoardStream = new FileInputStream(file);
+                    } catch (Exception e2) {
+                        System.out.println("Failed to read file: " + e);
+                    }
                 } else {
                     setup.showCustomBoardNotExists();
                     return;

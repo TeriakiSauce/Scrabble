@@ -195,12 +195,9 @@ public class Board implements Serializable {
 
         try {
             parser = saxParserFactory.newSAXParser();
-
-            XMLReader reader = parser.getXMLReader();
-            reader.setContentHandler(handler);
-            reader.parse(new InputSource(is));
+            parser.parse(new InputSource(is), handler);
         } catch (Exception e) {
-            System.out.println("Error in initializing parser");
+            System.out.println("Error in initializing parser: " + e);
         }
     }
 

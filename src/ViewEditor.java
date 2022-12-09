@@ -71,13 +71,10 @@ public class ViewEditor {
     public void export(String path) {
         try {
             OutputStream os = new FileOutputStream(new File(path));
-            XMLStreamWriter sw = XMLOutputFactory.newInstance().createXMLStreamWriter(new OutputStreamWriter(os, "UTF-8"));
+            XMLStreamWriter sw = XMLOutputFactory.newInstance().createXMLStreamWriter(new OutputStreamWriter(os));
 
-//            os.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes());
-//            sw.writeStartDocument("UTF-8", "1.0");
             sw.writeStartDocument();
             sw.writeStartElement("Board");
-            sw.writeStartElement("BoardCell");
 
             for (Integer x = 0; x < Config.BOARD_WIDTH; x++) {
                 for (Integer y = 0; y < Config.BOARD_HEIGHT; y++) {
@@ -99,6 +96,7 @@ public class ViewEditor {
                         assert(false);
                     }
 
+                    sw.writeStartElement("BoardCell");
                     sw.writeStartElement("x");
                     sw.writeCharacters(x.toString());
                     sw.writeEndElement();
@@ -108,11 +106,10 @@ public class ViewEditor {
                     sw.writeStartElement("type");
                     sw.writeCharacters(type.toString());
                     sw.writeEndElement();
-
+                    sw.writeEndElement();
                 }
             }
 
-            sw.writeEndElement();
             sw.writeEndElement();
             sw.writeEndDocument();
             sw.close();

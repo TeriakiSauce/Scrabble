@@ -34,9 +34,7 @@ public class BoardHandler extends DefaultHandler {
 
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
-        System.out.println(qName);
         if(qName.equals("BoardCell")){
-            System.out.println(type + ": " + Enum.valueOf(BoardCell.Type.class, type));
             board.setType(Integer.parseInt(x), Integer.parseInt(y), Enum.valueOf(BoardCell.Type.class, type));
             x = null;
             y = null;

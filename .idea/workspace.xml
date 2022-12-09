@@ -12,13 +12,7 @@
       <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditorPanelHandCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditorPanelHandCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ViewEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ViewPlay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewPlay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ViewSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewSetup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.xml.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/LetterChainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/LetterChainTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
