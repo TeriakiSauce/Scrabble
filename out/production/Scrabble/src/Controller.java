@@ -105,9 +105,21 @@ public class Controller {
                 String playerName = setup.getPlayerName();
                 String gameName = setup.getGameName();
                 String customBoardName = setup.getCustomBoardName() + ".xml";
+                String difficultyString = setup.getDifficulty();
+                PlayerBot.DIFFICULTY difficulty = null;
+
+                if (difficultyString.equals("1")) {
+                    difficulty = PlayerBot.DIFFICULTY.EASY;
+                } else if (difficultyString.equals("2")) {
+                    difficulty = PlayerBot.DIFFICULTY.MEDIUM;
+                } else if (difficultyString.equals("3")) {
+                    difficulty = PlayerBot.DIFFICULTY.HARD;
+                } else {
+                    setup.showInvalidDifficulty();
+                }
 
                 InputStream customBoardStream = null;
-                if (customBoardName == null || customBoardName.equals("")) {
+                if (customBoardName == null || customBoardName.equals("") || customBoardName.equals(".xml")) {
                     customBoardStream = Controller.class.getResourceAsStream("default_board.xml");
                 } else if (new File(customBoardName).exists()) {
                     File file = new File(customBoardName);
@@ -145,7 +157,7 @@ public class Controller {
                 model.create(gameName);
                 model.addUser(playerName);
                 for (int i = 0; i < bots.length; i++) {
-                    model.addBot(bots[i], setup.getBotDifficulty());
+                    model.addBot(bots[i], difficulty);
                 }
 
 

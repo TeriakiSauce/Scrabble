@@ -8,11 +8,10 @@
   <component name="ChangeListManager">
     <list default="true" id="9634a098-85ad-447a-b25c-003f582c008e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/null_0_0" beforeDir="false" afterPath="$PROJECT_DIR$/null_0_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ViewEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewSetup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +51,11 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jaans\SYSC3110\Scrabble\res" />
+    </key>
+  </component>
   <component name="RunManager" selected="JAR Application.Scrabble.jar">
     <configuration name="All in Scrabble" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Scrabble" />

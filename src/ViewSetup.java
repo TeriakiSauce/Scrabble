@@ -59,12 +59,12 @@ public class ViewSetup extends JPanel {
     /**
      *
      */
-    private JLabel customBoardHeader;
+    private JTextField customBoardField;
 
     /**
      *
      */
-    private JTextField customBoardField;
+    private JTextField difficultyField;
 
     /**
      * 
@@ -102,6 +102,7 @@ public class ViewSetup extends JPanel {
         playerName = new JTextField();
         gameTitle = new JTextField();
         customBoardField = new JTextField();
+        difficultyField = new JTextField();
 
         misc = new JPanel();
         misc.setLayout(new BoxLayout(misc, BoxLayout.Y_AXIS));
@@ -111,6 +112,8 @@ public class ViewSetup extends JPanel {
         misc.add(gameTitle);
         misc.add(new JLabel("Custom Board Name (Empty For Default)"));
         misc.add(customBoardField);
+        misc.add(new JLabel("Difficulty (1-3)"));
+        misc.add(difficultyField);
         misc.add(new JLabel(Config.SETUP_BOT_HEADER_TEXT));
 
         list.addListSelectionListener(new ListSelectionListener() {
@@ -131,6 +134,10 @@ public class ViewSetup extends JPanel {
      * 
      */
     public void add() {
+        playerName.setText("");
+        gameTitle.setText("");
+        customBoardField.setText("");
+        difficultyField.setText("");
         view.setLayout(new BorderLayout());
         view.add(actions, BorderLayout.EAST);
         view.add(list, BorderLayout.CENTER);
@@ -190,21 +197,6 @@ public class ViewSetup extends JPanel {
         return names;
     }
 
-    public PlayerBot.DIFFICULTY getBotDifficulty(){
-        String dif = JOptionPane.showInputDialog("Choose The Bots Difficulty (1-3): ");
-        switch (dif) {
-            case "1" : {
-                return PlayerBot.DIFFICULTY.EASY;
-            }
-            case "2" : {
-                return PlayerBot.DIFFICULTY.MEDIUM;
-            }
-            default : {
-                return PlayerBot.DIFFICULTY.HARD;
-            }
-        }
-    }
-
     /**
      *
      * @return
@@ -227,6 +219,21 @@ public class ViewSetup extends JPanel {
      */
     public String getCustomBoardName() {
         return customBoardField.getText();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getDifficulty() {
+        return difficultyField.getText();
+    }
+
+    /**
+     *
+     */
+    public void showInvalidDifficulty() {
+        JOptionPane.showMessageDialog(this, "You must specify a valid difficulty");
     }
 
     /**
