@@ -169,14 +169,16 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (view.getConfirmation()) {
                     model.pass();
-                    while(model.getGame().getState().isBotPlaying()) {
-                        model.placeBoard();
-                        if (!model.finish()) {
-                            play.showBotPass();
-                            model.pass();
+                    if (model.getGame().getState().isBotPlaying()) {
+                        while (model.getGame().getState().isBotPlaying()) {
+                            model.placeBoard();
+                            if (!model.finish()) {
+                                play.showBotPass();
+                                model.pass();
+                            }
                         }
+                        view.showBotDone();
                     }
-                    view.showBotDone();
                     model.paint();
                 }
             }
@@ -197,8 +199,9 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 if (!model.finish()) {
                     play.showBadMove();
-                }else {
+                }else if (model.getGame().getState().isBotPlaying()){
                     while(model.getGame().getState().isBotPlaying()) {
+                        model.paint();
                         model.placeBoard();
                         if (!model.finish()) {
                             play.showBotPass();
@@ -206,8 +209,8 @@ public class Controller {
                         }
                     }
                     view.showBotDone();
-                    model.paint();
                 }
+                model.paint();
             }
         });
 

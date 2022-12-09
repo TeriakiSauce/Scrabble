@@ -137,7 +137,17 @@ public class BoardCell implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BoardCell boardCell = (BoardCell) o;
-        return letter == boardCell.letter;
+        return this.getX().equals(boardCell.getX()) && this.getY().equals(boardCell.getY()) && this.getType().equals(boardCell.getType());
+    }
+
+    public String toXML(){
+        String str = "<BoardCell>\n";
+        String xVal = "<x>" + this.getX() + "</x>\n";
+        String yVal = "<y>" + this.getX() + "</y>\n";
+        String tType = "<type>" + this.getType() + "</type>\n";
+
+        str+= xVal + yVal + tType + "</BoardCell>\n";
+        return str;
     }
 
     /**

@@ -1,5 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.ParserConfigurationException;
+import java.io.IOException;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 /**
@@ -157,4 +162,33 @@ public class LetterChainTest {
         assertEquals(new Integer(2), chain.getMultiplier(cell13));
         assertEquals(new Integer(9), chain.getScore());
     }
+
+    @Test
+    public void testXML() throws ParserConfigurationException, IOException, SAXException {
+        WordBank bank = game.getWordBank();
+        BoardCell west = new BoardCell(6,7,'h', BoardCell.Type.NORMAL);
+        BoardCell middle = new BoardCell(7,7,'e', BoardCell.Type.NORMAL);
+        BoardCell east = new BoardCell(8,7,'y', BoardCell.Type.NORMAL);
+        BoardCell north = new BoardCell(7,9,'y', BoardCell.Type.NORMAL);
+        BoardCell south = new BoardCell(7,6,'y', BoardCell.Type.NORMAL);
+        chain.addLetter(west);
+        state.getBoard().setLetter(west);
+        chain.addLetter(middle);
+        state.getBoard().setLetter(middle);
+        chain.addLetter(east);
+        state.getBoard().setLetter(east);
+        chain.addLetter(north);
+        state.getBoard().setLetter(north);
+        chain.addLetter(south);
+        state.getBoard().setLetter(south);
+
+        Board board = new Board();
+        state.getBoard().exportToXML("temp.txt");
+        board.importFromXml("temp.txt");
+        assertEquals(board, state.getBoard());
+
+
+
+    }
+
 }
