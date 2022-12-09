@@ -1,3 +1,4 @@
+import java.io.InputStream;
 import java.util.ArrayList;
 
 /**
@@ -189,6 +190,20 @@ public class Model {
     }
 
     /**
+     *
+     * @param is
+     */
+    public void importXML(InputStream is) {
+        State state = game.getState();
+        Board board = state.getBoard();
+        try {
+            board.importFromXml(is);
+        } catch (Exception e) {
+            System.out.println("Error importing from XML in model: " + e);
+        }
+    }
+
+    /**
      * Acquire the board and player hand and update the
      * view with the data.
      */
@@ -202,6 +217,10 @@ public class Model {
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
                 play.setBoardLetter(j, i, board.getLetter(j, i));
+//                if (board.getType(j, i) != BoardCell.Type.NORMAL) {
+//                    System.out.println(board.getType(j, i).)
+//                }
+                play.setBoardCellType(j, i, board.getType(j, i));
             }
         }
 

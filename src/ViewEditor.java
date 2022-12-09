@@ -34,6 +34,11 @@ public class ViewEditor {
 
     public void add() {
         hand.clear();
+        for (int x = 0; x < Config.BOARD_WIDTH; x++) {
+            for (int y = 0; y < Config.BOARD_HEIGHT; y++) {
+                board.setCellType(x, y, BoardCell.Type.NORMAL);
+            }
+        }
         view.setLayout(new BorderLayout());
         view.add(board, BorderLayout.CENTER);
         view.add(hand, BorderLayout.SOUTH);
@@ -66,8 +71,10 @@ public class ViewEditor {
     public void export(String path) {
         try {
             OutputStream os = new FileOutputStream(new File(path));
-            XMLStreamWriter sw = XMLOutputFactory.newInstance().createXMLStreamWriter(new OutputStreamWriter(os));
+            XMLStreamWriter sw = XMLOutputFactory.newInstance().createXMLStreamWriter(new OutputStreamWriter(os, "UTF-8"));
 
+//            os.write("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n".getBytes());
+//            sw.writeStartDocument("UTF-8", "1.0");
             sw.writeStartDocument();
             sw.writeStartElement("Board");
             sw.writeStartElement("BoardCell");

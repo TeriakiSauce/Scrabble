@@ -3,7 +3,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.ByteArrayInputStream;
 import java.io.File;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -103,6 +106,17 @@ public class Controller {
             public void actionPerformed(ActionEvent e) {
                 String playerName = setup.getPlayerName();
                 String gameName = setup.getGameName();
+                String customBoardName = setup.getCustomBoardName() + ".xml";
+
+                InputStream customBoardStream;
+                if (customBoardName == null || customBoardName.equals("")) {
+                    customBoardStream = Controller.class.getResourceAsStream("default_board.xml");
+                } else if (new File(customBoardName).exists()) {
+                    customBoardStream = new ByteArrayInputStream(customBoardName.getBytes(StandardCharsets.UTF_8));
+                } else {
+                    setup.showCustomBoardNotExists();
+                    return;
+                }
 
                 if (playerName == null || playerName.isEmpty()) {
                     setup.showNoPlayerNameError();
@@ -121,6 +135,8 @@ public class Controller {
                     }
                 }
 
+                model.importXML(customBoardStream);
+
                 view.setPlayScreen();
                 String bots[] = setup.getBotNames();
                 model.create(gameName);
@@ -128,6 +144,9 @@ public class Controller {
                 for (int i = 0; i < bots.length; i++) {
                     model.addBot(bots[i], setup.getBotDifficulty());
                 }
+
+
+
                 model.fillAllHands();
                 model.paint();
                 model.save();

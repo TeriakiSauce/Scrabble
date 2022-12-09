@@ -3,7 +3,9 @@ import org.junit.Test;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -184,7 +186,7 @@ public class LetterChainTest {
 
         Board board = new Board();
         state.getBoard().exportToXML("temp.txt");
-        board.importFromXml("temp.txt");
+        board.importFromXml(new ByteArrayInputStream("temp.txt".getBytes(StandardCharsets.UTF_8)));
         assertEquals(board, state.getBoard());
 
 

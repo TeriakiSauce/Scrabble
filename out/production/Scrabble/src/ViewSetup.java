@@ -298,10 +298,21 @@ public class ViewSetup extends JPanel {
         JOptionPane.showMessageDialog(this, "You must enter a game name!");
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean showGameAlreadyExists() {
         return JOptionPane.showConfirmDialog(this,
                 "Would you like to overwrite the game?",
                 "The game name already exists.",
                 JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION;
+    }
+
+    /**
+     *
+     */
+    public void showCustomBoardNotExists() {
+        JOptionPane.showMessageDialog(this, "You must enter an existing custom board name!");
     }
 }

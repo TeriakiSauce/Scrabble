@@ -62,6 +62,16 @@ public class ViewPlay {
     }
 
     /**
+     *
+     * @param x
+     * @param y
+     * @param type
+     */
+    public void setBoardCellType(int x, int y, BoardCell.Type type) {
+        board.setCellType(x, y, type);
+    }
+
+    /**
      * 
      */
     void reset() {

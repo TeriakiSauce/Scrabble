@@ -1,3 +1,4 @@
+import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 import org.xml.sax.XMLReader;
 
@@ -28,11 +29,6 @@ public class Board implements Serializable {
         for (int i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (int j = 0; j < Config.BOARD_WIDTH; j++) {
                 setNormalCells(i, j);
-                setPinkPremiumCells(i, j);
-                setRedPremiumCells(i, j);
-                setCyanPremiumCells(i, j);
-                setBluePremiumCells(i, j);
-                setMiddleCell(i, j);
             }
         }
         init_adj();
@@ -114,93 +110,24 @@ public class Board implements Serializable {
         cells[x][y] = new BoardCell(x,y, BoardCell.Type.NORMAL);
     }
 
-
     /**
-     * Sets red cells
+     *
+     * @param x
+     * @param y
+     * @return
      */
-    public void setRedPremiumCells(int x, int y){
-        //Set Premium 3x Word Score cell to Red
-        int i;
-        int j = 0;
-        while (j < 15) {
-            i = 0;
-            while (i < 15) {
-                if (x == i && y == j) {
-                    cells[x][y] = new BoardCell(x,y, BoardCell.Type.RED);
-                }
-                i += 7;
-            }
-            j+=7;
-        }
+    public BoardCell.Type getType(int x, int y) {
+        return cells[x][y].getType();
     }
 
     /**
-     * Sets pink cells
+     *
+     * @param x
+     * @param y
+     * @param type
      */
-    public void setPinkPremiumCells(int x, int y) {
-        //Set Premium 2x Word Score cell to Magenta
-        int i = 0;
-        int j = 15;
-        while (i < 15) {
-            j--;
-            if (x == i && y == i) {
-                cells[x][y] = new BoardCell(x,y, BoardCell.Type.PINK);
-            }
-            if (x == i && y == j) {
-                cells[x][y] = new BoardCell(x,y, BoardCell.Type.PINK);
-            }
-            i++;
-        }
-    }
-
-    /**
-     * Sets cyan cells
-     */
-    public void setCyanPremiumCells(int x, int y) {
-        //Set Premium 2x Letter Score cell to Cyan
-        if (y == 0 || y == 7 || y == 14) {
-            if (x == 3 || x == 11) {
-                cells[x][y] = new BoardCell(x,y, BoardCell.Type.CYAN);
-            }
-        } else if (y == 2 || y == 12) {
-            if (x == 6 || x == 8) {
-                cells[x][y] = new BoardCell(x,y, BoardCell.Type.CYAN);
-            }
-        } else if (y == 3 || y == 11) {
-            if (x == 0 || x == 7 || x == 14) {
-                cells[x][y] = new BoardCell(x,y, BoardCell.Type.CYAN);
-            }
-        } else if (y == 6 || y == 8) {
-            if (x == 2 || x == 6 || x == 8 || x == 12) {
-                cells[x][y] = new BoardCell(x,y, BoardCell.Type.CYAN);
-            }
-        }
-    }
-
-    /**
-     * Sets blue cells
-     */
-    public void setBluePremiumCells(int x, int y) {
-        //Set Premium 2x Letter Score cell to Blue
-        if (y == 1 || y == 13) {
-            if (x == 5 || x == 9) {
-                cells[x][y] = new BoardCell(x,y, BoardCell.Type.BLUE);
-            }
-        } else if (y == 5 || y == 9) {
-            if (x == 1 || x == 5 || x == 9 || x ==13) {
-                cells[x][y] = new BoardCell(x,y, BoardCell.Type.BLUE);
-            }
-        }
-    }
-
-    /**
-     * Sets middle cell
-     */
-    public void setMiddleCell(int x, int y){
-        //Setting middle cell to light gray
-        if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
-            cells[x][y] = new BoardCell(x,y, BoardCell.Type.MIDDLE);
-        }
+    public void setType(int x, int y, BoardCell.Type type) {
+        cells[x][y].setType(type);
     }
 
     /**
@@ -260,7 +187,7 @@ public class Board implements Serializable {
         }
     }
 
-    public void importFromXml(String fileName) throws ParserConfigurationException, IOException, SAXException {
+    public void importFromXml(InputStream is) throws ParserConfigurationException, IOException, SAXException {
         BoardHandler handler = new BoardHandler(this);
 
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
@@ -271,7 +198,7 @@ public class Board implements Serializable {
 
             XMLReader reader = parser.getXMLReader();
             reader.setContentHandler(handler);
-            reader.parse(fileName);
+            reader.parse(new InputSource(is));
         } catch (Exception e) {
             System.out.println("Error in initializing parser");
         }
