@@ -7,14 +7,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9634a098-85ad-447a-b25c-003f582c008e" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
+      <change afterPath="$PROJECT_DIR$/src/EditorPanelBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EditorPanelHand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EditorPanelHandCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$10.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$11.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$12.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$13.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$14.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$15.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$16.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$17.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$6.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$7.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$8.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$9.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/LetterImages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/LetterImages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/StartPanelAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/StartPanelAction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/ViewEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewEditor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/ViewStart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewStart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/asd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/asd_0_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/null_0_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/null_0_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/null_0_2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/null_0_3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/null_1_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/LetterImages.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/LetterImages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/PlayPanelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/PlayPanelBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/StartPanelAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/StartPanelAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/ViewEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/ViewEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/src/ViewStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/src/ViewStart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/LetterImages.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LetterImages.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PlayPanelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayPanelBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StartPanelAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StartPanelAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ViewStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewStart.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -22,14 +72,15 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jaans/SYSC3110/Scrabble/res&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "jdk.selected.JAVA_MODULE": "corretto-11",
+    "last_opened_file_path": "C:/Users/jaans/SYSC3110/Scrabble/res",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Scrabble.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" />

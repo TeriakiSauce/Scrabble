@@ -59,12 +59,19 @@ public class Controller {
             }
         });
 
-        start.setActionOnHelp(new ActionListener() {
+        start.setActionOnEditor(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                view.setHelpScreen();
+                view.setEditorScreen();
             }
         });
+
+//        start.setActionOnHelp(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                view.setHelpScreen();
+//            }
+//        });
 
         setup.setActionOnAdd(new ActionListener() {
             @Override

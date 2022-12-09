@@ -26,6 +26,11 @@ public class StartPanelAction extends JPanel {
     private JButton help;
 
     /**
+     *
+     */
+    private JButton editor;
+
+    /**
      * 
      */
     public StartPanelAction() {
@@ -39,18 +44,22 @@ public class StartPanelAction extends JPanel {
 
         newGame = new JButton(Config.START_NEW_BUTTON_TEXT);
         load = new JButton(Config.START_LOAD_BUTTON_TEXT);
-        help = new JButton(Config.START_HELP_BUTTON_TEXT);
+//        help = new JButton(Config.START_HELP_BUTTON_TEXT);
+        editor = new JButton("Editor");
 
         newGame.setAlignmentX(Component.CENTER_ALIGNMENT);
         newGame.setAlignmentY(Component.CENTER_ALIGNMENT);
         load.setAlignmentX(Component.CENTER_ALIGNMENT);
         load.setAlignmentY(Component.CENTER_ALIGNMENT);
-        help.setAlignmentX(Component.CENTER_ALIGNMENT);
-        help.setAlignmentY(Component.CENTER_ALIGNMENT);
+//        help.setAlignmentX(Component.CENTER_ALIGNMENT);
+//        help.setAlignmentY(Component.CENTER_ALIGNMENT);
+        editor.setAlignmentX(Component.CENTER_ALIGNMENT);
+        editor.setAlignmentY(Component.CENTER_ALIGNMENT);
 
         add(newGame);
         add(load);
-        add(help);
+        add(editor);
+//        add(help);
     }
 
     /**
@@ -74,6 +83,14 @@ public class StartPanelAction extends JPanel {
      * @param listener
      */
     public void setOnHelp(ActionListener listener) {
-        help.addActionListener(listener);
+//        help.addActionListener(listener);
+    }
+
+    /**
+     *
+     * @param listener
+     */
+    public void setOnEditor(ActionListener listener) {
+        editor.addActionListener(listener);
     }
 }

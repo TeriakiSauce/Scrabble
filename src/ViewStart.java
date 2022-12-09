@@ -64,12 +64,20 @@ public class ViewStart {
     }
 
     /**
+     *
+     * @param listener
+     */
+    public void setActionOnEditor(ActionListener listener) {
+        action.setOnEditor(listener);
+    }
+
+    /**
      * 
      * @param listener
      */
-    public void setActionOnHelp(ActionListener listener) {
-        action.setOnHelp(listener);
-    }
+//    public void setActionOnHelp(ActionListener listener) {
+//        action.setOnHelp(listener);
+//    }
 
     /**
      *

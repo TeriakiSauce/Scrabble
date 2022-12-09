@@ -75,12 +75,10 @@ public class LetterImages {
     public static BufferedImage loadImage(String path) {
         BufferedImage image = null;
         InputStream is = LetterImages.class.getResourceAsStream("images/" + path);
-        System.out.println(path);
         if (is == null) {
             return null;
         }
         try {
-            System.out.println("SUCCESS: " + path);
             image = ImageIO.read(is);
         } catch (IOException e){
             e.printStackTrace();
