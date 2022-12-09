@@ -6,52 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9634a098-85ad-447a-b25c-003f582c008e" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EditorPanelAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Scrabble_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Scrabble_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="9634a098-85ad-447a-b25c-003f582c008e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$10.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$10.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$11.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$11.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$12.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$12.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$13.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$13.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$14.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$14.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$15.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$15.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$16.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$16.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$17.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$17.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller$9.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller$9.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHand.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHandCell$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHandCell$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHandCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/EditorPanelHandCell.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/PlayPanelBoard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/View.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/View.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/ViewEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewEditor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/ViewSetup$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewSetup$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/ViewSetup.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/ViewSetup.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditorPanelHand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditorPanelHand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EditorPanelHandCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditorPanelHandCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PlayPanelBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PlayPanelBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ViewEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewEditor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ViewSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewSetup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,17 +25,28 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2IgeZ41G8adbUr51atwEfBEfQyM" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/jaans/SYSC3110/Scrabble/res&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/jaans/SYSC3110/Scrabble/res",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Scrabble.jar" type="JarApplication" temporary="true">
       <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" />
@@ -90,6 +58,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>

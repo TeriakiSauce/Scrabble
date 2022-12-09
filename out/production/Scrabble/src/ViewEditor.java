@@ -7,6 +7,7 @@ import java.io.OutputStream;
 import javax.xml.parsers.*;
 import javax.xml.stream.*;
 import java.awt.Color;
+import java.io.OutputStreamWriter;
 
 public class ViewEditor {
     private View view;
@@ -66,6 +67,11 @@ public class ViewEditor {
         path = path + ".xml";
         try {
             OutputStream os = new FileOutputStream(new File(path));
+            XMLStreamWriter sw = XMLOutputFactory.newInstance().createXMLStreamWriter(new OutputStreamWriter(os));
+
+            sw.writeStartDocument();
+            sw.writeStartElement("Board");
+            sw.writeStartElement("BoardCell");
 
             for (Integer x = 0; x < Config.BOARD_WIDTH; x++) {
                 for (Integer y = 0; y < Config.BOARD_HEIGHT; y++) {
@@ -87,12 +93,23 @@ public class ViewEditor {
                         assert(false);
                     }
 
-                    // TODO:
-
-
+                    sw.writeStartElement("x");
+                    sw.writeCharacters(x.toString());
+                    sw.writeEndElement();
+                    sw.writeStartElement("y");
+                    sw.writeCharacters(y.toString());
+                    sw.writeEndElement();
+                    sw.writeStartElement("type");
+                    sw.writeCharacters(type.toString());
+                    sw.writeEndElement();
 
                 }
             }
+
+            sw.writeEndElement();
+            sw.writeEndElement();
+            sw.writeEndDocument();
+            sw.close();
 
         } catch (Exception e) {
             System.out.println("Failed to export to XML: " + e);
