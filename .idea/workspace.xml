@@ -11,11 +11,8 @@
   <component name="ChangeListManager">
     <list default="true" id="794baea3-04bc-4d4f-9ef5-b32c1838212b" name="Changes" comment="fixed valid coordinates loop not looping after executing twice">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/BoardCell.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/test/Scrabble/LetterChainTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Scrabble/LetterChainTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BoardCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BoardCellHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BoardCellHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/LetterChainTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/LetterChainTest.java" afterDir="false" />
     </list>
     <list id="de128174-6a86-4fc2-934e-f5af548a501a" name="Changes by andre" comment="" />
@@ -73,18 +70,10 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LetterChainTest.testPrint">
+  <component name="RunManager" selected="JUnit.LetterChainTest.testXML">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="Scrabble" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All in Scrabble" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Scrabble" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -119,6 +108,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LetterChainTest.testXML" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Scrabble" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LetterChainTest" />
+      <option name="METHOD_NAME" value="testXML" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PlayerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Scrabble" />
       <option name="PACKAGE_NAME" value="" />
@@ -142,17 +141,17 @@
       <item itemvalue="JUnit.LetterChainTest" />
       <item itemvalue="JUnit.PlayerTest" />
       <item itemvalue="JUnit.WordBankTest" />
-      <item itemvalue="JUnit.All in Scrabble" />
       <item itemvalue="JUnit.LetterChainTest.testGetScorePremium" />
       <item itemvalue="JUnit.LetterChainTest.testPrint" />
+      <item itemvalue="JUnit.LetterChainTest.testXML" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LetterChainTest.testXML" />
         <item itemvalue="JUnit.LetterChainTest.testPrint" />
         <item itemvalue="JUnit.LetterChainTest.testGetScorePremium" />
         <item itemvalue="JUnit.WordBankTest" />
         <item itemvalue="JUnit.PlayerTest" />
-        <item itemvalue="JUnit.All in Scrabble" />
       </list>
     </recent_temporary>
   </component>
@@ -180,6 +179,7 @@
       <workItem from="1668371819882" duration="305000" />
       <workItem from="1670019728225" duration="717000" />
       <workItem from="1670352803029" duration="9431000" />
+      <workItem from="1670567511171" duration="499000" />
     </task>
     <task id="LOCAL-00001" summary="Added Game Class">
       <created>1666316978852</created>

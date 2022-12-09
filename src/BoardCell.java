@@ -145,7 +145,7 @@ public class BoardCell implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         BoardCell boardCell = (BoardCell) o;
-        return letter == boardCell.letter;
+        return this.getX().equals(boardCell.getX()) && this.getY().equals(boardCell.getY()) && this.getType().equals(boardCell.getType());
     }
 
     /**
