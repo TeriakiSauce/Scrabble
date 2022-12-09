@@ -2,16 +2,13 @@
   <artifact type="jar" name="Scrabble:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Scrabble_jar</output-path>
     <root id="archive" name="Scrabble.jar">
-      <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      </element>
       <element id="module-output" name="Scrabble" />
-      <element id="module-test-output" name="Scrabble" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/resources/libs/flatlaf-2.6.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/junit-4.13.1.jar" path-in-jar="/" />
-      <element id="extracted-dir" path="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" path-in-jar="/" />
-      <element id="dir-copy" path="$PROJECT_DIR$/resources" />
       <element id="dir-copy" path="$PROJECT_DIR$/res" />
+      <element id="dir-copy" path="$PROJECT_DIR$/resources" />
+      <element id="module-source" name="Scrabble" />
+      <element id="dir-copy" path="$PROJECT_DIR$/lib" />
+      <element id="dir-copy" path="$PROJECT_DIR$/resources/libs" />
+      <element id="file-copy" path="$PROJECT_DIR$/resources/libs/flatlaf-2.6.jar" />
     </root>
   </artifact>
 </component>

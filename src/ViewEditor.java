@@ -5,6 +5,7 @@ public class ViewEditor {
 
     private EditorPanelBoard board;
     private EditorPanelHand hand;
+    private BoardCell.Type currentType;
 
     public ViewEditor(View view) {
         this.view = view;
