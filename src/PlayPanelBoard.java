@@ -42,108 +42,25 @@ public class PlayPanelBoard extends JPanel {
                 cells[j][i] = new PlayPanelBoardCell(this, j, i);
                 add(cells[j][i]);
                 cells[j][i].setOpaque(true);
-                setPinkPremiumCells(j, i);
-                setRedPremiumCells(j, i);
-                setCyanPremiumCells(j, i);
-                setBluePremiumCells(j, i);
-                setMiddleCell(j, i);
             }
         }
     }
 
     /**
-     * Sets red cells
+     *
+     * @param x
+     * @param y
+     * @param type
      */
-    public void setRedPremiumCells(int x, int y){
-        //Set Premium 3x Word Score cell to Red
-        PlayPanelBoardCell cell = cells[x][y];
-        int size = Math.max(cell.getWidth(), cell.getHeight());
-        int i;
-        int j = 0;
-        while (j < 15) {
-            i = 0;
-            while (i < 15) {
-                if (x == i && y == j) {
-                    cells[x][y].setBackground(Color.RED);
-                }
-                i += 7;
-            }
-            j+=7;
-        }
-    }
-
-    /**
-     * Sets pink cells
-     */
-    public void setPinkPremiumCells(int x, int y) {
-        //Set Premium 2x Word Score cell to Magenta
-        PlayPanelBoardCell cell = cells[x][y];
-        int size = Math.max(cell.getWidth(), cell.getHeight());
-        int i = 0;
-        int j = 15;
-        while (i < 15) {
-            j--;
-            if (x == i && y == i) {
-                cells[x][y].setBackground(Color.MAGENTA);
-            }
-            if (x == i && y == j) {
-                cells[x][y].setBackground(Color.MAGENTA);
-            }
-            i++;
-        }
-    }
-
-    /**
-     * Sets cyan cells
-     */
-    public void setCyanPremiumCells(int x, int y) {
-        //Set Premium 2x Letter Score cell to Cyan
-        PlayPanelBoardCell cell = cells[x][y];
-        int size = Math.max(cell.getWidth(), cell.getHeight());
-        if (y == 0 || y == 7 || y == 14) {
-            if (x == 3 || x == 11) {
-                cells[x][y].setBackground(Color.CYAN);
-            }
-        } else if (y == 2 || y == 12) {
-            if (x == 6 || x == 8) {
-                cells[x][y].setBackground(Color.CYAN);
-            }
-        } else if (y == 3 || y == 11) {
-            if (x == 0 || x == 7 || x == 14) {
-                cells[x][y].setBackground(Color.CYAN);
-            }
-        } else if (y == 6 || y == 8) {
-            if (x == 2 || x == 6 || x == 8 || x == 12) {
-                cells[x][y].setBackground(Color.CYAN);
-            }
-        }
-    }
-
-    /**
-     * Sets blue cells
-     */
-    public void setBluePremiumCells(int x, int y) {
-        //Set Premium 2x Letter Score cell to Blue
-        PlayPanelBoardCell cell = cells[x][y];
-        int size = Math.max(cell.getWidth(), cell.getHeight());
-        if (y == 1 || y == 13) {
-            if (x == 5 || x == 9) {
-                cells[x][y].setBackground(Color.BLUE);
-            }
-        } else if (y == 5 || y == 9) {
-            if (x == 1 || x == 5 || x == 9 || x ==13) {
-                cells[x][y].setBackground(Color.BLUE);
-            }
-        }
-    }
-
-    /**
-     * Sets middle cell
-     */
-    public void setMiddleCell(int x, int y){
-        //Setting middle cell to light gray
-        if(x == Config.BOARD_WIDTH/2 && y == Config.BOARD_HEIGHT/2){
-            cells[x][y].setBackground(Color.LIGHT_GRAY);
+    public void setCellType(Integer x, Integer y, BoardCell.Type type) {
+        switch (type) {
+            case NORMAL: cells[x][y].setBackground(Color.WHITE); break;
+            case BLUE: cells[x][y].setBackground(Color.BLUE); break;
+            case CYAN: cells[x][y].setBackground(Color.CYAN); break;
+            case PINK: cells[x][y].setBackground(Color.MAGENTA); break;
+            case RED: cells[x][y].setBackground(Color.RED); break;
+            case MIDDLE: cells[x][y].setBackground(Color.LIGHT_GRAY); break;
+            default: assert(false);
         }
     }
 
@@ -172,5 +89,15 @@ public class PlayPanelBoard extends JPanel {
      */
     public void onClick(Integer x, Integer y) {
         listener.actionPerformed(x, y);
+    }
+
+    /**
+     *
+     * @param x
+     * @param y
+     * @return
+     */
+    public PlayPanelBoardCell getCell(Integer x, Integer y) {
+        return cells[x][y];
     }
 }

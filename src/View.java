@@ -200,4 +200,11 @@ public class View extends JFrame {
         }
     }
 
+    public void showNoUndoMessage() {
+        JOptionPane.showMessageDialog(this, "There is nothing else to undo!");
+    }
+
+    public void showNoRedoMessage() {
+        JOptionPane.showMessageDialog(this, "There is nothing else to redo!");
+    }
 }

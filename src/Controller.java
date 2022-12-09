@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -25,6 +26,7 @@ public class Controller {
         ViewHelp help = view.getHelpScreen();
         ViewPlay play = view.getPlayScreen();
         ViewSetup setup = view.getSetupScreen();
+        ViewEditor editor = view.getEditorScreen();
 
         start.setActionOnNew(new ActionListener() {
             @Override
@@ -59,12 +61,19 @@ public class Controller {
             }
         });
 
-        start.setActionOnHelp(new ActionListener() {
+        start.setActionOnEditor(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                view.setHelpScreen();
+                view.setEditorScreen();
             }
         });
+
+//        start.setActionOnHelp(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                view.setHelpScreen();
+//            }
+//        });
 
         setup.setActionOnAdd(new ActionListener() {
             @Override
@@ -227,7 +236,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!model.undo()) {
-                    // TODO: there is nothing to undo message
+                    view.showNoUndoMessage();
                 }
             }
         });
@@ -236,7 +245,7 @@ public class Controller {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (!model.redo()) {
-                    // TODO: there is nothing to redo message
+                    view.showNoRedoMessage();
                 }
             }
         });
@@ -247,6 +256,33 @@ public class Controller {
                 if (view.getConfirmation()) {
                     view.quit();
                 }
+            }
+        });
+
+        editor.setActionOnBack(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.setStartScreen();
+            }
+        });
+
+        editor.setActionOnSave(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String path = editor.getPath() + ".xml";
+                if (path == null || path.equals("")) {
+                    editor.showErrorNoInput();
+                    return;
+                }
+
+                File file = new File(path);
+                if (file.exists()) {
+                    if (!editor.getOverwriteConfirmation()) {
+                        return;
+                    }
+                }
+
+                editor.export(path);
             }
         });
     }

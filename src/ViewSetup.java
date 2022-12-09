@@ -57,6 +57,16 @@ public class ViewSetup extends JPanel {
     private JTextField gameTitle;
 
     /**
+     *
+     */
+    private JLabel customBoardHeader;
+
+    /**
+     *
+     */
+    private JTextField customBoardField;
+
+    /**
      * 
      */
     private View view;
@@ -91,6 +101,7 @@ public class ViewSetup extends JPanel {
         list = new JList<>(listModel);
         playerName = new JTextField();
         gameTitle = new JTextField();
+        customBoardField = new JTextField();
 
         misc = new JPanel();
         misc.setLayout(new BoxLayout(misc, BoxLayout.Y_AXIS));
@@ -98,6 +109,8 @@ public class ViewSetup extends JPanel {
         misc.add(playerName);
         misc.add(new JLabel(Config.SETUP_GAME_HEADER_TEXT));
         misc.add(gameTitle);
+        misc.add(new JLabel("Custom Board Name (Empty For Default)"));
+        misc.add(customBoardField);
         misc.add(new JLabel(Config.SETUP_BOT_HEADER_TEXT));
 
         list.addListSelectionListener(new ListSelectionListener() {
@@ -206,6 +219,14 @@ public class ViewSetup extends JPanel {
      */
     public String getGameName() {
         return gameTitle.getText();
+    }
+
+    /**
+     *
+     * @return
+     */
+    public String getCustomBoardName() {
+        return customBoardField.getText();
     }
 
     /**

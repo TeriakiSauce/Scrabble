@@ -33,7 +33,7 @@ public class LetterImages {
          */
 
         //Loads all images into the hash map
-        for (Character letter : ALPHABET.toUpperCase().toCharArray()) {
+        for (Character letter : ALPHABET.toCharArray()) {
             BufferedImage icon = loadImage("scrabble-" + letter + ".jpg");
 
             images.put(letter, icon);
@@ -46,7 +46,7 @@ public class LetterImages {
      * @return the image of the tile
      */
     public static BufferedImage getImage(Character letter) {
-
+        letter = Character.toLowerCase(letter);
         return images.containsKey(letter) ? images.get(letter) : blank;
     }
 
@@ -74,7 +74,7 @@ public class LetterImages {
      */
     public static BufferedImage loadImage(String path) {
         BufferedImage image = null;
-        InputStream is = LetterImages.class.getResourceAsStream("/images/" + path);
+        InputStream is = LetterImages.class.getResourceAsStream("images/" + path);
         if (is == null) {
             return null;
         }
