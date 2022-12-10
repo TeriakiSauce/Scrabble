@@ -152,6 +152,7 @@ public class Board implements Serializable {
                 BoardCell boardCell = new BoardCell(j,i, getLetter(j,i));
                 boardCell.setType(getType(j, i));
                 board.setLetter(boardCell);
+//                board.setType(j,i,getType(j,i));
             }
         }
         return board;
