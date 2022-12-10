@@ -69,6 +69,7 @@ public class Board implements Serializable {
      */
     public void setLetter(BoardCell cell) {
         cells[cell.getX()][cell.getY()].setLetter(cell.getLetter());
+        cells[cell.getX()][cell.getY()].setType(cell.getType());
     }
 
     /**
@@ -149,6 +150,7 @@ public class Board implements Serializable {
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
                 BoardCell boardCell = new BoardCell(j,i, getLetter(j,i));
+                boardCell.setType(getType(j, i));
                 board.setLetter(boardCell);
             }
         }
