@@ -150,6 +150,7 @@ public class Board implements Serializable {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
                 BoardCell boardCell = new BoardCell(j,i, getLetter(j,i));
                 board.setLetter(boardCell);
+                board.setType(j,i,getType(j,i));
             }
         }
         return board;
