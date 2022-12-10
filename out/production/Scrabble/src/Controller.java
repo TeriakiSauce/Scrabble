@@ -150,11 +150,11 @@ public class Controller {
                     }
                 }
 
-                model.importXML(customBoardStream);
 
                 view.setPlayScreen();
                 String bots[] = setup.getBotNames();
                 model.create(gameName);
+                model.importXML(customBoardStream);
                 model.addUser(playerName);
                 for (int i = 0; i < bots.length; i++) {
                     model.addBot(bots[i], difficulty);

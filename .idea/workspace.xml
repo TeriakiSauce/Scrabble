@@ -7,11 +7,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9634a098-85ad-447a-b25c-003f582c008e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Scrabble_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Scrabble_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/null_0_0" beforeDir="false" afterPath="$PROJECT_DIR$/null_0_0" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/game" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/game" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/game_0_0" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/game_0_0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/game_1_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/null_0_0" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/null_0_0" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ViewSetup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ViewSetup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,10 +48,10 @@
     "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "C:/Users/jaans/SYSC3110/Scrabble/res",
+    "last_opened_file_path": "C:/Users/jaans/SYSC3110/Scrabble/resources",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="RecentsManager">
