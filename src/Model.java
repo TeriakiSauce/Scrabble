@@ -201,6 +201,8 @@ public class Model {
         } catch (Exception e) {
             System.out.println("Error importing from XML in model: " + e);
         }
+
+        state.updateOldBoard();
     }
 
     /**

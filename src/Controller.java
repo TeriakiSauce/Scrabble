@@ -197,7 +197,16 @@ public class Controller {
             @Override
             public void actionPerformed(Integer n) {
                 if (n==Config.HAND_SIZE-1 && model.getCounter() == 0){
-                    model.setBlankTile(JOptionPane.showInputDialog(view, "Enter a letter: ").toUpperCase().charAt(0));
+                    String string = JOptionPane.showInputDialog(view, "Enter a letter: ");
+                    if (string == null || string.equals("")) {
+                        return;
+                    }
+                    
+                    if (string.length() != 1) {
+                        return;
+                    }
+
+                    model.setBlankTile(string.toUpperCase().charAt(0));
                     model.incrementCounter();
                 }
                 else{

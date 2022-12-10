@@ -67,6 +67,10 @@ public class State implements Serializable {
         reset();
     }
 
+    public void updateOldBoard() {
+        oldBoard = newBoard.makeCopy();
+    }
+
     /**
      * Resets the state.
      */
