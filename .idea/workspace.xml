@@ -8,9 +8,21 @@
   <component name="ChangeListManager">
     <list default="true" id="9634a098-85ad-447a-b25c-003f582c008e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/board.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game_0_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_game" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_game_0_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_game_0_1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_game_0_2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_game_1_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/null_0_0" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Scrabble_jar/Scrabble.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/game" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/game" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/game_0_0" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/game_0_0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Scrabble/null_0_0" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Scrabble/null_0_0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Board.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

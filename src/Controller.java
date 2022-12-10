@@ -150,7 +150,6 @@ public class Controller {
                     }
                 }
 
-
                 view.setPlayScreen();
                 String bots[] = setup.getBotNames();
                 model.create(gameName);
@@ -159,8 +158,6 @@ public class Controller {
                 for (int i = 0; i < bots.length; i++) {
                     model.addBot(bots[i], difficulty);
                 }
-
-
 
                 model.fillAllHands();
                 model.paint();
