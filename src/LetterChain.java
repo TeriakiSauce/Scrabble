@@ -150,8 +150,9 @@ public class LetterChain implements Serializable {
         State state = game.getState();
         board = state.getBoard();
         Integer score = 0;
-        Integer totalLetterBonus = 1;
+        Integer letterBonus = 1;
         Integer totalWordBonus = 1;
+        Integer totalLetterBonus = 0;
         WordBank bank = game.getWordBank();
         // Returns 0 if size is empty or placement is invalid
         if (this.getSize() == 0){
@@ -196,16 +197,17 @@ public class LetterChain implements Serializable {
         for (BoardCell cell : cells) {
             if (isWordMultiplier(cell.getType())) {
                 totalWordBonus *= getMultiplier(cell);
-                score*=totalWordBonus;
             }
             else {
-                totalLetterBonus = getMultiplier(cell);
-                if (totalLetterBonus>1 && bank.getLetterValue(cell.getLetter())>1){
-                    totalLetterBonus*= bank.getLetterValue(cell.getLetter());
-                    score+= totalLetterBonus - bank.getLetterValue(cell.getLetter());
+                letterBonus = getMultiplier(cell);
+                if (letterBonus>1){
+                    letterBonus*= bank.getLetterValue(cell.getLetter());
+                    totalLetterBonus += letterBonus - bank.getLetterValue(cell.getLetter());
                 }
             }
         }
+        score *= totalWordBonus;
+        score += totalLetterBonus;
         return score;
     }
 
@@ -289,6 +291,7 @@ public class LetterChain implements Serializable {
             } else if (word.length() > 1){return 0;}
             x = cells.get(0).getX();
             y = cells.get(0).getY();
+            cells.get(0).setType(board.getType(x,y));
             while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
                 y--;
             }
@@ -310,6 +313,7 @@ public class LetterChain implements Serializable {
             for(BoardCell cell : cells){
                 x = cell.getX();
                 y = cell.getY();
+                cell.setType(board.getType(x,y));
                 while (board.isValid(x-1, y) && board.hasLetter(x-1, y)) {
                     x--;
                 }
@@ -332,6 +336,7 @@ public class LetterChain implements Serializable {
             for(BoardCell cell : cells){
                 x = cell.getX();
                 y = cell.getY();
+                cell.setType(board.getType(x,y));
                 while (board.isValid(x, y-1) && board.hasLetter(x, y-1)) {
                     y--;
                 }

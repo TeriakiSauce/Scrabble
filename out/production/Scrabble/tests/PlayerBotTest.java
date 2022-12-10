@@ -18,6 +18,16 @@ public class PlayerBotTest {
         game = new Game();
         board = game.getState().getBoard();
         bot = new PlayerBot("bot", game, PlayerBot.DIFFICULTY.HARD);
+        PlayerHand hand = new PlayerHand();
+        hand.setLetter(0,'a');
+        hand.setLetter(1,'b');
+        hand.setLetter(2,'c');
+        hand.setLetter(3,'d');
+        hand.setLetter(4,'e');
+        hand.setLetter(5,'f');
+        hand.setLetter(6,'g');
+        bot.setHand(hand);
+
         board.setLetter(new BoardCell(7,7,'a'));
         board.setLetter(new BoardCell(7,8,'s'));
         board.setLetter(new BoardCell(7,9,'h'));
@@ -60,40 +70,18 @@ public class PlayerBotTest {
 
         assert(answers.equals(words));
     }
-    @Test
-    public void testFindHandCombos() {
-
-        bot.findHandCombos();
-        List strings = new ArrayList<>();
-        strings.add("c");
-        strings.add("b");
-        strings.add("bc");
-        strings.add("cb");
-        strings.add("a");
-        strings.add("ac");
-        strings.add("ca");
-        strings.add("ab");
-        strings.add("ba");
-        strings.add("abc");
-        strings.add("acb");
-        strings.add("bac");
-        strings.add("bca");
-        strings.add("cab");
-        strings.add("cba");
-
-        assert(bot.getHandCombos().equals(strings));
-
-
-    }
 
     @Test
     public void testChoosePlay() {
 
         bot.calculatePossiblePoints();
-        //System.out.println(bot.getValidWords());
         LetterChain optimal = new LetterChain(game);
-        optimal.addLetter(new BoardCell(6,9,'c'));
-        optimal.addLetter(new BoardCell(8,9,'a'));
+        optimal.addLetter(new BoardCell(8,7,'p', BoardCell.Type.NORMAL));
+        optimal.addLetter(new BoardCell(9,7,'e', BoardCell.Type.NORMAL));
+        optimal.addLetter(new BoardCell(10,7,'k', BoardCell.Type.NORMAL));
+        optimal.addLetter(new BoardCell(11,7,'a', BoardCell.Type.NORMAL));
+        optimal.addLetter(new BoardCell(12,7,'n', BoardCell.Type.NORMAL));
+        System.out.println(bot.choosePlay());
         assert(bot.choosePlay().equals(optimal));
 
     }

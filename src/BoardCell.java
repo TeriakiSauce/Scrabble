@@ -241,6 +241,6 @@ public class BoardCell implements Serializable {
      */
     @Override
     public String toString() {
-        return "" + this.getType() + "[" + this.getX() + "," + this.getY() + "]";
+        return "" + this.getType() + "[" + this.getLetter() + "," + this.getX() + "," + this.getY() + "]";
     }
 }

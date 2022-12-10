@@ -67,9 +67,17 @@ public class Board implements Serializable {
      * Set letter at specified position.
      * @param cell The cell being set
      */
-    public void setLetter(BoardCell cell) {
+    public void setCell(BoardCell cell) {
         cells[cell.getX()][cell.getY()].setLetter(cell.getLetter());
         cells[cell.getX()][cell.getY()].setType(cell.getType());
+    }
+
+    /**
+     * Set letter at specified position.
+     * @param cell The cell being set
+     */
+    public void setLetter(BoardCell cell) {
+        cells[cell.getX()][cell.getY()].setLetter(cell.getLetter());
     }
 
     /**
@@ -149,9 +157,8 @@ public class Board implements Serializable {
         Board board = new Board();
         for (Integer i = 0; i < Config.BOARD_HEIGHT; i++) {
             for (Integer j = 0; j < Config.BOARD_WIDTH; j++) {
-                BoardCell boardCell = new BoardCell(j,i, getLetter(j,i));
-                boardCell.setType(getType(j, i));
-                board.setLetter(boardCell);
+                BoardCell boardCell = new BoardCell(j,i, getLetter(j,i),getType(j, i));
+                board.setCell(boardCell);
             }
         }
         return board;

@@ -151,12 +151,12 @@ public class LetterChainTest {
         //testing word bonus
         cell13.setType(BoardCell.Type.RED);
         assertEquals(new Integer(3), chain.getMultiplier(cell13));
-        assertEquals(new Integer(27), chain.getScore());
+        assertEquals(new Integer(9), chain.getScore());
 
         //testing letter bonus
         cell13.setType(BoardCell.Type.NORMAL);
         cell12.setType(BoardCell.Type.BLUE);
-        assertEquals(new Integer(17), chain.getScore());
+        assertEquals(new Integer(9), chain.getScore());
 
         //testing letter bonus on a letter with a value of 1
         cell12.setType(BoardCell.Type.NORMAL);
