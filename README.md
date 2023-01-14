@@ -163,3 +163,7 @@ Reads from either or website or as a fallback, a local file to acquire a buffer 
 #### UML Diagram 
 
 ![](UML.jpg)
+
+### License
+
+The repository is licensed under the MIT license, which can be found in [Lisence](License.txt) file.
