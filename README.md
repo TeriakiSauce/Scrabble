@@ -166,4 +166,4 @@ Reads from either or website or as a fallback, a local file to acquire a buffer 
 
 ### License
 
-The repository is licensed under the MIT license, which can be found in the [Lisence](LICENSE.txt) file.
+The repository is licensed under the MIT license, which can be found in the [Licence](LICENSE.txt) file.
